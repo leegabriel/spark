@@ -1,14 +1,20 @@
 <head>
 <title>Spark</title>
+<link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
 
 <template name="main">
-<center><h1>Spark</h1></center>
-<center><a href="/ideas">Ideas</a> | <a href="/projects">Projects</a></center>
+<center><h1><a href="/">Spark</a></h1></center>
+<center><p><a href="{{pathFor 'ideas'}}">Ideas</a> | <a href="{{pathFor 'projects'}}">Projects</a></p></center>
 </template>
 
-<template name="ideastab">
-{{> nav}}
+<template name="ideasTab">
+
+{{> main}}
+<form action="/newidea">
+    <input type="submit" value="New Idea">
+</form>
 <ul>
 {{#each ideas}}
   {{> idea}}
@@ -16,8 +22,12 @@
 </ul>
 </template>
 
-<template name="projectstab">
-{{> nav}}
+<template name="projectsTab">
+
+{{> main}}
+<form action="/newproject">
+    <input type="submit" value="New Project">
+</form>
 <ul>
 {{#each projects}}
   <li>{{> project}}</li>

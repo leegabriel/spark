@@ -1,29 +1,31 @@
-Ideas = new Mongo.Collection("ideas");
-Projects = new Mongo.Collection("projects");
+Ideas = new Mongo.Collection('ideas');
+Projects = new Mongo.Collection('projects');
 
 if(Meteor.isServer){
-  Meteor.publish('ideaslist', function(){
+  Meteor.publish('ideasList', function(){
     return Ideas.find();
-  });
-  Meteor.publish('projectslist', function(){
+  }),
+  Meteor.publish('projectsList', function(){
     return Projects.find();
-  });
+  })
 }
 
 if (Meteor.isClient) {
-  Template.ideastab.helpers({
+  Template.ideasTab.helpers({
     ideas: function () {
       return Ideas.find({}, {sort: {createdAt: 1}});
     }
-  });
-  Meteor.subscribe('ideaslist');
+  }),
 
-  Template.projectstab.helpers({
+  Meteor.subscribe('ideasList'),
+
+  Template.projectsTab.helpers({
     ideas: function () {
       return Projects.find({}, {sort: {createdAt: 1}});
     }
-  });
-  Meteor.subscribe('projectslist');
+  }),
+
+  Meteor.subscribe('projectsList'),
 
   Template.newIdea.events({
     'submit .addIdeaForm':function(e){
@@ -36,7 +38,7 @@ if (Meteor.isClient) {
       Router.go('ideas');
       return false;
     }
-  });
+  }),
 
   Template.newProject.events({
     'submit .addProjectForm':function(e){
@@ -49,7 +51,7 @@ if (Meteor.isClient) {
       Router.go('projects');
       return false;
     }
-  });
+  })
 
 }
 
@@ -77,11 +79,11 @@ Router.route('/', function() {
 });
 
 Router.route('/ideas', function() {
-  this.render('ideastab');
+  this.render('ideasTab');
 });
 
 Router.route('/projects',function() {
-  this.render('projectstab');
+  this.render('projectsTab');
 });
 
 Router.route('/newidea', function(){
