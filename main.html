@@ -1,76 +1,74 @@
 <head>
 <title>Spark</title>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
 
-<template name="nav">
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Spark</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="/ideas">Ideas<span class="sr-only">(current)</span></a></li>
-        <li><a href="/projects">Projects</a></li>
-        <li class="dropdown">
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Login<span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">My Ideas</a></li>
-            <li><a href="#">My Projects</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Logout</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-</template>
-
 <template name="main">
-{{>nav}}
+<center><h1>Spark</h1></center>
+<center><a href="/ideas">Ideas</a> | <a href="/projects">Projects</a></center>
 </template>
 
-<template name="ideas">
+<template name="ideastab">
 {{> nav}}
-ideas
-
+<ul>
+{{#each ideas}}
+  {{> idea}}
+{{/each}}
+</ul>
 </template>
 
-<template name="projects">
+<template name="projectstab">
 {{> nav}}
-projects
+<ul>
+{{#each projects}}
+  <li>{{> project}}</li>
+{{/each}}
+</ul>
+</template>
 
+<template name="newIdea">
+  <h1>New Idea</h1>
+  <form class="addIdeaForm">
+  <h2>Title:</h2>
+  <input type="text" id="title" name="title"><br><br>
+  <h2>Slug:</h2>
+  <input type="text" id="slug" name="slug"><br><br>
+  <h2>Content:</h2>
+  <textarea id="content" rows="20" cols="80" name="content"></textarea><br><br>
+  <input type="submit" value="Spark!">
+  </form>
+</template>
+
+<template name="newProject">
+  <h1>New Project</h1>
+  <form class="addProjectForm">
+  <h2>Title:</h2>
+  <input type="text" id="title" name="title"><br><br>
+  <h2>Slug:</h2>
+  <input type="text" id="slug" name="slug"><br><br>
+  <h2>Content:</h2>
+  <textarea id="content" rows="20" cols="80" name="content"></textarea><br><br>
+  <input type="submit" value="Spark!">
+  </form>
+</template>
+
+<template name="idea">
+  <h2><a href="/ideas/{{slug}}">{{title}}</a></h2>
+  <h4>{{createdAt}}</h4>
+</template>
+
+<template name="project">
+  <h2><a href="/projects/{{slug}}">{{title}}</a></h2>
+  <h4>{{createdAt}}</h4>
+</template>
+
+<template name="ideaView">
+  <h1>{{title}}</h1>
+  <h4>{{createdAt}}</h4>
+  <p>{{content}}</p>
+</template>
+
+<template name="projectView">
+  <h1>{{title}}</h1>
+  <h4>{{createdAt}}</h4>
+  <p>{{content}}</p>
 </template>
