@@ -20,7 +20,7 @@ if (Meteor.isClient) {
   Meteor.subscribe('ideasList'),
 
   Template.projectsTab.helpers({
-    ideas: function () {
+    projects: function () {
       return Projects.find({}, {sort: {createdAt: 1}});
     }
   }),
