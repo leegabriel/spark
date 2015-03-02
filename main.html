@@ -1,41 +1,86 @@
 <head>
 <title>Spark</title>
-<link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
 
 <template name="main">
-<center><h1><a href="/">Spark</a></h1></center>
-<center><p><a href="{{pathFor 'ideas'}}">Ideas</a> | <a href="{{pathFor 'projects'}}">Projects</a></p></center>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>    
+  </div>
+  <div class="navbar-collapse collapse">
+    <ul class="nav nav-justified">
+      <li><a href="/" class="navbar-brand">Spark</a></li>
+    </ul>
+  </div>
+</nav>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>    
+  </div>
+  <div class="navbar-collapse collapse">
+    <ul class="nav nav-justified">
+      <li><a href="{{pathFor 'ideas'}}">Ideas</a> </li>
+      <li><a href="{{pathFor 'projects'}}">Projects</a></li>
+    </ul>
+  </div>
+</nav>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>    
+  </div>
+  <div class="navbar-collapse collapse">
+    <ul class="nav nav-justified">
+      <li><a href="#">Top</a> </li>
+      <li><a href="#">Rising</a></li>
+      <li><a href="#">Controversial</a></li>
+    </ul>
+  </div>
+</nav>
+
 </template>
 
 <template name="ideasTab">
-
 {{> main}}
 <form action="/newidea">
     <input type="submit" value="New Idea">
 </form>
-<ul>
 {{#each ideas}}
-  {{> idea}}
-{{/each}}
+<ul>
+  <li style="display:inline;">{{>picture}}</li>
+  <li style="display:inline;">{{> idea}}</li>
 </ul>
+{{/each}}
 </template>
 
 <template name="projectsTab">
-
 {{> main}}
 <form action="/newproject">
     <input type="submit" value="New Project">
 </form>
-<ul>
 {{#each projects}}
-  {{> project}}
-{{/each}}
+<ul>
+  <li style="display:inline;">{{>picture}}</li>
+  <li style="display:inline;">{{> project}}</li>
 </ul>
+{{/each}}
 </template>
 
 <template name="newIdea">
+{{>main}}
   <h1>New Idea</h1>
   <form class="addIdeaForm">
   <h2>Title:</h2>
@@ -49,7 +94,8 @@
 </template>
 
 <template name="newProject">
-  <h1>New Project</h1>
+{{>main}}  
+<h1>New Project</h1>
   <form class="addProjectForm">
   <h2>Title:</h2>
   <input type="text" id="title" name="title"><br><br>
@@ -72,13 +118,21 @@
 </template>
 
 <template name="ideaView">
-  <h1>{{title}}</h1>
+{{>main}} 
+{{>picture}}
+ <h1>{{title}}</h1>
   <h4>{{createdAt}}</h4>
   <p>{{content}}</p>
 </template>
 
 <template name="projectView">
-  <h1>{{title}}</h1>
+{{>main}} 
+{{>picture}} 
+<h1>{{title}}</h1>
   <h4>{{createdAt}}</h4>
   <p>{{content}}</p>
+</template>
+
+<template name="picture">
+<img src="http://placekitten.com/g/150/150">
 </template>

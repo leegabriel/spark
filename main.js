@@ -52,7 +52,6 @@ if (Meteor.isClient) {
       return false;
     }
   })
-
 }
 
 Meteor.methods({
