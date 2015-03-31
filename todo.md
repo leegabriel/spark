@@ -13,3 +13,6 @@ Todo:
 <li>icons</li>
 <li>pledge - google wallet, not paying upfront</li>
 </ul>
+
+
+

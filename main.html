@@ -1,56 +1,37 @@
 <head>
 <title>Spark</title>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
 
 <template name="main">
-<nav class="navbar navbar-default" role="navigation">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>    
-  </div>
-  <div class="navbar-collapse collapse">
-    <ul class="nav nav-justified">
-      <li><a href="/" class="navbar-brand">Spark</a></li>
-    </ul>
-  </div>
+<nav id="menu">
+  <header>
+    <h2>Menu</h2>
+  </header>
 </nav>
-<nav class="navbar navbar-default" role="navigation">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>    
-  </div>
-  <div class="navbar-collapse collapse">
-    <ul class="nav nav-justified">
+
+<main id="panel">
+  <header>
+    <h2>Panel</h2>
+  </header>
+</main>
+    <ul>
       <li><a href="{{pathFor 'ideas'}}">Ideas</a> </li>
       <li><a href="{{pathFor 'projects'}}">Projects</a></li>
     </ul>
-  </div>
-</nav>
-<nav class="navbar navbar-default" role="navigation">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>    
-  </div>
-  <div class="navbar-collapse collapse">
-    <ul class="nav nav-justified">
+    <ul>
       <li><a href="#">Top</a> </li>
       <li><a href="#">Rising</a></li>
       <li><a href="#">Controversial</a></li>
     </ul>
-  </div>
-</nav>
-
+<script src="dist/slideout.min.js"></script>
+<script>
+  var slideout = new Slideout({
+    'panel': document.getElementById('panel'),
+    'menu': document.getElementById('menu'),
+    'padding': 256,
+    'tolerance': 70
+  });
+</script>
 </template>
 
 <template name="ideasTab">
@@ -59,10 +40,12 @@
     <input type="submit" value="New Idea">
 </form>
 {{#each ideas}}
-<ul>
-  <li style="display:inline;">{{>picture}}</li>
-  <li style="display:inline;">{{> idea}}</li>
-</ul>
+<table>
+  <tr>
+    <td>{{> picture}}</td>
+    <td>{{> idea}}</td>
+  </tr>
+</table>
 {{/each}}
 </template>
 
@@ -72,10 +55,12 @@
     <input type="submit" value="New Project">
 </form>
 {{#each projects}}
-<ul>
-  <li style="display:inline;">{{>picture}}</li>
-  <li style="display:inline;">{{> project}}</li>
-</ul>
+<table>
+  <tr>
+    <td>{{> picture}}</td>
+    <td>{{> project}}</td>
+  </tr>
+</table>
 {{/each}}
 </template>
 

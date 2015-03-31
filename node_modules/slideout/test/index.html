@@ -1,0 +1,111 @@
+<!doctype html>
+<!--[if IEMobile 7 ]><html class="iem7"><![endif]-->
+<!--[if IE 8]><html class="ie8 lt-ie10"><![endif]-->
+<!--[if IE 9]><html class="ie9 lt-ie10"><![endif]-->
+<!--[if gt IE 9]><!--><html lang="en"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="MobileOptimized" content="320">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/1.13.0/mocha.min.css">
+    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="../index.css">
+    <title>Slideout tests</title>
+  </head>
+  <body>
+
+    <nav id="menu" class="menu">
+      <a href="https://github.com/mango/slideout" target="_blank">
+        <header class="menu-header">
+          <span class="menu-header-title">Tests</span>
+        </header>
+      </a>
+
+      <section class="menu-section">
+        <h3 class="menu-section-title">Docs</h3>
+        <ul class="menu-section-list">
+          <li><a href="https://github.com/mango/slideout#installation" target="_blank">Installation</a></li>
+          <li><a href="https://github.com/mango/slideout#usage" target="_blank">Usage</a></li>
+          <li><a href="https://github.com/mango/slideout#api" target="_blank">API</a></li>
+          <li><a href="https://github.com/mango/slideout#npm-scripts" target="_blank">npm-scripts</a></li>
+        </ul>
+      </section>
+
+      <section class="menu-section">
+        <h3 class="menu-section-title">Docs</h3>
+        <ul class="menu-section-list">
+          <li><a href="https://github.com/mango/slideout#installation" target="_blank">Installation</a></li>
+          <li><a href="https://github.com/mango/slideout#usage" target="_blank">Usage</a></li>
+          <li><a href="https://github.com/mango/slideout#api" target="_blank">API</a></li>
+          <li><a href="https://github.com/mango/slideout#npm-scripts" target="_blank">npm-scripts</a></li>
+        </ul>
+      </section>
+
+      <section class="menu-section">
+        <h3 class="menu-section-title">Docs</h3>
+        <ul class="menu-section-list">
+          <li><a href="https://github.com/mango/slideout#installation" target="_blank">Installation</a></li>
+          <li><a href="https://github.com/mango/slideout#usage" target="_blank">Usage</a></li>
+          <li><a href="https://github.com/mango/slideout#api" target="_blank">API</a></li>
+          <li><a href="https://github.com/mango/slideout#npm-scripts" target="_blank">npm-scripts</a></li>
+        </ul>
+      </section>
+
+      <section class="menu-section">
+        <h3 class="menu-section-title">Docs</h3>
+        <ul class="menu-section-list">
+          <li><a href="https://github.com/mango/slideout#installation" target="_blank">Installation</a></li>
+          <li><a href="https://github.com/mango/slideout#usage" target="_blank">Usage</a></li>
+          <li><a href="https://github.com/mango/slideout#api" target="_blank">API</a></li>
+          <li><a href="https://github.com/mango/slideout#npm-scripts" target="_blank">npm-scripts</a></li>
+        </ul>
+      </section>
+    </nav>
+
+    <div class="slideout-wrapper">
+      <main id="panel" class="panel">
+        <header class="panel-header">
+          <button class="btn-hamburger js-slideout-toggle"></button>
+          <h1 class="title">Slideout.js</h1>
+        </header>
+
+        <section class="box">
+          <h2 class="box-title">Test</h2>
+          <div id="mocha" class="box-content"></div>
+        </section>
+
+        <footer class="panel-footer">
+          <p>with <span class="heart">❤</span> by <a href="https://getmango.com/en" target="_blank">Mango</a></p>
+        </footer>
+      </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/1.13.0/mocha.min.js"></script>
+    <script>
+      mocha.setup('bdd');
+      var exports = null;
+      function assert(expr, msg) {
+        if (!expr) throw new Error(msg || 'failed');
+      }
+    </script>
+    <script src="../dist/slideout.js"></script>
+    <script src="test.js"></script>
+    <script>
+      window.onload = function() {
+        document.querySelector('.js-slideout-toggle').addEventListener('click', function() {
+          slideout.toggle();
+        });
+
+        document.querySelector('.menu').addEventListener('click', function(eve) {
+          if (eve.target.nodeName === 'A') { slideout.close(); }
+        });
+
+        var runner = mocha.run();
+      };
+    </script>
+  </body>
+</html>
