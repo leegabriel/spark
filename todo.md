@@ -12,7 +12,7 @@ Todo:
 <li>progress bar</li>
 <li>icons</li>
 <li>pledge - google wallet, not paying upfront</li>
-<li>lightbox (maybe like quora)<li>
+<li>lightbox (maybe like quora)</li>
 </ul>
 
 
