@@ -1,4 +1,6 @@
 <head>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/flat-ui/2.2.2/css/bootstrap.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/flat-ui/2.2.2/css/flat-ui.css">
 <title>Spark</title>
 </head>
 <template name="main">
@@ -16,7 +18,7 @@
 <template name="ideasTab">
 {{> main}}
 <form action="/newidea">
-    <input type="submit" value="New Idea">
+    <input type="submit" value="New Idea" class="btn btn-block btn-lg btn-primary">
 </form>
 {{#each ideas}}
 <table>
@@ -31,7 +33,7 @@
 <template name="projectsTab">
 {{> main}}
 <form action="/newproject">
-    <input type="submit" value="New Project">
+    <input type="submit" value="New Project" class="btn btn-block btn-lg btn-primary">
 </form>
 {{#each projects}}
 <table>
@@ -48,12 +50,12 @@
   <h1>New Idea</h1>
   <form class="addIdeaForm">
   <h2>Title:</h2>
-  <input type="text" id="title" name="title"><br><br>
+  <input type="text" id="title" name="title" class="form-control"><br><br>
   <h2>Slug:</h2>
-  <input type="text" id="slug" name="slug"><br><br>
+  <input type="text" id="slug" name="slug" class="form-control"><br><br>
   <h2>Content:</h2>
   <textarea id="content" rows="20" cols="80" name="content"></textarea><br><br>
-  <input type="submit" value="Spark!">
+  <input type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
   </form>
 </template>
 
@@ -62,12 +64,12 @@
 <h1>New Project</h1>
   <form class="addProjectForm">
   <h2>Title:</h2>
-  <input type="text" id="title" name="title"><br><br>
+  <input type="text" id="title" name="title" class="form-control"><br><br>
   <h2>Slug:</h2>
-  <input type="text" id="slug" name="slug"><br><br>
+  <input type="text" id="slug" name="slug" class="form-control"><br><br>
   <h2>Content:</h2>
   <textarea id="content" rows="20" cols="80" name="content"></textarea><br><br>
-  <input type="submit" value="Spark!">
+  <input type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
   </form>
 </template>
 
