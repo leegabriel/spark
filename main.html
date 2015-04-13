@@ -1,104 +1,120 @@
 <head>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/flat-ui/2.2.2/css/bootstrap.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/flat-ui/2.2.2/css/flat-ui.css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <title>Spark</title>
 </head>
-<template name="main">
-    <ul>
-      <li><a href="{{pathFor 'ideas'}}">Ideas</a> </li>
-      <li><a href="{{pathFor 'projects'}}">Projects</a></li>
-    </ul>
-    <ul>
-      <li><a href="#">Top</a> </li>
-      <li><a href="#">Rising</a></li>
-      <li><a href="#">Controversial</a></li>
-    </ul>
-</template>
 
-<template name="ideasTab">
-{{> main}}
-<form action="/newidea">
-    <input type="submit" value="New Idea" class="btn btn-block btn-lg btn-primary">
-</form>
-{{#each ideas}}
-<table>
-  <tr>
-    <td>{{> picture}}</td>
-    <td>{{> idea}}</td>
-  </tr>
-</table>
-{{/each}}
-</template>
+  <template name="main">
+    <nav class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Spark</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse-01">
+            <ul class="nav navbar-nav">
+                <li><a href="{{pathFor 'ideas'}}">Ideas</a></li>
+                <li><a href="{{pathFor 'projects'}}">Projects</a></li>
+            </ul>
+        </div>
 
-<template name="projectsTab">
-{{> main}}
-<form action="/newproject">
-    <input type="submit" value="New Project" class="btn btn-block btn-lg btn-primary">
-</form>
-{{#each projects}}
-<table>
-  <tr>
-    <td>{{> picture}}</td>
-    <td>{{> project}}</td>
-  </tr>
-</table>
-{{/each}}
-</template>
+        <!-- /.navbar-collapse -->
+     </nav>
+      <ul>
+        <li><a href="{{pathFor 'ideas'}}">Ideas</a> </li>
+        <li><a href="{{pathFor 'projects'}}">Projects</a></li>
+      </ul>
+      <ul>
+        <li><a href="#">Top</a> </li>
+        <li><a href="#">Rising</a></li>
+        <li><a href="#">Controversial</a></li>
+      </ul>
+      <hr>
+  </template>
 
-<template name="newIdea">
-{{>main}}
-  <h1>New Idea</h1>
-  <form class="addIdeaForm">
-  <h2>Title:</h2>
-  <input type="text" id="title" name="title" class="form-control"><br><br>
-  <h2>Slug:</h2>
-  <input type="text" id="slug" name="slug" class="form-control"><br><br>
-  <h2>Content:</h2>
-  <textarea id="content" rows="20" cols="80" name="content"></textarea><br><br>
-  <input type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
+  <template name="ideasTab">
+  {{> main}}
+  <form action="/newidea">
+      <input type="submit" value="New Idea" class="btn btn-block btn-lg btn-primary">
   </form>
-</template>
+  {{#each ideas}}
+  <table>
+    <tr>
+      <td>{{> picture}}</td>
+      <td>{{> idea}}</td>
+    </tr>
+  </table>
+  {{/each}}
+  </template>
 
-<template name="newProject">
-{{>main}}  
-<h1>New Project</h1>
-  <form class="addProjectForm">
-  <h2>Title:</h2>
-  <input type="text" id="title" name="title" class="form-control"><br><br>
-  <h2>Slug:</h2>
-  <input type="text" id="slug" name="slug" class="form-control"><br><br>
-  <h2>Content:</h2>
-  <textarea id="content" rows="20" cols="80" name="content"></textarea><br><br>
-  <input type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
+  <template name="projectsTab">
+  {{> main}}
+  <form action="/newproject">
+      <input type="submit" value="New Project" class="btn btn-block btn-lg btn-primary">
   </form>
-</template>
+  {{#each projects}}
+  <table>
+    <tr>
+      <td>{{> picture}}</td>
+      <td>{{> project}}</td>
+    </tr>
+  </table>
+  {{/each}}
+  </template>
 
-<template name="idea">
-  <h2><a href="/ideas/{{slug}}">{{title}}</a></h2>
-  <h4>{{createdAt}}</h4>
-</template>
+  <template name="newIdea">
+  {{>main}}
+    <h3>New Idea</h3>
+    <form class="addIdeaForm">
+    <h3>Title:</h3>
+    <input type="text" id="title" name="title" class="form-control"><br><br>
+    <h3>Slug:</h3>
+    <input type="text" id="slug" name="slug" class="form-control"><br><br>
+    <h3>Content:</h3>
+    <textarea id="content" rows="20" cols="80" name="content"></textarea><br><br>
+    <input type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
+    </form>
+  </template>
 
-<template name="project">
-  <h2><a href="/projects/{{slug}}">{{title}}</a></h2>
-  <h4>{{createdAt}}</h4>
-</template>
+  <template name="newProject">
+  {{>main}}  
+  <h3>New Project</h3>
+    <form class="addProjectForm">
+    <h3>Title:</h3>
+    <input type="text" id="title" name="title" class="form-control"><br><br>
+    <h3>Slug:</h3>
+    <input type="text" id="slug" name="slug" class="form-control"><br><br>
+    <h3>Content:</h3>
+    <textarea id="content" rows="20" cols="80" name="content"></textarea><br><br>
+    <input type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
+    </form>
+  </template>
 
-<template name="ideaView">
-{{>main}} 
-{{>picture}}
- <h1>{{title}}</h1>
-  <h4>{{createdAt}}</h4>
-  <p>{{content}}</p>
-</template>
+  <template name="idea">
+    <h3><a href="/ideas/{{slug}}">{{title}}</a></h3>
+    <h4>{{createdAt}}</h4>
+  </template>
 
-<template name="projectView">
-{{>main}} 
-{{>picture}} 
-<h1>{{title}}</h1>
-  <h4>{{createdAt}}</h4>
-  <p>{{content}}</p>
-</template>
+  <template name="project">
+    <h3><a href="/projects/{{slug}}">{{title}}</a></h3>
+    <h4>{{createdAt}}</h4>
+  </template>
 
-<template name="picture">
-<img src="http://placekitten.com/g/150/150">
-</template>
+  <template name="ideaView">
+  {{>main}} 
+  {{>picture}}
+   <h3>{{title}}</h3>
+    <h4>{{createdAt}}</h4>
+    <p>{{content}}</p>
+  </template>
+
+  <template name="projectView">
+  {{>main}} 
+  {{>picture}} 
+  <h3>{{title}}</h3>
+    <h4>{{createdAt}}</h4>
+    <p>{{content}}</p>
+  </template>
+
+  <template name="picture">
+  <img class="thumbnail" src="http://placekitten.com/g/150/150">
+  </template>
