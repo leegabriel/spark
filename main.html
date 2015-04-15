@@ -42,11 +42,7 @@
         <button type="submit"><i class="fa fa-search"></i></button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Login <span class="caret"></span></a>
-
-        </li>
+        <li class="navbar-test">{{> loginButtons}}</li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -56,7 +52,7 @@
   <template name="ideasTab">
   {{> main}}
   <form action="/newidea">
-      <input type="submit" value="New Idea" class="btn btn-block btn-lg btn-primary">
+      <input type="submit" value="New Idea" class="btn btn-block btn-lg btn-primary" style="width=150; height=150;">
   </form>
   {{#each ideas}}
   <table>
@@ -70,7 +66,9 @@
 
   <template name="projectsTab">
   {{> main}}
-  <img src="/newproject" class="thumbnail">
+  <form action="/newproject">
+      <input type="submit" value="New Project" class="btn btn-block btn-lg btn-primary" style="width=150; height=150;">
+  </form>
   {{#each projects}}
   <table>
     <tr>
