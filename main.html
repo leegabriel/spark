@@ -53,7 +53,7 @@
 
   <template name="ideasTab">
   {{> main}}
-  <form action="/newidea" id="form1">
+  <form action="/newidea" id="form">
       <input type="submit" value="New Idea" class="btn btn-block btn-lg btn-primary">
   </form>
   {{#each ideas}}
@@ -71,7 +71,7 @@
 
   <template name="projectsTab">
   {{> main}}
-  <form action="/newproject" id="form1">
+  <form action="/newproject" id="form">
       <input type="submit" value="New Project" class="btn btn-block btn-lg btn-primary">
   </form>
   {{#each projects}}
@@ -90,7 +90,7 @@
   {{>main}}
   <div class="grid">
     <h1>New Idea</h1>
-    <form class="addIdeaForm">
+    <form class="addIdeaForm" id="form">
     <h3>Title:</h3>
     <input type="text" id="title" name="title" class="form-control"><br><br>
     <h3>Slug:</h3>
@@ -105,8 +105,8 @@
   <template name="newProject">
   {{>main}}  
   <div class="grid">
-  <h1>New Project</h1>
-    <form class="addProjectForm">
+    <h1>New Project</h1>
+    <form class="addProjectForm" id="#form" >
     <h3>Title:</h3>
     <input type="text" id="title" name="title" class="form-control"><br><br>
     <h3>Slug:</h3>
