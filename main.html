@@ -6,6 +6,7 @@
 </head>
 
   <template name="main">
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -47,41 +48,48 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
   </template>
 
   <template name="ideasTab">
   {{> main}}
-  <form action="/newidea">
-      <input type="submit" value="New Idea" class="btn btn-block btn-lg btn-primary" style="width=150; height=150;">
+  <form action="/newidea" id="form1">
+      <input type="submit" value="New Idea" class="btn btn-block btn-lg btn-primary">
   </form>
   {{#each ideas}}
+  <hr>
   <table>
     <tr>
       <td>{{> picture}}</td>
       <td>{{> idea}}</td>
     </tr>
   </table>
+  <hr>
   {{/each}}
+
   </template>
 
   <template name="projectsTab">
   {{> main}}
-  <form action="/newproject">
-      <input type="submit" value="New Project" class="btn btn-block btn-lg btn-primary" style="width=150; height=150;">
+  <form action="/newproject" id="form1">
+      <input type="submit" value="New Project" class="btn btn-block btn-lg btn-primary">
   </form>
   {{#each projects}}
+  <hr>
   <table>
     <tr>
       <td>{{> picture}}</td>
       <td>{{> project}}</td>
     </tr>
   </table>
+  <hr>
   {{/each}}
   </template>
 
   <template name="newIdea">
   {{>main}}
-    <h3>New Idea</h3>
+  <div class="grid">
+    <h1>New Idea</h1>
     <form class="addIdeaForm">
     <h3>Title:</h3>
     <input type="text" id="title" name="title" class="form-control"><br><br>
@@ -91,11 +99,13 @@
     <textarea id="content" rows="20" cols="80" name="content"></textarea><br><br>
     <input type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
     </form>
+  </div>
   </template>
 
   <template name="newProject">
   {{>main}}  
-  <h3>New Project</h3>
+  <div class="grid">
+  <h1>New Project</h1>
     <form class="addProjectForm">
     <h3>Title:</h3>
     <input type="text" id="title" name="title" class="form-control"><br><br>
@@ -105,34 +115,47 @@
     <textarea id="content" rows="20" cols="80" name="content"></textarea><br><br>
     <input type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
     </form>
+  </div>
   </template>
 
   <template name="idea">
-    <h3><a href="/ideas/{{slug}}">{{title}}</a></h3>
+    <div class="grid">
+    <h2><a href="/ideas/{{slug}}">{{title}}</a></h2>
     <h4>{{createdAt}}</h4>
+  </div>
   </template>
 
   <template name="project">
-    <h3><a href="/projects/{{slug}}">{{title}}</a></h3>
+    <div class="grid">
+    <h2><a href="/projects/{{slug}}">{{title}}</a></h2>
     <h4>{{createdAt}}</h4>
+  </div>
   </template>
 
   <template name="ideaView">
   {{>main}} 
-  {{>picture}}
-   <h3>{{title}}</h3>
+  <center>{{>picture}}</center>
+  <hr>
+  <div class="grid">
+   <h1>{{title}}</h1>
     <h4>{{createdAt}}</h4>
     <p>{{content}}</p>
+  </div>
   </template>
 
   <template name="projectView">
   {{>main}} 
-  {{>picture}} 
-  <h3>{{title}}</h3>
+  <center>{{>picture}}</center> 
+  <hr>
+  <div class="grid">
+  <h1>{{title}}</h1>
     <h4>{{createdAt}}</h4>
     <p>{{content}}</p>
+  </div>
   </template>
 
   <template name="picture">
-  <img class="thumbnail" src="http://placekitten.com/g/150/150">
+    <div class="grid">
+    <img class="thumbnail" src="http://placekitten.com/g/150/150">
+  </div>
   </template>
