@@ -2,11 +2,11 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<title>Spark</title>
+<title>Spark - The Innovation Network</title>
 <link rel="icon" sizes="16x16 32x32" href="/favicon.ico?v=2">
 </head>
 
-  <template name="main">
+  <template name="nav">
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -53,12 +53,12 @@
   </template>
 
   <template name="home">
-    {{> main}}
-    <h1>The World's Greatest Idea Engine</h1>
+    {{> nav}}
+    <h1>Innovation at your fingertips</h1>
   </template>
 
   <template name="ideasTab">
-  {{> main}}
+  {{> nav}}
   <form action="/newidea" id="form">
       <input type="submit" value="New Idea" class="btn btn-block btn-lg btn-primary">
   </form>
@@ -76,7 +76,7 @@
   </template>
 
   <template name="projectsTab">
-  {{> main}}
+  {{> nav}}
   <form action="/newproject" id="form">
       <input type="submit" value="New Project" class="btn btn-block btn-lg btn-primary">
   </form>
@@ -93,7 +93,7 @@
   </template>
 
   <template name="newIdea">
-  {{>main}}
+  {{>nav}}
   <div class="grid">
     <h1>New Idea</h1>
     <form class="addIdeaForm" id="form">
@@ -109,7 +109,7 @@
   </template>
 
   <template name="newProject">
-  {{>main}}  
+  {{>nav}}  
   <div class="grid">
     <h1>New Project</h1>
     <form class="addProjectForm" id="form" >
@@ -139,7 +139,7 @@
   </template>
 
   <template name="ideaView">
-  {{>main}} 
+  {{>nav}} 
   <center><div class="banner">{{>picture}}</div></center>
   <hr>
   <div class="grid">
@@ -150,7 +150,7 @@
   </template>
 
   <template name="projectView">
-  {{>main}} 
+  {{>nav}} 
   <center><div class="banner">{{>picture}}</div></center> 
   <hr>
   <div class="grid">

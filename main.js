@@ -74,7 +74,7 @@ Meteor.methods({
 });
 
 Router.route('/', function() {
-  this.render('main');
+  this.render('home');
 });
 
 Router.route('/ideas', function() {
