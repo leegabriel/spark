@@ -52,13 +52,18 @@
 
   </template>
 
+  <template name="home">
+    {{> main}}
+    <h1>The World's Greatest Idea Engine</h1>
+  </template>
+
   <template name="ideasTab">
   {{> main}}
   <form action="/newidea" id="form">
       <input type="submit" value="New Idea" class="btn btn-block btn-lg btn-primary">
   </form>
-  {{#each ideas}}
   <hr>
+  {{#each ideas}}
   <table>
     <tr>
       <td>{{> picture}}</td>
@@ -75,8 +80,8 @@
   <form action="/newproject" id="form">
       <input type="submit" value="New Project" class="btn btn-block btn-lg btn-primary">
   </form>
-  {{#each projects}}
   <hr>
+  {{#each projects}}
   <table>
     <tr>
       <td>{{> picture}}</td>

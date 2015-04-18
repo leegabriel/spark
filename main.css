@@ -9,13 +9,19 @@
   width: 150px;
 }
 
+.navbar {
+  margin-bottom: 0px;
+}
+
 .navbar-default {
-  border-radius: none;
+  border-radius: 0px;
 }
 
 .btn-primary {
   background-color:#3498db;
   border-color: #3498db;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /* unvisited link */
@@ -25,12 +31,12 @@ a:link {
 
 /* visited link */
 a:visited {
-    color: #00FF00;
+    color: #3498db;
 }
 
 /* mouse over link */
 a:hover {
-    color: #FF00FF;
+    color: #3498db;
 }
 
 /* selected link */
@@ -39,5 +45,11 @@ a:active {
 }
 
 .banner {
+  padding-top: 30px;
+  padding-bottom: 30px;
   background-color: #f6f6f6;
+}
+
+hr {
+  margin: 0px;
 }
