@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <title>Spark</title>
+<link rel="icon" sizes="16x16 32x32" href="/favicon.ico?v=2">
 </head>
 
   <template name="main">
@@ -106,7 +107,7 @@
   {{>main}}  
   <div class="grid">
     <h1>New Project</h1>
-    <form class="addProjectForm" id="#form" >
+    <form class="addProjectForm" id="form" >
     <h3>Title:</h3>
     <input type="text" id="title" name="title" class="form-control"><br><br>
     <h3>Slug:</h3>
@@ -134,7 +135,7 @@
 
   <template name="ideaView">
   {{>main}} 
-  <center>{{>picture}}</center>
+  <center><div class="banner">{{>picture}}</div></center>
   <hr>
   <div class="grid">
    <h1>{{title}}</h1>
@@ -145,7 +146,7 @@
 
   <template name="projectView">
   {{>main}} 
-  <center>{{>picture}}</center> 
+  <center><div class="banner">{{>picture}}</div></center> 
   <hr>
   <div class="grid">
   <h1>{{title}}</h1>
