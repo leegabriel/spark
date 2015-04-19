@@ -1,66 +1,66 @@
 <head>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<title>Spark - The Innovation Network</title>
-<link rel="icon" sizes="16x16 32x32" href="/favicon.ico?v=2">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <title>Spark - The Innovation Network</title>
+  <link rel="icon" sizes="16x16 32x32" href="/favicon.ico?v=2">
 </head>
 
-  <template name="nav">
+<template name="nav">
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">Spark</a>
-    </div>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Spark</a>
+      </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="{{pathFor 'ideas'}}">Ideas <span class="sr-only">(current)</span></a></li>
-        <li><a href="{{pathFor 'projects'}}">Projects</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Top</a></li>
-            <li><a href="#">Rising</a></li>
-            <li><a href="#">Funny</a></li>
-            <li class="divider"></li>
-            <li><a href="#">All Categories</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit"><i class="fa fa-search"></i></button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="navbar-text">{{> loginButtons align="right"}}</li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="{{pathFor 'ideas'}}">Ideas <span class="sr-only">(current)</span></a></li>
+          <li><a href="{{pathFor 'projects'}}">Projects</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Top</a></li>
+              <li><a href="#">Rising</a></li>
+              <li><a href="#">Funny</a></li>
+              <li class="divider"></li>
+              <li><a href="#">All Categories</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="navbar-text">{{> loginButtons align="right"}}</li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 
-  </template>
+</template>
 
-  <template name="home">
-    {{> nav}}
-    <h1>Innovation at your fingertips</h1>
-  </template>
+<template name="home">
+  {{> nav}}
+  <h1>Innovation at your fingertips</h1>
+</template>
 
-  <template name="ideasTab">
+<template name="ideasTab">
   {{> nav}}
   <form action="/newidea" id="form">
-      <input type="submit" value="New Idea" class="btn btn-block btn-lg btn-primary">
+    <input id="submit" type="submit" value="New Idea" class="btn btn-block btn-lg btn-primary">
   </form>
   <hr>
   {{#each ideas}}
@@ -73,12 +73,12 @@
   <hr>
   {{/each}}
 
-  </template>
+</template>
 
-  <template name="projectsTab">
+<template name="projectsTab">
   {{> nav}}
   <form action="/newproject" id="form">
-      <input type="submit" value="New Project" class="btn btn-block btn-lg btn-primary">
+    <input id="submit" type="submit" value="New Project" class="btn btn-block btn-lg btn-primary">
   </form>
   <hr>
   {{#each projects}}
@@ -90,78 +90,78 @@
   </table>
   <hr>
   {{/each}}
-  </template>
+</template>
 
-  <template name="newIdea">
+<template name="newIdea">
   {{>nav}}
   <div class="grid">
-    <h1>New Idea</h1>
+    <h1 class="form-title">New Idea</h1>
     <form class="addIdeaForm" id="form">
-    <h3>Title:</h3>
-    <input type="text" id="title" name="title" class="form-control"><br><br>
-    <h3>Slug:</h3>
-    <input type="text" id="slug" name="slug" class="form-control"><br><br>
-    <h3>Content:</h3>
-    <textarea id="content" rows="20" cols="80" name="content"></textarea><br><br>
-    <input type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
+      <h3>Title:</h3>
+      <input type="text" id="title" name="title" class="form-control"><br><br>
+      <h3>Slug:</h3>
+      <input type="text" id="slug" name="slug" class="form-control"><br><br>
+      <h3>Content:</h3>
+      <textarea id="content" rows="20" cols="80" name="content"></textarea><br><br>
+      <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
     </form>
   </div>
-  </template>
+</template>
 
-  <template name="newProject">
+<template name="newProject">
   {{>nav}}  
   <div class="grid">
-    <h1>New Project</h1>
+    <h1 class="form-title">New Project</h1>
     <form class="addProjectForm" id="form" >
-    <h3>Title:</h3>
-    <input type="text" id="title" name="title" class="form-control"><br><br>
-    <h3>Slug:</h3>
-    <input type="text" id="slug" name="slug" class="form-control"><br><br>
-    <h3>Content:</h3>
-    <textarea id="content" rows="20" cols="80" name="content"></textarea><br><br>
-    <input type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
+      <h3>Title:</h3>
+      <input type="text" id="title" name="title" class="form-control"><br><br>
+      <h3>Slug:</h3>
+      <input type="text" id="slug" name="slug" class="form-control"><br><br>
+      <h3>Content:</h3>
+      <textarea id="content" rows="20" cols="80" name="content"></textarea><br><br>
+      <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
     </form>
   </div>
-  </template>
+</template>
 
-  <template name="idea">
-    <div class="grid">
+<template name="idea">
+  <div class="grid">
     <h2><a href="/ideas/{{slug}}">{{title}}</a></h2>
     <h4>{{createdAt}}</h4>
   </div>
-  </template>
+</template>
 
-  <template name="project">
-    <div class="grid">
+<template name="project">
+  <div class="grid">
     <h2><a href="/projects/{{slug}}">{{title}}</a></h2>
     <h4>{{createdAt}}</h4>
   </div>
-  </template>
+</template>
 
-  <template name="ideaView">
+<template name="ideaView">
   {{>nav}} 
   <center><div class="banner">{{>picture}}</div></center>
   <hr>
   <div class="grid">
    <h1>{{title}}</h1>
-    <h4>{{createdAt}}</h4>
-    <p>{{content}}</p>
-  </div>
-  </template>
+   <h4>{{createdAt}}</h4>
+   <p>{{content}}</p>
+ </div>
+</template>
 
-  <template name="projectView">
+<template name="projectView">
   {{>nav}} 
   <center><div class="banner">{{>picture}}</div></center> 
   <hr>
   <div class="grid">
-  <h1>{{title}}</h1>
+    <h1>{{title}}</h1>
     <h4>{{createdAt}}</h4>
     <p>{{content}}</p>
   </div>
-  </template>
+</template>
 
-  <template name="picture">
-    <div class="grid">
+<template name="picture">
+  <div class="grid">
     <img class="thumbnail" src="http://placekitten.com/g/150/150">
   </div>
-  </template>
+</template>

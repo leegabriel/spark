@@ -17,31 +17,34 @@
   border-radius: 0px;
 }
 
-.btn-primary {
+.btn .btn-block .btn-lg .btn-primary {
   background-color:#3498db;
   border-color: #3498db;
-  margin-top: 10px;
-  margin-bottom: 10px;
+}
+
+#submit {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 /* unvisited link */
 a:link {
-    color: #3498db;
+  color: #3498db;
 }
 
 /* visited link */
 a:visited {
-    color: #3498db;
+  color: #3498db;
 }
 
 /* mouse over link */
 a:hover {
-    color: #3498db;
+  color: #3498db;
 }
 
 /* selected link */
 a:active {
-    color: #3498db;
+  color: #3498db;
 }
 
 .banner {
@@ -50,6 +53,21 @@ a:active {
   background-color: #f6f6f6;
 }
 
+h1 {
+  font-size: 50px;
+}
+
+.form-title {
+  margin-left: 30px;
+  font-size: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+#title, #slug {
+  width: 400px;
+}
+
 hr {
-  margin: 0px;
+  margin: 0;
 }
