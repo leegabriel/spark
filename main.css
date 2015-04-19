@@ -60,14 +60,22 @@ h1 {
 .form-title {
   margin-left: 30px;
   font-size: 50px;
-  margin-top: 30px;
   margin-bottom: 30px;
 }
 
-#title, #slug {
+#title, #slug, #content {
   width: 400px;
 }
 
 hr {
-  margin: 0;
+  margin: 0px;
+}
+
+#hr {
+  margin:0px;
+}
+
+.thumbnail {
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
