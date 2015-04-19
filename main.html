@@ -49,12 +49,58 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+</template>
 
+<template name="footer">
+  <div id="footer">
+    <div class="copyright">
+      <center><small>&copy; Spark 2015 </small></center>
+    </div>
+  </div>
 </template>
 
 <template name="home">
   {{> nav}}
-  <h1>Innovation at your fingertips</h1>
+  <center><h1>Innovation at your fingertips</h1></center>
+  <div id="slider">
+    <img id="picture" src="http://media-cache-ec0.pinimg.com/736x/34/f0/5c/34f05cc26a95283ca9407713d5e3e9d2.jpg">
+  </div>
+  <br>
+  <p id="controls"><span id="left" class="glyphicon glyphicon-menu-left" aria-hidden="true"></span> <span id="right" class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></p>
+
+  <script>
+  var index = 0;
+  var arr= ["http://media-cache-ec0.pinimg.com/736x/34/f0/5c/34f05cc26a95283ca9407713d5e3e9d2.jpg",
+  "http://media-cache-ak0.pinimg.com/736x/0b/cd/60/0bcd6060029d453087a6ff60e258f69c.jpg",
+  "http://media-cache-ak0.pinimg.com/736x/fc/c1/0a/fcc10aa4cf7547c4bb156884130bc413.jpg",
+  "http://media-cache-ak0.pinimg.com/736x/03/84/7e/03847e6510b2eb20edbe279679b90c42.jpg"];
+
+  document.getElementById("picture").src = arr[index];
+  document.getElementById("left").onclick = function () {goLeft()};
+  document.getElementById("right").onclick = function () {goRight()};
+  function goLeft() {
+    if (index === 0){   
+      index = arr.length - 1; 
+    }
+    else{
+      index--;
+    }
+    var source= arr[index];
+    document.getElementById("picture").src = source;
+  }
+
+  function goRight() {
+    if (index === arr.length - 1){
+      index = 0;
+    }
+    else{
+      index++;
+    }   
+    var source = arr[index];
+    document.getElementById("picture").src = source;
+  }
+  </script>
+{{> footer}}
 </template>
 
 <template name="ideasTab">
@@ -72,7 +118,7 @@
   </table>
   <hr>
   {{/each}}
-
+  {{> footer}}
 </template>
 
 <template name="projectsTab">
@@ -90,6 +136,7 @@
   </table>
   <hr>
   {{/each}}
+  {{> footer}}
 </template>
 
 <template name="newIdea">
@@ -106,6 +153,7 @@
       <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
     </form>
   </div>
+  {{> footer}}
 </template>
 
 <template name="newProject">
@@ -122,6 +170,7 @@
       <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
     </form>
   </div>
+  {{> footer}}
 </template>
 
 <template name="idea">
@@ -140,24 +189,26 @@
 
 <template name="ideaView">
   {{>nav}} 
-  <center><div class="banner">{{>picture}}</div></center>
+  <center>{{>picture}}</center>
   <hr id="hr">
   <div class="grid">
    <h1>{{title}}</h1>
    <h4>{{createdAt}}</h4>
    <p>{{content}}</p>
  </div>
+ {{> footer}}
 </template>
 
 <template name="projectView">
   {{>nav}} 
-  <center><div class="banner">{{>picture}}</div></center> 
+  <center>{{>picture}}</center> 
   <hr id="hr">
   <div class="grid">
     <h1>{{title}}</h1>
     <h4>{{createdAt}}</h4>
     <p>{{content}}</p>
   </div>
+  {{> footer}}
 </template>
 
 <template name="picture">
