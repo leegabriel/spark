@@ -62,7 +62,7 @@ h1 {
 }
 
 hr {
-  margin: 0px;
+  margin: 0px !important;
 }
 
 #hr {
@@ -74,7 +74,7 @@ hr {
   margin-bottom: 30px;
 }
 
-#slider, #controls {
+#slider {
   text-align: center;
 }
 
@@ -90,24 +90,22 @@ body {
  position:relative;
  color: #f6f6f6;
 }
-#header {
- /*background:#ff0;*/
- padding:35px;
-}
-#body {
- padding:10px;
- padding-bottom:300px;   /* Height of the footer */
-}
+
 #footer {
  position:relative;
  bottom:0;
  width:100%;
- height:300px;   /* Height of the footer */
+ height:100px;   /* Height of the footer */
  background: #f6f6f6;
 }
 #footer .copyright {
- padding-top: 15px;
+ padding-top: 30px;
  font-size: 14px;
  color: gray; 
  /*text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray;*/
 }
+
+#space {
+  padding-left: 30px;
+}
+
