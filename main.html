@@ -81,7 +81,7 @@
   {{#each ideas}}
   <table>
     <tr>
-      <td>{{> picture}}</td>
+      <td>{{> thumbnail}}</td>
       <td>{{> idea}}</td>
     </tr>
   </table>
@@ -99,7 +99,7 @@
   {{#each projects}}
   <table>
     <tr>
-      <td>{{> picture}}</td>
+      <td>{{> thumbnail}}</td>
       <td>{{> project}}</td>
     </tr>
   </table>
@@ -117,7 +117,7 @@
       <input type="text" id="title" name="title" class="form-control"><br><br>
       <h3>Slug:</h3>
       <input type="text" id="slug" name="slug" class="form-control"><br><br>
-      <h3>Content:</h3>
+      <h3>Description:</h3>
       <textarea id="content" rows="20" cols="80" name="content"></textarea><br><br>
       <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
     </form>
@@ -134,7 +134,7 @@
       <input type="text" id="title" name="title" class="form-control"><br><br>
       <h3>Slug:</h3>
       <input type="text" id="slug" name="slug" class="form-control"><br><br>
-      <h3>Content:</h3>
+      <h3>Description:</h3>
       <textarea id="content" rows="20" cols="80" name="content"></textarea><br><br>
       <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
     </form>
@@ -172,11 +172,10 @@
 </template>
 
 <template name="ideaView">
-  {{>nav}} 
-  <center>{{>picture}}</center>
-  <hr id="hr">
+  {{> nav}} 
+  <center><h1>{{title}}</h1></center>
+  <center>{{> picture}}</center>
   <div class="grid">
-   <h1>{{title}}</h1>
    <h4>{{createdAt}}</h4>
    <hr>
    <h2>Description</h2>
@@ -190,25 +189,32 @@
 </template>
 
 <template name="projectView">
-  {{>nav}} 
-  <center>{{>picture}}</center> 
-  <hr id="hr">
+  {{> nav}}
+  <center><h1>{{title}}</h1></center>
+  <center>{{> picture}}</center>
   <div class="grid">
-    <h1>{{title}}</h1>
-    <h4>{{createdAt}}</h4>
-    <hr>
-    <h2>Description</h2>
-    <p>{{content}}</p>
-    <hr>
-    <h2>Additional information</h2>
-  </div>
-  <hr>
-  {{> comments}}
-  {{> footer}}
+   <h4>{{createdAt}}</h4>
+   <hr>
+   <h2>Description</h2>
+   <p>{{content}}</p>
+   <hr>
+   <h2>Additional information</h2>
+ </div>
+ <hr>
+ {{> comments}}
+ {{> footer}}
 </template>
+
+<template name="thumbnail">
+  <div class="grid">
+    <img class="thumbnail" src="http://placekitten.com/g/600/500" width="200">
+  </div>
+</template>
+
 
 <template name="picture">
   <div class="grid">
-    <img class="thumbnail" src="http://placekitten.com/g/150/150">
+    <img class="thumbnail" src="http://placekitten.com/g/600/500">
   </div>
 </template>
+
