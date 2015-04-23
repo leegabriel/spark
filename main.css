@@ -111,12 +111,24 @@ body {
 
 ol {
   font-style: bold;
-  font-size: 50px;
-  color:#BDC3C7;
+  font-size: 30px;
+  color:#C9CFD4;
   margin-left: 50px;
 }
 
 li table {
   vertical-align: middle;
   display: inline-block;
+}
+
+.fa-chevron-up:hover, .fa-chevron-down:hover {
+  color: #7F8C8D;
+}
+
+.fa-chevron-up:selected, .fa-chevron-down:selected {
+  color: #7F8C8D;
+}
+
+.fa-chevron-up:visited, .fa-chevron-down:visited {
+  color: #7F8C8D;
 }

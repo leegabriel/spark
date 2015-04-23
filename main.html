@@ -84,11 +84,15 @@
       <table>
         <tr>
           <td>
-            <p style="font-size:25px; color:#BDC3C7; padding-right: 30px"><i class="fa fa-chevron-up"></i></p>
-            <br>
-            <p style="font-size:25px; color:#BDC3C7; padding-right: 30px"><i class="fa fa-chevron-down"></i></p>
+            <ul>
+              <center>
+                <li style="font-size:30px; color:#BDC3C7; padding-right: 30px; list-style:none"><i class="fa fa-chevron-up"></i></li>
+                <li style="font-size:30px; color:#BDC3C7; padding-right: 30px; list-style:none">2342</li>
+                <li style="font-size:30px; color:#BDC3C7; padding-right: 30px; list-style:none"><i class="fa fa-chevron-down"></i></li>
+              </center>
+            </ul>
           </td>
-          <td>{{> thumbnail}}</td>
+          <td>{{> thumbnail href="/ideas/{{slug}}"}}</td>
           <td>{{> idea}}</td>
         </tr>
       </table>
@@ -105,15 +109,19 @@
     <input id="submit" type="submit" value="New Project" class="btn btn-block btn-lg btn-primary">
   </form>
   <hr>
-   <ol>
+  <ol>
     {{#each projects}}
     <li>
       <table>
         <tr>
           <td>
-            <p style="font-size:25px; color:#BDC3C7; padding-right: 30px"><i class="fa fa-chevron-up"></i></p>
-            <br>
-            <p style="font-size:25px; color:#BDC3C7; padding-right: 30px"><i class="fa fa-chevron-down"></i></p>
+            <ul>
+              <center>
+                <li style="font-size:30px; color:#BDC3C7; padding-right: 30px; list-style:none"><i class="fa fa-chevron-up"></i></li>
+                <li style="font-size:30px; color:#BDC3C7; padding-right: 30px; list-style:none">2342</li>
+                <li style="font-size:30px; color:#BDC3C7; padding-right: 30px; list-style:none"><i class="fa fa-chevron-down"></i></li>
+              </center>
+            </ul>
           </td>
           <td>{{> thumbnail}}</td>
           <td>{{> project}}</td>
@@ -225,14 +233,14 @@
 
 <template name="thumbnail">
   <div class="grid">
-    <img class="thumbnail" src="http://placekitten.com/g/600/500" width="200">
+    <img class="thumbnail" src="http://placekitten.com/g/600/500" width="125" >
   </div>
 </template>
 
 
 <template name="picture">
   <div class="grid">
-    <img class="thumbnail" src="http://placekitten.com/g/600/500">
+    <img class="thumbnail" src="http://placekitten.com/g/600/500" >
   </div>
 </template>
 
