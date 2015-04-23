@@ -1,6 +1,7 @@
 Todo:
 ====
 
+Ideas from meetings:
 <ul>
 <li>Funny animations ("extinguish the fire!") ("spark the flame!") ("supercharged ready to go!!!")</li>
 <li>rewards - arbitrary choice of developer</li>
@@ -14,6 +15,21 @@ Todo:
 <li>pledge - google wallet, not paying upfront</li>
 <li>lightbox (maybe like quora)</li>
 </ul>
+
+Important: 
+<ul>
+	<li>Sorting by popularity, newest</li>
+	<li>Categories based on tags</li>
+	<li>Vote counting mechanism</li>
+	<li>Profile page, Authentication/Authorization</li>
+	<li>CRUD tasks</li>
+	<li>Need good format for displaying funding, votes, details (check out Google Play Store, Kickstarter, Reddit)</li>
+	<li>Comments (maybe Atmosphere has some packages)</li>
+	<li>Modals Modals Modals.</li>
+	<li>Search Engine</li>
+	<li>Pictures should be links. Duh.</li>
+</ul>
+
 
 
 
