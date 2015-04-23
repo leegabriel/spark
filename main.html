@@ -1,8 +1,7 @@
 <head>
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
-  <script>tinymce.init({selector:'textarea'});</script>
+
   <title>Spark - The Innovation Network</title>
   <link rel="icon" sizes="16x16 32x32" href="/favicon.ico?v=2">
 </head>
@@ -79,15 +78,24 @@
     <input id="submit" type="submit" value="New Idea" class="btn btn-block btn-lg btn-primary">
   </form>
   <hr>
-  {{#each ideas}}
-  <table>
-    <tr>
-      <td>{{> thumbnail}}</td>
-      <td>{{> idea}}</td>
-    </tr>
-  </table>
-  <hr>
-  {{/each}}
+  <ol>
+    {{#each ideas}}
+    <li>
+      <table>
+        <tr>
+          <td>
+            <p style="font-size:25px; color:#BDC3C7; padding-right: 30px"><i class="fa fa-chevron-up"></i></p>
+            <br>
+            <p style="font-size:25px; color:#BDC3C7; padding-right: 30px"><i class="fa fa-chevron-down"></i></p>
+          </td>
+          <td>{{> thumbnail}}</td>
+          <td>{{> idea}}</td>
+        </tr>
+      </table>
+      <hr>
+    </li>
+    {{/each}}
+  </ol>
   {{> footer}}
 </template>
 
@@ -97,15 +105,24 @@
     <input id="submit" type="submit" value="New Project" class="btn btn-block btn-lg btn-primary">
   </form>
   <hr>
-  {{#each projects}}
-  <table>
-    <tr>
-      <td>{{> thumbnail}}</td>
-      <td>{{> project}}</td>
-    </tr>
-  </table>
-  <hr>
-  {{/each}}
+   <ol>
+    {{#each projects}}
+    <li>
+      <table>
+        <tr>
+          <td>
+            <p style="font-size:25px; color:#BDC3C7; padding-right: 30px"><i class="fa fa-chevron-up"></i></p>
+            <br>
+            <p style="font-size:25px; color:#BDC3C7; padding-right: 30px"><i class="fa fa-chevron-down"></i></p>
+          </td>
+          <td>{{> thumbnail}}</td>
+          <td>{{> project}}</td>
+        </tr>
+      </table>
+      <hr>
+    </li>
+    {{/each}}
+  </ol>
   {{> footer}}
 </template>
 
@@ -146,14 +163,14 @@
 <template name="idea">
   <div class="grid">
     <h2><a href="/ideas/{{slug}}">{{title}}</a></h2>
-    <h4>{{createdAt}}</h4>
+    <h4 style="color:#000">{{createdAt}}</h4>
   </div>
 </template>
 
 <template name="project">
   <div class="grid">
     <h2><a href="/projects/{{slug}}">{{title}}</a></h2>
-    <h4>{{createdAt}}</h4>
+    <h4 style="color:#000">{{createdAt}}</h4>
   </div>
 </template>
 

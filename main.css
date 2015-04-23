@@ -109,3 +109,14 @@ body {
   padding-left: 30px;
 }
 
+ol {
+  font-style: bold;
+  font-size: 50px;
+  color:#BDC3C7;
+  margin-left: 50px;
+}
+
+li table {
+  vertical-align: middle;
+  display: inline-block;
+}
