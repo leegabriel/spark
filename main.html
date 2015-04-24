@@ -143,9 +143,12 @@
       <input type="text" id="title" name="title" class="form-control"><br><br>
       <h3>Slug:</h3>
       <input type="text" id="slug" name="slug" class="form-control"><br><br>
+      <h3>Banner:</h3>
+      <input type="file" id="banner" name="banner"><br><br> 
       <h3>Description:</h3>
       <textarea id="content" rows="20" cols="80" name="content"></textarea><br><br>
       <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
+      <br>
     </form>
   </div>
   {{> footer}}
@@ -160,9 +163,13 @@
       <input type="text" id="title" name="title" class="form-control"><br><br>
       <h3>Slug:</h3>
       <input type="text" id="slug" name="slug" class="form-control"><br><br>
+      <h3>Banner:</h3>
+      {{> example }}
+      <input type="file" id="banner" name="banner"><br><br>
       <h3>Description:</h3>
       <textarea id="content" rows="20" cols="80" name="content"></textarea><br><br>
       <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
+      <br>
     </form>
   </div>
   {{> footer}}
