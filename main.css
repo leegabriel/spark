@@ -110,8 +110,7 @@ body {
 }
 
 ol {
-  font-style: bold;
-  font-size: 30px;
+  font-size: 20px;
   color:#C9CFD4;
   margin-left: 50px;
 }
@@ -131,4 +130,8 @@ li table {
 
 .fa-chevron-up:visited, .fa-chevron-down:visited {
   color: #7F8C8D;
+}
+
+a img:hover {
+  color: rbga(0,0,0,0.3);
 }

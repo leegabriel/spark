@@ -92,7 +92,7 @@
               </center>
             </ul>
           </td>
-          <td>{{> thumbnail }}</td>
+          <td><a href="/ideas/{{slug}}" target="_top">{{>thumbnail}}</a></td>
           <td>{{> idea}}</td>
         </tr>
       </table>
@@ -123,7 +123,7 @@
               </center>
             </ul>
           </td>
-          <td>{{> thumbnail}}</td>
+          <td><a href="/projects/{{slug}}" target="_top">{{>thumbnail}}</a></td>
           <td>{{> project}}</td>
         </tr>
       </table>
@@ -239,14 +239,14 @@
 
 <template name="thumbnail">
   <div class="grid">
-    <img class="thumbnail" src="http://placekitten.com/g/600/500" width="125" >
+    <img src="http://placekitten.com/g/600/500" width="125" >
   </div>
 </template>
 
 
 <template name="picture">
   <div class="grid">
-    <img class="thumbnail" src="http://placekitten.com/g/600/500" >
+      <img src="http://placekitten.com/g/600/500" >
   </div>
 </template>
 
