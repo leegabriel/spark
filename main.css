@@ -27,26 +27,6 @@
   margin-bottom: 20px;
 }
 
-/* unvisited link */
-a:link {
-  color: #3498db;
-}
-
-/* visited link */
-a:visited {
-  color: #3498db;
-}
-
-/* mouse over link */
-a:hover {
-  color: #3498db;
-}
-
-/* selected link */
-a:active {
-  color: #3498db;
-}
-
 h1 {
   font-size: 50px;
 }
@@ -133,5 +113,26 @@ li table {
 }
 
 a img:hover {
-  color: rbga(0,0,0,0.3);
+  opacity: 0.8;
 }
+
+/* unvisited link */
+a:link {
+  color: #3498db;
+}
+
+/* visited link */
+a:visited {
+  color: #3498db;
+}
+
+/* mouse over link */
+a:hover {
+  text-decoration: none;
+}
+
+/* selected link */
+a:active {
+  color: #3498db;
+}
+
