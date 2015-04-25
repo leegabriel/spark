@@ -10,5 +10,5 @@ momentjs:moment
 accounts-password
 accounts-ui
 mizzao:bootboxjs
-cfs:standard-packages
-cfs:gridfs
+tomi:upload-server
+tomi:upload-jquery
