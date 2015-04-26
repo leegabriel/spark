@@ -1,9 +1,9 @@
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link href='http://fonts.googleapis.com/css?family=Rosario' rel='stylesheet' type='text/css'>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Rosario' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <title>Spark - The Innovation Network</title>
   <link rel="icon" sizes="16x16 32x32" href="/favicon.ico?v=2">
 </head>
@@ -103,7 +103,7 @@
 
 <template name="ideasTab">
   {{> nav}}
-    
+
   <form action="/newidea" id="form">
     <input id="submit" type="submit" value="New Idea" class="btn btn-block btn-lg btn-primary">
   </form>
@@ -166,41 +166,47 @@
 
 <template name="newIdea">
   {{>nav}}
-  <div class="grid">
-    <h1 class="form-title">New Idea</h1>
-    <form class="addIdeaForm" id="form">
-      <h2>Title:</h2>
-      <input type="text" id="title" name="title" class="form-control"><br><br>
-      <h2>Slug:</h2>
-      <input type="text" id="slug" name="slug" class="form-control"><br><br>
-      <h2>Banner:</h2>
-      <input type="file" id="banner" name="banner"><br><br> 
-      <h2>Description:</h2>
-      <textarea id="content" rows="20" cols="80" name="content"></textarea><br><br>
-      <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
-      <br>
-    </form>
-  </div>
+
+    <div class="grid">
+      <form class="addIdeaForm" id="form">
+        <label>Title</label>
+        <input type="text" id="title" name="title" class="form-control"><br>
+        <label>Description</label>
+        <input type="text" id="content" name="content" class="form-control"><br>
+        <label>Slug</label>
+        <input type="text" id="slug" name="slug" class="form-control"><br>
+        <label>Banner</label>
+        <input type="file" id="banner" name="banner"><br>
+        <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary"><br>
+      </form>
+    </div>
+
+  <script>
+  document.title = "Create a New Idea"
+  </script>
   {{> footer}}
 </template>
 
 <template name="newProject">
-  {{>nav}}  
-  <div class="grid">
-    <h1 class="form-title">New Project</h1>
-    <form class="addProjectForm" id="form" >
-      <h2>Title:</h2>
-      <input type="text" id="title" name="title" class="form-control"><br><br>
-      <h2>Slug:</h2>
-      <input type="text" id="slug" name="slug" class="form-control"><br><br>
-      <h2>Banner:</h2>
-      <input type="file" id="banner" name="banner"><br><br>
-      <h2>Description:</h2>
-      <textarea id="content" rows="20" cols="80" name="content"></textarea><br><br>
-      <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
-      <br>
-    </form>
-  </div>
+  {{>nav}}
+  
+    <div class="grid">
+      <form class="addProjectForm" id="form">
+        <label>Title</label>
+        <input type="text" id="title" name="title" class="form-control"><br>
+        <label>Description</label>
+        <input type="text" id="content" name="content" class="form-control"><br>
+        <label>Slug</label>
+        <input type="text" id="slug" name="slug" class="form-control"><br>
+        <label>Banner</label>
+        <input type="file" id="banner" name="banner"><br>
+        <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary"><br>
+      </form>
+    </div>
+
+  <script>
+  document.title = "Create a New Project"
+  </script>
   {{> footer}}
 </template>
 
@@ -302,7 +308,7 @@
 
 <template name="picture">
   <div class="grid">
-      <img src="http://placekitten.com/g/600/500" >
+    <img src="http://placekitten.com/g/600/500" >
   </div>
 </template>
 
