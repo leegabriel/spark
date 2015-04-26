@@ -1,7 +1,7 @@
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link href='http://fonts.googleapis.com/css?family=Rosario' rel='stylesheet' type='text/css'>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <title>Spark - The Innovation Network</title>
@@ -26,7 +26,7 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="{{pathFor 'ideas'}}" target="_top">Ideas <span class="sr-only">(current)</span></a></li>
+          <li><a href="{{pathFor 'ideas'}}" target="_top">Ideas</a></li>
           <li><a href="{{pathFor 'projects'}}" target="_top">Projects</a></li>
           <li class="dropdown">
             <a href="#" target="_top" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
@@ -41,14 +41,14 @@
         </ul>
         <form class="navbar-form navbar-left" role="search">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
+            <input type="text" class="form-control" placeholder="Search for Ideas/Projects">
           </div>
-          <button type="submit" style="height:30px"><i class="fa fa-search"></i></button>
+          <button type="submit" class="btn btn-default" style="width:65px"><i class="fa fa-search"></i></button>
         </form>
         <ul class="nav navbar-nav navbar-right">
           <div class="bs-example">
             <!--  HTML (to Trigger Modal) -->
-            <a href="#myModal" data-toggle="modal">Login</a>
+            <button href="#myModal" data-toggle="modal" class="btn btn-default">Login</button>
 
             <!-- Modal HTML -->
             <div id="myModal" class="modal fade">
@@ -60,6 +60,12 @@
                   </div>
                   <div class="modal-body">
                     {{>loginButtons}}
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -79,7 +85,7 @@
     <div class="copyright">
       <table>
         <tr>
-          <td id="space">&copy;2015 Spark  </td>
+          <td id="space">&copy; 2015 Spark  </td>
           <td id="space"><a href="#" target="_top">Terms of Service  </a></td>
           <td id="space"><a href="#" target="_top">Privacy Policy  </a></td>
           <td id="space"><a href="#" target="_top">Developers  </a></td>
@@ -101,7 +107,7 @@
   <form action="/newidea" id="form">
     <input id="submit" type="submit" value="New Idea" class="btn btn-block btn-lg btn-primary">
   </form>
-  <hr>
+  <hr id="hr">
   <ol>
     {{#each ideas}}
     <li>
@@ -110,9 +116,9 @@
           <td>
             <ul>
               <center>
-                <li style="font-size:30px; color:#BDC3C7; padding-right: 30px; list-style:none"><i class="fa fa-chevron-up"></i></li>
-                <li style="font-size:30px; color:#BDC3C7; padding-right: 30px; list-style:none">2342</li>
-                <li style="font-size:30px; color:#BDC3C7; padding-right: 30px; list-style:none"><i class="fa fa-chevron-down"></i></li>
+                <li style="font-size:25px; color:#BDC3C7; padding-right: 20px; list-style:none"><i class="fa fa-chevron-up"></i></li>
+                <li style="font-size:25px; color:#BDC3C7; padding-right: 20px; list-style:none">2342</li>
+                <li style="font-size:25px; color:#BDC3C7; padding-right: 20px; list-style:none"><i class="fa fa-chevron-down"></i></li>
               </center>
             </ul>
           </td>
@@ -120,7 +126,7 @@
           <td>{{> idea}}</td>
         </tr>
       </table>
-      <hr>
+      <hr id="hr">
     </li>
     {{/each}}
   </ol>
@@ -132,7 +138,7 @@
   <form action="/newproject" id="form">
     <input id="submit" type="submit" value="New Project" class="btn btn-block btn-lg btn-primary">
   </form>
-  <hr>
+  <hr id="hr">
   <ol>
     {{#each projects}}
     <li>
@@ -141,9 +147,9 @@
           <td>
             <ul>
               <center>
-                <li style="font-size:30px; color:#BDC3C7; padding-right: 30px; list-style:none"><i class="fa fa-chevron-up"></i></li>
-                <li style="font-size:30px; color:#BDC3C7; padding-right: 30px; list-style:none">2342</li>
-                <li style="font-size:30px; color:#BDC3C7; padding-right: 30px; list-style:none"><i class="fa fa-chevron-down"></i></li>
+                <li style="font-size:25px; color:#BDC3C7; padding-right: 20px; list-style:none"><i class="fa fa-chevron-up"></i></li>
+                <li style="font-size:25px; color:#BDC3C7; padding-right: 20px; list-style:none">2342</li>
+                <li style="font-size:25px; color:#BDC3C7; padding-right: 20px; list-style:none"><i class="fa fa-chevron-down"></i></li>
               </center>
             </ul>
           </td>
@@ -151,7 +157,7 @@
           <td>{{> project}}</td>
         </tr>
       </table>
-      <hr>
+      <hr id="hr">
     </li>
     {{/each}}
   </ol>
@@ -163,13 +169,13 @@
   <div class="grid">
     <h1 class="form-title">New Idea</h1>
     <form class="addIdeaForm" id="form">
-      <h3>Title:</h3>
+      <h2>Title:</h2>
       <input type="text" id="title" name="title" class="form-control"><br><br>
-      <h3>Slug:</h3>
+      <h2>Slug:</h2>
       <input type="text" id="slug" name="slug" class="form-control"><br><br>
-      <h3>Banner:</h3>
+      <h2>Banner:</h2>
       <input type="file" id="banner" name="banner"><br><br> 
-      <h3>Description:</h3>
+      <h2>Description:</h2>
       <textarea id="content" rows="20" cols="80" name="content"></textarea><br><br>
       <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
       <br>
@@ -183,13 +189,13 @@
   <div class="grid">
     <h1 class="form-title">New Project</h1>
     <form class="addProjectForm" id="form" >
-      <h3>Title:</h3>
+      <h2>Title:</h2>
       <input type="text" id="title" name="title" class="form-control"><br><br>
-      <h3>Slug:</h3>
+      <h2>Slug:</h2>
       <input type="text" id="slug" name="slug" class="form-control"><br><br>
-      <h3>Banner:</h3>
+      <h2>Banner:</h2>
       <input type="file" id="banner" name="banner"><br><br>
-      <h3>Description:</h3>
+      <h2>Description:</h2>
       <textarea id="content" rows="20" cols="80" name="content"></textarea><br><br>
       <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
       <br>
@@ -200,15 +206,15 @@
 
 <template name="idea">
   <div class="grid">
-    <h2><a href="/ideas/{{slug}}" target="_top">{{title}}</a></h2>
-    <h4 style="color:#000">{{content}}</h4>
+    <h3><a href="/ideas/{{slug}}" target="_top">{{title}}</a></h3>
+    <h5 style="color:#000">{{content}}</h5>
   </div>
 </template>
 
 <template name="project">
   <div class="grid">
-    <h2><a href="/projects/{{slug}}" target="_top">{{title}}</a></h2>
-    <h4 style="color:#000">{{content}}</h4>
+    <h3><a href="/projects/{{slug}}" target="_top">{{title}}</a></h3>
+    <h5 style="color:#000">{{content}}</h5>
   </div>
 </template>
 
@@ -237,11 +243,11 @@
         <center>{{> picture}}</center>
       </div>
       <div class="col-sm-5">
-        <center><h1>{{title}}</h1></center>
+        <center><h1 class="form-title">{{title}}</h1></center>
         <p>{{content}}</p>
         <hr>
         <h2>Additional information</h2>
-        <p>Created {{createdAt}}</p>
+        <em>Created {{createdAt}}</em>
       </div>
     </div>
   </div>
@@ -267,11 +273,11 @@
         <center>{{> picture}}</center>
       </div>
       <div class="col-sm-5">
-        <center><h1>{{title}}</h1></center>
+        <center><h1 class="form-title">{{title}}</h1></center>
         <p>{{content}}</p>
         <hr>
         <h2>Additional information</h2>
-        <p>Created {{createdAt}}</p>
+        <em>Created {{createdAt}}</em>
       </div>
     </div>
   </div>
@@ -289,7 +295,7 @@
 
 <template name="thumbnail">
   <div class="grid">
-    <img src="http://placekitten.com/g/600/500" width="125" >
+    <img src="http://placekitten.com/g/600/500" width="100" >
   </div>
 </template>
 

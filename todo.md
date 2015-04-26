@@ -18,6 +18,7 @@ Ideas from meetings:
 
 Important: 
 <ul>
+	<li>Pagination>/li>
 	<li>Sorting by popularity, newest</li>
 	<li>Categories based on tags</li>
 	<li>Vote counting mechanism</li>
