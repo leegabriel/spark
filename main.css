@@ -41,12 +41,8 @@ h1 {
   width: 400px;
 }
 
-hr {
-  margin: 0px !important;
-}
-
 #hr {
-  margin:0px;
+  margin: 0px !important;
 }
 
 .thumbnail {

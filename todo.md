@@ -23,11 +23,11 @@ Important:
 	<li>Vote counting mechanism</li>
 	<li>Profile page, Authentication/Authorization</li>
 	<li>CRUD tasks</li>
-	<li>Need good format for displaying funding, votes, details (check out Google Play Store, Kickstarter, Reddit)</li>
+	<li>Need good format for displaying funding, votes, details (check out Google Play Store, Kickstarter, Reddit, deviartART)</li>
 	<li>Comments (maybe Atmosphere has some packages)</li>
-	<li>Modals Modals Modals.</li>
+	<strike>Modals Modals Modals.</strike>
 	<li>Search Engine</li>
-	<li>Pictures should be links. Duh.</li>
+	<strike>Pictures should be links. Duh.</strike>
 </ul>
 
 

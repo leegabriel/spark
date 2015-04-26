@@ -43,10 +43,31 @@
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Search">
           </div>
-          <button type="submit"><i class="fa fa-search"></i></button>
+          <button type="submit" style="height:30px"><i class="fa fa-search"></i></button>
         </form>
         <ul class="nav navbar-nav navbar-right">
-          <li class="navbar-text">{{> loginButtons align="right"}}</li>
+          <div class="bs-example">
+            <!--  HTML (to Trigger Modal) -->
+            <a href="#myModal" data-toggle="modal">Login</a>
+
+            <!-- Modal HTML -->
+            <div id="myModal" class="modal fade">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h1 class="modal-title">Login</h1>
+                  </div>
+                  <div class="modal-body">
+                    {{>loginButtons}}
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -76,30 +97,7 @@
 
 <template name="ideasTab">
   {{> nav}}
-<div class="bs-example">
-    <!-- Button HTML (to Trigger Modal) -->
-    <a href="#myModal" class="btn btn-lg btn-primary" data-toggle="modal">Launch Demo Modal</a>
     
-    <!-- Modal HTML -->
-    <div id="myModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Confirmation</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Do you want to save changes you made to document before closing?</p>
-                    <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>    
   <form action="/newidea" id="form">
     <input id="submit" type="submit" value="New Idea" class="btn btn-block btn-lg btn-primary">
   </form>
@@ -203,14 +201,14 @@
 <template name="idea">
   <div class="grid">
     <h2><a href="/ideas/{{slug}}" target="_top">{{title}}</a></h2>
-    <h4 style="color:#000">{{createdAt}}</h4>
+    <h4 style="color:#000">{{content}}</h4>
   </div>
 </template>
 
 <template name="project">
   <div class="grid">
     <h2><a href="/projects/{{slug}}" target="_top">{{title}}</a></h2>
-    <h4 style="color:#000">{{createdAt}}</h4>
+    <h4 style="color:#000">{{content}}</h4>
   </div>
 </template>
 
@@ -230,37 +228,63 @@
 </template>
 
 <template name="ideaView">
-  {{> nav}} 
-  <center><h1>{{title}}</h1></center>
-  <center>{{> picture}}</center>
+  {{> nav}}
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-7">  
+        <center>{{> picture}}</center>
+      </div>
+      <div class="col-sm-5">
+        <center><h1>{{title}}</h1></center>
+        <p>{{content}}</p>
+        <hr>
+        <h2>Additional information</h2>
+        <p>Created {{createdAt}}</p>
+      </div>
+    </div>
+  </div>
+
+
   <div class="grid">
-   <h4>{{createdAt}}</h4>
-   <hr>
-   <h2>Description</h2>
-   <p>{{content}}</p>
-   <hr>
-   <h2>Additional information</h2>
- </div>
- <hr>
- {{> comments}}
- {{> footer}}
+    <hr>
+    <h2>Comments:</h2>
+    {{> comments}}
+    {{> footer}}
+  </div>
+  
+
 </template>
 
 <template name="projectView">
   {{> nav}}
-  <center><h1>{{title}}</h1></center>
-  <center>{{> picture}}</center>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-7">  
+        <center>{{> picture}}</center>
+      </div>
+      <div class="col-sm-5">
+        <center><h1>{{title}}</h1></center>
+        <p>{{content}}</p>
+        <hr>
+        <h2>Additional information</h2>
+        <p>Created {{createdAt}}</p>
+      </div>
+    </div>
+  </div>
+
+
   <div class="grid">
-   <h4>{{createdAt}}</h4>
-   <hr>
-   <h2>Description</h2>
-   <p>{{content}}</p>
-   <hr>
-   <h2>Additional information</h2>
- </div>
- <hr>
- {{> comments}}
- {{> footer}}
+    <hr>
+    <h2>Comments:</h2>
+    {{> comments}}
+    {{> footer}}
+  </div>
+  
+  
 </template>
 
 <template name="thumbnail">

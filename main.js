@@ -60,7 +60,7 @@ Meteor.methods({
       title: title,
       slug: slug,
       content: content,
-      createdAt: moment().format("dddd D MMMM YYYY")
+      createdAt: moment().format("MMMM D, YYYY")
     });
   },
   addProject: function (title, slug, content) {
@@ -68,7 +68,7 @@ Meteor.methods({
       title: title,
       slug: slug,
       content: content,
-      createdAt: moment().format("dddd D MMMM YYYY")
+      createdAt: moment().format("MMMM D, YYYY")
     });
   }
 });
