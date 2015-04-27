@@ -33,7 +33,8 @@
             </div>
             <!-- <button type="submit" class="btn btn-default" style="width:65px"><i class="fa fa-search"></i></button> -->
           </form>
-                    <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav">
+
             <li><a href="{{pathFor 'ideas'}}" target="_top">Ideas</a></li>
             <li><a href="{{pathFor 'projects'}}" target="_top">Projects</a></li>
             <li class="dropdown">
@@ -49,16 +50,17 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-              <a href="#" target="_top" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-plus"></i> <span class="caret"></span></a>
+              <a href="#" target="_top" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-plus" style="font-size: 15px"></i></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="/newidea" target="_top">New Idea</a></li>
                 <li><a href="/newproject" target="_top">New Project</a></li>
               </ul>
             </li>
+            <li><a href="#" target="_top"><i class="fa fa-gear" style="font-size: 15px"></i></a></li>
             <li>
               <div class="bs-example">
                 <!--  HTML (to Trigger Modal) -->
-                <button href="#myModal" data-toggle="modal" class="btn btn-default" style="margin-top:7.5px">Login</button>
+                <button href="#myModal" data-toggle="modal" class="btn btn-default" style="margin-top:7.5px; margin-right:15px">Login</button>
                 <!-- Modal HTML -->
                 <div id="myModal" class="modal fade">
                   <div class="modal-dialog">
@@ -120,6 +122,8 @@
 <template name="ideasTab">
   {{> nav}}
   <div class="delta">
+    <h1 id="space">Ideas</h1>
+    <hr>
     <ol>
       {{#each ideas}}
       <li>
@@ -150,6 +154,8 @@
 <template name="projectsTab">
   {{> nav}}
   <div class="delta">
+    <h1 id="space">Projects</h1>
+    <hr>
     <ol>
       {{#each projects}}
       <li>
@@ -180,6 +186,8 @@
 <template name="newIdea">
   {{>nav}}
   <div class="alpha">
+    <h1>Create a New Idea</h1>
+    <hr>
     <form class="addIdeaForm" id="form">
       <label>Title</label>
       <input type="text" id="title" name="title" class="form-control"><br>
@@ -187,6 +195,7 @@
       <input type="text" id="slug" name="slug" class="form-control"><br>
       <label>Description</label>
       <input type="text" id="content" name="content" class="form-control"><br>
+      <hr>
       <label>Banner</label>
       <input type="file" id="banner" name="banner"><br>
       <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary"><br>
@@ -202,13 +211,16 @@
 <template name="newProject">
   {{>nav}}
   <div class="alpha">
+    <h1>Create a New Project</h1>
+    <hr>
     <form class="addProjectForm" id="form">
       <label>Title</label>
       <input type="text" id="title" name="title" class="form-control"><br>
       <label>Slug</label>
       <input type="text" id="slug" name="slug" class="form-control"><br>
       <label>Description</label>
-      <input type="text" id="content" name="content" class="form-control"><br>
+      <textarea class="form-control" rows="3"></textarea><br>
+      <hr>
       <label>Banner</label>
       <input type="file" id="banner" name="banner"><br>
       <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary"><br>
@@ -360,7 +372,7 @@
     <h1>About Spark</h1>
     <p>
       Spark is a web app built for developers, by developers. It is the holy mecca for those who have good ideas but no skills, or those who have good skills but no ideas. If you think you're one of these people, Spark is for you. </p>
-    </div>
-    <br>
-    {{> footer}}
-  </template>
+  </div>
+  <br>
+  {{> footer}}
+</template>
