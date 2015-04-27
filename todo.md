@@ -31,6 +31,10 @@ Important:
 	<strike>Pictures should be links. Duh.</strike>
 </ul>
 
-
+Other:
+<ul>
+	<li>Convert "new" to modal<li>
+	<li>Change login to a link to a page to be turned into a modal (is it possible?)</li>
+</ul>
 
 
