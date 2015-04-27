@@ -56,7 +56,7 @@
                 <li><a href="/newproject" target="_top">New Project</a></li>
               </ul>
             </li>
-            <li><a href="#" target="_top"><i class="fa fa-gear" style="font-size: 15px"></i></a></li>
+            <li><a href="#" target="_top"><i class="fa fa-cog" style="font-size: 15px"></i></a></li>
             <li>
               <div class="bs-example">
                 <!--  HTML (to Trigger Modal) -->
@@ -133,7 +133,7 @@
               <ul>
                 <center>
                   <li style="font-size:25px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-up"></i></li>
-                  <li style="font-size:25px; color:#BDC3C7; margin-right: 20px; list-style:none">2342</li>
+                  <li style="font-size:25px; color:#BDC3C7; margin-right: 20px; list-style:none">{{count}}</li>
                   <li style="font-size:25px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-down"></i></li>
                 </center>
               </ul>
@@ -165,7 +165,7 @@
               <ul>
                 <center>
                   <li style="font-size:25px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-up"></i></li>
-                  <li style="font-size:25px; color:#BDC3C7; margin-right: 20px; list-style:none">2342</li>
+                  <li style="font-size:25px; color:#BDC3C7; margin-right: 20px; list-style:none">{{count}}</li>
                   <li style="font-size:25px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-down"></i></li>
                 </center>
               </ul>
@@ -265,22 +265,25 @@
   <div class="container">
     <div class="delta">
       <div class="row">
-        <div class="col-sm-7">  
-          <center>{{> picture}}</center>
-        </div>
-        <div class="col-sm-5">
-          <center><h1>{{title}}</h1></center>
+        <div class="col-sm-9"> 
+          <h1>{{title}}</h1>
+          {{content}}
           <hr>
-          <p>{{content}}</p>
+          {{> picture}}
           <hr>
           <h2>Additional information</h2>
-          <em>Created {{createdAt}}</em>
+          <em>Created on {{createdAt}}</em>
+          <hr>
+          <h2>Comments:</h2>
+          {{> comments}}
+        </div>
+        <div class="col-sm-3">
+          <h3>Similar Ideas</h3>
+          <br>
+          <h3>Similar Projects</h3>
         </div>
       </div>
     </div>
-    <hr>
-    <h2>Comments:</h2>
-    {{> comments}}
   </div>
   {{> footer}}
 </template>
@@ -291,22 +294,25 @@
   <div class="container">
     <div class="delta">
       <div class="row">
-        <div class="col-sm-7">  
-          <center>{{> picture}}</center>
-        </div>
-        <div class="col-sm-5">
-          <center><h1>{{title}}</h1></center>
+        <div class="col-sm-9"> 
+          <h1>{{title}}</h1>
+          {{content}}
           <hr>
-          <p>{{content}}</p>
+          {{> picture}}
           <hr>
           <h2>Additional information</h2>
-          <em>Created {{createdAt}}</em>
+          <em>Created on {{createdAt}}</em>
+          <hr>
+          <h2>Comments:</h2>
+          {{> comments}}
+        </div>
+        <div class="col-sm-3">
+          <h3>Similar Ideas</h3>
+          <br>
+          <h3>Similar Projects</h3>
         </div>
       </div>
     </div>
-    <hr>
-    <h2>Comments:</h2>
-    {{> comments}}
   </div>
   {{> footer}}
 </template>
@@ -326,9 +332,10 @@
   {{> nav}}
   <div class="alpha">
     <h1>Terms of Service</h1>
+    <hr>
     <p>Whoa, whoa, what are you doing? Nobody ever reads Terms of Service. Nobody. Ever.</p> 
   </div>
-  <br>
+  <hr>
   {{> footer}}
 </template>
 
@@ -337,9 +344,10 @@
   {{> nav}}
   <div class="alpha">
     <h1>Privacy Policy</h1>
+    <hr>
     <p>We take your privacy very seriously. Your password is encrypted as it is stored in our database. We cannot read it. Seriously, it looks like gibberish. </p>
   </div>
-  <br>
+  <hr>
   {{> footer}}
 </template>
 
@@ -348,9 +356,10 @@
   {{> nav}}
   <div class="alpha">
     <h1>Developers</h1>
+    <hr>
     <p>If you are an aspiring developer, Spark is the web app for you. Ideas runneth in the website's veins.</p>
   </div>
-  <br> 
+  <hr> 
   {{> footer}}
 </template>
 
@@ -359,9 +368,10 @@
   {{> nav}}
   <div class="alpha">
     <h1>Artists</h1>
+    <hr>
     <p>We at Spark love visuals. So we need artists to make the ideas and projects very pretty. </p>
   </div>
-  <br> 
+  <hr> 
   {{> footer}}
 </template>
 
@@ -370,9 +380,10 @@
   {{> nav}}
   <div class="alpha">
     <h1>About Spark</h1>
+    <hr>
     <p>
       Spark is a web app built for developers, by developers. It is the holy mecca for those who have good ideas but no skills, or those who have good skills but no ideas. If you think you're one of these people, Spark is for you. </p>
   </div>
-  <br>
+  <hr>
   {{> footer}}
 </template>

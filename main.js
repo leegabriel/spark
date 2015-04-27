@@ -57,6 +57,7 @@ if (Meteor.isClient) {
 Meteor.methods({
   addIdea: function (title, slug, content) {
     Ideas.insert({
+      count: 0,
       title: title,
       slug: slug,
       content: content,
@@ -65,6 +66,7 @@ Meteor.methods({
   },
   addProject: function (title, slug, content) {
     Projects.insert({
+      count: 0,
       title: title,
       slug: slug,
       content: content,
