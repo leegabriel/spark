@@ -8,6 +8,10 @@
   max-width: 1000px;
 }
 
+#title, #slug {
+  width: 300px;
+}
+
 #content{
   width: 600px !important; /*must match width of container (alpha)*/
 }

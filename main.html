@@ -26,7 +26,14 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
+
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search Spark" style="width:300px">
+            </div>
+            <!-- <button type="submit" class="btn btn-default" style="width:65px"><i class="fa fa-search"></i></button> -->
+          </form>
+                    <ul class="nav navbar-nav">
             <li><a href="{{pathFor 'ideas'}}" target="_top">Ideas</a></li>
             <li><a href="{{pathFor 'projects'}}" target="_top">Projects</a></li>
             <li class="dropdown">
@@ -40,12 +47,6 @@
               </ul>
             </li>
           </ul>
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search for Ideas/Projects">
-            </div>
-            <button type="submit" class="btn btn-default" style="width:65px"><i class="fa fa-search"></i></button>
-          </form>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a href="#" target="_top" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-plus"></i> <span class="caret"></span></a>
@@ -57,7 +58,7 @@
             <li>
               <div class="bs-example">
                 <!--  HTML (to Trigger Modal) -->
-                <button href="#myModal" data-toggle="modal" class="btn btn-default">Login</button>
+                <button href="#myModal" data-toggle="modal" class="btn btn-default" style="margin-top:7.5px">Login</button>
                 <!-- Modal HTML -->
                 <div id="myModal" class="modal fade">
                   <div class="modal-dialog">
@@ -257,6 +258,7 @@
         </div>
         <div class="col-sm-5">
           <center><h1>{{title}}</h1></center>
+          <hr>
           <p>{{content}}</p>
           <hr>
           <h2>Additional information</h2>
@@ -282,6 +284,7 @@
         </div>
         <div class="col-sm-5">
           <center><h1>{{title}}</h1></center>
+          <hr>
           <p>{{content}}</p>
           <hr>
           <h2>Additional information</h2>
@@ -309,50 +312,55 @@
 
 <template name="tos">
   {{> nav}}
-  <div class="delta">
+  <div class="alpha">
     <h1>Terms of Service</h1>
     <p>Whoa, whoa, what are you doing? Nobody ever reads Terms of Service. Nobody. Ever.</p> 
   </div>
+  <br>
   {{> footer}}
 </template>
 
 
 <template name="privacy">
   {{> nav}}
-  <div class="delta">
+  <div class="alpha">
     <h1>Privacy Policy</h1>
     <p>We take your privacy very seriously. Your password is encrypted as it is stored in our database. We cannot read it. Seriously, it looks like gibberish. </p>
   </div>
+  <br>
   {{> footer}}
 </template>
 
 
 <template name="developers">
   {{> nav}}
-  <div class="delta">
+  <div class="alpha">
     <h1>Developers</h1>
     <p>If you are an aspiring developer, Spark is the web app for you. Ideas runneth in the website's veins.</p>
-  </div> 
+  </div>
+  <br> 
   {{> footer}}
 </template>
 
 
 <template name="artists">
   {{> nav}}
-  <div class="delta">
+  <div class="alpha">
     <h1>Artists</h1>
-    <p>We at Spark love visuals. So we need artists to make the site very pretty. </p>
-  </div> 
+    <p>We at Spark love visuals. So we need artists to make the ideas and projects very pretty. </p>
+  </div>
+  <br> 
   {{> footer}}
 </template>
 
 
 <template name="about">
   {{> nav}}
-  <div class="delta">
+  <div class="alpha">
     <h1>About Spark</h1>
     <p>
       Spark is a web app built for developers, by developers. It is the holy mecca for those who have good ideas but no skills, or those who have good skills but no ideas. If you think you're one of these people, Spark is for you. </p>
     </div>
+    <br>
     {{> footer}}
   </template>
