@@ -1,227 +1,234 @@
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link href='http://fonts.googleapis.com/css?family=Rosario' rel='stylesheet' type='text/css'>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-  <title>Spark - The Innovation Network</title>
+  <title>Spark</title>
   <link rel="icon" sizes="16x16 32x32" href="/favicon.ico?v=2">
 </head>
 
+
 <template name="nav">
-
   <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/" target="_top">Spark</a>
-      </div>
+    <div class="delta">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/" target="_top">Spark</a>
+        </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li><a href="{{pathFor 'ideas'}}" target="_top">Ideas</a></li>
-          <li><a href="{{pathFor 'projects'}}" target="_top">Projects</a></li>
-          <li class="dropdown">
-            <a href="#" target="_top" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#" target="_top">Top</a></li>
-              <li><a href="#" target="_top">Rising</a></li>
-              <li><a href="#" target="_top">Funny</a></li>
-              <li class="divider"></li>
-              <li><a href="#">All Categories</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form class="navbar-form navbar-left" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search for Ideas/Projects">
-          </div>
-          <button type="submit" class="btn btn-default" style="width:65px"><i class="fa fa-search"></i></button>
-        </form>
-        <ul class="nav navbar-nav navbar-right">
-          <div class="bs-example">
-            <!--  HTML (to Trigger Modal) -->
-            <button href="#myModal" data-toggle="modal" class="btn btn-default">Login</button>
-
-            <!-- Modal HTML -->
-            <div id="myModal" class="modal fade">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h1 class="modal-title">Login</h1>
-                  </div>
-                  <div class="modal-body">
-                    {{>loginButtons}}
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="{{pathFor 'ideas'}}" target="_top">Ideas</a></li>
+            <li><a href="{{pathFor 'projects'}}" target="_top">Projects</a></li>
+            <li class="dropdown">
+              <a href="#" target="_top" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#" target="_top">Top</a></li>
+                <li><a href="#" target="_top">Rising</a></li>
+                <li><a href="#" target="_top">Funny</a></li>
+                <li class="divider"></li>
+                <li><a href="#">All Categories</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search for Ideas/Projects">
+            </div>
+            <button type="submit" class="btn btn-default" style="width:65px"><i class="fa fa-search"></i></button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" target="_top" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-plus"></i> <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/newidea" target="_top">New Idea</a></li>
+                <li><a href="/newproject" target="_top">New Project</a></li>
+              </ul>
+            </li>
+            <li>
+              <div class="bs-example">
+                <!--  HTML (to Trigger Modal) -->
+                <button href="#myModal" data-toggle="modal" class="btn btn-default">Login</button>
+                <!-- Modal HTML -->
+                <div id="myModal" class="modal fade">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h1>Login</h1>
+                      </div>
+                      <div class="modal-body">
+                        {{>loginButtons}}
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </div><!-- /.delta -->
   </nav>
 </template>
+
 
 <template name="footer">
   <div id="footer">
     <div class="copyright">
-      <table>
-        <tr>
-          <td id="space">&copy; 2015 Spark  </td>
-          <td id="space"><a href="#" target="_top">Terms of Service  </a></td>
-          <td id="space"><a href="#" target="_top">Privacy Policy  </a></td>
-          <td id="space"><a href="#" target="_top">Developers  </a></td>
-          <td id="space"><a href="#" target="_top">Artists </a></td>
-          <td id="space"><a href="#" target="_top">About Spark </a></td>
-        </tr>
-      </table> 
+      <div class="delta">
+        <table>
+          <tr>
+            <td id="space">&copy; 2015 Spark  </td>
+            <td id="space"><a href="/tos" target="_top">Terms of Service  </a></td>
+            <td id="space"><a href="/privacy" target="_top">Privacy Policy  </a></td>
+            <td id="space"><a href="/developers" target="_top">Developers  </a></td>
+            <td id="space"><a href="/artists" target="_top">Artists </a></td>
+            <td id="space"><a href="/about" target="_top">About Spark </a></td>
+          </tr>
+        </table> 
+      </div>
     </div>
   </div>
 </template>
+
 
 <template name="home">
   {{> ideasTab}}
 </template>
 
+
 <template name="ideasTab">
   {{> nav}}
-
-  <form action="/newidea" id="form">
-    <input id="submit" type="submit" value="New Idea" class="btn btn-block btn-lg btn-primary">
-  </form>
-  <hr id="hr">
-  <ol>
-    {{#each ideas}}
-    <li>
-      <table>
-        <tr>
-          <td>
-            <ul>
-              <center>
-                <li style="font-size:25px; color:#BDC3C7; padding-right: 20px; list-style:none"><i class="fa fa-chevron-up"></i></li>
-                <li style="font-size:25px; color:#BDC3C7; padding-right: 20px; list-style:none">2342</li>
-                <li style="font-size:25px; color:#BDC3C7; padding-right: 20px; list-style:none"><i class="fa fa-chevron-down"></i></li>
-              </center>
-            </ul>
-          </td>
-          <td><a href="/ideas/{{slug}}" target="_top">{{>thumbnail}}</a></td>
-          <td>{{> idea}}</td>
-        </tr>
-      </table>
-      <hr id="hr">
-    </li>
-    {{/each}}
-  </ol>
+  <div class="delta">
+    <ol>
+      {{#each ideas}}
+      <li>
+        <table>
+          <tr>
+            <td>
+              <ul>
+                <center>
+                  <li style="font-size:25px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-up"></i></li>
+                  <li style="font-size:25px; color:#BDC3C7; margin-right: 20px; list-style:none">2342</li>
+                  <li style="font-size:25px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-down"></i></li>
+                </center>
+              </ul>
+            </td>
+            <td><a href="/ideas/{{slug}}" target="_top" style="margin-right: 20px">{{>thumbnail}}</a></td>
+            <td>{{> idea}}</td>
+          </tr>
+        </table>
+        <hr>
+      </li>
+      {{/each}}
+    </ol>
+  </div>
   {{> footer}}
 </template>
+
 
 <template name="projectsTab">
   {{> nav}}
-  <form action="/newproject" id="form">
-    <input id="submit" type="submit" value="New Project" class="btn btn-block btn-lg btn-primary">
-  </form>
-  <hr id="hr">
-  <ol>
-    {{#each projects}}
-    <li>
-      <table>
-        <tr>
-          <td>
-            <ul>
-              <center>
-                <li style="font-size:25px; color:#BDC3C7; padding-right: 20px; list-style:none"><i class="fa fa-chevron-up"></i></li>
-                <li style="font-size:25px; color:#BDC3C7; padding-right: 20px; list-style:none">2342</li>
-                <li style="font-size:25px; color:#BDC3C7; padding-right: 20px; list-style:none"><i class="fa fa-chevron-down"></i></li>
-              </center>
-            </ul>
-          </td>
-          <td><a href="/projects/{{slug}}" target="_top">{{>thumbnail}}</a></td>
-          <td>{{> project}}</td>
-        </tr>
-      </table>
-      <hr id="hr">
-    </li>
-    {{/each}}
-  </ol>
+  <div class="delta">
+    <ol>
+      {{#each projects}}
+      <li>
+        <table>
+          <tr>
+            <td>
+              <ul>
+                <center>
+                  <li style="font-size:25px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-up"></i></li>
+                  <li style="font-size:25px; color:#BDC3C7; margin-right: 20px; list-style:none">2342</li>
+                  <li style="font-size:25px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-down"></i></li>
+                </center>
+              </ul>
+            </td>
+            <td><a href="/projects/{{slug}}" target="_top" style="margin-right: 20px">{{>thumbnail}}</a></td>
+            <td>{{> project}}</td>
+          </tr>
+        </table>
+        <hr>
+      </li>
+      {{/each}}
+    </ol>
+  </div>
   {{> footer}}
 </template>
 
+
 <template name="newIdea">
   {{>nav}}
-
-    <div class="grid">
-      <form class="addIdeaForm" id="form">
-        <label>Title</label>
-        <input type="text" id="title" name="title" class="form-control"><br>
-        <label>Description</label>
-        <input type="text" id="content" name="content" class="form-control"><br>
-        <label>Slug</label>
-        <input type="text" id="slug" name="slug" class="form-control"><br>
-        <label>Banner</label>
-        <input type="file" id="banner" name="banner"><br>
-        <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary"><br>
-      </form>
-    </div>
-
+  <div class="alpha">
+    <form class="addIdeaForm" id="form">
+      <label>Title</label>
+      <input type="text" id="title" name="title" class="form-control"><br>
+      <label>Slug</label>
+      <input type="text" id="slug" name="slug" class="form-control"><br>
+      <label>Description</label>
+      <input type="text" id="content" name="content" class="form-control"><br>
+      <label>Banner</label>
+      <input type="file" id="banner" name="banner"><br>
+      <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary"><br>
+    </form>
+  </div>
   <script>
   document.title = "Create a New Idea"
   </script>
   {{> footer}}
 </template>
 
+
 <template name="newProject">
   {{>nav}}
-  
-    <div class="grid">
-      <form class="addProjectForm" id="form">
-        <label>Title</label>
-        <input type="text" id="title" name="title" class="form-control"><br>
-        <label>Description</label>
-        <input type="text" id="content" name="content" class="form-control"><br>
-        <label>Slug</label>
-        <input type="text" id="slug" name="slug" class="form-control"><br>
-        <label>Banner</label>
-        <input type="file" id="banner" name="banner"><br>
-        <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary"><br>
-      </form>
-    </div>
-
+  <div class="alpha">
+    <form class="addProjectForm" id="form">
+      <label>Title</label>
+      <input type="text" id="title" name="title" class="form-control"><br>
+      <label>Slug</label>
+      <input type="text" id="slug" name="slug" class="form-control"><br>
+      <label>Description</label>
+      <input type="text" id="content" name="content" class="form-control"><br>
+      <label>Banner</label>
+      <input type="file" id="banner" name="banner"><br>
+      <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary"><br>
+    </form>
+  </div>
   <script>
   document.title = "Create a New Project"
   </script>
   {{> footer}}
 </template>
 
+
 <template name="idea">
-  <div class="grid">
-    <h3><a href="/ideas/{{slug}}" target="_top">{{title}}</a></h3>
-    <h5 style="color:#7F8C8D">{{content}}</h5>
-  </div>
+  <h3><a href="/ideas/{{slug}}" target="_top">{{title}}</a></h3>
+  <h5 style="color:#7F8C8D">{{content}}</h5>
 </template>
 
+
 <template name="project">
-  <div class="grid">
-    <h3><a href="/projects/{{slug}}" target="_top">{{title}}</a></h3>
-    <h5 style="color:#7F8C8D">{{content}}</h5>
-  </div>
+  <h3><a href="/projects/{{slug}}" target="_top">{{title}}</a></h3>
+  <h5 style="color:#7F8C8D">{{content}}</h5>
 </template>
 
 
@@ -239,76 +246,113 @@
   </table>
 </template>
 
+
 <template name="ideaView">
   {{> nav}}
-
-
   <div class="container">
-    <div class="row">
-      <div class="col-sm-7">  
-        <center>{{> picture}}</center>
-      </div>
-      <div class="col-sm-5">
-        <center><h1 class="form-title">{{title}}</h1></center>
-        <p>{{content}}</p>
-        <hr>
-        <h2>Additional information</h2>
-        <em>Created {{createdAt}}</em>
+    <div class="delta">
+      <div class="row">
+        <div class="col-sm-7">  
+          <center>{{> picture}}</center>
+        </div>
+        <div class="col-sm-5">
+          <center><h1>{{title}}</h1></center>
+          <p>{{content}}</p>
+          <hr>
+          <h2>Additional information</h2>
+          <em>Created {{createdAt}}</em>
+        </div>
       </div>
     </div>
-  </div>
-
-
-  <div class="grid">
     <hr>
     <h2>Comments:</h2>
     {{> comments}}
-    {{> footer}}
   </div>
-  
-
+  {{> footer}}
 </template>
+
 
 <template name="projectView">
   {{> nav}}
-
-
   <div class="container">
-    <div class="row">
-      <div class="col-sm-7">  
-        <center>{{> picture}}</center>
-      </div>
-      <div class="col-sm-5">
-        <center><h1 class="form-title">{{title}}</h1></center>
-        <p>{{content}}</p>
-        <hr>
-        <h2>Additional information</h2>
-        <em>Created {{createdAt}}</em>
+    <div class="delta">
+      <div class="row">
+        <div class="col-sm-7">  
+          <center>{{> picture}}</center>
+        </div>
+        <div class="col-sm-5">
+          <center><h1>{{title}}</h1></center>
+          <p>{{content}}</p>
+          <hr>
+          <h2>Additional information</h2>
+          <em>Created {{createdAt}}</em>
+        </div>
       </div>
     </div>
-  </div>
-
-
-  <div class="grid">
     <hr>
     <h2>Comments:</h2>
     {{> comments}}
-    {{> footer}}
   </div>
-  
-  
+  {{> footer}}
 </template>
 
+
 <template name="thumbnail">
-  <div class="grid">
-    <img src="http://placekitten.com/g/600/500" width="100" >
-  </div>
+  <img src="http://placekitten.com/g/600/500" width="100" >
 </template>
 
 
 <template name="picture">
-  <div class="grid">
-    <img src="http://placekitten.com/g/600/500" >
-  </div>
+  <img src="http://placekitten.com/g/600/500" width="450" >  
 </template>
 
+
+<template name="tos">
+  {{> nav}}
+  <div class="delta">
+    <h1>Terms of Service</h1>
+    <p>Whoa, whoa, what are you doing? Nobody ever reads Terms of Service. Nobody. Ever.</p> 
+  </div>
+  {{> footer}}
+</template>
+
+
+<template name="privacy">
+  {{> nav}}
+  <div class="delta">
+    <h1>Privacy Policy</h1>
+    <p>We take your privacy very seriously. Your password is encrypted as it is stored in our database. We cannot read it. Seriously, it looks like gibberish. </p>
+  </div>
+  {{> footer}}
+</template>
+
+
+<template name="developers">
+  {{> nav}}
+  <div class="delta">
+    <h1>Developers</h1>
+    <p>If you are an aspiring developer, Spark is the web app for you. Ideas runneth in the website's veins.</p>
+  </div> 
+  {{> footer}}
+</template>
+
+
+<template name="artists">
+  {{> nav}}
+  <div class="delta">
+    <h1>Artists</h1>
+    <p>We at Spark love visuals. So we need artists to make the site very pretty. </p>
+  </div> 
+  {{> footer}}
+</template>
+
+
+<template name="about">
+  {{> nav}}
+  <div class="delta">
+    <h1>About Spark</h1>
+    <p>
+      Spark is a web app built for developers, by developers. It is the holy mecca for those who have good ideas but no skills, or those who have good skills but no ideas. If you think you're one of these people, Spark is for you. </p>
+    </div>
+    {{> footer}}
+  </template>

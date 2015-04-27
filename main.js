@@ -109,3 +109,25 @@ Router.route('/projects/:slug', function(){
   });
 });
 
+Router.route('/tos',function() {
+  this.render('tos');
+});
+
+Router.route('/privacy',function() {
+  this.render('privacy');
+});
+
+Router.route('/developers',function() {
+  this.render('developers');
+});
+
+Router.route('/artists',function() {
+  this.render('artists');
+});
+
+Router.route('/about',function() {
+  this.render('about');
+});
+
+
+

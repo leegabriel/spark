@@ -1,16 +1,18 @@
-body, html {
-  font-family: 'Rosario', sans-serif;
+.alpha {
+  margin: auto;
+  max-width: 600px; /*must match width of content text box*/
 }
 
-.grid {
-  margin-left: 30px;
-  margin-right: 30px;
-  text-align: left;
+.delta {
+  margin: auto;
+  max-width: 1000px;
 }
 
-#form {
-  margin-left: 30px;
-  margin-right: 30px;
+#content{
+  width: 600px !important; /*must match width of container (alpha)*/
+}
+
+#submit {
   width: 150px;
 }
 
@@ -36,29 +38,6 @@ h1 {
   font-size: 50px;
 }
 
-.form-title {
-  margin-left: 30px;
-  font-size: 50px;
-  margin-bottom: 30px;
-}
-
-#title, #slug, #content {
-  width: 400px;
-}
-
-#hr {
-  margin: 0px !important;
-}
-
-.thumbnail {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-#slider {
-  text-align: center;
-}
-
 /* Allow a sticky footer */
 html,
 body {
@@ -66,6 +45,7 @@ body {
  padding:0;
  height:100%;
 }
+
 #container {
  min-height:100%;
  position:relative;
@@ -79,9 +59,10 @@ body {
  height:100px;   /* Height of the footer */
  background: #f6f6f6;
 }
+
 #footer .copyright {
- padding-top: 30px;
- font-size: 14px;
+ padding-top: 40px;
+ font-size: 13px;
  color: gray; 
  /*text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray;*/
 }
