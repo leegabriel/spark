@@ -234,18 +234,22 @@
 
 
 <template name="idea">
-  <h3><a href="/ideas/{{slug}}" target="_top">{{title}}</a></h3>
-  <!-- <h5 style="color:#7F8C8D">{{content}}</h5> -->
-  <button class="delete">&times;</button>
-
+  <h3><a href="/ideas/{{slug}}" target="_top">{{title}}</a>
+    <!-- <h5 style="color:#7F8C8D">{{content}}</h5> -->
+    {{#if isOwner}}
+      <button class="delete"><i class="fa fa-times-circle"></i></button>
+    {{/if}}
+  </h3>
 </template>
 
 
 <template name="project">
-  <h3><a href="/projects/{{slug}}" target="_top">{{title}}</a></h3>
-  <!-- <h5 style="color:#7F8C8D">{{content}}</h5> -->
-  <button class="delete">&times;</button>
-
+  <h3><a href="/projects/{{slug}}" target="_top">{{title}}</a>
+    <!-- <h5 style="color:#7F8C8D">{{content}}</h5> -->
+    {{#if isOwner}}
+      <button class="delete"><i class="fa fa-times-circle"></i></button>
+    {{/if}}
+  </h3>
 </template>
 
 

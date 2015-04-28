@@ -126,3 +126,12 @@ textarea {
   resize: vertical; 
 }
 
+.delete {
+  background: none;
+  border: none;
+}
+
+.delete:hover {
+  color: #E74C3C;
+}
+
