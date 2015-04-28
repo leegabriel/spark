@@ -51,7 +51,35 @@ if (Meteor.isClient) {
       Router.go('projects');
       return false;
     }
-  })
+  }),
+
+  Template.idea.events({
+    "click .delete": function () {
+      Meteor.call("deleteIdea", this._id);
+    }
+  });
+
+  Template.idea.helpers({
+    isOwner: function () {
+      return this.owner === Meteor.userId();
+    }
+  });
+
+  Template.project.events({
+    "click .delete": function () {
+      Meteor.call("deleteProject", this._id);
+    }
+  });
+
+  Template.project.helpers({
+    isOwner: function () {
+      return this.owner === Meteor.userId();
+    }
+  });
+
+  Accounts.ui.config({
+    passwordSignupFields: "USERNAME_ONLY"
+  });
 }
 
 Meteor.methods({
@@ -61,6 +89,8 @@ Meteor.methods({
       title: title,
       slug: slug,
       content: content,
+      owner: Meteor.userId(),
+      username: Meteor.user().username,
       createdAt: moment().format("MMMM D, YYYY")
     });
   },
@@ -70,8 +100,28 @@ Meteor.methods({
       title: title,
       slug: slug,
       content: content,
+      owner: Meteor.userId(),
+      username: Meteor.user().username,
       createdAt: moment().format("MMMM D, YYYY")
     });
+  },
+  deleteIdea: function (ideaId) {
+    var idea = Ideas.findOne(ideaId);
+    if (idea.owner !== Meteor.userId()) {
+      // Make sure only the owner can delete it
+      throw new Meteor.Error("not-authorized");
+    }
+
+    Ideas.remove(ideaId);
+  },
+  deleteProject: function (projectId) {
+    var project = Projects.findOne(projectId);
+    if (project.owner !== Meteor.userId()) {
+      // Make sure only the owner can delete it
+      throw new Meteor.Error("not-authorized");
+    }
+
+    Projects.remove(projectId);
   }
 });
 
