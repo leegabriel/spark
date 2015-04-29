@@ -1,7 +1,6 @@
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <title>Spark</title>
@@ -124,7 +123,7 @@
     <hr>
     <ol>
       {{#each ideas}}
-        {{> idea}}
+      {{> idea}}
       {{/each}}
     </ol>
   </div>
@@ -139,7 +138,7 @@
     <hr>
     <ol>
       {{#each projects}}
-        {{> project}}
+      {{> project}}
       {{/each}}
     </ol>
   </div>
@@ -155,10 +154,40 @@
     <form class="addIdeaForm" id="form">
       <label>Title</label>
       <input type="text" id="title" name="title" class="form-control"><br>
-      <label>Slug</label>
-      <input type="text" id="slug" name="slug" class="form-control"><br>
+      <label>Categories</label>
+      <span id="helpBlock" class="help-block">Please select up to 3 categories.</span>
+      <select multiple id="category" name="category" class="form-control">
+        <option>Books & Reference</option>
+        <option>Business</option>
+        <option>Comics</option>
+        <option>Communication</option>
+        <option>Education</option>
+        <option>Entertainment</option>
+        <option>Finance</option>
+        <option>Health & Fitness</option>
+        <option>Libraries & Demo</option>
+        <option>Lifestyle</option>
+        <option>Live Wallpaper</option>
+        <option>Media & Video</option>
+        <option>Medical</option>
+        <option>Music & Audio</option>
+        <option>News & Magazines</option>
+        <option>Personalization</option>
+        <option>Photography</option>
+        <option>Productivity</option>
+        <option>Shopping</option>
+        <option>Social</option>
+        <option>Sports</option>
+        <option>Tools</option>
+        <option>Transportation</option>
+        <option>Travel & Local</option>
+        <option>Weather</option>
+        <option>Widgets</option>
+      </select><br>
       <label>Description</label>
       <input type="text" id="content" name="content" class="form-control"><br>
+      <label>Slug</label>
+      <input type="text" id="slug" name="slug" class="form-control"><br>
       <hr>
       <label>Banner</label>
       <input type="file" id="banner" name="banner"><br>
@@ -180,10 +209,40 @@
     <form class="addProjectForm" id="form">
       <label>Title</label>
       <input type="text" id="title" name="title" class="form-control"><br>
-      <label>Slug</label>
-      <input type="text" id="slug" name="slug" class="form-control"><br>
+      <label>Categories</label>
+      <span id="helpBlock" class="help-block">Please select up to 3 categories.</span>
+      <select multiple id="category" name="category" class="form-control">
+        <option>Books & Reference</option>
+        <option>Business</option>
+        <option>Comics</option>
+        <option>Communication</option>
+        <option>Education</option>
+        <option>Entertainment</option>
+        <option>Finance</option>
+        <option>Health & Fitness</option>
+        <option>Libraries & Demo</option>
+        <option>Lifestyle</option>
+        <option>Live Wallpaper</option>
+        <option>Media & Video</option>
+        <option>Medical</option>
+        <option>Music & Audio</option>
+        <option>News & Magazines</option>
+        <option>Personalization</option>
+        <option>Photography</option>
+        <option>Productivity</option>
+        <option>Shopping</option>
+        <option>Social</option>
+        <option>Sports</option>
+        <option>Tools</option>
+        <option>Transportation</option>
+        <option>Travel & Local</option>
+        <option>Weather</option>
+        <option>Widgets</option>
+      </select><br>
       <label>Description</label>
       <textarea type="text" id="content" name="content" class="form-control" rows="4"></textarea><br>
+      <label>Slug</label>
+      <input type="text" id="slug" name="slug" class="form-control"><br>
       <hr>
       <label>Banner</label>
       <input type="file" id="banner" name="banner"><br>
@@ -294,81 +353,119 @@
 
 <template name="ideaView">
   {{> nav}}
+
+
   <div class="container">
-    <div class="delta">
+    <div class="alpha">
       <div class="row">
-        <div class="col-sm-9">
+        <div class="col-sm-12">
+
           <table width="100%">
             <tr> 
               <td>
                 <h1>{{title}}</h1>
-                <p>{{content}}</p>
+                <h1><small>{{content}}</small></h1>
               </td>
               <td> 
-                <h3 class="pull-right" style="border: 1px solid #eee; display:inline">{{count}} votes</h3>
+                <div class="pull-right">
+                  <span class="badge" style="font-size: 36px; margin-top: 20px">{{count}}</span><h1><small>votes</small></h1>
+                </div>
               </td>
             </tr>
           </table>
-
-          <hr>
-
-          {{> picture}}
-          <hr>
-          <h2>Additional information</h2>
-          <em>Created on {{createdAt}}</em>
-          <hr>
-          <h2>Comments:</h2>
-          {{> comments}}
-        </div>
-        <div class="col-sm-3">
-          <h3>Similar Ideas</h3>
           <br>
-          <h3>Similar Projects</h3>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              {{> picture}}
+              <h2>Additional information</h2>
+              <em>Created on {{createdAt}}</em><br>
+              <em>Categories: {{category}}</em>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h2>Comments</h2>
+              {{> comments}}
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h3>Similar Ideas</h3>
+              {{>thumbnail}}
+            </div>
+          </div>         
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h3>Similar Projects</h3>
+              {{>thumbnail}}
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  {{> footer}}
+  {{>footer}}
 </template>
 
 
 <template name="projectView">
   {{> nav}}
+
+
   <div class="container">
-    <div class="delta">
+    <div class="alpha">
       <div class="row">
-        <div class="col-sm-9">
+        <div class="col-sm-12">
+
           <table width="100%">
             <tr> 
               <td>
                 <h1>{{title}}</h1>
-                <p>{{content}}</p>
+                <h1><small>{{content}}</small></h1>
               </td>
               <td> 
-                <h3 class="pull-right" style="border: 1px solid #eee; display:inline">{{count}} votes</h3>
+                <div class="pull-right">
+                  <span class="badge" style="font-size: 36px; margin-top: 20px">{{count}}</span><h1><small>votes</small></h1>
+                </div>
               </td>
             </tr>
           </table>
-
-          <hr>
-
-          {{> picture}}
-          <hr>
-          <h2>Additional information</h2>
-          <em>Created on {{createdAt}}</em>
-          <hr>
-          <h2>Comments:</h2>
-          {{> comments}}
-        </div>
-        <div class="col-sm-3">
-          <h3>Similar Ideas</h3>
           <br>
-          <h3>Similar Projects</h3>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              {{> picture}}
+              <h2>Additional information</h2>
+              <em>Created on {{createdAt}}</em><br>
+              <em>Categories: {{category}}</em>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h2>Comments</h2>
+              {{> comments}}
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h3>Similar Ideas</h3>
+              {{>thumbnail}}
+            </div>
+          </div>         
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h3>Similar Projects</h3>
+              {{>thumbnail}}
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  {{> footer}}
+  {{>footer}}
 </template>
 
 
@@ -440,9 +537,10 @@
     <h1>About Spark</h1>
     <hr>
     <p>
-      Spark is a web app built for developers, by developers. It is the holy mecca for those who have good ideas but no skills, or those who have good skills but no ideas. If you think you're one of these people, Spark is for you. </p>
-      <hr>
-    </div>
+      Spark is a web app built for developers, by developers. It is the holy mecca for those who have good ideas but no skills, or those who have good skills but no ideas. If you think you're one of these people, Spark is for you. 
+    </p>
+    <hr>
+  </div>
 
-    {{> footer}}
-  </template>
+  {{> footer}}
+</template>

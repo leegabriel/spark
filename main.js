@@ -95,23 +95,25 @@ if (Meteor.isClient) {
 }
 
 Meteor.methods({
-  addIdea: function (title, slug, content) {
+  addIdea: function (title, slug, content, category) {
     Ideas.insert({
       count: 1,
       title: title,
       slug: slug,
       content: content,
+      category: category,
       owner: Meteor.userId(),
       username: Meteor.user().username,
       createdAt: moment().format("MMMM D, YYYY")
     });
   },
-  addProject: function (title, slug, content) {
+  addProject: function (title, slug, content, category) {
     Projects.insert({
       count: 1,
       title: title,
       slug: slug,
       content: content,
+      category: category,
       owner: Meteor.userId(),
       username: Meteor.user().username,
       createdAt: moment().format("MMMM D, YYYY")

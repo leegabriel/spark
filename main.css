@@ -1,7 +1,3 @@
-body {
-  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
 .alpha {
   margin: auto;
   max-width: 600px; /*must match width of content text box*/
@@ -12,7 +8,7 @@ body {
   max-width: 1000px;
 }
 
-#title, #slug {
+#title, #slug, #category {
   width: 300px;
 }
 
