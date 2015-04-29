@@ -56,6 +56,12 @@ if (Meteor.isClient) {
   Template.idea.events({
     "click .delete": function () {
       Meteor.call("deleteIdea", this._id);
+    },
+    "click .fa-chevron-up": function () {
+      Meteor.call("upvoteIdea", this._id);
+    },
+    "click .fa-chevron-down": function () {
+      Meteor.call("downvoteIdea", this._id);
     }
   });
 
@@ -68,6 +74,12 @@ if (Meteor.isClient) {
   Template.project.events({
     "click .delete": function () {
       Meteor.call("deleteProject", this._id);
+    },
+    "click .fa-chevron-up": function () {
+      Meteor.call("upvoteProject", this._id);
+    },
+    "click .fa-chevron-down": function () {
+      Meteor.call("downvoteProject", this._id);
     }
   });
 
@@ -85,7 +97,7 @@ if (Meteor.isClient) {
 Meteor.methods({
   addIdea: function (title, slug, content) {
     Ideas.insert({
-      count: 0,
+      count: 1,
       title: title,
       slug: slug,
       content: content,
@@ -96,7 +108,7 @@ Meteor.methods({
   },
   addProject: function (title, slug, content) {
     Projects.insert({
-      count: 0,
+      count: 1,
       title: title,
       slug: slug,
       content: content,
@@ -122,6 +134,28 @@ Meteor.methods({
     }
 
     Projects.remove(projectId);
+  }, 
+  upvoteIdea: function (ideaId) {
+    var idea = Ideas.findOne(ideaId);
+    Ideas.update(ideaId, { $set: { count: count + 1} });
+  },
+  upvoteProject: function (projectId) {
+    var project = Projects.findOne(projectId);
+    if (Meteor.userId()){
+      project.count = project.count + 1;
+    }
+  },
+  downvoteIdea: function (ideaId) {
+    var idea = Ideas.findOne(ideaId);
+    if (Meteor.userId()){
+      idea.count = idea.count - 1;
+    }
+  },
+  downvoteProject: function (projectId) {
+    var project = Projects.findOne(projectId);
+    if (Meteor.userId()){
+      project.count = project.count - 1;
+    }
   }
 });
 
