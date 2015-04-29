@@ -21,10 +21,10 @@ Important:
 	<li>Pagination>/li>
 	<li>Sorting by popularity, newest</li>
 	<li>Categories based on tags</li>
-	<li>Vote counting mechanism</li>
+	<strike>Vote counting mechanism</strike>
 	<li>Profile page, Authentication/Authorization</li>
 	<li>CRUD tasks</li>
-	<li>Need good format for displaying funding, votes, details (check out Google Play Store, Kickstarter, Reddit, deviartART)</li>
+	<strike>Need good format for displaying funding, votes, details (check out Google Play Store, Kickstarter, Reddit, deviartART)</strike>
 	<li>Comments (maybe Atmosphere has some packages)</li>
 	<strike>Modals Modals Modals.</strike>
 	<li>Search Engine</li>
