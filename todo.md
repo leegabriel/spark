@@ -18,23 +18,22 @@ Ideas from meetings:
 
 Important: 
 <ul>
-	<li>Pagination>/li>
-	<li>Sorting by popularity, newest</li>
-	<li>Categories based on tags</li>
+	<li>Pagination</li>
+	<li>Sorting by most popular, newest (those are most important)</li>
+	<li>Get selection of up to 3 Categories associated with Idea/Project</li>
 	<strike>Vote counting mechanism</strike>
+	<li>Single Vote Only Per Account</li>
 	<li>Profile page, Authentication/Authorization</li>
-	<li>CRUD tasks</li>
+	<li>Be able to Edit Idea/Project</li>
 	<strike>Need good format for displaying funding, votes, details (check out Google Play Store, Kickstarter, Reddit, deviartART)</strike>
-	<li>Comments (maybe Atmosphere has some packages)</li>
+	<li>Make Idea/Project Tabs mobile responsive</li>
+	<li>Comments (preferably Atmosphere packages)</li>
 	<strike>Modals Modals Modals.</strike>
-	<li>Search Engine</li>
+	<li>Panel around Create pages</li>
+	<li>Search Engine - See Atmosphere</li>
 	<strike>Pictures should be links. Duh.</strike>
+	<li>Find way to make login modal</li>
 </ul>
 
-Other:
-<ul>
-	<li>Convert "new" to modal<li>
-	<li>Change login to a link to a page to be turned into a modal (is it possible?)</li>
-</ul>
 
 
