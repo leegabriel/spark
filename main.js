@@ -136,26 +136,16 @@ Meteor.methods({
     Projects.remove(projectId);
   }, 
   upvoteIdea: function (ideaId) {
-    var idea = Ideas.findOne(ideaId);
-    Ideas.update(ideaId, { $set: { count: count + 1} });
+    Ideas.update(ideaId, { $inc: { count: 1} });
   },
   upvoteProject: function (projectId) {
-    var project = Projects.findOne(projectId);
-    if (Meteor.userId()){
-      project.count = project.count + 1;
-    }
+    Projects.update(projectId, { $inc: { count: 1} });
   },
   downvoteIdea: function (ideaId) {
-    var idea = Ideas.findOne(ideaId);
-    if (Meteor.userId()){
-      idea.count = idea.count - 1;
-    }
+    Ideas.update(ideaId, { $inc: { count: -1} });
   },
   downvoteProject: function (projectId) {
-    var project = Projects.findOne(projectId);
-    if (Meteor.userId()){
-      project.count = project.count - 1;
-    }
+    Projects.update(projectId, { $inc: { count: -1} });
   }
 });
 
@@ -197,22 +187,27 @@ Router.route('/projects/:slug', function(){
 
 Router.route('/tos',function() {
   this.render('tos');
+  document.title = "Spark | Terms of Service";
 });
 
 Router.route('/privacy',function() {
   this.render('privacy');
+  document.title = "Spark | Privacy Policy";
 });
 
 Router.route('/developers',function() {
   this.render('developers');
+  document.title = "Spark | Developers";
 });
 
 Router.route('/artists',function() {
   this.render('artists');
+  document.title = "Spark | Artists";
 });
 
 Router.route('/about',function() {
   this.render('about');
+  document.title = "Spark | About";
 });
 
 

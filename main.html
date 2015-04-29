@@ -59,7 +59,7 @@
             <li><a href="#" target="_top"><i class="fa fa-cog" style="font-size: 15px"></i></a></li>
             <li>
               <!--  HTML (to Trigger Modal) -->
-              <button href="#loginModal" data-toggle="modal" class="btn btn-default" style="margin-top:7.5px; margin-right:15px">Login</button>
+              <button href="#loginModal" data-toggle="modal" class="btn btn-default" style="margin-left:15px; margin-top:7.5px; margin-right:15px">Login</button>
               <!-- Modal HTML -->
               <div id="loginModal" class="modal fade">
                 <div class="modal-dialog">
@@ -105,7 +105,7 @@
             <td id="space"><a href="/artists" target="_top">Artists </a></td>
             <td id="space"><a href="/about" target="_top">About Spark </a></td>
           </tr>
-        </table> 
+        </table>
       </div>
     </div>
   </div>
@@ -124,7 +124,7 @@
     <hr>
     <ol>
       {{#each ideas}}
-      {{> idea}}
+        {{> idea}}
       {{/each}}
     </ol>
   </div>
@@ -203,11 +203,11 @@
       <tr>
 
         <td>
-          <ul>
+          <ul style="width:120px">
             <center>
-              <li style="font-size:25px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-up"></i></li>
-              <li style="font-size:25px; color:#BDC3C7; margin-right: 20px; list-style:none">{{count}}</li>
-              <li style="font-size:25px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-down"></i></li>
+              <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-up"></i></li>
+              <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none">{{count}}</li>
+              <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-down"></i></li>
             </center>
           </ul>
         </td>
@@ -223,7 +223,7 @@
             <a href="/ideas/{{slug}}" target="_top">{{title}}</a>
             <!-- <h5 style="color:#7F8C8D">{{content}}</h5> -->
             {{#if isOwner}}
-              <button class="delete"><i class="fa fa-times-circle"></i></button>
+            <button class="delete"><i class="fa fa-times-circle"></i></button>
             {{/if}}
           </h3>
         </td>
@@ -243,11 +243,11 @@
       <tr>
 
         <td>
-          <ul>
+          <ul style="width:120px">
             <center>
-              <li style="font-size:25px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-up"></i></li>
-              <li style="font-size:25px; color:#BDC3C7; margin-right: 20px; list-style:none">{{count}}</li>
-              <li style="font-size:25px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-down"></i></li>
+              <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-up"></i></li>
+              <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none">{{count}}</li>
+              <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-down"></i></li>
             </center>
           </ul>
         </td>
@@ -263,7 +263,7 @@
             <a href="/projects/{{slug}}" target="_top">{{title}}</a>
             <!-- <h5 style="color:#7F8C8D">{{content}}</h5> -->
             {{#if isOwner}}
-              <button class="delete"><i class="fa fa-times-circle"></i></button>
+            <button class="delete"><i class="fa fa-times-circle"></i></button>
             {{/if}}
           </h3>
         </td>
@@ -297,10 +297,21 @@
   <div class="container">
     <div class="delta">
       <div class="row">
-        <div class="col-sm-9"> 
-          <h1>{{title}}</h1>
-          {{content}}
+        <div class="col-sm-9">
+          <table width="100%">
+            <tr> 
+              <td>
+                <h1>{{title}}</h1>
+                <p>{{content}}</p>
+              </td>
+              <td> 
+                <h3 class="pull-right" style="border: 1px solid #eee; display:inline">{{count}} votes</h3>
+              </td>
+            </tr>
+          </table>
+
           <hr>
+
           {{> picture}}
           <hr>
           <h2>Additional information</h2>
@@ -326,10 +337,21 @@
   <div class="container">
     <div class="delta">
       <div class="row">
-        <div class="col-sm-9"> 
-          <h1>{{title}}</h1>
-          {{content}}
+        <div class="col-sm-9">
+          <table width="100%">
+            <tr> 
+              <td>
+                <h1>{{title}}</h1>
+                <p>{{content}}</p>
+              </td>
+              <td> 
+                <h3 class="pull-right" style="border: 1px solid #eee; display:inline">{{count}} votes</h3>
+              </td>
+            </tr>
+          </table>
+
           <hr>
+
           {{> picture}}
           <hr>
           <h2>Additional information</h2>
@@ -362,60 +384,65 @@
 
 <template name="tos">
   {{> nav}}
-  <div class="alpha">
+  <div class="delta">
     <h1>Terms of Service</h1>
     <hr>
     <p>Whoa, whoa, what are you doing? Nobody ever reads Terms of Service. Nobody. Ever.</p> 
+    <hr>
   </div>
-  <hr>
+
   {{> footer}}
 </template>
 
 
 <template name="privacy">
   {{> nav}}
-  <div class="alpha">
+  <div class="delta">
     <h1>Privacy Policy</h1>
     <hr>
     <p>We take your privacy very seriously. Your password is encrypted as it is stored in our database. We cannot read it. Seriously, it looks like gibberish. </p>
+    <hr>
   </div>
-  <hr>
+
   {{> footer}}
 </template>
 
 
 <template name="developers">
   {{> nav}}
-  <div class="alpha">
+  <div class="delta">
     <h1>Developers</h1>
     <hr>
     <p>If you are an aspiring developer, Spark is the web app for you. Ideas runneth in the website's veins.</p>
+    <hr> 
   </div>
-  <hr> 
+
   {{> footer}}
 </template>
 
 
 <template name="artists">
   {{> nav}}
-  <div class="alpha">
+  <div class="delta">
     <h1>Artists</h1>
     <hr>
     <p>We at Spark love visuals. So we need artists to make the ideas and projects very pretty. </p>
+    <hr>
   </div>
-  <hr> 
+
   {{> footer}}
 </template>
 
 
 <template name="about">
   {{> nav}}
-  <div class="alpha">
+  <div class="delta">
     <h1>About Spark</h1>
     <hr>
     <p>
       Spark is a web app built for developers, by developers. It is the holy mecca for those who have good ideas but no skills, or those who have good skills but no ideas. If you think you're one of these people, Spark is for you. </p>
+      <hr>
     </div>
-    <hr>
+
     {{> footer}}
   </template>
