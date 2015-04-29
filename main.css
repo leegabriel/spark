@@ -5,7 +5,7 @@
 
 .delta {
   margin: auto;
-  max-width: 1000px;
+  max-width: 900px;
 }
 
 #title, #slug, #category {
@@ -129,4 +129,12 @@ textarea {
 
 .delete:hover {
   color: #E74C3C;
+}
+
+/* fit to screen*/
+#banner {
+text-align: center;
+width: auto;
+max-width: 100%;
+height: auto;
 }

@@ -120,12 +120,16 @@
   {{> nav}}
   <div class="delta">
     <h1 id="space">Ideas</h1>
-    <hr>
-    <ol>
-      {{#each ideas}}
-      {{> idea}}
-      {{/each}}
-    </ol>
+    <br>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ol>
+          {{#each ideas}}
+          {{> idea}}
+          {{/each}}
+        </ol>
+      </div>
+    </div>
   </div>
   {{> footer}}
 </template>
@@ -135,12 +139,16 @@
   {{> nav}}
   <div class="delta">
     <h1 id="space">Projects</h1>
-    <hr>
-    <ol>
-      {{#each projects}}
-      {{> project}}
-      {{/each}}
-    </ol>
+    <br>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ol>
+          {{#each projects}}
+          {{> project}}
+          {{/each}}
+        </ol>
+      </div>
+    </div>
   </div>
   {{> footer}}
 </template>
@@ -290,7 +298,7 @@
       </tr>
     </table>
 
-    <hr>
+    <br><br>
 
   </li>
 </template>
@@ -330,7 +338,7 @@
       </tr>
     </table>
 
-    <hr>
+    <br><br>
     
   </li>
 </template>
@@ -377,6 +385,10 @@
           <div class="panel panel-default">
             <div class="panel-body">
               {{> picture}}
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">
               <h2>Additional information</h2>
               <em>Created on {{createdAt}}</em><br>
               <em>Categories: {{category}}</em>
@@ -393,13 +405,17 @@
           <div class="panel panel-default">
             <div class="panel-body">
               <h3>Similar Ideas</h3>
-              {{>thumbnail}}
+              <center>
+                {{>thumbnail}}
+              </center>
             </div>
           </div>         
           <div class="panel panel-default">
             <div class="panel-body">
               <h3>Similar Projects</h3>
-              {{>thumbnail}}
+              <center>
+                {{>thumbnail}}
+              </center>
             </div>
           </div>
         </div>
@@ -436,6 +452,10 @@
           <div class="panel panel-default">
             <div class="panel-body">
               {{> picture}}
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">
               <h2>Additional information</h2>
               <em>Created on {{createdAt}}</em><br>
               <em>Categories: {{category}}</em>
@@ -452,13 +472,17 @@
           <div class="panel panel-default">
             <div class="panel-body">
               <h3>Similar Ideas</h3>
-              {{>thumbnail}}
+              <center>
+                {{>thumbnail}}
+              </center>
             </div>
           </div>         
           <div class="panel panel-default">
             <div class="panel-body">
               <h3>Similar Projects</h3>
-              {{>thumbnail}}
+              <center>
+                {{>thumbnail}}
+              </center>
             </div>
           </div>
         </div>
@@ -470,12 +494,12 @@
 
 
 <template name="thumbnail">
-  <img src="http://placekitten.com/g/600/500" width="100" >
+  <img src="http://placekitten.com/g/600/500" width="150">
 </template>
 
 
 <template name="picture">
-  <img src="http://placekitten.com/g/600/500" width="450" >  
+  <img id="banner" src="http://placekitten.com/g/600/500" width="450">
 </template>
 
 
