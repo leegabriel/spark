@@ -58,14 +58,14 @@
             <li><a href="#" target="_top"><i class="fa fa-cog" style="font-size: 15px"></i></a></li>
             <li>
               <!--  HTML (to Trigger Modal) -->
-              <button id="login" href="#loginModal" data-toggle="modal" class="btn btn-default" style="margin-left:15px; margin-top:7.5px; margin-right:15px">Login</button>
+              <button id="login" href="#loginModal" data-toggle="modal" class="btn btn-default" style="margin-left:15px; margin-top:7.5px; margin-right:15px">Logout</button>
               <!-- Modal HTML -->
               <div id="loginModal" class="modal fade">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times-circle"></i></button>
-                      <h1>Login</h1>
+                      <h1>Logout</h1>
                     </div>
                     <div class="modal-body">
                       {{>loginButtons}}
@@ -120,7 +120,11 @@
 
 
 <template name="home">
-  {{> ideasTab}}
+  {{> landing}}
+  {{>footer}}
+  <script>
+  document.title = "Spark | Start the fire for the latest ideas and projects."
+  </script>
 </template>
 
 
@@ -598,4 +602,87 @@
   <script>
   document.title = "Page Not Found "
   </script>
+</template>
+
+<template name="landing">
+    <nav class="navbar navbar-default" style="margin-bottom: 0px; min-height: 70px">
+    <div class="delta">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header" >
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a style="font-size: 20px;line-height: 35px" class="navbar-brand" href="/" target="_top">Spark</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search Spark" style="width:300px; margin-top: 7.5px">
+            </div>
+            <!-- <button type="submit" class="btn btn-default" style="width:65px"><i class="fa fa-search"></i></button> -->
+          </form>
+          <ul class="nav navbar-nav" >
+
+            <li><a style="line-height: 35px" href="{{pathFor 'ideas'}}" target="_top">Ideas</a></li>
+            <li><a style="line-height: 35px" href="{{pathFor 'projects'}}" target="_top">Projects</a></li>
+            <li class="dropdown">
+              <a style="line-height: 35px" href="#" target="_top" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#" target="_top">Top</a></li>
+                <li><a href="#" target="_top">Rising</a></li>
+                <li><a href="#" target="_top">Funny</a></li>
+                <li class="divider"></li>
+                <li><a href="#">All Categories</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <!--  HTML (to Trigger Modal) -->
+              <button id="login" href="#loginModal" data-toggle="modal" class="btn btn-default" style="margin-left:15px; margin-top:15px; margin-right:15px">Login</button>
+              <!-- Modal HTML -->
+              <div id="loginModal" class="modal fade">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times-circle"></i></button>
+                      <h1>Login</h1>
+                    </div>
+                    <div class="modal-body">
+                      {{>loginButtons}}
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </div><!-- /.delta -->
+  </nav>
+
+
+  <div class="jumbotron" style="margin-bottom: 0px">
+    <div class="delta">
+    <h1>Start the fire for the latest ideas and projects.</h1>
+    <h1><small>Everyone welcome - both developers and non-techies.</small></h1>
+  </div>
+</div>
+
+
 </template>

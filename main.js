@@ -13,7 +13,7 @@ if(Meteor.isServer){
 if (Meteor.isClient) {
   Template.ideasTab.helpers({
     ideas: function () {
-      return Ideas.find({}, {sort: {createdAt: 1}});
+      return Ideas.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}});
     }
   }),
 
@@ -21,7 +21,7 @@ if (Meteor.isClient) {
 
   Template.projectsTab.helpers({
     projects: function () {
-      return Projects.find({}, {sort: {createdAt: 1}});
+      return Projects.find({}, {sort: {count: -1, createTimeActual: -1,  title: 1}});
     }
   }),
 
@@ -107,7 +107,8 @@ Meteor.methods({
       owner: Meteor.userId(),
       username: Meteor.user().username,
       imageURL: imageURL,
-      createdAt: moment().format("MMMM D, YYYY")
+      createdAt: moment().format("MMMM D, YYYY"),
+      createTimeActual: moment().format('MMMM Do YYYY, h:mm:ss a')
     });
   },
   addProject: function (title, slug, content, imageURL) {
@@ -120,7 +121,8 @@ Meteor.methods({
       owner: Meteor.userId(),
       username: Meteor.user().username,
       imageURL: imageURL,
-      createdAt: moment().format("MMMM D, YYYY")
+      createdAt: moment().format("MMMM D, YYYY"),
+      createTimeActual: moment().format('MMMM Do YYYY, h:mm:ss a')
     });
   },
   deleteIdea: function (ideaId) {
@@ -166,10 +168,12 @@ Router.route('/', function() {
 
 Router.route('/ideas', function() {
   this.render('ideasTab');
+  document.title = "Spark | Ideas";
 });
 
 Router.route('/projects',function() {
   this.render('projectsTab');
+  document.title = "Spark | Projects"
 });
 
 Router.route('/newidea', function(){
