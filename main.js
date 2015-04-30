@@ -153,6 +153,11 @@ Meteor.methods({
   }
 });
 
+
+Router.configure({
+   notFoundTemplate: '404'
+});
+
 Router.route('/', function() {
   this.render('home');
 });
