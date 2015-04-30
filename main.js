@@ -32,9 +32,10 @@ if (Meteor.isClient) {
       var title = e.target.title.value;
       var slug = e.target.slug.value;
       var content = e.target.content.value;
-      if (!title || !slug || !content)
+      var imageURL = e.target.banner.value;
+      if (!title || !slug || !content || !imageURL)
         return false;
-      Meteor.call('addIdea', title, slug, content);
+      Meteor.call('addIdea', title, slug, content, imageURL);
       Router.go('ideas');
       return false;
     }
@@ -45,9 +46,10 @@ if (Meteor.isClient) {
       var title = e.target.title.value;
       var slug = e.target.slug.value;
       var content = e.target.content.value;
-      if (!title || !slug || !content)
+      var imageURL = e.target.banner.value;
+      if (!title || !slug || !content || !imageURL)
         return false;
-      Meteor.call('addProject', title, slug, content);
+      Meteor.call('addProject', title, slug, content, imageURL);
       Router.go('projects');
       return false;
     }

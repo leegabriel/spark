@@ -125,7 +125,7 @@
       <div class="panel-body">
         <ol>
           {{#each ideas}}
-          {{> idea}}
+            {{> idea}}
           {{/each}}
         </ol>
       </div>
@@ -144,7 +144,7 @@
       <div class="panel-body">
         <ol>
           {{#each projects}}
-          {{> project}}
+            {{> project}}
           {{/each}}
         </ol>
       </div>
@@ -198,7 +198,8 @@
       <input type="text" id="slug" name="slug" class="form-control"><br>
       <hr>
       <label>Banner</label>
-      <input type="file" id="banner" name="banner"><br>
+      <span id="helpBlock" class="help-block">Please provide a URL to an image.</span>
+      <input type="text" id="banner" name="banner" class="form-control"><br>
       <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary"><br>
     </form>
   </div>
@@ -253,7 +254,8 @@
       <input type="text" id="slug" name="slug" class="form-control"><br>
       <hr>
       <label>Banner</label>
-      <input type="file" id="banner" name="banner"><br>
+      <span id="helpBlock" class="help-block">Please provide a URL to an image.</span>
+      <input type="text" id="banner" name="banner" class="form-control"><br>
       <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary"><br>
     </form>
   </div>
@@ -506,12 +508,12 @@
 
 
 <template name="thumbnail">
-  <img src="http://placekitten.com/g/600/500" width="150">
+  <img src={{imageURL}} width="150">
 </template>
 
 
 <template name="picture">
-  <center><img id="banner" src="http://placekitten.com/g/600/500" width="450"></center>
+  <center><img id="banner" src={{imageURL}} width="450"></center>
 </template>
 
 
