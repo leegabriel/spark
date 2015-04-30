@@ -32,7 +32,7 @@ if (Meteor.isClient) {
       var title = e.target.title.value;
       var slug = e.target.slug.value;
       var content = e.target.content.value;
-      var imageURL = e.target.banner.value;
+      var imageURL = e.target.image.value;
       if (!title || !slug || !content || !imageURL)
         return false;
       Meteor.call('addIdea', title, slug, content, imageURL);
@@ -46,7 +46,7 @@ if (Meteor.isClient) {
       var title = e.target.title.value;
       var slug = e.target.slug.value;
       var content = e.target.content.value;
-      var imageURL = e.target.banner.value;
+      var imageURL = e.target.image.value;
       if (!title || !slug || !content || !imageURL)
         return false;
       Meteor.call('addProject', title, slug, content, imageURL);

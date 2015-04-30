@@ -99,7 +99,7 @@
           <p>&copy; 2015 Spark</p>  
         </div>
         <div class="col-sm-2">
-          <p><a href="/terms">Terms of Service</a></p>  
+          <p><a href="/tos">Terms of Service</a></p>  
         </div>
         <div class="col-sm-2">
           <p><a href="/privacy">Privacy Policy</a></p>   
@@ -205,9 +205,9 @@
       <label>Slug</label>
       <input type="text" id="slug" name="slug" class="form-control"><br>
       <hr>
-      <label>Banner</label>
+      <label>Image</label>
       <span id="helpBlock" class="help-block">Please provide a URL to an image.</span>
-      <input type="text" id="banner" name="banner" class="form-control"><br>
+      <input type="text" id="image" name="image" class="form-control"><br>
       <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary"><br>
     </form>
   </div>
@@ -261,9 +261,9 @@
       <label>Slug</label>
       <input type="text" id="slug" name="slug" class="form-control"><br>
       <hr>
-      <label>Banner</label>
+      <label>Image</label>
       <span id="helpBlock" class="help-block">Please provide a URL to an image.</span>
-      <input type="text" id="banner" name="banner" class="form-control"><br>
+      <input type="text" id="image" name="image" class="form-control"><br>
       <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary"><br>
     </form>
   </div>
@@ -280,7 +280,23 @@
       <tr>
 
         <td>
-          <ul style="width:120px">
+          <a href="/ideas/{{slug}}" target="_top" style="margin-left: 10px">
+            {{>thumbnail}}
+          </a>
+        </td>
+
+        <td id="middle-row" style="width: 600px">
+          <h3>
+            <a id="middle-link" href="/ideas/{{slug}}" target="_top" style="margin-left: 30px; margin-right: 20px">{{title}}</a>
+            <!-- <h5 style="color:#7F8C8D">{{content}}</h5> -->
+            {{#if isOwner}}
+            <button class="delete"><i class="fa fa-times-circle"></i></button>
+            {{/if}}
+          </h3>
+        </td>
+
+        <td style="width: 150px">
+          <ul>
             <center>
               <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-up"></i></li>
               <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none"><span class="badge" style="font-size: 20px">{{count}}</span></li>
@@ -289,27 +305,11 @@
           </ul>
         </td>
 
-        <td>
-          <a href="/ideas/{{slug}}" target="_top" style="margin-right: 20px">
-            {{>thumbnail}}
-          </a>
-        </td>
-
-        <td>
-          <h3>
-            <a href="/ideas/{{slug}}" target="_top">{{title}}</a>
-            <!-- <h5 style="color:#7F8C8D">{{content}}</h5> -->
-            {{#if isOwner}}
-            <button class="delete"><i class="fa fa-times-circle"></i></button>
-            {{/if}}
-          </h3>
-        </td>
-
       </tr>
     </table>
 
     <br><br>
-
+    
   </li>
 </template>
 
@@ -320,29 +320,29 @@
       <tr>
 
         <td>
-          <ul style="width:120px">
+          <a href="/projects/{{slug}}" target="_top" style="margin-left: 10px">
+            {{>thumbnail}}
+          </a>
+        </td>
+
+        <td id="middle-row" style="width: 600px">
+          <h3>
+            <a id="middle-link" href="/projects/{{slug}}" target="_top" style="margin-left: 30px; margin-right: 20px">{{title}}</a>
+            <!-- <h5 style="color:#7F8C8D">{{content}}</h5> -->
+            {{#if isOwner}}
+            <button class="delete"><i class="fa fa-times-circle"></i></button>
+            {{/if}}
+          </h3>
+        </td>
+
+        <td style="width: 150px">
+          <ul>
             <center>
               <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-up"></i></li>
               <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none"><span class="badge" style="font-size: 20px">{{count}}</span></li>
               <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-down"></i></li>
             </center>
           </ul>
-        </td>
-
-        <td>
-          <a href="/projects/{{slug}}" target="_top" style="margin-right: 20px">
-            {{>thumbnail}}
-          </a>
-        </td>
-
-        <td>
-          <h3>
-            <a href="/projects/{{slug}}" target="_top">{{title}}</a>
-            <!-- <h5 style="color:#7F8C8D">{{content}}</h5> -->
-            {{#if isOwner}}
-            <button class="delete"><i class="fa fa-times-circle"></i></button>
-            {{/if}}
-          </h3>
         </td>
 
       </tr>
@@ -395,11 +395,8 @@
             </tr>
           </table>
           <br>
-          <div class="panel panel-default">
-            <div class="panel-body">
               {{> picture}}
-            </div>
-          </div>
+              <br>
           <div class="panel panel-default">
             <div class="panel-body">
               <h2>Details</h2>
@@ -468,11 +465,8 @@
             </tr>
           </table>
           <br>
-          <div class="panel panel-default">
-            <div class="panel-body">
               {{> picture}}
-            </div>
-          </div>
+              <br>
           <div class="panel panel-default">
             <div class="panel-body">
               <h2>Details</h2>
@@ -516,7 +510,7 @@
 
 
 <template name="thumbnail">
-  <img src={{imageURL}} width="150">
+  <img id="thumbnail" src={{imageURL}} width="150">
 </template>
 
 
