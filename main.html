@@ -58,7 +58,7 @@
             <li><a href="#" target="_top"><i class="fa fa-cog" style="font-size: 15px"></i></a></li>
             <li>
               <!--  HTML (to Trigger Modal) -->
-              <button href="#loginModal" data-toggle="modal" class="btn btn-default" style="margin-left:15px; margin-top:7.5px; margin-right:15px">Login</button>
+              <button id="login" href="#loginModal" data-toggle="modal" class="btn btn-default" style="margin-left:15px; margin-top:7.5px; margin-right:15px">Login</button>
               <!-- Modal HTML -->
               <div id="loginModal" class="modal fade">
                 <div class="modal-dialog">
@@ -273,7 +273,7 @@
           <ul style="width:120px">
             <center>
               <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-up"></i></li>
-              <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none">{{count}}</li>
+              <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none"><span class="badge" style="font-size: 20px">{{count}}</span></li>
               <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-down"></i></li>
             </center>
           </ul>
@@ -313,7 +313,7 @@
           <ul style="width:120px">
             <center>
               <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-up"></i></li>
-              <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none">{{count}}</li>
+              <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none"><span class="badge" style="font-size: 20px">{{count}}</span></li>
               <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-down"></i></li>
             </center>
           </ul>
@@ -376,7 +376,10 @@
               </td>
               <td> 
                 <div class="pull-right">
-                  <span class="badge" style="font-size: 36px; margin-top: 20px">{{count}}</span><h1><small>votes</small></h1>
+                  <center>
+                    <span class="badge" style="font-size: 36px; margin-top: 20px">{{count}}</span>
+                    <h1><small>votes</small></h1>
+                  </center>
                 </div>
               </td>
             </tr>
@@ -389,9 +392,10 @@
           </div>
           <div class="panel panel-default">
             <div class="panel-body">
-              <h2>Additional information</h2>
-              <em>Created on {{createdAt}}</em><br>
-              <em>Categories: {{category}}</em>
+              <h2>Details</h2>
+              <br>
+              <p>Created on {{createdAt}} by {{username}}</p>
+              <p>Categories: {{category}}</p>
             </div>
           </div>
           <div class="panel panel-default">
@@ -404,7 +408,8 @@
         <div class="col-sm-12">
           <div class="panel panel-default">
             <div class="panel-body">
-              <h3>Similar Ideas</h3>
+              <h2>Similar Ideas</h2>
+              <br>
               <center>
                 {{>thumbnail}}
               </center>
@@ -412,7 +417,8 @@
           </div>         
           <div class="panel panel-default">
             <div class="panel-body">
-              <h3>Similar Projects</h3>
+              <h2>Similar Projects</h2>
+              <br>
               <center>
                 {{>thumbnail}}
               </center>
@@ -443,7 +449,10 @@
               </td>
               <td> 
                 <div class="pull-right">
-                  <span class="badge" style="font-size: 36px; margin-top: 20px">{{count}}</span><h1><small>votes</small></h1>
+                  <center>
+                    <span class="badge" style="font-size: 36px; margin-top: 20px">{{count}}</span>
+                    <h1><small>votes</small></h1>
+                  </center>
                 </div>
               </td>
             </tr>
@@ -456,9 +465,10 @@
           </div>
           <div class="panel panel-default">
             <div class="panel-body">
-              <h2>Additional information</h2>
-              <em>Created on {{createdAt}}</em><br>
-              <em>Categories: {{category}}</em>
+              <h2>Details</h2>
+              <br>
+              <p>Created on {{createdAt}} by {{username}}</p>
+              <p>Categories: {{category}}</p>
             </div>
           </div>
           <div class="panel panel-default">
@@ -471,7 +481,8 @@
         <div class="col-sm-12">
           <div class="panel panel-default">
             <div class="panel-body">
-              <h3>Similar Ideas</h3>
+              <h2>Similar Ideas</h2>
+              <br>
               <center>
                 {{>thumbnail}}
               </center>
@@ -479,7 +490,8 @@
           </div>         
           <div class="panel panel-default">
             <div class="panel-body">
-              <h3>Similar Projects</h3>
+              <h2>Similar Projects</h2>
+              <br>
               <center>
                 {{>thumbnail}}
               </center>
@@ -499,7 +511,7 @@
 
 
 <template name="picture">
-  <img id="banner" src="http://placekitten.com/g/600/500" width="450">
+  <center><img id="banner" src="http://placekitten.com/g/600/500" width="450"></center>
 </template>
 
 

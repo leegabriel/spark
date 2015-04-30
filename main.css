@@ -1,6 +1,6 @@
 .alpha {
   margin: auto;
-  max-width: 600px; /*must match width of content text box*/
+  max-width: 700px; /*must match width of content text box*/
 }
 
 .delta {
@@ -133,8 +133,8 @@ textarea {
 
 /* fit to screen*/
 #banner {
-text-align: center;
-width: auto;
-max-width: 100%;
-height: auto;
+  text-align: center;
+  width: auto;
+  max-width: 100%;
+  height: auto;
 }

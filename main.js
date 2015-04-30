@@ -95,27 +95,29 @@ if (Meteor.isClient) {
 }
 
 Meteor.methods({
-  addIdea: function (title, slug, content, category) {
+  addIdea: function (title, slug, content, imageURL) {
     Ideas.insert({
-      count: 1,
+      count: 0,
       title: title,
       slug: slug,
       content: content,
-      category: category,
+      category: "none",
       owner: Meteor.userId(),
       username: Meteor.user().username,
+      imageURL: imageURL,
       createdAt: moment().format("MMMM D, YYYY")
     });
   },
-  addProject: function (title, slug, content, category) {
+  addProject: function (title, slug, content, imageURL) {
     Projects.insert({
-      count: 1,
+      count: 0,
       title: title,
       slug: slug,
+      category: "none",
       content: content,
-      category: category,
       owner: Meteor.userId(),
       username: Meteor.user().username,
+      imageURL: imageURL,
       createdAt: moment().format("MMMM D, YYYY")
     });
   },
