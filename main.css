@@ -115,23 +115,23 @@ a:hover {
 
 /* selected link */
 a:active {
-  color: #3498db;
+  color: #3498db !important;
 }
 
 textarea { 
   resize: vertical; 
 }
 
-.delete {
+.delete, .close {
   background: none;
   border: none;
 }
 
-.delete:hover {
+.delete:hover, .close:hover {
   color: #E74C3C;
 }
 
-/* fit to screen*/
+/* fit picture to browser size*/
 #banner {
   text-align: center;
   width: auto;
@@ -139,8 +139,7 @@ textarea {
   height: auto;
 }
 
-@media screen and (min-width: 768px){
-.jumbotron {
-  padding: 100px 0;
-}
+.badge {
+  background: #f6f6f6 !important;
+  color: gray !important;
 }
