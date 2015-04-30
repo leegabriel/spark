@@ -95,16 +95,24 @@
   <div id="footer">
     <div class="copyright">
       <div class="delta">
-        <table>
-          <tr>
-            <td id="space">&copy; 2015 Spark  </td>
-            <td id="space"><a href="/tos" target="_top">Terms of Service  </a></td>
-            <td id="space"><a href="/privacy" target="_top">Privacy Policy  </a></td>
-            <td id="space"><a href="/developers" target="_top">Developers  </a></td>
-            <td id="space"><a href="/artists" target="_top">Artists </a></td>
-            <td id="space"><a href="/about" target="_top">About Spark </a></td>
-          </tr>
-        </table>
+        <div class="col-sm-2">
+          <p>&copy; 2015 Spark</p>  
+        </div>
+        <div class="col-sm-2">
+          <p><a href="/terms">Terms of Service</a></p>  
+        </div>
+        <div class="col-sm-2">
+          <p><a href="/privacy">Privacy Policy</a></p>   
+        </div>
+        <div class="col-sm-2">
+          <p><a href="/developers">Developers</a></p>  
+        </div>
+        <div class="col-sm-2">
+          <p><a href="/artists">Artists</a></p>  
+        </div>
+        <div class="col-sm-2">
+          <p><a href="/about">About</a></p>  
+        </div>
       </div>
     </div>
   </div>
@@ -125,7 +133,7 @@
       <div class="panel-body">
         <ol>
           {{#each ideas}}
-            {{> idea}}
+          {{> idea}}
           {{/each}}
         </ol>
       </div>
@@ -144,7 +152,7 @@
       <div class="panel-body">
         <ol>
           {{#each projects}}
-            {{> project}}
+          {{> project}}
           {{/each}}
         </ol>
       </div>
@@ -590,9 +598,9 @@
       <h1><small>Sorry about that.</small></h1>
     </center>
   </div>
-    <center>
-      <a href="/">Back to Spark</a>
-    </center>
+  <center>
+    <a href="/">Back to Spark</a>
+  </center>
   <script>
   document.title = "Page Not Found "
   </script>

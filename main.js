@@ -157,7 +157,7 @@ Meteor.methods({
 
 
 Router.configure({
-   notFoundTemplate: '404'
+ notFoundTemplate: '404'
 });
 
 Router.route('/', function() {
