@@ -131,7 +131,6 @@ Meteor.methods({
       // Make sure only the owner can delete it
       throw new Meteor.Error("not-authorized");
     }
-
     Ideas.remove(ideaId);
   },
   deleteProject: function (projectId) {
@@ -140,7 +139,6 @@ Meteor.methods({
       // Make sure only the owner can delete it
       throw new Meteor.Error("not-authorized");
     }
-
     Projects.remove(projectId);
   }, 
   upvoteIdea: function (ideaId) {
@@ -154,7 +152,8 @@ Meteor.methods({
   },
   downvoteProject: function (projectId) {
     Projects.update(projectId, { $inc: { count: -1} });
-  }
+  } 
+
 });
 
 

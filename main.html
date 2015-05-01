@@ -93,27 +93,30 @@
 
 
 <template name="footer">
+  <br>
   <div id="footer">
     <div class="copyright">
       <div class="delta">
-        <div class="col-sm-2">
-          <p>&copy; 2015 Spark</p>  
-        </div>
-        <div class="col-sm-2">
-          <p><a href="/tos">Terms of Service</a></p>  
-        </div>
-        <div class="col-sm-2">
-          <p><a href="/privacy">Privacy Policy</a></p>   
-        </div>
-        <div class="col-sm-2">
-          <p><a href="/developers">Developers</a></p>  
-        </div>
-        <div class="col-sm-2">
-          <p><a href="/artists">Artists</a></p>  
-        </div>
-        <div class="col-sm-2">
-          <p><a href="/about">About</a></p>  
-        </div>
+        <center>
+          <div class="col-sm-2">
+            <p>&copy; 2015 Spark</p>  
+          </div>
+          <div class="col-sm-2">
+            <p><a href="/tos">Terms of Service</a></p>  
+          </div>
+          <div class="col-sm-2">
+            <p><a href="/privacy">Privacy Policy</a></p>   
+          </div>
+          <div class="col-sm-2">
+            <p><a href="/developers">Developers</a></p>  
+          </div>
+          <div class="col-sm-2">
+            <p><a href="/artists">Artists</a></p>  
+          </div>
+          <div class="col-sm-2">
+            <p><a href="/about">About</a></p>  
+          </div>
+        </center>
       </div>
     </div>
   </div>
@@ -140,6 +143,12 @@
       </div>
     </div>
   </div>
+  <nav style="text-align: center">
+  <ul class="pager">
+    <li><a href="#">Previous</a></li>
+    <li><a href="#">Next</a></li>
+  </ul>
+</nav>
   {{> footer}}
 </template>
 
@@ -159,6 +168,12 @@
       </div>
     </div>
   </div>
+  <nav style="text-align: center">
+  <ul class="pager">
+    <li><a href="#">Previous</a></li>
+    <li><a href="#">Next</a></li>
+  </ul>
+</nav>
   {{> footer}}
 </template>
 
@@ -166,7 +181,7 @@
 <template name="newIdea">
   {{>nav}}
   <div class="alpha">
-    <h1>Create a New Idea</h1>
+    <h1 style="padding-top: 20px;padding-bottom: 10px">Create a New Idea</h1>
     <br>
     <div class="panel panel-default">
       <div class="panel-body">
@@ -227,7 +242,7 @@
   {{>nav}}
   <div class="alpha">
 
-    <h1>Create a New Project</h1>
+    <h1 style="padding-top: 20px;padding-bottom: 10px">Create a New Project</h1>
     <br>
     <div class="panel panel-default">
       <div class="panel-body">

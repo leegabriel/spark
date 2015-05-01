@@ -30,7 +30,7 @@ Important:
 	<strike>Make Idea/Project Tabs mobile responsive</strike>
 	<li>Comments (preferably Atmosphere packages)</li>
 	<strike>Modals Modals Modals.</strike>
-	<li>Panel around Create pages</li>
+	<strike>Panel around Create pages</strike>
 	<li>Search Engine - See Atmosphere matteodem easy-search</li>
 	<strike>Pictures should be links. Duh.</strike>
 	<li>Login Login Login Login Login and.... Login. Need Good Login Navigation</li>
