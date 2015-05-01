@@ -128,7 +128,7 @@
 <template name="ideasTab">
   {{> nav}}
   <div class="delta">
-    <h1 id="space">Ideas</h1>
+    <h1 id="space" style="padding-top: 20px;padding-bottom: 10px">Ideas</h1>
     <br>
     <div class="panel panel-default">
       <div class="panel-body">
@@ -147,7 +147,7 @@
 <template name="projectsTab">
   {{> nav}}
   <div class="delta">
-    <h1 id="space">Projects</h1>
+    <h1 id="space" style="padding-top: 20px;padding-bottom: 10px">Projects</h1>
     <br>
     <div class="panel panel-default">
       <div class="panel-body">
@@ -167,50 +167,54 @@
   {{>nav}}
   <div class="alpha">
     <h1>Create a New Idea</h1>
-    <hr>
-    <form class="addIdeaForm" id="form">
-      <label>Title</label>
-      <input type="text" id="title" name="title" class="form-control"><br>
-      <label>Categories</label>
-      <span id="helpBlock" class="help-block">Please select up to 3 categories.</span>
-      <select multiple id="category" name="category" class="form-control">
-        <option>Books & Reference</option>
-        <option>Business</option>
-        <option>Comics</option>
-        <option>Communication</option>
-        <option>Education</option>
-        <option>Entertainment</option>
-        <option>Finance</option>
-        <option>Health & Fitness</option>
-        <option>Libraries & Demo</option>
-        <option>Lifestyle</option>
-        <option>Live Wallpaper</option>
-        <option>Media & Video</option>
-        <option>Medical</option>
-        <option>Music & Audio</option>
-        <option>News & Magazines</option>
-        <option>Personalization</option>
-        <option>Photography</option>
-        <option>Productivity</option>
-        <option>Shopping</option>
-        <option>Social</option>
-        <option>Sports</option>
-        <option>Tools</option>
-        <option>Transportation</option>
-        <option>Travel & Local</option>
-        <option>Weather</option>
-        <option>Widgets</option>
-      </select><br>
-      <label>Description</label>
-      <input type="text" id="content" name="content" class="form-control"><br>
-      <label>Slug</label>
-      <input type="text" id="slug" name="slug" class="form-control"><br>
-      <hr>
-      <label>Image</label>
-      <span id="helpBlock" class="help-block">Please provide a URL to an image.</span>
-      <input type="text" id="image" name="image" class="form-control"><br>
-      <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary"><br>
-    </form>
+    <br>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <form class="addIdeaForm" id="form">
+          <label>Title</label>
+          <input type="text" id="title" name="title" class="form-control"><br>
+          <label>Categories</label>
+          <span id="helpBlock" class="help-block">Please select up to 3 categories.</span>
+          <select multiple id="category" name="category" class="form-control">
+            <option>Books & Reference</option>
+            <option>Business</option>
+            <option>Comics</option>
+            <option>Communication</option>
+            <option>Education</option>
+            <option>Entertainment</option>
+            <option>Finance</option>
+            <option>Health & Fitness</option>
+            <option>Libraries & Demo</option>
+            <option>Lifestyle</option>
+            <option>Live Wallpaper</option>
+            <option>Media & Video</option>
+            <option>Medical</option>
+            <option>Music & Audio</option>
+            <option>News & Magazines</option>
+            <option>Personalization</option>
+            <option>Photography</option>
+            <option>Productivity</option>
+            <option>Shopping</option>
+            <option>Social</option>
+            <option>Sports</option>
+            <option>Tools</option>
+            <option>Transportation</option>
+            <option>Travel & Local</option>
+            <option>Weather</option>
+            <option>Widgets</option>
+          </select><br>
+          <label>Description</label>
+          <input type="text" id="content" name="content" class="form-control"><br>
+          <label>Slug</label>
+          <input type="text" id="slug" name="slug" class="form-control"><br>
+          <hr>
+          <label>Image</label>
+          <span id="helpBlock" class="help-block">Please provide a URL to an image.</span>
+          <input type="text" id="image" name="image" class="form-control"><br>
+          <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary"><br>
+        </form>
+      </div>
+    </div>
   </div>
   <script>
   document.title = "Create a New Idea"
@@ -222,51 +226,56 @@
 <template name="newProject">
   {{>nav}}
   <div class="alpha">
+
     <h1>Create a New Project</h1>
-    <hr>
-    <form class="addProjectForm" id="form">
-      <label>Title</label>
-      <input type="text" id="title" name="title" class="form-control"><br>
-      <label>Categories</label>
-      <span id="helpBlock" class="help-block">Please select up to 3 categories.</span>
-      <select multiple id="category" name="category" class="form-control">
-        <option>Books & Reference</option>
-        <option>Business</option>
-        <option>Comics</option>
-        <option>Communication</option>
-        <option>Education</option>
-        <option>Entertainment</option>
-        <option>Finance</option>
-        <option>Health & Fitness</option>
-        <option>Libraries & Demo</option>
-        <option>Lifestyle</option>
-        <option>Live Wallpaper</option>
-        <option>Media & Video</option>
-        <option>Medical</option>
-        <option>Music & Audio</option>
-        <option>News & Magazines</option>
-        <option>Personalization</option>
-        <option>Photography</option>
-        <option>Productivity</option>
-        <option>Shopping</option>
-        <option>Social</option>
-        <option>Sports</option>
-        <option>Tools</option>
-        <option>Transportation</option>
-        <option>Travel & Local</option>
-        <option>Weather</option>
-        <option>Widgets</option>
-      </select><br>
-      <label>Description</label>
-      <textarea type="text" id="content" name="content" class="form-control" rows="4"></textarea><br>
-      <label>Slug</label>
-      <input type="text" id="slug" name="slug" class="form-control"><br>
-      <hr>
-      <label>Image</label>
-      <span id="helpBlock" class="help-block">Please provide a URL to an image.</span>
-      <input type="text" id="image" name="image" class="form-control"><br>
-      <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary"><br>
-    </form>
+    <br>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <form class="addProjectForm" id="form">
+          <label>Title</label>
+          <input type="text" id="title" name="title" class="form-control"><br>
+          <label>Categories</label>
+          <span id="helpBlock" class="help-block">Please select up to 3 categories.</span>
+          <select multiple id="category" name="category" class="form-control">
+            <option>Books & Reference</option>
+            <option>Business</option>
+            <option>Comics</option>
+            <option>Communication</option>
+            <option>Education</option>
+            <option>Entertainment</option>
+            <option>Finance</option>
+            <option>Health & Fitness</option>
+            <option>Libraries & Demo</option>
+            <option>Lifestyle</option>
+            <option>Live Wallpaper</option>
+            <option>Media & Video</option>
+            <option>Medical</option>
+            <option>Music & Audio</option>
+            <option>News & Magazines</option>
+            <option>Personalization</option>
+            <option>Photography</option>
+            <option>Productivity</option>
+            <option>Shopping</option>
+            <option>Social</option>
+            <option>Sports</option>
+            <option>Tools</option>
+            <option>Transportation</option>
+            <option>Travel & Local</option>
+            <option>Weather</option>
+            <option>Widgets</option>
+          </select><br>
+          <label>Description</label>
+          <textarea type="text" id="content" name="content" class="form-control" rows="4"></textarea><br>
+          <label>Slug</label>
+          <input type="text" id="slug" name="slug" class="form-control"><br>
+          <hr>
+          <label>Image</label>
+          <span id="helpBlock" class="help-block">Please provide a URL to an image.</span>
+          <input type="text" id="image" name="image" class="form-control"><br>
+          <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary"><br>
+        </form>
+      </div>
+    </div>
   </div>
   <script>
   document.title = "Create a New Project"
