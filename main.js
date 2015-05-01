@@ -225,5 +225,10 @@ Router.route('/about',function() {
   document.title = "Spark | About";
 });
 
+Router.route('/landing',function() {
+  this.render('landing');
+  document.title = "Spark";
+});
+
 
 

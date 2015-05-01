@@ -28,7 +28,7 @@
 
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search Spark" style="width:300px">
+              <input type="text" class="form-control" placeholder="Search Spark" style="width:250px">
             </div>
             <!-- <button type="submit" class="btn btn-default" style="width:65px"><i class="fa fa-search"></i></button> -->
           </form>
@@ -37,13 +37,14 @@
             <li><a href="{{pathFor 'ideas'}}" target="_top">Ideas</a></li>
             <li><a href="{{pathFor 'projects'}}" target="_top">Projects</a></li>
             <li class="dropdown">
-              <a href="#" target="_top" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
+              <a href="#" target="_top" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><b>Hot</b><span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#" target="_top">Top</a></li>
-                <li><a href="#" target="_top">Rising</a></li>
-                <li><a href="#" target="_top">Funny</a></li>
+                <li><a href="#" target="_top">Newest</a></li>
+                <li><a href="#" target="_top">Controversial</a></li>
+                <li><a href="#" target="_top">Promoted</a></li>
                 <li class="divider"></li>
-                <li><a href="#">All Categories</a></li>
+                <li><a href="#">Categories</a></li>
               </ul>
             </li>
           </ul>
@@ -120,11 +121,7 @@
 
 
 <template name="home">
-  {{> landing}}
-  {{>footer}}
-  <script>
-  document.title = "Spark | Start the fire for the latest ideas and projects."
-  </script>
+  {{>ideasTab}}
 </template>
 
 
@@ -375,8 +372,6 @@
 
 <template name="ideaView">
   {{> nav}}
-
-
   <div class="container">
     <div class="alpha">
       <div class="row">
@@ -399,8 +394,8 @@
             </tr>
           </table>
           <br>
-              {{> picture}}
-              <br>
+          {{> picture}}
+          <br>
           <div class="panel panel-default">
             <div class="panel-body">
               <h2>Details</h2>
@@ -445,8 +440,6 @@
 
 <template name="projectView">
   {{> nav}}
-
-
   <div class="container">
     <div class="alpha">
       <div class="row">
@@ -469,8 +462,8 @@
             </tr>
           </table>
           <br>
-              {{> picture}}
-              <br>
+          {{> picture}}
+          <br>
           <div class="panel panel-default">
             <div class="panel-body">
               <h2>Details</h2>
@@ -531,7 +524,6 @@
     <p>Whoa, whoa, what are you doing? Nobody ever reads Terms of Service. Nobody. Ever.</p> 
     <hr>
   </div>
-
   {{> footer}}
 </template>
 
@@ -544,7 +536,6 @@
     <p>We take your privacy very seriously. Your password is encrypted as it is stored in our database. We cannot read it. Seriously, it looks like gibberish. </p>
     <hr>
   </div>
-
   {{> footer}}
 </template>
 
@@ -557,7 +548,6 @@
     <p>If you are an aspiring developer, Spark is the web app for you. Ideas runneth in the website's veins.</p>
     <hr> 
   </div>
-
   {{> footer}}
 </template>
 
@@ -570,7 +560,6 @@
     <p>We at Spark love visuals. So we need artists to make the ideas and projects very pretty. </p>
     <hr>
   </div>
-
   {{> footer}}
 </template>
 
@@ -585,9 +574,9 @@
     </p>
     <hr>
   </div>
-
   {{> footer}}
 </template>
+
 
 <template name="404">
   <div class="jumbotron" style="padding: 100px 0">
@@ -600,12 +589,13 @@
     <a href="/">Back to Spark</a>
   </center>
   <script>
-  document.title = "Page Not Found "
+  document.title = "Page Not Found"
   </script>
 </template>
 
+
 <template name="landing">
-    <nav class="navbar navbar-default" style="margin-bottom: 0px; min-height: 70px">
+  <nav class="navbar navbar-default" style="margin-bottom: 0px; min-height: 70px">
     <div class="delta">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -631,16 +621,6 @@
 
             <li><a style="line-height: 35px" href="{{pathFor 'ideas'}}" target="_top">Ideas</a></li>
             <li><a style="line-height: 35px" href="{{pathFor 'projects'}}" target="_top">Projects</a></li>
-            <li class="dropdown">
-              <a style="line-height: 35px" href="#" target="_top" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#" target="_top">Top</a></li>
-                <li><a href="#" target="_top">Rising</a></li>
-                <li><a href="#" target="_top">Funny</a></li>
-                <li class="divider"></li>
-                <li><a href="#">All Categories</a></li>
-              </ul>
-            </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li>
@@ -679,10 +659,33 @@
 
   <div class="jumbotron" style="margin-bottom: 0px">
     <div class="delta">
-    <h1>Start the fire for the latest ideas and projects.</h1>
-    <h1><small>Everyone welcome - both developers and non-techies.</small></h1>
+      <h1>Start the fire for the latest ideas and projects.</h1>
+      <h1><small>Everyone welcome - both developers and non-techies.</small></h1>
+    </div>
   </div>
-</div>
 
-
+  <div id="footer" style="height: 150px">
+    <div class="copyright">
+      <div class="delta">
+        <div class="col-sm-2">
+          <p>&copy; 2015 Spark</p>  
+        </div>
+        <div class="col-sm-2">
+          <p><a href="/tos">Terms of Service</a></p>  
+        </div>
+        <div class="col-sm-2">
+          <p><a href="/privacy">Privacy Policy</a></p>   
+        </div>
+        <div class="col-sm-2">
+          <p><a href="/developers">Developers</a></p>  
+        </div>
+        <div class="col-sm-2">
+          <p><a href="/artists">Artists</a></p>  
+        </div>
+        <div class="col-sm-2">
+          <p><a href="/about">About</a></p>  
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
