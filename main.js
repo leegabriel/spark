@@ -152,6 +152,9 @@ Meteor.methods({
   },
   downvoteProject: function (projectId) {
     Projects.update(projectId, { $inc: { count: -1} });
+  },
+  editIdea: function (ideaId) {
+   
   } 
 
 });
