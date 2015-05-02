@@ -161,7 +161,7 @@ Meteor.methods({
 
 
 Router.configure({
- notFoundTemplate: '404'
+ notFoundTemplate: 'pageNotFound'
 });
 
 Router.route('/', function() {
@@ -231,6 +231,7 @@ Router.route('/landing',function() {
   this.render('landing');
   document.title = "Spark";
 });
+
 
 
 

@@ -59,36 +59,20 @@
             <li><a href="#" target="_top"><i class="fa fa-cog" style="font-size: 15px"></i></a></li>
             <li>
               <!--  HTML (to Trigger Modal) -->
-              <button id="login" href="#loginModal" data-toggle="modal" class="btn btn-default" style="margin-left:15px; margin-top:7.5px; margin-right:15px">Logout</button>
-              <!-- Modal HTML -->
-              <div id="loginModal" class="modal fade">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times-circle"></i></button>
-                      <h1>Logout</h1>
-                    </div>
-                    <div class="modal-body">
-                      {{>loginButtons}}
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <button id="logout" class="btn btn-default" style="margin-left:15px; margin-top:7.5px; margin-right:15px">Logout</button>
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </div><!-- /.delta -->
   </nav>
+  <script>
+  document.getElementById("logout").onclick = function () {
+    Meteor.logout();
+    Meteor.logoutOtherClients();
+    window.location = "/landing"
+  }
+  </script>
 </template>
 
 
@@ -124,12 +108,24 @@
 
 
 <template name="home">
+  {{#if currentUser}}
   {{>ideasTab}}
+  {{else}}
+  {{#unless loggingIn}}
+  {{>landing}}
+  {{/unless}}
+  {{/if}}
 </template>
 
 
 <template name="ideasTab">
+  {{#if currentUser}}
   {{> nav}}
+  {{else}}
+  {{#unless loggingIn}}
+  {{>logoutNav}}
+  {{/unless}}
+  {{/if}}
   <div class="delta">
     <h1 id="space" style="padding-top: 20px;padding-bottom: 10px">Ideas</h1>
     <br>
@@ -154,7 +150,13 @@
 
 
 <template name="projectsTab">
+  {{#if currentUser}}
   {{> nav}}
+  {{else}}
+  {{#unless loggingIn}}
+  {{>logoutNav}}
+  {{/unless}}
+  {{/if}}
   <div class="delta">
     <h1 id="space" style="padding-top: 20px;padding-bottom: 10px">Projects</h1>
     <br>
@@ -179,7 +181,9 @@
 
 
 <template name="newIdea">
-  {{>nav}}
+  {{#if currentUser}}
+  {{> nav}}
+
   <div class="alpha">
     <h1 style="padding-top: 20px;padding-bottom: 10px">Create a New Idea</h1>
     <br>
@@ -231,6 +235,9 @@
       </div>
     </div>
   </div>
+  {{else}}
+  {{>pageNotFound}}
+  {{/if}}
   <script>
   document.title = "Create a New Idea"
   </script>
@@ -239,7 +246,9 @@
 
 
 <template name="newProject">
-  {{>nav}}
+  {{#if currentUser}}
+  {{> nav}}
+
   <div class="alpha">
 
     <h1 style="padding-top: 20px;padding-bottom: 10px">Create a New Project</h1>
@@ -292,6 +301,11 @@
       </div>
     </div>
   </div>
+  {{else}}
+  {{#unless loggingIn}}
+  {{>pageNotFound}}
+  {{/unless}}
+  {{/if}}
   <script>
   document.title = "Create a New Project"
   </script>
@@ -395,7 +409,13 @@
 
 
 <template name="ideaView">
+  {{#if currentUser}}
   {{> nav}}
+  {{else}}
+  {{#unless loggingIn}}
+  {{>ideaNav}}
+  {{/unless}}
+  {{/if}}
   <div class="container">
     <div class="alpha">
       <div class="row">
@@ -463,7 +483,13 @@
 
 
 <template name="projectView">
+  {{#if currentUser}}
   {{> nav}}
+  {{else}}
+  {{#unless loggingIn}}
+  {{>ideaNav}}
+  {{/unless}}
+  {{/if}}
   <div class="container">
     <div class="alpha">
       <div class="row">
@@ -541,68 +567,88 @@
 
 
 <template name="tos">
+  {{#if currentUser}}
   {{> nav}}
-  <div class="delta">
-    <h1>Terms of Service</h1>
-    <hr>
+  {{else}}
+  {{#unless loggingIn}}
+  {{>logoutNav}}
+  {{/unless}}
+  {{/if}}
+  <div class="alpha">
+    <h1 style="padding-top: 20px;padding-bottom: 10px">Terms of Service</h1>
     <p>Whoa, whoa, what are you doing? Nobody ever reads Terms of Service. Nobody. Ever.</p> 
-    <hr>
   </div>
   {{> footer}}
 </template>
 
 
 <template name="privacy">
+  {{#if currentUser}}
   {{> nav}}
-  <div class="delta">
-    <h1>Privacy Policy</h1>
-    <hr>
-    <p>We take your privacy very seriously. Your password is encrypted as it is stored in our database. We cannot read it. Seriously, it looks like gibberish. </p>
-    <hr>
+  {{else}}
+  {{#unless loggingIn}}
+  {{>logoutNav}}
+  {{/unless}}
+  {{/if}}
+  <div class="alpha">
+    <h1 style="padding-top: 20px;padding-bottom: 10px">Privacy Policy</h1>
+    <p>We take your privacy very seriously. Your password is encrypted as it is stored in our database. We cannot read it. Seriously, it looks like gibberish.</p>
   </div>
   {{> footer}}
 </template>
 
 
 <template name="developers">
+  {{#if currentUser}}
   {{> nav}}
-  <div class="delta">
-    <h1>Developers</h1>
-    <hr>
+  {{else}}
+  {{#unless loggingIn}}
+  {{>logoutNav}}
+  {{/unless}}
+  {{/if}}
+  <div class="alpha">
+    <h1 style="padding-top: 20px;padding-bottom: 10px">Developers</h1>
     <p>If you are an aspiring developer, Spark is the web app for you. Ideas runneth in the website's veins.</p>
-    <hr> 
   </div>
   {{> footer}}
 </template>
 
 
 <template name="artists">
+  {{#if currentUser}}
   {{> nav}}
-  <div class="delta">
-    <h1>Artists</h1>
-    <hr>
+  {{else}}
+  {{#unless loggingIn}}
+  {{>logoutNav}}
+  {{/unless}}
+  {{/if}}
+  <div class="alpha">
+    <h1 style="padding-top: 20px;padding-bottom: 10px">Artists</h1>
     <p>We at Spark love visuals. So we need artists to make the ideas and projects very pretty. </p>
-    <hr>
   </div>
   {{> footer}}
 </template>
 
 
 <template name="about">
+  {{#if currentUser}}
   {{> nav}}
-  <div class="delta">
-    <h1>About Spark</h1>
-    <hr>
+  {{else}}
+  {{#unless loggingIn}}
+  {{>logoutNav}}
+  {{/unless}}
+  {{/if}}
+  <div class="alpha">
+    <h1 style="padding-top: 20px;padding-bottom: 10px">About Spark</h1>
     <p>
       Spark is a web app built for developers, by developers. It is the holy mecca for those who have good ideas but no skills, or those who have good skills but no ideas. If you think you're one of these people, Spark is for you. 
     </p>
-    <hr>
   </div>
   {{> footer}}
 </template>
 
 
-<template name="404">
+<template name="pageNotFound">
   <div class="jumbotron" style="padding: 100px 0">
     <center>
       <h1>Oops. Page Not Found.</h1>
@@ -610,7 +656,7 @@
     </center>
   </div>
   <center>
-    <a href="/">Back to Spark</a>
+    <h2><a href="/" target="_top">Back to Spark</a></h2>
   </center>
   <script>
   document.title = "Page Not Found"
@@ -619,66 +665,7 @@
 
 
 <template name="landing">
-  <nav class="navbar navbar-default" style="margin-bottom: 0px; min-height: 70px">
-    <div class="delta">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header" >
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a style="font-size: 20px;line-height: 35px" class="navbar-brand" href="/" target="_top">Spark</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search Spark" style="width:300px; margin-top: 7.5px">
-            </div>
-            <!-- <button type="submit" class="btn btn-default" style="width:65px"><i class="fa fa-search"></i></button> -->
-          </form>
-          <ul class="nav navbar-nav" >
-
-            <li><a style="line-height: 35px" href="{{pathFor 'ideas'}}" target="_top">Ideas</a></li>
-            <li><a style="line-height: 35px" href="{{pathFor 'projects'}}" target="_top">Projects</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <!--  HTML (to Trigger Modal) -->
-              <button id="login" href="#loginModal" data-toggle="modal" class="btn btn-default" style="margin-left:15px; margin-top:15px; margin-right:15px">Login</button>
-              <!-- Modal HTML -->
-              <div id="loginModal" class="modal fade">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times-circle"></i></button>
-                      <h1>Login</h1>
-                    </div>
-                    <div class="modal-body">
-                      {{>loginButtons}}
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </div><!-- /.delta -->
-  </nav>
+  {{> logoutNav}}
 
   <div class="jumbotron" style="margin-bottom: 0px">
     <div class="delta">
@@ -713,4 +700,78 @@
       </div>
     </div>
   </div>
+  <style>
+  @media screen and (max-width: 768px) {
+    #footer {
+     position:relative;
+     bottom:0;
+     width:100%;
+     height:300px !important;   /* Height of the footer */
+     background: #f6f6f6;
+   }
+ }
+ </style>
+</template>
+
+<template name="logoutNav">
+  <nav class="navbar navbar-default" style="margin-bottom: 0px; min-height: 70px">
+    <div class="delta">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header" >
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a style="font-size: 20px;line-height: 35px" class="navbar-brand" href="/" target="_top">Spark</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search Spark" style="width:300px; margin-top: 7.5px">
+            </div>
+            <!-- <button type="submit" class="btn btn-default" style="width:65px"><i class="fa fa-search"></i></button> -->
+          </form>
+          <ul class="nav navbar-nav" >
+
+            <li><a style="line-height: 35px" href="{{pathFor 'ideas'}}" target="_top">Ideas</a></li>
+            <li><a style="line-height: 35px" href="{{pathFor 'projects'}}" target="_top">Projects</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="navbar-text" style="line-height: 35px">
+              <!--  HTML (to Trigger Modal) -->
+              <!-- <button id="login" href="#loginModal" data-toggle="modal" class="btn btn-default" style="margin-left:15px; margin-top:15px; margin-right:15px">Login</button> -->
+              <!-- Modal HTML -->
+<!--               <div id="loginModal" class="modal fade">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times-circle"></i></button>
+                      <h1>Login</h1>
+                    </div>
+                    <div class="modal-body"> -->
+                      {{>loginButtons align="right"}}
+<!--                       <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </div><!-- /.delta -->
+  </nav>
 </template>
