@@ -33,7 +33,7 @@ Important:
 	<strike>Panel around Create pages</strike>
 	<li>Search Engine - See Atmosphere matteodem easy-search</li>
 	<strike>Pictures should be links. Duh.</strike>
-	<li>Login Login Login Login Login and.... Login. Need Good Login Navigation</li>
+	<strike>Login Login Login Login Login and.... Login. Need Good Login Navigation</strike>
 	<li>Change nav dropdown (Hot, Newest, etc.) based on selected choice, and implement effects based on tab (reset to hot whenever tab switch)</li>
 	<li>Categories Option</li>
 	<li>When logged in, show My Projects, My Ideas, etc. Options in a drop down on top right. Change Logout to say name instead. Probably should get rid of modal. Logout link should be at bottom.<li>

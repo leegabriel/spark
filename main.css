@@ -122,13 +122,17 @@ textarea {
   resize: vertical; 
 }
 
-.delete, .close {
+.delete, .close, .edit {
   background: none;
   border: none;
 }
 
 .delete:hover, .close:hover {
   color: #E74C3C !important;
+}
+
+.edit:hover {
+  color: #3498db !important;
 }
 
 /* fit picture to browser size*/

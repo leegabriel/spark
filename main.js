@@ -31,11 +31,13 @@ if (Meteor.isClient) {
     'submit .addIdeaForm':function(e){
       var title = e.target.title.value;
       var slug = e.target.slug.value;
-      var content = e.target.content.value;
+      var blurb = e.target.blurb.value;
       var imageURL = e.target.image.value;
-      if (!title || !slug || !content || !imageURL)
+      var details = e.target.details.value;
+
+      if (!title || !slug || !blurb || !imageURL || !details)
         return false;
-      Meteor.call('addIdea', title, slug, content, imageURL);
+      Meteor.call('addIdea', title, slug, blurb, imageURL, details);
       Router.go('ideas');
       return false;
     }
@@ -45,11 +47,13 @@ if (Meteor.isClient) {
     'submit .addProjectForm':function(e){
       var title = e.target.title.value;
       var slug = e.target.slug.value;
-      var content = e.target.content.value;
+      var blurb = e.target.blurb.value;
       var imageURL = e.target.image.value;
-      if (!title || !slug || !content || !imageURL)
+      var details = e.target.details.value;
+
+      if (!title || !slug || !blurb || !imageURL || !details)
         return false;
-      Meteor.call('addProject', title, slug, content, imageURL);
+      Meteor.call('addProject', title, slug, blurb, imageURL, details);
       Router.go('projects');
       return false;
     }
@@ -97,30 +101,32 @@ if (Meteor.isClient) {
 }
 
 Meteor.methods({
-  addIdea: function (title, slug, content, imageURL) {
+  addIdea: function (title, slug, blurb, imageURL, details) {
     Ideas.insert({
       count: 0,
       title: title,
       slug: slug,
-      content: content,
+      blurb: blurb,
       category: "none",
       owner: Meteor.userId(),
       username: Meteor.user().username,
       imageURL: imageURL,
+      details: details,
       createdAt: moment().format("MMMM D, YYYY"),
       createTimeActual: moment().format('MMMM Do YYYY, h:mm:ss a')
     });
   },
-  addProject: function (title, slug, content, imageURL) {
+  addProject: function (title, slug, blurb, imageURL, details) {
     Projects.insert({
       count: 0,
       title: title,
       slug: slug,
       category: "none",
-      content: content,
+      blurb: blurb,
       owner: Meteor.userId(),
       username: Meteor.user().username,
       imageURL: imageURL,
+      details: details,
       createdAt: moment().format("MMMM D, YYYY"),
       createTimeActual: moment().format('MMMM Do YYYY, h:mm:ss a')
     });
@@ -154,7 +160,7 @@ Meteor.methods({
     Projects.update(projectId, { $inc: { count: -1} });
   },
   editIdea: function (ideaId) {
-   
+
   } 
 
 });

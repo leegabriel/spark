@@ -9,6 +9,3 @@ iron:router
 momentjs:moment
 accounts-password
 accounts-ui
-mizzao:bootboxjs
-tomi:upload-server
-tomi:upload-jquery
