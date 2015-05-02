@@ -8,12 +8,16 @@
   max-width: 900px;
 }
 
-#title, #slug, #category {
-  width: 300px;
+#title, #slug, #category, #tags, #details {
+  width: 400px;
 }
 
-#content{
-  width: 600px !important; /*must match width of container (alpha)*/
+#blurb, #image {
+  width: 500px;
+}
+
+#details {
+  width: 650px !important; 
 }
 
 #submit {
@@ -146,6 +150,29 @@ textarea {
 .badge {
   background: #f6f6f6 !important;
   color: gray !important;
+}
+
+input, textarea {
+  display: block;
+  padding: 6px 12px;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  margin: 0;
+  font: inherit;
+  box-sizing: border-box;
+  -webkit-appearance: textfield;
+  -webkit-rtl-ordering: logical;
+  -webkit-user-select: text;
+  cursor: auto;
+  -webkit-writing-mode: horizontal-tb;
 }
 
 @media screen and (max-width: 768px) {

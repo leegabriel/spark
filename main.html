@@ -43,8 +43,6 @@
                 <li><a href="#" target="_top">Newest</a></li>
                 <li><a href="#" target="_top">Controversial</a></li>
                 <li><a href="#" target="_top">Promoted</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Categories</a></li>
               </ul>
             </li>
           </ul>
@@ -66,11 +64,11 @@
                 <li><a href="#" target="_top">My Ideas</a></li>
                 <li><a href="#" target="_top">My Projects</a></li>
                 <li class="divider"></li>
-<!--                 <li><button id="logout" class="btn btn-default" style="margin-left:15px; margin-top:7.5px; margin-right:15px">Logout</button></li> -->
+                <!--                 <li><button id="logout" class="btn btn-default" style="margin-left:15px; margin-top:7.5px; margin-right:15px">Logout</button></li> -->
                 <li><a href="#" id="logout">Logout</a></li>
               </ul>
             </li>
-              <!--  HTML (to Trigger Modal) -->
+            <!--  HTML (to Trigger Modal) -->
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -119,7 +117,7 @@
 
 <template name="home">
   <!-- comment out everything except currentUser if don't want landing -->
-<!--   {{#if currentUser}} -->
+  <!--   {{#if currentUser}} -->
   {{>ideasTab}}
 <!--   {{else}}
   {{#unless loggingIn}}
@@ -195,77 +193,73 @@
   {{#if currentUser}}
   {{> nav}}
 
-<div class="container">
+  <div class="container">
     <div class="alpha">
       <div class="row">
-        <div class="col-sm-12">
+        <form class="addIdeaForm" id="form">
+          <div class="col-sm-12">
 
-          <table width="100%">
-            <tr> 
-              <td>
-                <h1>Title</h1>
-                <h1><small>Blurb</small></h1>
-              </td>
-              <td> 
-                <div class="pull-right">
-                  <center>
-                    <span class="badge" style="font-size: 36px; margin-top: 20px">N/A</span>
-                    <h1><small>votes</small></h1>
-                  </center>
-                </div>
-              </td>
-            </tr>
-          </table>
-          <br>
-          {{> picture}}
-          <br>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Details</h2>
-              <br>
-              <p>Created on {{createdAt}} by {{username}}</p>
-              <p>Categories: {{category}}</p>
+            <table width="100%">
+              <tr> 
+                <td>
+                  <h1><input type="text" name="title" id="title" placeholder="Idea Title"></h1>
+                  <h1><small><input type="text" name="blurb" id="blurb" placeholder="Idea Blurb"></small></h1>
+                </td>
+              </tr>
+            </table>
+
+            <br>
+
+            <input type="text" name="image" id="image" placeholder="Link to idea image">
+
+            <br>
+
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h2>Details</h2>
+                <br>
+                <textarea type="text" name="details" id="details" placeholder="Idea details" rows="6"></textarea><br>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h2>Permalink</h2>
+                <span id="helpBlock" class="help-block">/ideas/<b>your-unique-idea-address</b></span>
+                <input type="text" name="slug" id="slug" placeholder="your-unique-idea-address"><br>
+              </div>
             </div>
           </div>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Comments</h2>
-              {{> comments}}
-            </div>
+
+
+          <div class="col-sm-12">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h2>Tags</h2>
+                <br>
+                <input type="text" name="tags" id="tags" placeholder="Idea Tags">
+              </div>
+            </div>         
           </div>
-        </div>
-        <div class="col-sm-12">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Similar Ideas</h2>
-              <br>
-              <center>
-                {{>thumbnail}}
-              </center>
-            </div>
-          </div>         
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Similar Projects</h2>
-              <br>
-              <center>
-                {{>thumbnail}}
-              </center>
-            </div>
-          </div>
-        </div>
+
+          <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary" style="margin-left: 15px">
+        </form>
       </div>
     </div>
   </div>
+
   {{else}}
   {{#unless loggingIn}}
   {{>pageNotFound}}
   {{/unless}}
   {{/if}}
+
+  {{> footer}}
+
   <script>
   document.title = "Create a New Idea"
   </script>
-  {{> footer}}
+
 </template>
 
 
@@ -273,67 +267,73 @@
   {{#if currentUser}}
   {{> nav}}
 
-  <div class="alpha">
-
-    <h1 style="padding-top: 20px;padding-bottom: 10px">Create a New Project</h1>
-    <br>
-    <div class="panel panel-default">
-      <div class="panel-body">
+  <div class="container">
+    <div class="alpha">
+      <div class="row">
         <form class="addProjectForm" id="form">
-          <label>Title</label>
-          <input type="text" id="title" name="title" class="form-control"><br>
-          <label>Categories</label>
-          <span id="helpBlock" class="help-block">Please select up to 3 categories.</span>
-          <select multiple id="category" name="category" class="form-control">
-            <option>Books & Reference</option>
-            <option>Business</option>
-            <option>Comics</option>
-            <option>Communication</option>
-            <option>Education</option>
-            <option>Entertainment</option>
-            <option>Finance</option>
-            <option>Health & Fitness</option>
-            <option>Libraries & Demo</option>
-            <option>Lifestyle</option>
-            <option>Live Wallpaper</option>
-            <option>Media & Video</option>
-            <option>Medical</option>
-            <option>Music & Audio</option>
-            <option>News & Magazines</option>
-            <option>Personalization</option>
-            <option>Photography</option>
-            <option>Productivity</option>
-            <option>Shopping</option>
-            <option>Social</option>
-            <option>Sports</option>
-            <option>Tools</option>
-            <option>Transportation</option>
-            <option>Travel & Local</option>
-            <option>Weather</option>
-            <option>Widgets</option>
-          </select><br>
-          <label>Description</label>
-          <textarea type="text" id="blurb" name="blurb" class="form-control" rows="4"></textarea><br>
-          <label>Slug</label>
-          <input type="text" id="slug" name="slug" class="form-control"><br>
-          <hr>
-          <label>Image</label>
-          <span id="helpBlock" class="help-block">Please provide a URL to an image.</span>
-          <input type="text" id="image" name="image" class="form-control"><br>
-          <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary"><br>
+          <div class="col-sm-12">
+
+            <table width="100%">
+              <tr> 
+                <td>
+                  <h1><input type="text" name="title" id="title" placeholder="Project Title"></h1>
+                  <h1><small><input type="text" name="blurb" id="blurb" placeholder="Project Blurb"></small></h1>
+                </td>
+              </tr>
+            </table>
+
+            <br>
+
+            <input type="text" name="image" id="image" placeholder="Link to project image">
+
+            <br>
+
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h2>Details</h2>
+                <br>
+                <textarea type="text" name="details" id="details" placeholder="Project details" rows="6"></textarea><br>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h2>Permalink</h2>
+                <span id="helpBlock" class="help-block">/projects/<b>your-unique-project-address</b></span>
+                <input type="text" name="slug" id="slug" placeholder="your-unique-project-address"><br>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-sm-12">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h2>Tags</h2>
+                <br>
+                <input type="text" name="tags" id="tags" placeholder="Project Tags">
+              </div>
+            </div>         
+          </div>
+
+          <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary" style="margin-left: 15px">
         </form>
       </div>
     </div>
   </div>
+
   {{else}}
   {{#unless loggingIn}}
   {{>pageNotFound}}
   {{/unless}}
   {{/if}}
+
+  {{> footer}}
+
   <script>
   document.title = "Create a New Project"
   </script>
-  {{> footer}}
+
 </template>
 
 
@@ -372,7 +372,7 @@
     </table>
 
     <br><br>
-    
+
   </li>
 </template>
 
@@ -412,7 +412,7 @@
     </table>
 
     <br><br>
-    
+
   </li>
 </template>
 
@@ -444,7 +444,7 @@
     <div class="alpha">
       <div class="row">
         <div class="col-sm-12">
-
+          
           <table width="100%">
             <tr> 
               <td>
@@ -466,10 +466,35 @@
           <br>
           <div class="panel panel-default">
             <div class="panel-body">
+              <table width="100%">
+                <tr> 
+                  <td>
+                    <h3><small>{{username}}</small></h3>
+                  </td>
+                  <td> 
+                    <div class="pull-right">
+                      <center>
+                        <button>Follow {{username}}</button>
+                      </center>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">
               <h2>Details</h2>
+              <b><p>Published on {{createdAt}}</p></b>
               <br>
-              <p>Created on {{createdAt}} by {{username}}</p>
-              <p>Categories: {{category}}</p>
+              <p>{{details}}</p>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h2>Permalink</h2>
+              <br>
+              <div class="well">spark-app.meteor.com/ideas/{{slug}}</div>
             </div>
           </div>
           <div class="panel panel-default">
@@ -479,6 +504,7 @@
             </div>
           </div>
         </div>
+
         <div class="col-sm-12">
           <div class="panel panel-default">
             <div class="panel-body">
@@ -500,6 +526,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
   {{>footer}}
@@ -518,7 +545,7 @@
     <div class="alpha">
       <div class="row">
         <div class="col-sm-12">
-
+          
           <table width="100%">
             <tr> 
               <td>
@@ -540,10 +567,35 @@
           <br>
           <div class="panel panel-default">
             <div class="panel-body">
+              <table width="100%">
+                <tr> 
+                  <td>
+                    <h3><small>{{username}}</small></h3>
+                  </td>
+                  <td> 
+                    <div class="pull-right">
+                      <center>
+                        <button>Follow {{username}}</button>
+                      </center>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">
               <h2>Details</h2>
+              <b><p>Published on {{createdAt}}</p></b>
               <br>
-              <p>Created on {{createdAt}} by {{username}}</p>
-              <p>Categories: {{category}}</p>
+              <p>{{details}}</p>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h2>Permalink</h2>
+              <br>
+              <div class="well">spark-app.meteor.com/projects/{{slug}}</div>
             </div>
           </div>
           <div class="panel panel-default">
@@ -553,6 +605,7 @@
             </div>
           </div>
         </div>
+
         <div class="col-sm-12">
           <div class="panel panel-default">
             <div class="panel-body">
@@ -574,6 +627,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
   {{>footer}}
