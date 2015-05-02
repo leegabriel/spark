@@ -236,7 +236,9 @@
     </div>
   </div>
   {{else}}
+  {{#unless loggingIn}}
   {{>pageNotFound}}
+  {{/unless}}
   {{/if}}
   <script>
   document.title = "Create a New Idea"
