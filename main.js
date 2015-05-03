@@ -15,15 +15,73 @@ if(Meteor.isServer){
 if (Meteor.isClient) {
   Template.ideasTab.helpers({
     ideas: function () {
-      return Ideas.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}});
+      if (Session.equals('order', 'hot')) {
+        return Ideas.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}});
+      }
+      else if (Session.equals('order', 'top')){
+        return Ideas.find({}, {sort: {count: -1}});
+      }
+      else if (Session.equals('order', 'newest')) {
+        return Ideas.find({}, {sort: {createTimeActual: -1}});
+      }
+      else if (Session.equals('order', 'promoted')) {
+        return Ideas.find({}, {sort: {title: 1}});
+      }
+      else { /*by default the tab is on hot, in hot order */
+        return Ideas.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}});
+      }
     }
   }),
 
   Meteor.subscribe('ideasList'),
 
+  Template.ideasTab.events({
+    "click .hot": function(){
+      Session.set('order', 'hot');
+    },
+    "click .top": function(){
+      Session.set('order', 'top');
+    },
+    "click .newest": function(){
+      Session.set('order', 'newest');
+    },
+    "click .promoted": function(){
+      Session.set('order', 'promoted');
+    }
+  }),
+
   Template.projectsTab.helpers({
     projects: function () {
-      return Projects.find({}, {sort: {count: -1, createTimeActual: -1,  title: 1}});
+      if (Session.equals('order', 'hot')) {
+        return Projects.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}});
+      }
+      else if (Session.equals('order', 'top')){
+        return Projects.find({}, {sort: {count: -1}});
+      }
+      else if (Session.equals('order', 'newest')) {
+        return Projects.find({}, {sort: {createTimeActual: -1}});
+      }
+      else if (Session.equals('order', 'promoted')) {
+        return Projects.find({}, {sort: {title: 1}});
+      }
+      else { /*by default the tab is on hot, in hot order */
+        return Projects.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}});
+      }
+    }
+  }),
+
+  Template.projectsTab.events({
+    "click .hot": function(){
+      Session.set('order', 'hot');
+    },
+    "click .top": function(){
+      Session.set('order', 'top');
+    },
+    "click .newest": function(){
+      Session.set('order', 'newest');
+    },
+    "click .promoted": function(){
+      Session.set('order', 'promoted');
     }
   }),
 
@@ -112,7 +170,7 @@ Meteor.methods({
       blurb: blurb,
       tags: "none",
       owner: Meteor.userId(),
-      username: Meteor.user().username,
+      ownerName: Meteor.user().username,
       imageURL: imageURL,
       details: details,
       createdAt: moment().format("MMMM D, YYYY"),
@@ -127,7 +185,7 @@ Meteor.methods({
       tags: "none",
       blurb: blurb,
       owner: Meteor.userId(),
-      username: Meteor.user().username,
+      ownerName: Meteor.user().username,
       imageURL: imageURL,
       details: details,
       createdAt: moment().format("MMMM D, YYYY"),

@@ -152,6 +152,10 @@ textarea {
   color: gray !important;
 }
 
+.glyphicon-fire {
+  color: #E67E22;
+}
+
 input, textarea {
   display: block;
   padding: 6px 12px;
