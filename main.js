@@ -1,6 +1,7 @@
 Ideas = new Mongo.Collection('ideas');
 Projects = new Mongo.Collection('projects');
 
+
 if(Meteor.isServer){
   Meteor.publish('ideasList', function(){
     return Ideas.find();
@@ -8,7 +9,8 @@ if(Meteor.isServer){
   Meteor.publish('projectsList', function(){
     return Projects.find();
   })
-}
+} /* isServer */
+
 
 if (Meteor.isClient) {
   Template.ideasTab.helpers({
@@ -98,7 +100,8 @@ if (Meteor.isClient) {
   Accounts.ui.config({
     passwordSignupFields: "USERNAME_ONLY"
   });
-}
+} /* isClient */
+
 
 Meteor.methods({
   addIdea: function (title, slug, blurb, imageURL, details) {
@@ -132,6 +135,7 @@ Meteor.methods({
     });
   },
   deleteIdea: function (ideaId) {
+
     var idea = Ideas.findOne(ideaId);
     if (idea.owner !== Meteor.userId()) {
       // Make sure only the owner can delete it
@@ -158,13 +162,12 @@ Meteor.methods({
   },
   downvoteProject: function (projectId) {
     Projects.update(projectId, { $inc: { count: -1} });
-  },
-  editIdea: function (ideaId) {
+  }
 
-  } 
+}); /* methods */
 
-});
 
+/* Routes */
 
 Router.configure({
  notFoundTemplate: 'pageNotFound'

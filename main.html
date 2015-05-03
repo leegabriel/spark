@@ -36,29 +36,19 @@
 
             <li><a href="{{pathFor 'ideas'}}" target="_top">Ideas</a></li>
             <li><a href="{{pathFor 'projects'}}" target="_top">Projects</a></li>
-            <li class="dropdown">
-              <a href="#" target="_top" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><b>Hot</b><span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#" target="_top">Top</a></li>
-                <li><a href="#" target="_top">Newest</a></li>
-                <li><a href="#" target="_top">Controversial</a></li>
-                <li><a href="#" target="_top">Promoted</a></li>
-              </ul>
-            </li>
+
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-              <a href="#" target="_top" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-file-o" style="font-size: 15px"></i><span class="caret"></span></a>
+              <a href="#" target="_top" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="glyphicon glyphicon-plus" style="font-size: 15px"></i><span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="/newidea" target="_top">New Idea</a></li>
                 <li><a href="/newproject" target="_top">New Project</a></li>
               </ul>
             </li>
             <li class="dropdown">
-              <a href="#" target="_top" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{username}}<span class="caret"></span></a>
+              <a href="#" target="_top" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{currentUser}}<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li>{{username}}</li>
-                <li class="divider"></li>
                 <li><a href="#" target="_top">Profile</a></li>
                 <li><a href="#" target="_top">Settings</a></li>
                 <li><a href="#" target="_top">My Ideas</a></li>
@@ -116,7 +106,7 @@
 
 
 <template name="home">
-  <!-- comment out everything except currentUser if don't want landing -->
+  <!-- comment out everything except currentUser if don't want landing as first page -->
   <!--   {{#if currentUser}} -->
   {{>ideasTab}}
 <!--   {{else}}
@@ -137,23 +127,43 @@
   {{/if}}
   <div class="delta">
     <h1 id="space" style="padding-top: 20px;padding-bottom: 10px">Ideas</h1>
-    <br>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <ol>
-          {{#each ideas}}
-          {{> idea}}
-          {{/each}}
-        </ol>
+    <div role="tabpanel">
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs nav-justified" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="hot" role="tab" data-toggle="tab">Hot</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="top" role="tab" data-toggle="tab">Top</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="newest" role="tab" data-toggle="tab">Newest</a></li>
+        <li role="presentation"><a href="#settings" aria-controls="promoted" role="tab" data-toggle="tab">Promoted</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home">
+          <div class="panel panel-default" style="border-top: 0px; border-top-left-radius: 0px; border-top-right-radius:0px">
+            <div class="panel-body">
+              <ol>
+                {{#each ideas}}
+                {{> idea}}
+                {{/each}}
+              </ol>
+            </div>
+          </div>
+        </div>
+        <nav style="text-align: center">
+          <ul class="pager">
+            <li><a href="#">Previous</a></li>
+            <li><a href="#">Next</a></li>
+          </ul>
+        </nav>
       </div>
+      <div role="tabpanel" class="tab-pane" id="top"></div>
+      <div role="tabpanel" class="tab-pane" id="newest"></div>
+      <div role="tabpanel" class="tab-pane" id="promoted"></div>
     </div>
+
   </div>
-  <nav style="text-align: center">
-    <ul class="pager">
-      <li><a href="#">Previous</a></li>
-      <li><a href="#">Next</a></li>
-    </ul>
-  </nav>
+
   {{> footer}}
 </template>
 
@@ -168,23 +178,43 @@
   {{/if}}
   <div class="delta">
     <h1 id="space" style="padding-top: 20px;padding-bottom: 10px">Projects</h1>
-    <br>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <ol>
-          {{#each projects}}
-          {{> project}}
-          {{/each}}
-        </ol>
+    <div role="tabpanel">
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs nav-justified" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="hot" role="tab" data-toggle="tab">Hot</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="top" role="tab" data-toggle="tab">Top</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="newest" role="tab" data-toggle="tab">Newest</a></li>
+        <li role="presentation"><a href="#settings" aria-controls="promoted" role="tab" data-toggle="tab">Promoted</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home">
+          <div class="panel panel-default" style="border-top: 0px; border-top-left-radius: 0px; border-top-right-radius:0px">
+            <div class="panel-body">
+              <ol>
+                {{#each projects}}
+                {{> project}}
+                {{/each}}
+              </ol>
+            </div>
+          </div>
+        </div>
+        <nav style="text-align: center">
+          <ul class="pager">
+            <li><a href="#">Previous</a></li>
+            <li><a href="#">Next</a></li>
+          </ul>
+        </nav>
       </div>
+      <div role="tabpanel" class="tab-pane" id="top"></div>
+      <div role="tabpanel" class="tab-pane" id="newest"></div>
+      <div role="tabpanel" class="tab-pane" id="promoted"></div>
     </div>
+
   </div>
-  <nav style="text-align: center">
-    <ul class="pager">
-      <li><a href="#">Previous</a></li>
-      <li><a href="#">Next</a></li>
-    </ul>
-  </nav>
+  
   {{> footer}}
 </template>
 
@@ -353,6 +383,7 @@
             <a id="middle-link" href="/ideas/{{slug}}" target="_top" style="margin-left: 30px; margin-right: 20px">{{title}}</a>
             <!-- <h5 style="color:#7F8C8D">{{blurb}}</h5> -->
             {{#if isOwner}}
+            <button class="edit"><i class="fa fa-pencil"></i></button>
             <button class="delete"><i class="fa fa-times-circle"></i></button>
             {{/if}}
           </h3>
@@ -444,7 +475,7 @@
     <div class="alpha">
       <div class="row">
         <div class="col-sm-12">
-          
+
           <table width="100%">
             <tr> 
               <td>
@@ -545,7 +576,7 @@
     <div class="alpha">
       <div class="row">
         <div class="col-sm-12">
-          
+
           <table width="100%">
             <tr> 
               <td>

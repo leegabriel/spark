@@ -23,7 +23,7 @@ Important:
 	<li>Sort By Newest For any tab on demand</li>
 	<li>Get selection of up to 3 Categories associated with Idea/Project</li>
 	<strike>Vote counting mechanism</strike>
-	<li>Single Vote Only Per Account</li>
+	<li>Single Vote Only Per Account Per Idea/Project</li>
 	<li>Profile and Settings page, General Authentication/Authorization</li>
 	<li>Be able to Edit Idea/Project's Text</li>
 	<strike>Need good format for displaying funding, votes, details (check out Google Play Store, Kickstarter, Reddit, deviartART)</strike>
@@ -36,7 +36,7 @@ Important:
 	<strike>Login Login Login Login Login and.... Login. Need Good Login Navigation</strike>
 	<li>Change nav dropdown (Hot, Newest, etc.) based on selected choice, and implement effects based on tab (reset to hot whenever tab switch)</li>
 	<li>Categories Option</li>
-	<li>When logged in, show My Projects, My Ideas, etc. Options in a drop down on top right. Change Logout to say name instead. Probably should get rid of modal. Logout link should be at bottom.<li>
+	<strike>When logged in, show My Projects, My Ideas, etc. Options in a drop down on top right. Change Logout to say name instead. Probably should get rid of modal. Logout link should be at bottom.<strike>
 	<li>Fundraising Option, progress bars, fund logistics</li>
 </ul>
 

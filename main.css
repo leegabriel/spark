@@ -175,6 +175,7 @@ input, textarea {
   -webkit-writing-mode: horizontal-tb;
 }
 
+
 @media screen and (max-width: 768px) {
   #footer {
    position:relative;
