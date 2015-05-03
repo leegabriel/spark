@@ -121,7 +121,10 @@ if (Meteor.isClient) {
 
   Template.idea.events({
     "click .delete": function () {
-      Meteor.call("deleteIdea", this._id);
+      var result;
+      if (confirm("Are you sure you want to delete this?")){
+        result = Meteor.call("deleteIdea", this._id);
+      }
     },
     "click .fa-chevron-up": function () {
       Meteor.call("upvoteIdea", this._id);
@@ -139,7 +142,10 @@ if (Meteor.isClient) {
 
   Template.project.events({
     "click .delete": function () {
-      Meteor.call("deleteProject", this._id);
+      var result;
+      if (confirm("Are you sure you want to delete this?")){
+        result = Meteor.call("deleteProject", this._id);
+      }
     },
     "click .fa-chevron-up": function () {
       Meteor.call("upvoteProject", this._id);
@@ -193,13 +199,14 @@ Meteor.methods({
     });
   },
   deleteIdea: function (ideaId) {
-
     var idea = Ideas.findOne(ideaId);
     if (idea.owner !== Meteor.userId()) {
       // Make sure only the owner can delete it
       throw new Meteor.Error("not-authorized");
     }
-    Ideas.remove(ideaId);
+    else {
+      Ideas.remove(ideaId);
+    }
   },
   deleteProject: function (projectId) {
     var project = Projects.findOne(projectId);
@@ -207,19 +214,45 @@ Meteor.methods({
       // Make sure only the owner can delete it
       throw new Meteor.Error("not-authorized");
     }
-    Projects.remove(projectId);
+    else {
+      Projects.remove(projectId);
+    }
   }, 
   upvoteIdea: function (ideaId) {
-    Ideas.update(ideaId, { $inc: { count: 1} });
+    if (Meteor.userId() === null) {
+      // Make sure logged out public can't upvote it
+      throw new Meteor.Error("not-authorized");
+    }
+    else {
+      Ideas.update(ideaId, { $inc: { count: 1} });
+    }
   },
   upvoteProject: function (projectId) {
-    Projects.update(projectId, { $inc: { count: 1} });
+    if (Meteor.userId() === null) {
+      // Make sure logged out public can't upvote it
+      throw new Meteor.Error("not-authorized");
+    }
+    else {
+      Projects.update(projectId, { $inc: { count: 1} });
+    }
   },
   downvoteIdea: function (ideaId) {
-    Ideas.update(ideaId, { $inc: { count: -1} });
+    if (Meteor.userId() === null) {
+      // Make sure logged out public can't upvote it
+      throw new Meteor.Error("not-authorized");
+    }
+    else {
+      Ideas.update(ideaId, { $inc: { count: -1} });
+    }
   },
   downvoteProject: function (projectId) {
-    Projects.update(projectId, { $inc: { count: -1} });
+    if (Meteor.userId() === null) {
+      // Make sure logged out public can't upvote it
+      throw new Meteor.Error("not-authorized");
+    }
+    else {
+      Projects.update(projectId, { $inc: { count: -1} });
+    }
   }
 
 }); /* methods */
