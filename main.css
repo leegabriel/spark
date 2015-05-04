@@ -26,13 +26,15 @@ h1, h2, h3, h4, h5, h6, p, small {
 }
 
 .navbar {
+  border: none !important;
   margin-bottom: 0px;
+  border-radius: none !important;
 }
 
 .navbar-default {
   background-color: #61C6CF !important;
-  border-radius: 0px;
-  border: 0px;
+  border-radius: 0px !important;
+  border: none !important;
 }
 
 .navbar-default .navbar-brand {
@@ -50,6 +52,7 @@ h1, h2, h3, h4, h5, h6, p, small {
 .navbar-default .navbar-nav>li>a:hover {
   color: #ffffff !important;
   background: #55AEB5 !important;
+  padding-bottom: 20px;
 }
 
 .navbar-default .navbar-nav>.open>a {
@@ -110,6 +113,10 @@ body {
 
 .nav-tabs.nav-justified>li>a {
   color: #49959C !important;
+}
+
+#thumbnail:hover {
+  opacity: 0.8;
 }
 
 ol {
