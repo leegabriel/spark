@@ -1,5 +1,5 @@
 h1, h2, h3, h4, h5, h6, p, small {
-  color: #254C4F !important;
+  color: #262424 !important;
 }
 
 
@@ -32,7 +32,7 @@ h1, h2, h3, h4, h5, h6, p, small {
 }
 
 .navbar-default {
-  background-color: #61C6CF !important;
+  background-color: #00b0ff !important;
   border-radius: 0px !important;
   border: none !important;
 }
@@ -51,16 +51,15 @@ h1, h2, h3, h4, h5, h6, p, small {
 
 .navbar-default .navbar-nav>li>a:hover {
   color: #ffffff !important;
-  background: #55AEB5 !important;
-  padding-bottom: 20px;
+  background: #009EE5 !important;
 }
 
 .navbar-default .navbar-nav>.open>a {
-  background-color: #55AEB5 !important;
+  background-color: #009EE5 !important;
 }
 
 .dropdown-menu>li>a:hover {
-  color: #55AEB5 !important;
+  color: #009EE5 !important;
   background-color: transparent !important;
 }
 
@@ -68,13 +67,13 @@ h1, h2, h3, h4, h5, h6, p, small {
   width: 150px;
   margin-top: 20px;
   margin-bottom: 20px;
-  background-color: #61C6CF!important;
-  border-color: #61C6CF !important;
+  background-color: #00b0ff!important;
+  border-color: #00b0ff !important;
 }
 
 #submit:hover {
-  background-color: #55AEB5 !important;
-  border-color: #55AEB5 !important;
+  background-color: #009EE5 !important;
+  border-color: #009EE5 !important;
 }
 
 /* Allow a sticky footer */
@@ -103,7 +102,7 @@ body {
 #footer .copyright {
  padding-top: 40px;
  font-size: 13px;
- color: #49959C; 
+ color: #0084BF; 
  /*text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray;*/
 }
 
@@ -112,7 +111,7 @@ body {
 }
 
 .nav-tabs.nav-justified>li>a {
-  color: #49959C !important;
+  color: #0084BF !important;
 }
 
 #thumbnail:hover {
@@ -149,7 +148,7 @@ a:link {
 
 /* visited link */
 a:visited {
-  color: #49959C !important;
+  color: #0084BF !important;
 }
 
 /* mouse over link */
@@ -159,7 +158,7 @@ a:hover {
 
 /* selected link */
 a:active {
-  color: #254C4F !important;
+  color: #262424 !important;
 }
 
 textarea { 

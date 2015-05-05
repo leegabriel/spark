@@ -10,7 +10,7 @@
 
 
 <template name="nav">
-  <nav class="navbar navbar-default" style="margin-bottom: 0px; min-height: 70px">
+  <nav class="navbar navbar-default" style="margin-bottom: 0px">
     <div class="delta">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -18,34 +18,34 @@
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+            <span cla+ss="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a style="font-size: 20px;line-height: 35px" class="navbar-brand" href="/" target="_top">Spark</a>
+          <a style="font-size: 20px" class="navbar-brand" href="/" target="_top">Spark</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search Spark" style="width:300px; margin-top: 7.5px">
+              <input type="text" class="form-control" placeholder="Search Spark" style="width:300px">
             </div>
             <!-- <button type="submit" class="btn btn-default" style="width:65px"><i class="fa fa-search"></i></button> -->
           </form>
           <ul class="nav navbar-nav" >
 
-            <li><a style="line-height: 35px" href="{{pathFor 'ideas'}}" target="_top">Ideas</a></li>
-            <li><a style="line-height: 35px" href="{{pathFor 'projects'}}" target="_top">Projects</a></li>
+            <li><a href="{{pathFor 'ideas'}}" target="_top">Ideas</a></li>
+            <li><a href="{{pathFor 'projects'}}" target="_top">Projects</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown" >
-              <a href="#" target="_top" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="line-height: 35px"><i class="glyphicon glyphicon-plus"></i><span class="caret"></span></a>
+              <a href="#" target="_top" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="glyphicon glyphicon-plus"></i><span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="/newidea" target="_top">New Idea</a></li>
                 <li><a href="/newproject" target="_top">New Project</a></li>
               </ul>
             </li>
-            <li class="navbar-text" style="line-height: 35px">
+            <li class="navbar-text">
               {{>loginButtons align="right"}}
             </li>
           </ul>
@@ -95,14 +95,7 @@
 
 
 <template name="home">
-  <!-- comment out everything except currentUser if don't want landing as first page -->
-  <!--   {{#if currentUser}} -->
   {{>ideasTab}}
-<!--   {{else}}
-  {{#unless loggingIn}}
-  {{>landing}}
-  {{/unless}}
-  {{/if}} -->
 </template>
 
 
@@ -820,7 +813,7 @@
 </template>
 
 <template name="logoutNav">
-  <nav class="navbar navbar-default" style="margin-bottom: 0px; min-height: 70px">
+  <nav class="navbar navbar-default" style="margin-bottom: 0px">
     <div class="delta">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -831,24 +824,24 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a style="font-size: 20px;line-height: 35px" class="navbar-brand" href="/" target="_top">Spark</a>
+          <a style="font-size: 20px" class="navbar-brand" href="/" target="_top">Spark</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search Spark" style="width:300px; margin-top: 7.5px">
+              <input type="text" class="form-control" placeholder="Search Spark" style="width:300px">
             </div>
             <!-- <button type="submit" class="btn btn-default" style="width:65px"><i class="fa fa-search"></i></button> -->
           </form>
           <ul class="nav navbar-nav" >
 
-            <li><a style="line-height: 35px" href="{{pathFor 'ideas'}}" target="_top">Ideas</a></li>
-            <li><a style="line-height: 35px" href="{{pathFor 'projects'}}" target="_top">Projects</a></li>
+            <li><a href="{{pathFor 'ideas'}}" target="_top">Ideas</a></li>
+            <li><a href="{{pathFor 'projects'}}" target="_top">Projects</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li class="navbar-text" style="line-height: 35px">
+            <li class="navbar-text">
               {{>loginButtons align="right"}}
             </li>
           </ul>
