@@ -9,7 +9,7 @@
 
 
 <template name="nav">
-  <nav class="navbar navbar-default" style="margin-bottom: 0px">
+  <nav class="navbar navbar-default">
     <div class="delta">
       <div class="container-fluid">
 
@@ -105,7 +105,7 @@
   {{/unless}}
   {{/if}}
   <div class="delta">
-    <h1 id="space" style="padding-top: 20px;padding-bottom: 10px">Ideas</h1>
+    <h1 class="header" id="space">Ideas</h1>
     <div role="tabpanel">
 
       <!-- Nav tabs -->
@@ -119,7 +119,7 @@
       <!-- Tab panes -->
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="hot">
-          <div class="panel panel-default" style="border-top: 0px; border-top-left-radius: 0px; border-top-right-radius:0px">
+          <div class="panel panel-default" id="tab">
             <div class="panel-body">
               <ol>
                 {{#each ideas}}
@@ -156,7 +156,7 @@
   {{/unless}}
   {{/if}}
   <div class="delta">
-    <h1 id="space" style="padding-top: 20px;padding-bottom: 10px">Projects</h1>
+    <h1 class="header" id="space">Projects</h1>
     <div role="tabpanel">
 
       <!-- Nav tabs -->
@@ -170,7 +170,7 @@
       <!-- Tab panes -->
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="hot">
-          <div class="panel panel-default" style="border-top: 0px; border-top-left-radius: 0px; border-top-right-radius:0px">
+          <div class="panel panel-default" id="tab">
             <div class="panel-body">
               <ol>
                 {{#each projects}}
@@ -251,7 +251,7 @@
             </div>         
           </div>
 
-          <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary" style="margin-left: 15px">
+          <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
         </form>
       </div>
     </div>
@@ -325,7 +325,7 @@
             </div>         
           </div>
 
-          <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary" style="margin-left: 15px">
+          <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
         </form>
       </div>
     </div>
@@ -373,9 +373,9 @@
         <td style="width: 150px">
           <ul>
             <center>
-              <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-up" title="Upvote this idea"></i></li>
-              <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none"><span class="badge" style="font-size: 20px" >{{count}}</span></li>
-              <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-down" title="Downvote this idea"></i></li>
+              <li class="actions"><i class="fa fa-chevron-up" title="Upvote this idea"></i></li>
+              <li class="actions" ><span class="badge" style="font-size: 20px" >{{count}}</span></li>
+              <li class="actions"><i class="fa fa-chevron-down" title="Downvote this idea"></i></li>
             </center>
           </ul>
         </td>
@@ -413,9 +413,9 @@
         <td style="width: 150px">
           <ul>
             <center>
-              <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-up" title="Upvote this project"></i></li>
-              <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none"><span class="badge" style="font-size: 20px">{{count}}</span></li>
-              <li style="font-size:20px; color:#BDC3C7; margin-right: 20px; list-style:none"><i class="fa fa-chevron-down" title="Downvote this project"></i></li>
+              <li class="actions"><i class="fa fa-chevron-up" title="Upvote this project"></i></li>
+              <li class="actions"><span class="badge" style="font-size: 20px">{{count}}</span></li>
+              <li class="actions"><i class="fa fa-chevron-down" title="Downvote this project"></i></li>
             </center>
           </ul>
         </td>
@@ -466,7 +466,7 @@
               <td> 
                 <div class="pull-right">
                   <center>
-                    <span class="badge" style="font-size: 36px; margin-top: 20px">{{count}}</span>
+                    <span class="badge" id="badge-lg">{{count}}</span>
                     <h1><small>votes</small></h1>
                   </center>
                 </div>
@@ -486,7 +486,7 @@
                   <td> 
                     <div class="pull-right">
                       <center>
-                        <button>Follow {{ownerName}}</button>
+                        <button class="btn btn-default">Follow {{ownerName}}</button>
                       </center>
                     </div>
                   </td>
@@ -567,7 +567,7 @@
               <td> 
                 <div class="pull-right">
                   <center>
-                    <span class="badge" style="font-size: 36px; margin-top: 20px">{{count}}</span>
+                    <span class="badge" id="badge-lg">{{count}}</span>
                     <h1><small>votes</small></h1>
                   </center>
                 </div>
@@ -587,7 +587,7 @@
                   <td> 
                     <div class="pull-right">
                       <center>
-                        <button>Follow {{ownerName}}</button>
+                        <button class="btn btn-default">Follow {{ownerName}}</button>
                       </center>
                     </div>
                   </td>
@@ -665,7 +665,7 @@
   {{/unless}}
   {{/if}}
   <div class="alpha">
-    <h1 style="padding-top: 20px;padding-bottom: 10px">Terms of Service</h1>
+    <h1 class="header">Terms of Service</h1>
     <p>Whoa, whoa, what are you doing? Nobody ever reads Terms of Service. Nobody. Ever.</p> 
   </div>
   {{> footer}}
@@ -681,7 +681,7 @@
   {{/unless}}
   {{/if}}
   <div class="alpha">
-    <h1 style="padding-top: 20px;padding-bottom: 10px">Privacy Policy</h1>
+    <h1 class="header">Privacy Policy</h1>
     <p>We take your privacy very seriously. Your password is encrypted as it is stored in our database. We cannot read it. Seriously, it looks like gibberish.</p>
   </div>
   {{> footer}}
@@ -697,7 +697,7 @@
   {{/unless}}
   {{/if}}
   <div class="alpha">
-    <h1 style="padding-top: 20px;padding-bottom: 10px">Developers</h1>
+    <h1 class="header">Developers</h1>
     <p>If you are an aspiring developer, Spark is the web app for you. Ideas runneth in the website's veins.</p>
   </div>
   {{> footer}}
@@ -713,7 +713,7 @@
   {{/unless}}
   {{/if}}
   <div class="alpha">
-    <h1 style="padding-top: 20px;padding-bottom: 10px">Artists</h1>
+    <h1 class="header">Artists</h1>
     <p>We at Spark love visuals. So we need artists to make the ideas and projects very pretty. </p>
   </div>
   {{> footer}}
@@ -729,7 +729,7 @@
   {{/unless}}
   {{/if}}
   <div class="alpha">
-    <h1 style="padding-top: 20px;padding-bottom: 10px">About Spark</h1>
+    <h1 class="header">About Spark</h1>
     <p>
       Spark is a web app built for developers, by developers. It is the holy mecca for those who have good ideas but no skills, or those who have good skills but no ideas. If you think you're one of these people, Spark is for you. 
     </p>
@@ -793,21 +793,11 @@
       </div>
     </div>
   </div>
-  <style>
-  @media screen and (max-width: 768px) {
-    #footer {
-     position:relative;
-     bottom:0;
-     width:100%;
-     height:300px !important;   /* Height of the footer */
-     background: #fcfcfc;
-   }
- }
- </style>
 </template>
 
+
 <template name="logoutNav">
-  <nav class="navbar navbar-default" style="margin-bottom: 0px">
+  <nav class="navbar navbar-default">
     <div class="delta">
       <div class="container-fluid">
 
@@ -837,9 +827,9 @@
               {{>loginButtons align="right"}}
             </li>
           </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </div><!-- /.delta -->
+        </div>
+      </div>
+    </div>
   </nav>
 </template>
 
