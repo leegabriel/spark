@@ -261,45 +261,22 @@ Meteor.methods({
 /* Routes */
 
 Router.configure({
- notFoundTemplate: 'pageNotFound'
+ notFoundTemplate: 'pageNotFound',
+ loadingTemplate: 'loadingTemplate'
 });
 
-Router.route('/', {
-  name: 'home',
-  data: function() { 
-
-    if(this.ready()){
-      this.render()
-    }else{
-      this.render('loadingTemplate')
-    }
-  }
+Router.route('/', function() {
+  this.render('home');
 });
 
-Router.route('/ideas', {
-  name: 'ideasTab',
-  data: function () {
-    if(this.ready()){
-      this.render()
-    }
-    else{
-      this.render('loadingTemplate')
-    }
-    document.title = "Spark | Ideas";
-  }
+Router.route('/ideas', function() {
+  this.render('ideasTab');
+  document.title = "Spark | Ideas";
 });
 
-Router.route('/projects', {
-  name: 'projectsTab',
-  data: function () {
-    if(this.ready()){
-      this.render()
-    }
-    else{
-      this.render('loadingTemplate')
-    }
-    document.title = "Spark | Projects";
-  }
+Router.route('/projects',function() {
+  this.render('projectsTab');
+  document.title = "Spark | Projects"
 });
 
 Router.route('/newidea', function(){
