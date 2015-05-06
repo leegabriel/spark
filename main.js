@@ -264,18 +264,42 @@ Router.configure({
  notFoundTemplate: 'pageNotFound'
 });
 
-Router.route('/', function() {
-  this.render('home');
+Router.route('/', {
+  name: 'home',
+  data: function() { 
+
+    if(this.ready()){
+      this.render()
+    }else{
+      this.render('loadingTemplate')
+    }
+  }
 });
 
-Router.route('/ideas', function() {
-  this.render('ideasTab');
-  document.title = "Spark | Ideas";
+Router.route('/ideas', {
+  name: 'ideasTab',
+  data: function () {
+    if(this.ready()){
+      this.render()
+    }
+    else{
+      this.render('loadingTemplate')
+    }
+    document.title = "Spark | Ideas";
+  }
 });
 
-Router.route('/projects',function() {
-  this.render('projectsTab');
-  document.title = "Spark | Projects"
+Router.route('/projects', {
+  name: 'projectsTab',
+  data: function () {
+    if(this.ready()){
+      this.render()
+    }
+    else{
+      this.render('loadingTemplate')
+    }
+    document.title = "Spark | Projects";
+  }
 });
 
 Router.route('/newidea', function(){
@@ -331,7 +355,5 @@ Router.route('/landing',function() {
   this.render('landing');
   document.title = "Spark";
 });
-
-
 
 
