@@ -98,170 +98,172 @@
 
 
 <template name="ideasTab">
-  {{#if currentUser}}
-  {{> nav}}
-  {{else}}
-  {{#unless loggingIn}}
-  {{>logoutNav}}
-  {{/unless}}
-  {{/if}}
   <div class="animated fadeIn">
-  <div class="delta">
-    <h1 class="header" id="space">Ideas</h1>
-    <div role="tabpanel">
+    {{#if currentUser}}
+    {{> nav}}
+    {{else}}
+    {{#unless loggingIn}}
+    {{>logoutNav}}
+    {{/unless}}
+    {{/if}}
+    
+    <div class="delta">
+      <h1 class="header" id="space">Ideas</h1>
+      <div role="tabpanel">
 
-      <!-- Nav tabs -->
-      <ul class="nav nav-tabs nav-justified" role="tablist">
-        <li role="presentation" class="hot active"><a href="#hot" aria-controls="hot" role="tab" data-toggle="tab">Hot</a></li>
-        <li role="presentation" class="top"><a href="#top" aria-controls="top" role="tab" data-toggle="tab">Top</a></li>
-        <li role="presentation" class="newest"><a href="#newest" aria-controls="newest" role="tab" data-toggle="tab">Newest</a></li>
-        <li role="presentation" class="promoted"><a href="#promoted" aria-controls="promoted" role="tab" data-toggle="tab">Promoted</a></li>
-      </ul>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs nav-justified" role="tablist">
+          <li role="presentation" class="hot active"><a href="#hot" aria-controls="hot" role="tab" data-toggle="tab">Hot</a></li>
+          <li role="presentation" class="top"><a href="#top" aria-controls="top" role="tab" data-toggle="tab">Top</a></li>
+          <li role="presentation" class="newest"><a href="#newest" aria-controls="newest" role="tab" data-toggle="tab">Newest</a></li>
+          <li role="presentation" class="promoted"><a href="#promoted" aria-controls="promoted" role="tab" data-toggle="tab">Promoted</a></li>
+        </ul>
 
-      <!-- Tab panes -->
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="hot">
-          <div class="panel panel-default" id="tab">
-            <div class="panel-body">
-              <ol>
-                {{#each ideas}}
-                {{> idea}}
-                {{/each}}
-              </ol>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="hot">
+            <div class="panel panel-default" id="tab">
+              <div class="panel-body">
+                <ol>
+                  {{#each ideas}}
+                  {{> idea}}
+                  {{/each}}
+                </ol>
+              </div>
             </div>
           </div>
+          <nav style="text-align: center">
+            <ul class="pager">
+              <li><a href="#">Previous</a></li>
+              <li><a href="#">Next</a></li>
+            </ul>
+          </nav>
         </div>
-        <nav style="text-align: center">
-          <ul class="pager">
-            <li><a href="#">Previous</a></li>
-            <li><a href="#">Next</a></li>
-          </ul>
-        </nav>
+        <div role="tabpanel" class="tab-pane" id="top"></div>
+        <div role="tabpanel" class="tab-pane" id="newest"></div>
+        <div role="tabpanel" class="tab-pane" id="promoted"></div>
       </div>
-      <div role="tabpanel" class="tab-pane" id="top"></div>
-      <div role="tabpanel" class="tab-pane" id="newest"></div>
-      <div role="tabpanel" class="tab-pane" id="promoted"></div>
+
     </div>
 
+    {{> footer}}
   </div>
-
-  {{> footer}}
-</div>
 </template>
 
 
 <template name="projectsTab">
-  {{#if currentUser}}
-  {{> nav}}
-  {{else}}
-  {{#unless loggingIn}}
-  {{>logoutNav}}
-  {{/unless}}
-  {{/if}}
   <div class="animated fadeIn">
-  <div class="delta">
-    <h1 class="header" id="space">Projects</h1>
-    <div role="tabpanel">
+    {{#if currentUser}}
+    {{> nav}}
+    {{else}}
+    {{#unless loggingIn}}
+    {{>logoutNav}}
+    {{/unless}}
+    {{/if}}
+    
+    <div class="delta">
+      <h1 class="header" id="space">Projects</h1>
+      <div role="tabpanel">
 
-      <!-- Nav tabs -->
-      <ul class="nav nav-tabs nav-justified" role="tablist">
-        <li role="presentation" class="hot active"><a href="#hot" aria-controls="hot" role="tab" data-toggle="tab">Hot</a></li>
-        <li role="presentation" class="top"><a href="#top" aria-controls="top" role="tab" data-toggle="tab">Top</a></li>
-        <li role="presentation" class="newest"><a href="#newest" aria-controls="newest" role="tab" data-toggle="tab">Newest</a></li>
-        <li role="presentation" class="promoted"><a href="#promoted" aria-controls="promoted" role="tab" data-toggle="tab">Promoted</a></li>
-      </ul>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs nav-justified" role="tablist">
+          <li role="presentation" class="hot active"><a href="#hot" aria-controls="hot" role="tab" data-toggle="tab">Hot</a></li>
+          <li role="presentation" class="top"><a href="#top" aria-controls="top" role="tab" data-toggle="tab">Top</a></li>
+          <li role="presentation" class="newest"><a href="#newest" aria-controls="newest" role="tab" data-toggle="tab">Newest</a></li>
+          <li role="presentation" class="promoted"><a href="#promoted" aria-controls="promoted" role="tab" data-toggle="tab">Promoted</a></li>
+        </ul>
 
-      <!-- Tab panes -->
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="hot">
-          <div class="panel panel-default" id="tab">
-            <div class="panel-body">
-              <ol>
-                {{#each projects}}
-                {{> project}}
-                {{/each}}
-              </ol>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="hot">
+            <div class="panel panel-default" id="tab">
+              <div class="panel-body">
+                <ol>
+                  {{#each projects}}
+                  {{> project}}
+                  {{/each}}
+                </ol>
+              </div>
             </div>
           </div>
+          <nav style="text-align: center">
+            <ul class="pager">
+              <li><a href="#">Previous</a></li>
+              <li><a href="#">Next</a></li>
+            </ul>
+          </nav>
         </div>
-        <nav style="text-align: center">
-          <ul class="pager">
-            <li><a href="#">Previous</a></li>
-            <li><a href="#">Next</a></li>
-          </ul>
-        </nav>
+        <div role="tabpanel" class="tab-pane" id="top"></div>
+        <div role="tabpanel" class="tab-pane" id="newest"></div>
+        <div role="tabpanel" class="tab-pane" id="promoted"></div>
       </div>
-      <div role="tabpanel" class="tab-pane" id="top"></div>
-      <div role="tabpanel" class="tab-pane" id="newest"></div>
-      <div role="tabpanel" class="tab-pane" id="promoted"></div>
-    </div>
 
+    </div>
+    
+    {{> footer}}
   </div>
-  
-  {{> footer}}
-</div>
 </template>
 
 
 <template name="newIdea">
   {{#if currentUser}}
   {{> nav}}
-<div class="animated fadeIn">
-  <div class="container">
-    <div class="alpha">
-      <div class="row">
-        <form class="addIdeaForm" id="form">
-          <div class="col-sm-12">
+  <div class="animated fadeIn">
+    <div class="container">
+      <div class="alpha">
+        <div class="row">
+          <form class="addIdeaForm" id="form">
+            <div class="col-sm-12">
 
-            <table width="100%">
-              <tr> 
-                <td>
-                  <h1><input type="text" name="title" id="title" placeholder="Idea Title"></h1>
-                  <h1><small><input type="text" name="blurb" id="blurb" placeholder="Idea Blurb"></small></h1>
-                </td>
-              </tr>
-            </table>
+              <table width="100%">
+                <tr> 
+                  <td>
+                    <h1><input type="text" name="title" id="title" placeholder="Idea Title"></h1>
+                    <h1><small><input type="text" name="blurb" id="blurb" placeholder="Idea Blurb"></small></h1>
+                  </td>
+                </tr>
+              </table>
 
-            <br>
+              <br>
 
-            <input type="text" name="image" id="image" placeholder="Link to idea image">
+              <input type="text" name="image" id="image" placeholder="Link to idea image">
 
-            <br>
+              <br>
 
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h2>Details</h2>
-                <br>
-                <textarea type="text" name="details" id="details" placeholder="Idea details" rows="6"></textarea><br>
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <h2>Details</h2>
+                  <br>
+                  <textarea type="text" name="details" id="details" placeholder="Idea details" rows="6"></textarea><br>
+                </div>
+              </div>
+
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <h2>Permalink</h2>
+                  <span id="helpBlock" class="help-block">/ideas/<b>your-unique-idea-address</b></span>
+                  <input type="text" name="slug" id="slug" placeholder="your-unique-idea-address"><br>
+                </div>
               </div>
             </div>
 
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h2>Permalink</h2>
-                <span id="helpBlock" class="help-block">/ideas/<b>your-unique-idea-address</b></span>
-                <input type="text" name="slug" id="slug" placeholder="your-unique-idea-address"><br>
-              </div>
+
+            <div class="col-sm-12">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <h2>Tags</h2>
+                  <br>
+                  <input type="text" name="tags" id="tags" placeholder="Idea Tags">
+                </div>
+              </div>         
             </div>
-          </div>
 
-
-          <div class="col-sm-12">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h2>Tags</h2>
-                <br>
-                <input type="text" name="tags" id="tags" placeholder="Idea Tags">
-              </div>
-            </div>         
-          </div>
-
-          <input id="submit" type="submit" value="Spark!" class="btn btn-primary">
-        </form>
+            <input id="submit" type="submit" value="Spark!" class="btn btn-primary">
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
   {{else}}
   {{#unless loggingIn}}
   {{>pageNotFound}}
@@ -279,70 +281,72 @@
 
 <template name="newProject">
   {{#if currentUser}}
-  {{> nav}}
-<div class="animated fadeIn">
-  <div class="container animated fadeIn">
-    <div class="alpha">
-      <div class="row">
-        <form class="addProjectForm" id="form">
-          <div class="col-sm-12">
+  <div class="animated fadeIn">
+    {{> nav}}
 
-            <table width="100%">
-              <tr> 
-                <td>
-                  <h1><input type="text" name="title" id="title" placeholder="Project Title"></h1>
-                  <h1><small><input type="text" name="blurb" id="blurb" placeholder="Project Blurb"></small></h1>
-                </td>
-              </tr>
-            </table>
+    <div class="container animated fadeIn">
+      <div class="alpha">
+        <div class="row">
+          <form class="addProjectForm" id="form">
+            <div class="col-sm-12">
 
-            <br>
+              <table width="100%">
+                <tr> 
+                  <td>
+                    <h1><input type="text" name="title" id="title" placeholder="Project Title"></h1>
+                    <h1><small><input type="text" name="blurb" id="blurb" placeholder="Project Blurb"></small></h1>
+                  </td>
+                </tr>
+              </table>
 
-            <input type="text" name="image" id="image" placeholder="Link to project image">
+              <br>
 
-            <br>
+              <input type="text" name="image" id="image" placeholder="Link to project image">
 
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h2>Details</h2>
-                <br>
-                <textarea type="text" name="details" id="details" placeholder="Project details" rows="6"></textarea><br>
+              <br>
+
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <h2>Details</h2>
+                  <br>
+                  <textarea type="text" name="details" id="details" placeholder="Project details" rows="6"></textarea><br>
+                </div>
+              </div>
+
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <h2>Permalink</h2>
+                  <span id="helpBlock" class="help-block">/projects/<b>your-unique-project-address</b></span>
+                  <input type="text" name="slug" id="slug" placeholder="your-unique-project-address"><br>
+                </div>
               </div>
             </div>
 
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h2>Permalink</h2>
-                <span id="helpBlock" class="help-block">/projects/<b>your-unique-project-address</b></span>
-                <input type="text" name="slug" id="slug" placeholder="your-unique-project-address"><br>
-              </div>
+
+            <div class="col-sm-12">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <h2>Tags</h2>
+                  <br>
+                  <input type="text" name="tags" id="tags" placeholder="Project Tags">
+                </div>
+              </div>         
             </div>
-          </div>
 
-
-          <div class="col-sm-12">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h2>Tags</h2>
-                <br>
-                <input type="text" name="tags" id="tags" placeholder="Project Tags">
-              </div>
-            </div>         
-          </div>
-
-          <input id="submit" type="submit" value="Spark!" class="btn btn-primary">
-        </form>
+            <input id="submit" type="submit" value="Spark!" class="btn btn-primary">
+          </form>
+        </div>
       </div>
     </div>
+    {{> footer}}
   </div>
-</div>
   {{else}}
   {{#unless loggingIn}}
   {{>pageNotFound}}
   {{/unless}}
   {{/if}}
 
-  {{> footer}}
+  
 
   <script>
   document.title = "Create a New Project"
@@ -450,208 +454,210 @@
 
 
 <template name="ideaView">
-  {{#if currentUser}}
-  {{> nav}}
-  {{else}}
-  {{#unless loggingIn}}
-  {{>logoutNav}}
-  {{/unless}}
-  {{/if}}
   <div class="animated fadeIn">
-  <div class="container">
-    <div class="alpha">
-      <div class="row">
-        <div class="col-sm-12">
+    {{#if currentUser}}
+    {{> nav}}
+    {{else}}
+    {{#unless loggingIn}}
+    {{>logoutNav}}
+    {{/unless}}
+    {{/if}}
 
-          <table width="100%">
-            <tr> 
-              <td>
-                <h1>{{title}}</h1>
-                <h1><small>{{blurb}}</small></h1>
-              </td>
-              <td> 
-                <div class="pull-right">
-                  <center>
-                    <span class="badge" id="badge-lg">{{count}}</span>
-                    <h1><small>votes</small></h1>
-                  </center>
-                </div>
-              </td>
-            </tr>
-          </table>
-          <br>
-          {{> picture}}
-          <br>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <table width="100%">
-                <tr> 
-                  <td>
-                    <h3><small>{{ownerName}}</small></h3>
-                  </td>
-                  <td> 
-                    <div class="pull-right">
-                      <center>
-                        <button class="btn btn-default">Follow {{ownerName}}</button>
-                      </center>
-                    </div>
-                  </td>
-                </tr>
-              </table>
+    <div class="container">
+      <div class="alpha">
+        <div class="row">
+          <div class="col-sm-12">
+
+            <table width="100%">
+              <tr> 
+                <td>
+                  <h1>{{title}}</h1>
+                  <h1><small>{{blurb}}</small></h1>
+                </td>
+                <td> 
+                  <div class="pull-right">
+                    <center>
+                      <span class="badge" id="badge-lg">{{count}}</span>
+                      <h1><small>votes</small></h1>
+                    </center>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <br>
+            {{> picture}}
+            <br>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <table width="100%">
+                  <tr> 
+                    <td>
+                      <h3><small>{{ownerName}}</small></h3>
+                    </td>
+                    <td> 
+                      <div class="pull-right">
+                        <center>
+                          <button class="btn btn-default">Follow {{ownerName}}</button>
+                        </center>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h2>Details</h2>
+                <b><p>Published on {{createdAt}}</p></b>
+                <br>
+                <p>{{details}}</p>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h2>Permalink</h2>
+                <br>
+                <div class="well">spark-app.meteor.com/ideas/{{slug}}</div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h2>Comments</h2>
+                {{> comments}}
+              </div>
             </div>
           </div>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Details</h2>
-              <b><p>Published on {{createdAt}}</p></b>
-              <br>
-              <p>{{details}}</p>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Permalink</h2>
-              <br>
-              <div class="well">spark-app.meteor.com/ideas/{{slug}}</div>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Comments</h2>
-              {{> comments}}
+
+          <div class="col-sm-12">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h2>Similar Ideas</h2>
+                <br>
+                <center>
+                  {{>thumbnail}}
+                </center>
+              </div>
+            </div>         
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h2>Similar Projects</h2>
+                <br>
+                <center>
+                  {{>thumbnail}}
+                </center>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="col-sm-12">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Similar Ideas</h2>
-              <br>
-              <center>
-                {{>thumbnail}}
-              </center>
-            </div>
-          </div>         
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Similar Projects</h2>
-              <br>
-              <center>
-                {{>thumbnail}}
-              </center>
-            </div>
-          </div>
-        </div>
       </div>
-
     </div>
+    {{>footer}}
   </div>
-  {{>footer}}
-</div>
 </template>
 
 
 <template name="projectView">
-  {{#if currentUser}}
-  {{> nav}}
-  {{else}}
-  {{#unless loggingIn}}
-  {{>logoutNav}}
-  {{/unless}}
-  {{/if}}
   <div class="animated fadeIn">
-  <div class="container">
-    <div class="alpha">
-      <div class="row">
-        <div class="col-sm-12">
+    {{#if currentUser}}
+    {{> nav}}
+    {{else}}
+    {{#unless loggingIn}}
+    {{>logoutNav}}
+    {{/unless}}
+    {{/if}}
 
-          <table width="100%">
-            <tr> 
-              <td>
-                <h1>{{title}}</h1>
-                <h1><small>{{blurb}}</small></h1>
-              </td>
-              <td> 
-                <div class="pull-right">
-                  <center>
-                    <span class="badge" id="badge-lg">{{count}}</span>
-                    <h1><small>votes</small></h1>
-                  </center>
-                </div>
-              </td>
-            </tr>
-          </table>
-          <br>
-          {{> picture}}
-          <br>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <table width="100%">
-                <tr> 
-                  <td>
-                    <h3><small>{{ownerName}}</small></h3>
-                  </td>
-                  <td> 
-                    <div class="pull-right">
-                      <center>
-                        <button class="btn btn-default">Follow {{ownerName}}</button>
-                      </center>
-                    </div>
-                  </td>
-                </tr>
-              </table>
+    <div class="container">
+      <div class="alpha">
+        <div class="row">
+          <div class="col-sm-12">
+
+            <table width="100%">
+              <tr> 
+                <td>
+                  <h1>{{title}}</h1>
+                  <h1><small>{{blurb}}</small></h1>
+                </td>
+                <td> 
+                  <div class="pull-right">
+                    <center>
+                      <span class="badge" id="badge-lg">{{count}}</span>
+                      <h1><small>votes</small></h1>
+                    </center>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <br>
+            {{> picture}}
+            <br>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <table width="100%">
+                  <tr> 
+                    <td>
+                      <h3><small>{{ownerName}}</small></h3>
+                    </td>
+                    <td> 
+                      <div class="pull-right">
+                        <center>
+                          <button class="btn btn-default">Follow {{ownerName}}</button>
+                        </center>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h2>Details</h2>
+                <b><p>Published on {{createdAt}}</p></b>
+                <br>
+                <p>{{details}}</p>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h2>Permalink</h2>
+                <br>
+                <div class="well">spark-app.meteor.com/projects/{{slug}}</div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h2>Comments</h2>
+                {{> comments}}
+              </div>
             </div>
           </div>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Details</h2>
-              <b><p>Published on {{createdAt}}</p></b>
-              <br>
-              <p>{{details}}</p>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Permalink</h2>
-              <br>
-              <div class="well">spark-app.meteor.com/projects/{{slug}}</div>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Comments</h2>
-              {{> comments}}
+
+          <div class="col-sm-12">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h2>Similar Ideas</h2>
+                <br>
+                <center>
+                  {{>thumbnail}}
+                </center>
+              </div>
+            </div>         
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h2>Similar Projects</h2>
+                <br>
+                <center>
+                  {{>thumbnail}}
+                </center>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="col-sm-12">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Similar Ideas</h2>
-              <br>
-              <center>
-                {{>thumbnail}}
-              </center>
-            </div>
-          </div>         
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Similar Projects</h2>
-              <br>
-              <center>
-                {{>thumbnail}}
-              </center>
-            </div>
-          </div>
-        </div>
       </div>
-
     </div>
+    {{>footer}}
   </div>
-  {{>footer}}
-</div>
 </template>
 
 
@@ -666,99 +672,104 @@
 
 
 <template name="tos">
-  {{#if currentUser}}
-  {{> nav}}
-  {{else}}
-  {{#unless loggingIn}}
-  {{>logoutNav}}
-  {{/unless}}
-  {{/if}}
   <div class="animated fadeIn">
-  <div class="alpha">
-    <h1 class="header">Terms of Service</h1>
-    <p>Whoa, whoa, what are you doing? Nobody ever reads Terms of Service. Nobody. Ever.</p> 
+    {{#if currentUser}}
+    {{> nav}}
+    {{else}}
+    {{#unless loggingIn}}
+    {{>logoutNav}}
+    {{/unless}}
+    {{/if}}
+
+    <div class="alpha">
+      <h1 class="header">Terms of Service</h1>
+      <p>Whoa, whoa, what are you doing? Nobody ever reads Terms of Service. Nobody. Ever.</p> 
+    </div>
+    {{> footer}}
   </div>
-  {{> footer}}
-</div>
 </template>
 
 
 <template name="privacy">
-  {{#if currentUser}}
-  {{> nav}}
-  {{else}}
-  {{#unless loggingIn}}
-  {{>logoutNav}}
-  {{/unless}}
-  {{/if}}
   <div class="animated fadeIn">
-  <div class="alpha">
-    <h1 class="header">Privacy Policy</h1>
-    <p>We take your privacy very seriously. Your password is encrypted as it is stored in our database. We cannot read it. Seriously, it looks like gibberish.</p>
+    {{#if currentUser}}
+    {{> nav}}
+    {{else}}
+    {{#unless loggingIn}}
+    {{>logoutNav}}
+    {{/unless}}
+    {{/if}}
+
+    <div class="alpha">
+      <h1 class="header">Privacy Policy</h1>
+      <p>We take your privacy very seriously. Your password is encrypted as it is stored in our database. We cannot read it. Seriously, it looks like gibberish.</p>
+    </div>
+    {{> footer}}
   </div>
-  {{> footer}}
-</div>
 </template>
 
 
 <template name="developers">
-  {{#if currentUser}}
-  {{> nav}}
-  {{else}}
-  {{#unless loggingIn}}
-  {{>logoutNav}}
-  {{/unless}}
-  {{/if}}
   <div class="animated fadeIn">
-  <div class="alpha">
-    <h1 class="header">Developers</h1>
-    <p>If you are an aspiring developer, Spark is the web app for you. Ideas runneth in the website's veins.</p>
+    {{#if currentUser}}
+    {{> nav}}
+    {{else}}
+    {{#unless loggingIn}}
+    {{>logoutNav}}
+    {{/unless}}
+    {{/if}}
+
+    <div class="alpha">
+      <h1 class="header">Developers</h1>
+      <p>If you are an aspiring developer, Spark is the web app for you. Ideas runneth in the website's veins.</p>
+    </div>
+    {{> footer}}
   </div>
-  {{> footer}}
-</div>
 </template>
 
 
 <template name="artists">
-  {{#if currentUser}}
-  {{> nav}}
-  {{else}}
-  {{#unless loggingIn}}
-  {{>logoutNav}}
-  {{/unless}}
-  {{/if}}
   <div class="animated fadeIn">
-  <div class="alpha">
-    <h1 class="header">Artists</h1>
-    <p>We at Spark love visuals. So we need artists to make the ideas and projects very pretty. </p>
+    {{#if currentUser}}
+    {{> nav}}
+    {{else}}
+    {{#unless loggingIn}}
+    {{>logoutNav}}
+    {{/unless}}
+    {{/if}}
+
+    <div class="alpha">
+      <h1 class="header">Artists</h1>
+      <p>We at Spark love visuals. So we need artists to make the ideas and projects very pretty. </p>
+    </div>
+    {{> footer}}
   </div>
-  {{> footer}}
-</div>
 </template>
 
 
 <template name="about">
-  {{#if currentUser}}
-  {{> nav}}
-  {{else}}
-  {{#unless loggingIn}}
-  {{>logoutNav}}
-  {{/unless}}
-  {{/if}}
   <div class="animated fadeIn">
-  <div class="alpha">
-    <h1 class="header">About Spark</h1>
-    <p>
-      Spark is a web app built for developers, by developers. It is the holy mecca for those who have good ideas but no skills, or those who have good skills but no ideas. If you think you're one of these people, Spark is for you. 
-    </p>
+    {{#if currentUser}}
+    {{> nav}}
+    {{else}}
+    {{#unless loggingIn}}
+    {{>logoutNav}}
+    {{/unless}}
+    {{/if}}
+
+    <div class="alpha">
+      <h1 class="header">About Spark</h1>
+      <p>
+        Spark is a web app built for developers, by developers. It is the holy mecca for those who have good ideas but no skills, or those who have good skills but no ideas. If you think you're one of these people, Spark is for you. 
+      </p>
+    </div>
+    {{> footer}}
   </div>
-  {{> footer}}
-</div>
 </template>
 
 
 <template name="pageNotFound">
-  <div class="animated fadeIn">
+
   <div class="jumbotron" style="padding: 100px 0">
     <center>
       <h1>Oops. Page Not Found.</h1>
@@ -771,7 +782,7 @@
     <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Or take this survey</a>
     <br>
   </center>
-</div>
+
   <script>
   document.title = "Page Not Found"
   </script>
@@ -779,42 +790,43 @@
 
 
 <template name="landing">
-  {{> logoutNav}}
-<div class="animated fadeIn">
-  <div class="jumbotron" style="margin-bottom: 0px; background: #fff">
-    <div class="delta">
-      <h1>Start the fire for the latest ideas and projects.</h1>
-      <h1><small>Everyone welcome - both developers and non-techies.</small></h1>
-    </div>
-  </div>
+  <div class="animated fadeIn">
+    {{> logoutNav}}
 
-  <div id="footer" style="height: 150px">
-    <div class="copyright">
+    <div class="jumbotron" style="margin-bottom: 0px; background: #fff">
       <div class="delta">
-        <center>
-          <div class="col-sm-2">
-            <p>&copy; 2015 Spark</p>  
-          </div>
-          <div class="col-sm-2">
-            <p><a href="/tos" target="_top">Terms of Service</a></p>  
-          </div>
-          <div class="col-sm-2">
-            <p><a href="/privacy" target="_top">Privacy Policy</a></p>   
-          </div>
-          <div class="col-sm-2">
-            <p><a href="/developers" target="_top">Developers</a></p>  
-          </div>
-          <div class="col-sm-2">
-            <p><a href="/artists" target="_top">Artists</a></p>  
-          </div>
-          <div class="col-sm-2">
-            <p><a href="/about" target="_top">About</a></p>  
-          </div>
-        </center>
+        <h1>Start the fire for the latest ideas and projects.</h1>
+        <h1><small>Everyone welcome - both developers and non-techies.</small></h1>
+      </div>
+    </div>
+
+    <div id="footer" style="height: 150px">
+      <div class="copyright">
+        <div class="delta">
+          <center>
+            <div class="col-sm-2">
+              <p>&copy; 2015 Spark</p>  
+            </div>
+            <div class="col-sm-2">
+              <p><a href="/tos" target="_top">Terms of Service</a></p>  
+            </div>
+            <div class="col-sm-2">
+              <p><a href="/privacy" target="_top">Privacy Policy</a></p>   
+            </div>
+            <div class="col-sm-2">
+              <p><a href="/developers" target="_top">Developers</a></p>  
+            </div>
+            <div class="col-sm-2">
+              <p><a href="/artists" target="_top">Artists</a></p>  
+            </div>
+            <div class="col-sm-2">
+              <p><a href="/about" target="_top">About</a></p>  
+            </div>
+          </center>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </template>
 
 
@@ -885,22 +897,22 @@
         <form class="addProjectForm" id="form">
           
           <div class="col-sm-12">
-              <br>
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <b>Sign In</b>
-                </div>
+            <br>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <b>Sign In</b>
+              </div>
               <div class="panel-body">
                 <label>Username or Email</label>
-            <input type="text" placeholder="Username">
-            <br>
-            <label>Password <a>(forgot password)</a></label>
-            <input type="text" placeholder="Password">
-            <br>
-            <input type="submit" value="Sign in" class="btn btn-primary">
-          </div>
-        </div>
-          
+                <input type="text" placeholder="Username">
+                <br>
+                <label>Password <a>(forgot password)</a></label>
+                <input type="text" placeholder="Password">
+                <br>
+                <input type="submit" value="Sign in" class="btn btn-primary">
+              </div>
+            </div>
+            
           </div>
         </form>
       </div>
