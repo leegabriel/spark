@@ -200,6 +200,7 @@ a:active {
 .delete, .close, .edit {
   background: none;
   border: none;
+  color: #BDC3C7;
 }
 
 .delete:hover, .close:hover {
@@ -287,8 +288,17 @@ textarea {
   margin-right: 20px;
 }
 
-@media screen and (max-width: 768px) {
+@media (min-width: 768px) {
+  .nav-tabs.nav-justified>li>a:hover{
+    background-color: #f6f6f6 !important;
+  }
 
+  .nav-tabs.nav-justified>.active>a:hover{
+    background-color: #fff !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
 
   #footer {
    position:relative;
@@ -305,13 +315,13 @@ textarea {
   margin-left: 20px;
 }
 
-/* remove indentation from list*/
-ol {
-  padding: 0;
-  list-style-type: none;
-}
+  /* remove indentation from list*/
+  ol {
+    padding: 0;
+    list-style-type: none;
+  }
 
-#middle-row {
-  width: 150px;
-}
+  #middle-row {
+    width: 150px;
+  }
 }

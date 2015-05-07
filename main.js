@@ -195,7 +195,8 @@ Meteor.methods({
       imageURL: imageURL,
       details: details,
       createdAt: moment().format("MMMM D, YYYY"),
-      createTimeActual: moment().format('MMMM Do YYYY, h:mm:ss a')
+      createTimeActual: moment().format('MMMM Do YYYY, h:mm:ss a'), 
+      comments: []
     });
   },
   deleteIdea: function (ideaId) {
