@@ -72,19 +72,19 @@
             <p>&copy; 2015 Spark</p>  
           </div>
           <div class="col-sm-2">
-            <p><a href="/tos" target="_top">Terms of Service</a></p>  
+            <p><a href="/tos">Terms of Service</a></p>  
           </div>
           <div class="col-sm-2">
-            <p><a href="/privacy" target="_top">Privacy Policy</a></p>   
+            <p><a href="/privacy">Privacy Policy</a></p>   
           </div>
           <div class="col-sm-2">
-            <p><a href="/developers" target="_top">Developers</a></p>  
+            <p><a href="/developers">Developers</a></p>  
           </div>
           <div class="col-sm-2">
-            <p><a href="/artists" target="_top">Artists</a></p>  
+            <p><a href="/artists">Artists</a></p>  
           </div>
           <div class="col-sm-2">
-            <p><a href="/about" target="_top">About</a></p>  
+            <p><a href="/about">About</a></p>  
           </div>
         </center>
       </div>
@@ -99,16 +99,16 @@
 
 
 <template name="ideasTab">
+
+  {{#if currentUser}}
+  {{> nav}}
+  {{else}}
+  {{#unless loggingIn}}
+  {{>logoutNav}}
+  {{/unless}}
+  {{/if}}
   {{#if isSubscriptionComplete}}
   <div class="animated fadeIn">
-    {{#if currentUser}}
-    {{> nav}}
-    {{else}}
-    {{#unless loggingIn}}
-    {{>logoutNav}}
-    {{/unless}}
-    {{/if}}
-
     <div class="delta">
       <h1 class="header" id="space">Ideas</h1>
       <div role="tabpanel">
@@ -150,23 +150,24 @@
 
     {{> footer}}
   </div>
-    {{else}}
-{{>spinner}}
+  {{else}}
+  {{>spinner}}
   {{/if}}
 </template>
 
 
 <template name="projectsTab">
-{{#if isSubscriptionComplete}}
-  <div class="animated fadeIn">
-    {{#if currentUser}}
-    {{> nav}}
-    {{else}}
-    {{#unless loggingIn}}
-    {{>logoutNav}}
-    {{/unless}}
-    {{/if}}
 
+
+  {{#if currentUser}}
+  {{> nav}}
+  {{else}}
+  {{#unless loggingIn}}
+  {{>logoutNav}}
+  {{/unless}}
+  {{/if}}
+  {{#if isSubscriptionComplete}}
+  <div class="animated fadeIn">
     <div class="delta">
       <h1 class="header" id="space">Projects</h1>
       <div role="tabpanel">
@@ -209,7 +210,7 @@
     {{> footer}}
   </div>
   {{else}}
-{{>spinner}}
+  {{>spinner}}
   {{/if}}
 </template>
 
@@ -820,19 +821,19 @@
               <p>&copy; 2015 Spark</p>  
             </div>
             <div class="col-sm-2">
-              <p><a href="/tos" target="_top">Terms of Service</a></p>  
+              <p><a href="/tos">Terms of Service</a></p>  
             </div>
             <div class="col-sm-2">
-              <p><a href="/privacy" target="_top">Privacy Policy</a></p>   
+              <p><a href="/privacy">Privacy Policy</a></p>   
             </div>
             <div class="col-sm-2">
-              <p><a href="/developers" target="_top">Developers</a></p>  
+              <p><a href="/developers">Developers</a></p>  
             </div>
             <div class="col-sm-2">
-              <p><a href="/artists" target="_top">Artists</a></p>  
+              <p><a href="/artists">Artists</a></p>  
             </div>
             <div class="col-sm-2">
-              <p><a href="/about" target="_top">About</a></p>  
+              <p><a href="/about">About</a></p>  
             </div>
           </center>
         </div>
@@ -931,4 +932,8 @@
   {{/if}}
 
   
+</template>
+
+<template name="loading">
+{{>spinner}}
 </template>

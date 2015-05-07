@@ -269,8 +269,11 @@ Meteor.methods({
 /* Routes */
 
 Router.configure({
- notFoundTemplate: 'pageNotFound'
+ notFoundTemplate: 'pageNotFound',
+ loadingTemplate: 'loading'
 });
+
+Router.onBeforeAction('loading');
 
 Router.route('/', function() {
   this.render('home');
@@ -291,11 +294,14 @@ Router.route('/newidea', function(){
 });
 
 Router.route('/ideas/:slug', function(){
-  this.render('ideaView', {
-    data: function(){
-      return Ideas.findOne({slug: this.params.slug});
-    }
-  });
+  this.render('loading')
+  if (Ideas.findOne({slug: this.params.slug})) {
+    this.render('ideaView', {
+      data: function(){
+        return Ideas.findOne({slug: this.params.slug});
+      }
+    });
+  }
 });
 
 Router.route('/newproject', function(){
@@ -303,11 +309,14 @@ Router.route('/newproject', function(){
 });
 
 Router.route('/projects/:slug', function(){
-  this.render('projectView', {
-    data: function(){
-      return Projects.findOne({slug: this.params.slug});
-    }
-  });
+  this.render('loading')
+  if (Projects.findOne({slug: this.params.slug})) {
+    this.render('projectView', {
+      data: function(){
+        return Projects.findOne({slug: this.params.slug});
+      }
+    });
+  }
 });
 
 Router.route('/tos',function() {
