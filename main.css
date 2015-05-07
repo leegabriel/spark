@@ -2,18 +2,27 @@ h1, h2, h3, h4, h5, h6, p, small {
   color: #000 !important;
 }
 
+p {
+  font-family: Georgia, serif;
+}
+
 .header {
   padding-top: 20px;
   padding-bottom: 10px;
 }
 .alpha {
   margin: auto;
-  max-width: 700px; /*must match width of content text box*/
+  max-width: 700px; 
 }
 
 .delta {
   margin: auto;
   max-width: 900px;
+}
+
+.gamma {
+  margin: auto;
+  max-width: 450px;
 }
 
 #title, #slug, #category, #tags, #details {
@@ -60,7 +69,7 @@ h1, h2, h3, h4, h5, h6, p, small {
 }
 
 .navbar-default .navbar-nav>li>a:hover {
-  color: #666 !important;
+  color: #000 !important;
   background-color: #f6f6f6 !important;
 }
 
@@ -69,9 +78,10 @@ h1, h2, h3, h4, h5, h6, p, small {
 }
 
 .dropdown-menu>li>a {
-  color: #666 !important;
+  color: #000 !important;
 }
 .dropdown-menu>li>a:hover {
+  color: #000 !important;
   background-color: #f6f6f6 !important;
 }
 
@@ -80,12 +90,22 @@ h1, h2, h3, h4, h5, h6, p, small {
   margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 15px;
-  background-color: #2980B9 !important;
+  background-color: #3498DB !important;
   border-color: #2980B9 !important;
 }
 
 #submit:hover {
   opacity: 0.87;
+  border-color: #34495E !important;
+}
+
+.btn {
+  outline: 0 !important;
+}
+
+.btn:active {
+  opacity: 0.6 !important;
+  box-shadow: none !important; 
 }
 
 .btn-default {
@@ -102,6 +122,7 @@ h1, h2, h3, h4, h5, h6, p, small {
 html,
 body {
   margin:0;
+  margin-top: 35px !important;
   padding:0;
   height:100%;
   background-color: #fff !important;
@@ -259,6 +280,11 @@ textarea {
   border-top: 0px; 
   border-top-left-radius: 0px; 
   border-top-right-radius:0px;
+}
+
+#middle-link {
+  margin-left: 30px; 
+  margin-right: 20px;
 }
 
 @media screen and (max-width: 768px) {

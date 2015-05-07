@@ -9,7 +9,7 @@
 
 
 <template name="nav">
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default navbar-fixed-top">
     <div class="delta">
       <div class="container-fluid">
 
@@ -251,7 +251,7 @@
             </div>         
           </div>
 
-          <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
+          <input id="submit" type="submit" value="Spark!" class="btn btn-primary">
         </form>
       </div>
     </div>
@@ -325,7 +325,7 @@
             </div>         
           </div>
 
-          <input id="submit" type="submit" value="Spark!" class="btn btn-block btn-lg btn-primary">
+          <input id="submit" type="submit" value="Spark!" class="btn btn-primary">
         </form>
       </div>
     </div>
@@ -359,7 +359,7 @@
 
         <td id="middle-row" style="width: 600px">
           <h3>
-            <a id="middle-link" href="/ideas/{{slug}}" target="_top" style="margin-left: 30px; margin-right: 20px">{{title}}</a> 
+            <a id="middle-link" href="/ideas/{{slug}}" target="_top">{{title}}</a> 
             {{#if isOwner}}
             <button class="edit" ><i class="fa fa-pencil" title="Edit this idea"></i></button>
             <button class="delete"><i class="fa fa-times-circle" title="Delete this idea"></i></button>
@@ -402,7 +402,7 @@
 
         <td id="middle-row" style="width: 600px">
           <h3>
-            <a id="middle-link" href="/projects/{{slug}}" target="_top" style="margin-left: 30px; margin-right: 20px">{{title}}</a>
+            <a id="middle-link" href="/projects/{{slug}}" target="_top">{{title}}</a>
             {{#if isOwner}}
             <button class="edit"><i class="fa fa-pencil" title="Delete this project"></i></button>
             <button class="delete"><i class="fa fa-times-circle" title="Delete this project"></i></button>
@@ -760,7 +760,7 @@
 <template name="landing">
   {{> logoutNav}}
 
-  <div class="jumbotron" style="margin-bottom: 0px; background: #fcfcfc">
+  <div class="jumbotron" style="margin-bottom: 0px; background: #fff">
     <div class="delta">
       <h1>Start the fire for the latest ideas and projects.</h1>
       <h1><small>Everyone welcome - both developers and non-techies.</small></h1>
@@ -835,4 +835,58 @@
 
 <template name="loadingTemplate">
   {{>spinner}}
+</template>
+
+<template name="profile">
+  {{#if currentUser}}
+  {{> nav}}
+  {{else}}
+  {{#unless loggingIn}}
+  {{>logoutNav}}
+  {{/unless}}
+  {{/if}}
+
+  {{>footer}}
+</template>
+
+<template name="login">
+  {{#if currentUser}}
+  <script>
+  window.location = "#"
+  </script>
+  {{else}}
+  {{#unless loggingIn}}
+  {{>logoutNav}}
+  <div class="container">
+    <div class="gamma">
+      <div class="row">
+        <form class="addProjectForm" id="form">
+          
+          <div class="col-sm-12">
+              <br>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <b>Sign In</b>
+                </div>
+              <div class="panel-body">
+                <label>Username or Email</label>
+            <input type="text" placeholder="Username">
+            <br>
+            <label>Password <a>(forgot password)</a></label>
+            <input type="text" placeholder="Password">
+            <br>
+            <input type="submit" value="Sign in" class="btn btn-primary">
+          </div>
+        </div>
+          
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  {{>footer}}
+  {{/unless}}
+  {{/if}}
+
+  
 </template>

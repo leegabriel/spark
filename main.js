@@ -333,4 +333,15 @@ Router.route('/landing',function() {
   document.title = "Spark";
 });
 
+Router.route('/profile',function() {
+  this.render('profile');
+  document.title = "Spark";
+});
+
+Router.route('/login',function() {
+  this.render('login');
+  document.title = "Spark | Sign in";
+});
+
+
 
