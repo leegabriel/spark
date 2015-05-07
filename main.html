@@ -3,7 +3,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdn.rawgit.com/daneden/animate.css/master/animate.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <link rel="icon" sizes="16x16 32x32" href="/favicon.ico?v=2">
@@ -466,7 +465,7 @@ document.title = "Create a New Project"
 
 <template name="ideaView">
 
-  
+
   {{#if currentUser}}
   {{> nav}}
   {{else}}
@@ -570,7 +569,7 @@ document.title = "Create a New Project"
 
 
 <template name="projectView">
-  
+
   {{#if currentUser}}
   {{> nav}}
   {{else}}
@@ -684,7 +683,7 @@ document.title = "Create a New Project"
 
 
 <template name="tos">
-  
+
   {{#if currentUser}}
   {{> nav}}
   {{else}}
@@ -703,7 +702,7 @@ document.title = "Create a New Project"
 
 
 <template name="privacy">
-  
+
   {{#if currentUser}}
   {{> nav}}
   {{else}}
@@ -722,7 +721,7 @@ document.title = "Create a New Project"
 
 
 <template name="developers">
-  
+
   {{#if currentUser}}
   {{> nav}}
   {{else}}
@@ -741,7 +740,7 @@ document.title = "Create a New Project"
 
 
 <template name="artists">
-  
+
   {{#if currentUser}}
   {{> nav}}
   {{else}}
@@ -760,7 +759,7 @@ document.title = "Create a New Project"
 
 
 <template name="about">
-  
+
   {{#if currentUser}}
   {{> nav}}
   {{else}}
@@ -782,18 +781,17 @@ document.title = "Create a New Project"
 
 <template name="pageNotFound">
 
-  <div class="jumbotron" style="padding: 100px 0">
+  <div class="jumbotron">
     <center>
       <h1>Oops. Page Not Found.</h1>
       <h1><small>Sorry about that.</small></h1>
+      <hr>
+      <h2><a href="/">Back to Spark</a></h2>
+      <br>
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Or take this survey</a>
+      <br>
     </center>
   </div>
-  <center>
-    <h2><a href="/">Back to Spark</a></h2>
-    <br>
-    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Or take this survey</a>
-    <br>
-  </center>
 
   <script>
   document.title = "Page Not Found"
@@ -802,7 +800,7 @@ document.title = "Create a New Project"
 
 
 <template name="landing">
-  
+
   {{> logoutNav}}
 
   <div class="jumbotron" style="margin-bottom: 0px; background: #fff">

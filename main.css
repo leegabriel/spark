@@ -284,6 +284,12 @@ textarea {
   margin-right: 20px;
 }
 
+.jumbotron{
+  padding: 100px 0;
+  margin-top: 0px !important;
+}
+
+
 @media (min-width: 768px) {
   .nav-tabs.nav-justified>li>a:hover{
     background-color: #f6f6f6 !important;

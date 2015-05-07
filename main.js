@@ -270,7 +270,10 @@ Meteor.methods({
 
 Router.configure({
  notFoundTemplate: 'pageNotFound',
+ loadingTemplate: 'loading'
 });
+
+Router.onBeforeAction('loading')
 
 Router.route('/', function() {
   this.render('home');
@@ -278,7 +281,6 @@ Router.route('/', function() {
 
 Router.route('/ideas', function() {
   window.scrollTo(0,0);
-
   this.render('ideasTab');
   document.title = "Spark | Ideas";
 });
@@ -296,7 +298,6 @@ Router.route('/newidea', function(){
 
 Router.route('/ideas/:slug', function(){
   window.scrollTo(0,0);
-   
   this.render('loading');
   if (Ideas.findOne({slug: this.params.slug})) {
     this.render('ideaView', {
@@ -309,13 +310,11 @@ Router.route('/ideas/:slug', function(){
 
 Router.route('/newproject', function(){
   window.scrollTo(0,0);
-   
   this.render('newProject');
 });
 
 Router.route('/projects/:slug', function(){
   window.scrollTo(0,0);
-   
   this.render('loading');
   if (Projects.findOne({slug: this.params.slug})) {
     this.render('projectView', {
@@ -328,56 +327,48 @@ Router.route('/projects/:slug', function(){
 
 Router.route('/tos',function() {
   window.scrollTo(0,0);
-   
   this.render('tos');
   document.title = "Spark | Terms of Service";
 });
 
 Router.route('/privacy',function() {
   window.scrollTo(0,0);
-   
   this.render('privacy');
   document.title = "Spark | Privacy Policy";
 });
 
 Router.route('/developers',function() {
   window.scrollTo(0,0);
-   
   this.render('developers');
   document.title = "Spark | Developers";
 });
 
 Router.route('/artists',function() {
   window.scrollTo(0,0);
-   
   this.render('artists');
   document.title = "Spark | Artists";
 });
 
 Router.route('/about',function() {
   window.scrollTo(0,0);
-   
   this.render('about');
   document.title = "Spark | About";
 });
 
 Router.route('/landing',function() {
   window.scrollTo(0,0);
-   
   this.render('landing');
   document.title = "Spark";
 });
 
 Router.route('/profile',function() {
   window.scrollTo(0,0);
-   
   this.render('profile');
   document.title = "Spark";
 });
 
 Router.route('/login',function() {
   window.scrollTo(0,0);
-   
   this.render('login');
   document.title = "Spark | Sign in";
 });
