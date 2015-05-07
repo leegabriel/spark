@@ -105,6 +105,7 @@
   {{>logoutNav}}
   {{/unless}}
   {{/if}}
+  <div class="animated fadeIn">
   <div class="delta">
     <h1 class="header" id="space">Ideas</h1>
     <div role="tabpanel">
@@ -145,6 +146,7 @@
   </div>
 
   {{> footer}}
+</div>
 </template>
 
 
@@ -156,6 +158,7 @@
   {{>logoutNav}}
   {{/unless}}
   {{/if}}
+  <div class="animated fadeIn">
   <div class="delta">
     <h1 class="header" id="space">Projects</h1>
     <div role="tabpanel">
@@ -196,13 +199,14 @@
   </div>
   
   {{> footer}}
+</div>
 </template>
 
 
 <template name="newIdea">
   {{#if currentUser}}
   {{> nav}}
-
+<div class="animated fadeIn">
   <div class="container">
     <div class="alpha">
       <div class="row">
@@ -257,7 +261,7 @@
       </div>
     </div>
   </div>
-
+</div>
   {{else}}
   {{#unless loggingIn}}
   {{>pageNotFound}}
@@ -276,8 +280,8 @@
 <template name="newProject">
   {{#if currentUser}}
   {{> nav}}
-
-  <div class="container">
+<div class="animated fadeIn">
+  <div class="container animated fadeIn">
     <div class="alpha">
       <div class="row">
         <form class="addProjectForm" id="form">
@@ -331,7 +335,7 @@
       </div>
     </div>
   </div>
-
+</div>
   {{else}}
   {{#unless loggingIn}}
   {{>pageNotFound}}
@@ -453,6 +457,7 @@
   {{>logoutNav}}
   {{/unless}}
   {{/if}}
+  <div class="animated fadeIn">
   <div class="container">
     <div class="alpha">
       <div class="row">
@@ -543,6 +548,7 @@
     </div>
   </div>
   {{>footer}}
+</div>
 </template>
 
 
@@ -554,6 +560,7 @@
   {{>logoutNav}}
   {{/unless}}
   {{/if}}
+  <div class="animated fadeIn">
   <div class="container">
     <div class="alpha">
       <div class="row">
@@ -644,6 +651,7 @@
     </div>
   </div>
   {{>footer}}
+</div>
 </template>
 
 
@@ -665,11 +673,13 @@
   {{>logoutNav}}
   {{/unless}}
   {{/if}}
+  <div class="animated fadeIn">
   <div class="alpha">
     <h1 class="header">Terms of Service</h1>
     <p>Whoa, whoa, what are you doing? Nobody ever reads Terms of Service. Nobody. Ever.</p> 
   </div>
   {{> footer}}
+</div>
 </template>
 
 
@@ -681,11 +691,13 @@
   {{>logoutNav}}
   {{/unless}}
   {{/if}}
+  <div class="animated fadeIn">
   <div class="alpha">
     <h1 class="header">Privacy Policy</h1>
     <p>We take your privacy very seriously. Your password is encrypted as it is stored in our database. We cannot read it. Seriously, it looks like gibberish.</p>
   </div>
   {{> footer}}
+</div>
 </template>
 
 
@@ -697,11 +709,13 @@
   {{>logoutNav}}
   {{/unless}}
   {{/if}}
+  <div class="animated fadeIn">
   <div class="alpha">
     <h1 class="header">Developers</h1>
     <p>If you are an aspiring developer, Spark is the web app for you. Ideas runneth in the website's veins.</p>
   </div>
   {{> footer}}
+</div>
 </template>
 
 
@@ -713,11 +727,13 @@
   {{>logoutNav}}
   {{/unless}}
   {{/if}}
+  <div class="animated fadeIn">
   <div class="alpha">
     <h1 class="header">Artists</h1>
     <p>We at Spark love visuals. So we need artists to make the ideas and projects very pretty. </p>
   </div>
   {{> footer}}
+</div>
 </template>
 
 
@@ -729,6 +745,7 @@
   {{>logoutNav}}
   {{/unless}}
   {{/if}}
+  <div class="animated fadeIn">
   <div class="alpha">
     <h1 class="header">About Spark</h1>
     <p>
@@ -736,10 +753,12 @@
     </p>
   </div>
   {{> footer}}
+</div>
 </template>
 
 
 <template name="pageNotFound">
+  <div class="animated fadeIn">
   <div class="jumbotron" style="padding: 100px 0">
     <center>
       <h1>Oops. Page Not Found.</h1>
@@ -752,6 +771,7 @@
     <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Or take this survey</a>
     <br>
   </center>
+</div>
   <script>
   document.title = "Page Not Found"
   </script>
@@ -760,7 +780,7 @@
 
 <template name="landing">
   {{> logoutNav}}
-
+<div class="animated fadeIn">
   <div class="jumbotron" style="margin-bottom: 0px; background: #fff">
     <div class="delta">
       <h1>Start the fire for the latest ideas and projects.</h1>
@@ -794,11 +814,12 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 
 <template name="logoutNav">
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default navbar-fixed-top">
     <div class="delta">
       <div class="container-fluid">
 
