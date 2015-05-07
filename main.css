@@ -1,9 +1,5 @@
 h1, h2, h3, h4, h5, h6, p, small {
-  color: #000 !important;
-}
-
-p {
-  font-family: Georgia, serif;
+  color: #58595b !important;
 }
 
 .header {
@@ -324,4 +320,13 @@ textarea {
   #middle-row {
     width: 150px;
   }
+}
+
+::selection {
+  background: #c7e6e6;
+}
+
+::-moz-selection {
+  background: #c7e6e6;
+
 }

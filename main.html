@@ -1,10 +1,11 @@
 <head>
+  <title>Spark</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.rawgit.com/daneden/animate.css/master/animate.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-  <title>Spark</title>
   <link rel="icon" sizes="16x16 32x32" href="/favicon.ico?v=2">
 </head>
 
@@ -106,7 +107,7 @@
     {{>logoutNav}}
     {{/unless}}
     {{/if}}
-    
+
     <div class="delta">
       <h1 class="header" id="space">Ideas</h1>
       <div role="tabpanel">
@@ -160,7 +161,7 @@
     {{>logoutNav}}
     {{/unless}}
     {{/if}}
-    
+
     <div class="delta">
       <h1 class="header" id="space">Projects</h1>
       <div role="tabpanel">
@@ -199,7 +200,7 @@
       </div>
 
     </div>
-    
+
     {{> footer}}
   </div>
 </template>
@@ -207,8 +208,9 @@
 
 <template name="newIdea">
   {{#if currentUser}}
-  {{> nav}}
   <div class="animated fadeIn">
+    {{> nav}}
+
     <div class="container">
       <div class="alpha">
         <div class="row">
@@ -263,6 +265,7 @@
         </div>
       </div>
     </div>
+    {{> footer}}
   </div>
   {{else}}
   {{#unless loggingIn}}
@@ -270,7 +273,7 @@
   {{/unless}}
   {{/if}}
 
-  {{> footer}}
+  
 
   <script>
   document.title = "Create a New Idea"
@@ -895,7 +898,7 @@
     <div class="gamma">
       <div class="row">
         <form class="addProjectForm" id="form">
-          
+
           <div class="col-sm-12">
             <br>
             <div class="panel panel-default">
@@ -912,7 +915,7 @@
                 <input type="submit" value="Sign in" class="btn btn-primary">
               </div>
             </div>
-            
+
           </div>
         </form>
       </div>
