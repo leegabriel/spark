@@ -99,6 +99,7 @@
 
 
 <template name="ideasTab">
+  {{#if isSubscriptionComplete}}
   <div class="animated fadeIn">
     {{#if currentUser}}
     {{> nav}}
@@ -149,10 +150,14 @@
 
     {{> footer}}
   </div>
+    {{else}}
+{{>spinner}}
+  {{/if}}
 </template>
 
 
 <template name="projectsTab">
+{{#if isSubscriptionComplete}}
   <div class="animated fadeIn">
     {{#if currentUser}}
     {{> nav}}
@@ -203,6 +208,9 @@
 
     {{> footer}}
   </div>
+  {{else}}
+{{>spinner}}
+  {{/if}}
 </template>
 
 
@@ -457,6 +465,7 @@
 
 
 <template name="ideaView">
+
   <div class="animated fadeIn">
     {{#if currentUser}}
     {{> nav}}
@@ -868,10 +877,6 @@
       </div>
     </div>
   </nav>
-</template>
-
-<template name="loadingTemplate">
-  {{>spinner}}
 </template>
 
 <template name="profile">

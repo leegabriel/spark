@@ -33,7 +33,13 @@ if (Meteor.isClient) {
     }
   }),
 
-  Meteor.subscribe('ideasList'),
+  Meteor.subscribe('ideasList', function onReady(){
+    Session.set('subscriptionCompleted', true);
+  }),
+
+  Template.ideasTab.isSubscriptionComplete = function () {
+    return Session.get('subscriptionCompleted');
+  },
 
   Template.ideasTab.events({
     "click .hot": function(){
@@ -70,6 +76,14 @@ if (Meteor.isClient) {
     }
   }),
 
+  Meteor.subscribe('projectsList', function onReady(){
+    Session.set('subscriptionCompleted', true);
+  }),
+
+  Template.projectsTab.isSubscriptionComplete = function () {
+    return Session.get('subscriptionCompleted');
+  },
+
   Template.projectsTab.events({
     "click .hot": function(){
       Session.set('order', 'hot');
@@ -84,8 +98,6 @@ if (Meteor.isClient) {
       Session.set('order', 'promoted');
     }
   }),
-
-  Meteor.subscribe('projectsList'),
 
   Template.newIdea.events({
     'submit .addIdeaForm':function(e){
@@ -132,13 +144,13 @@ if (Meteor.isClient) {
     "click .fa-chevron-down": function () {
       Meteor.call("downvoteIdea", this._id);
     }
-  });
+  }),
 
   Template.idea.helpers({
     isOwner: function () {
       return this.owner === Meteor.userId();
     }
-  });
+  }),
 
   Template.project.events({
     "click .delete": function () {
@@ -153,16 +165,12 @@ if (Meteor.isClient) {
     "click .fa-chevron-down": function () {
       Meteor.call("downvoteProject", this._id);
     }
-  });
+  }),
 
   Template.project.helpers({
     isOwner: function () {
       return this.owner === Meteor.userId();
     }
-  });
-
-  Accounts.ui.config({
-    passwordSignupFields: "USERNAME_ONLY"
   });
 } /* isClient */
 
@@ -261,8 +269,7 @@ Meteor.methods({
 /* Routes */
 
 Router.configure({
- notFoundTemplate: 'pageNotFound',
- loadingTemplate: 'loadingTemplate'
+ notFoundTemplate: 'pageNotFound'
 });
 
 Router.route('/', function() {
