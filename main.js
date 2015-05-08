@@ -13,6 +13,7 @@ if(Meteor.isServer){
 
 
 if (Meteor.isClient) {
+
   Template.ideasTab.helpers({
     ideas: function () {
       if (Session.equals('order', 'hot')) {
@@ -30,16 +31,15 @@ if (Meteor.isClient) {
       else { /*by default the tab is on hot, in hot order */
         return Ideas.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}});
       }
+    },
+    isSubscriptionComplete : function () {
+      return Session.get('subscriptionCompleted');
     }
   }),
 
   Meteor.subscribe('ideasList', function onReady(){
     Session.set('subscriptionCompleted', true);
   }),
-
-  Template.ideasTab.isSubscriptionComplete = function () {
-    return Session.get('subscriptionCompleted');
-  },
 
   Template.ideasTab.events({
     "click .hot": function(){
@@ -55,6 +55,7 @@ if (Meteor.isClient) {
       Session.set('order', 'promoted');
     }
   }),
+
 
   Template.projectsTab.helpers({
     projects: function () {
@@ -73,16 +74,16 @@ if (Meteor.isClient) {
       else { /*by default the tab is on hot, in hot order */
         return Projects.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}});
       }
+    },
+
+    isSubscriptionComplete : function () {
+      return Session.get('subscriptionCompleted');
     }
   }),
 
   Meteor.subscribe('projectsList', function onReady(){
     Session.set('subscriptionCompleted', true);
   }),
-
-  Template.projectsTab.isSubscriptionComplete = function () {
-    return Session.get('subscriptionCompleted');
-  },
 
   Template.projectsTab.events({
     "click .hot": function(){
@@ -99,6 +100,7 @@ if (Meteor.isClient) {
     }
   }),
 
+
   Template.newIdea.events({
     'submit .addIdeaForm':function(e){
       var title = e.target.title.value;
@@ -106,6 +108,7 @@ if (Meteor.isClient) {
       var blurb = e.target.blurb.value;
       var imageURL = e.target.image.value;
       var details = e.target.details.value;
+      var tags = e.target.tags.value.split(', ');
 
       if (!title || !slug || !blurb || !imageURL || !details)
         return false;
@@ -115,6 +118,7 @@ if (Meteor.isClient) {
     }
   }),
 
+
   Template.newProject.events({
     'submit .addProjectForm':function(e){
       var title = e.target.title.value;
@@ -122,6 +126,7 @@ if (Meteor.isClient) {
       var blurb = e.target.blurb.value;
       var imageURL = e.target.image.value;
       var details = e.target.details.value;
+      var tags = e.target.tags.value.split(', ');
 
       if (!title || !slug || !blurb || !imageURL || !details)
         return false;
@@ -130,6 +135,7 @@ if (Meteor.isClient) {
       return false;
     }
   }),
+
 
   Template.idea.events({
     "click .delete": function () {
@@ -152,6 +158,7 @@ if (Meteor.isClient) {
     }
   }),
 
+
   Template.project.events({
     "click .delete": function () {
       var result;
@@ -166,12 +173,39 @@ if (Meteor.isClient) {
       Meteor.call("downvoteProject", this._id);
     }
   }),
-
   Template.project.helpers({
     isOwner: function () {
       return this.owner === Meteor.userId();
     }
-  });
+  }),
+
+  Template.login.events({
+    'submit #login-form' : function(e, t){
+      e.preventDefault();
+      // retrieve the input field values
+      var email = t.find('#login-email').value;
+      var password = t.find('#login-password').value;
+
+        // Trim and validate your fields here.... 
+
+        // If validation passes, supply the appropriate fields to the
+        // Meteor.loginWithPassword() function.
+        Meteor.loginWithPassword(email, password, function(err){
+          if (err) {
+            // The user might not have been found, or their passwword
+            // could be incorrect. Inform the user that their
+            // login attempt has failed. 
+          }  
+          else {
+            // The user has been logged in.
+            window.location = '/ideas';
+          }
+        });
+        
+        return false; 
+      }
+    });
+
 } /* isClient */
 
 
@@ -276,6 +310,7 @@ Router.configure({
 Router.onBeforeAction('loading')
 
 Router.route('/', function() {
+  window.scrollTo(0,0);
   this.render('home');
 });
 

@@ -8,5 +8,5 @@ meteor-platform
 iron:router
 momentjs:moment
 accounts-password
-accounts-ui
 sacha:spin
+accounts-base

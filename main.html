@@ -36,6 +36,7 @@
             <li><a href="{{pathFor 'projects'}}">Projects</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+            {{#if currentUser}}
             <li class="dropdown" >
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="glyphicon glyphicon-plus"></i><span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -43,9 +44,14 @@
                 <li><a href="/newproject">New Project</a></li>
               </ul>
             </li>
-            <li class="navbar-text">
-              {{>loginButtons align="right"}}
+            <li>
+              <a href="/" id="logout" class="btn btn-default">Logout</a>
             </li>
+            {{else}}
+            <li>
+              <a href="/login" id="login" class="btn btn-default">Login</a>
+            </li>
+            {{/if}}
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -53,9 +59,10 @@
   </nav>
   <script>
   document.getElementById("logout").onclick = function () {
+    document.getElementById("logout").innerHTML = "Logging out..."
     Meteor.logout();
     Meteor.logoutOtherClients();
-    window.location = "/landing"
+    Router.go('landing');
   }
   </script>
 </template>
@@ -98,14 +105,7 @@
 
 
 <template name="ideasTab">
-
-  {{#if currentUser}}
   {{> nav}}
-  {{else}}
-  {{#unless loggingIn}}
-  {{>logoutNav}}
-  {{/unless}}
-  {{/if}}
   {{#if isSubscriptionComplete}}
   
   <div class="delta">
@@ -155,15 +155,7 @@
 
 
 <template name="projectsTab">
-
-
-  {{#if currentUser}}
-  {{> nav}}
-  {{else}}
-  {{#unless loggingIn}}
-  {{>logoutNav}}
-  {{/unless}}
-  {{/if}}
+  {{>nav}}
   {{#if isSubscriptionComplete}}
   
   <div class="delta">
@@ -465,14 +457,7 @@ document.title = "Create a New Project"
 
 <template name="ideaView">
 
-
-  {{#if currentUser}}
   {{> nav}}
-  {{else}}
-  {{#unless loggingIn}}
-  {{>logoutNav}}
-  {{/unless}}
-  {{/if}}
 
   <div class="container">
     <div class="alpha">
@@ -569,14 +554,7 @@ document.title = "Create a New Project"
 
 
 <template name="projectView">
-
-  {{#if currentUser}}
-  {{> nav}}
-  {{else}}
-  {{#unless loggingIn}}
-  {{>logoutNav}}
-  {{/unless}}
-  {{/if}}
+  {{>nav}}
 
   <div class="container">
     <div class="alpha">
@@ -683,14 +661,7 @@ document.title = "Create a New Project"
 
 
 <template name="tos">
-
-  {{#if currentUser}}
-  {{> nav}}
-  {{else}}
-  {{#unless loggingIn}}
-  {{>logoutNav}}
-  {{/unless}}
-  {{/if}}
+  {{>nav}}
 
   <div class="alpha">
     <h1 class="header">Terms of Service</h1>
@@ -702,14 +673,7 @@ document.title = "Create a New Project"
 
 
 <template name="privacy">
-
-  {{#if currentUser}}
-  {{> nav}}
-  {{else}}
-  {{#unless loggingIn}}
-  {{>logoutNav}}
-  {{/unless}}
-  {{/if}}
+  {{>nav}}
 
   <div class="alpha">
     <h1 class="header">Privacy Policy</h1>
@@ -721,15 +685,7 @@ document.title = "Create a New Project"
 
 
 <template name="developers">
-
-  {{#if currentUser}}
-  {{> nav}}
-  {{else}}
-  {{#unless loggingIn}}
-  {{>logoutNav}}
-  {{/unless}}
-  {{/if}}
-
+  {{>nav}}
   <div class="alpha">
     <h1 class="header">Developers</h1>
     <p>If you are an aspiring developer, Spark is the web app for you. Ideas runneth in the website's veins.</p>
@@ -740,14 +696,7 @@ document.title = "Create a New Project"
 
 
 <template name="artists">
-
-  {{#if currentUser}}
-  {{> nav}}
-  {{else}}
-  {{#unless loggingIn}}
-  {{>logoutNav}}
-  {{/unless}}
-  {{/if}}
+  {{>nav}}
 
   <div class="alpha">
     <h1 class="header">Artists</h1>
@@ -759,15 +708,7 @@ document.title = "Create a New Project"
 
 
 <template name="about">
-
-  {{#if currentUser}}
-  {{> nav}}
-  {{else}}
-  {{#unless loggingIn}}
-  {{>logoutNav}}
-  {{/unless}}
-  {{/if}}
-
+  {{>nav}}
   <div class="alpha">
     <h1 class="header">About Spark</h1>
     <p>
@@ -801,8 +742,7 @@ document.title = "Create a New Project"
 
 <template name="landing">
 
-  {{> logoutNav}}
-
+  {{> nav }}
   <div class="jumbotron" style="margin-bottom: 0px; background: #fff">
     <div class="delta">
       <h1>Start the fire for the latest ideas and projects.</h1>
@@ -836,72 +776,27 @@ document.title = "Create a New Project"
       </div>
     </div>
   </div>
-
 </template>
 
-
-<template name="logoutNav">
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="delta">
-      <div class="container-fluid">
-
-        <div class="navbar-header" >
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">Spark</a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" placeholder="Search Spark" style="width:300px">
-            </div>
-          </form>
-          <ul class="nav navbar-nav" >
-
-            <li><a href="{{pathFor 'ideas'}}">Ideas</a></li>
-            <li><a href="{{pathFor 'projects'}}">Projects</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="navbar-text">
-              {{>loginButtons align="right"}}
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </nav>
-</template>
 
 <template name="profile">
-  {{#if currentUser}}
-  {{> nav}}
-  {{else}}
-  {{#unless loggingIn}}
-  {{>logoutNav}}
-  {{/unless}}
-  {{/if}}
-
+  {{>nav}}
   {{>footer}}
 </template>
 
 <template name="login">
   {{#if currentUser}}
-  <script>
-  window.location = "#"
-  </script>
+{{#unless loggingIn}}
+{{>pageNotFound}}
+{{/unless}}
   {{else}}
-  {{#unless loggingIn}}
-  {{>logoutNav}}
+  {{>nav}}
+
   <div class="container">
     <div class="gamma">
       <div class="row">
-        <form class="addProjectForm" id="form">
 
+        <form id="login-form" action="action">
           <div class="col-sm-12">
             <br>
             <div class="panel panel-default">
@@ -910,25 +805,23 @@ document.title = "Create a New Project"
               </div>
               <div class="panel-body">
                 <label>Username or Email</label>
-                <input type="text" placeholder="Username">
+                <input type="email" id="login-email" placeholder="Username">
                 <br>
                 <label>Password <a>(forgot password)</a></label>
-                <input type="text" placeholder="Password">
+                <input type="password" id="login-password" placeholder="Password">
                 <br>
-                <input type="submit" value="Sign in" class="btn btn-primary">
+                <input type="submit" id="login-submit" value="Sign in" class="btn btn-primary">
               </div>
             </div>
-
           </div>
         </form>
+
       </div>
     </div>
   </div>
-  {{>footer}}
-  {{/unless}}
-  {{/if}}
 
-  
+  {{>footer}}
+  {{/if}}
 </template>
 
 <template name="loading">

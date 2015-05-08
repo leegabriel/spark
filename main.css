@@ -40,6 +40,7 @@ h1, h2, h3, h4, h5, h6, p, small {
 }
 
 .navbar-default {
+  opacity: 0.87;
   background-color: #fff !important;
   border-radius: 0px !important;
   border-bottom: 1px solid #ddd;
@@ -112,6 +113,24 @@ h1, h2, h3, h4, h5, h6, p, small {
 
 .btn-default:hover {
   border: 1px solid #2980B9 !important;
+}
+
+#login, #logout {
+  color: #2980B9 !important;
+  text-decoration: none;
+  padding-top: 7.5px;
+  padding-bottom: 7.5px;
+  margin-top: 7.5px;
+  margin-left: 7.5px;
+}
+
+#login:hover, #logout:hover {
+  background-color: #f1f8fb !important;
+}
+
+#login-email, #login-password {
+  width: 100%;
+  max-width: 300px;
 }
 
 /* Allow a sticky footer */
