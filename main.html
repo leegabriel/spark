@@ -6,7 +6,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <link rel="icon" sizes="16x16 32x32" href="/favicon.ico?v=2">
-
 </head>
 
 
@@ -55,11 +54,15 @@
 </template>
 
 <template name="_loginButtonsAdditionalLoggedInDropdownActions">
-    <button class="btn btn-default btn-block" id="login-buttons-profile">Profile</button>
-    <button class="btn btn-default btn-block" id="login-buttons-watched">Watched</button>
-    <button class="btn btn-default btn-block" id="login-buttons-stats">Stats</button>
-    <button class="btn btn-default btn-block" id="login-buttons-gold">Gold</button>
-    <button class="btn btn-default btn-block" id="login-buttons-settings">Settings</button>
+  <li class="dropdown">
+    <a id="login-buttons-myIdeas">My Ideas</a>
+    <a id="login-buttons-myProjects">My Projects</a>
+    <a id="login-buttons-profile">Profile</a>
+    <a id="login-buttons-watched">Watched</a>
+    <a id="login-buttons-stats">Stats</a>
+    <a id="login-buttons-gold">Gold</a>
+    <a id="login-buttons-settings">Settings</a>
+  </li>
 </template>
 
 
@@ -101,8 +104,6 @@
 
 <template name="ideasTab">
   {{> nav}}
-  {{#if isSubscriptionComplete}}
-  
   <div class="delta">
     <h1 class="header" id="space">Ideas</h1>
     <div role="tabpanel">
@@ -143,15 +144,11 @@
 </div>
 
 {{> footer}}
-{{else}}
-{{>spinner}}
-{{/if}}
 </template>
 
 
 <template name="projectsTab">
   {{>nav}}
-  {{#if isSubscriptionComplete}}
   
   <div class="delta">
     <h1 class="header" id="space">Projects</h1>
@@ -194,9 +191,6 @@
 
 {{> footer}}
 
-{{else}}
-{{>spinner}}
-{{/if}}
 </template>
 
 
@@ -797,6 +791,14 @@ document.title = "Create a New Project"
 </template>
 
 
+<template name="myIdeas">
+  {{>nav}}
+  {{>footer}}
+</template>
+<template name="myProjects">
+  {{>nav}}
+  {{>footer}}
+</template>
 <template name="profile">
   {{>nav}}
   {{>footer}}

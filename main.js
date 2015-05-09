@@ -31,14 +31,7 @@ if (Meteor.isClient) {
       else { /*by default the tab is on hot, in hot order */
         return Ideas.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}});
       }
-    },
-    isSubscriptionComplete : function () {
-      return Session.get('subscriptionCompleted');
     }
-  }),
-
-  Meteor.subscribe('ideasList', function onReady(){
-    Session.set('subscriptionCompleted', true);
   }),
 
   Template.ideasTab.events({
@@ -74,15 +67,7 @@ if (Meteor.isClient) {
       else { /*by default the tab is on hot, in hot order */
         return Projects.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}});
       }
-    },
-
-    isSubscriptionComplete : function () {
-      return Session.get('subscriptionCompleted');
     }
-  }),
-
-  Meteor.subscribe('projectsList', function onReady(){
-    Session.set('subscriptionCompleted', true);
   }),
 
   Template.projectsTab.events({
@@ -181,6 +166,12 @@ if (Meteor.isClient) {
   }),
 
   Template._loginButtonsLoggedInDropdown.events({
+    'click #login-buttons-myIdeas': function(event) {
+        Router.go('myideas');
+    },
+    'click #login-buttons-myProjects': function(event) {
+        Router.go('myprojects');
+    },
     'click #login-buttons-profile': function(event) {
         Router.go('profile');
     },
@@ -392,6 +383,19 @@ Router.route('/landing',function() {
   this.render('landing');
   document.title = "Spark";
 });
+
+Router.route('/myideas',function() {
+  window.scrollTo(0,0);
+  this.render('myIdeas');
+  document.title = "Spark";
+});
+
+Router.route('/myprojects',function() {
+  window.scrollTo(0,0);
+  this.render('myProjects');
+  document.title = "Spark";
+});
+
 
 Router.route('/profile',function() {
   window.scrollTo(0,0);
