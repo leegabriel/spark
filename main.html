@@ -346,6 +346,144 @@ document.title = "Create a New Project"
 </template>
 
 
+<template name="editIdea">
+    {{#if currentUser}}
+  
+  {{> nav}}
+
+  <div class="container">
+    <div class="alpha">
+     <div class="row">
+      <form class="editForm" id="form">
+        <div class="col-sm-12">
+
+          <table width="100%">
+            <tr> 
+              <td>
+                <h1><input type="text" name="title" id="title" placeholder={{title}}></h1>
+                <h1><small><input type="text" name="blurb" id="blurb" placeholder={{blurb}}></small></h1>
+              </td>
+            </tr>
+          </table>
+
+          <br>
+
+          <input type="text" name="image" id="image" placeholder={{imageURL}}>
+
+          <br>
+
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h2>Details</h2>
+              <br>
+              <textarea type="text" name="details" id="details" placeholder={{details}} rows="6"></textarea><br>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h2>Permalink</h2>
+              <span id="helpBlock" class="help-block">/ideas/<b>your-unique-idea-address</b></span>
+              <input type="text" name="slug" id="slug" placeholder={{slug}}><br>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-sm-12">
+          <div class="panel panel-default">
+            <div class="updatepanel-body">
+              <h2>Tags</h2>
+              <br>
+              <input type="text" name="tags" id="tags" placeholder={{tags}}>
+            </div>
+          </div>         
+        </div>
+
+        <input id="submit" type="submit" value="Done editing" class="btn btn-primary">
+      </form>
+    </div>
+  </div>
+</div>
+{{> footer}}
+
+{{else}}
+{{#unless loggingIn}}
+{{>pageNotFound}}
+{{/unless}}
+{{/if}}
+
+</template>
+
+<template name="editProject">
+    {{#if currentUser}}
+  
+  {{> nav}}
+
+  <div class="container">
+    <div class="alpha">
+     <div class="row">
+      <form class="editForm" id="form">
+        <div class="col-sm-12">
+
+          <table width="100%">
+            <tr> 
+              <td>
+                <h1><input type="text" name="title" id="title" placeholder={{title}}></h1>
+                <h1><small><input type="text" name="blurb" id="blurb" placeholder={{blurb}}></small></h1>
+              </td>
+            </tr>
+          </table>
+
+          <br>
+
+          <input type="text" name="image" id="image" placeholder={{imageURL}}>
+
+          <br>
+
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h2>Details</h2>
+              <br>
+              <textarea type="text" name="details" id="details" placeholder={{details}} rows="6"></textarea><br>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h2>Permalink</h2>
+              <span id="helpBlock" class="help-block">/ideas/<b>your-unique-idea-address</b></span>
+              <input type="text" name="slug" id="slug" placeholder={{slug}}><br>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-sm-12">
+          <div class="panel panel-default">
+            <div class="updatepanel-body">
+              <h2>Tags</h2>
+              <br>
+              <input type="text" name="tags" id="tags" placeholder={{tags}}>
+            </div>
+          </div>         
+        </div>
+
+        <input id="submit" type="submit" value="Done editing" class="btn btn-primary">
+      </form>
+    </div>
+  </div>
+</div>
+{{> footer}}
+
+{{else}}
+{{#unless loggingIn}}
+{{>pageNotFound}}
+{{/unless}}
+{{/if}}
+
+</template>
+
 <template name="idea">
   <li>
     <table>

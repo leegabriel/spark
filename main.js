@@ -121,6 +121,39 @@ if (Meteor.isClient) {
     }
   }),
 
+  Template.editIdea.events({
+    'submit .editIdeaForm':function(e){
+      var title = e.target.title.value;
+      var slug = e.target.slug.value;
+      var blurb = e.target.blurb.value;
+      var imageURL = e.target.image.value;
+      var details = e.target.details.value;
+      var tags = e.target.tags.value.split(', ');
+
+      if (!title || !slug || !blurb || !imageURL || !details)
+        return false;
+      Meteor.call('editIdea', this._id, title, slug, blurb, tags, imageURL, details);
+      Router.go('ideas');
+      return false;
+    }
+  }),
+
+  Template.editProject.events({
+    'submit .editProjectForm':function(e){
+      var title = e.target.title.value;
+      var slug = e.target.slug.value;
+      var blurb = e.target.blurb.value;
+      var imageURL = e.target.image.value;
+      var details = e.target.details.value;
+      var tags = e.target.tags.value.split(', ');
+
+      if (!title || !slug || !blurb || !imageURL || !details)
+        return false;
+      Meteor.call('editProjectIdea', this._id, title, slug, blurb, tags, imageURL, details);
+      Router.go('projects');
+      return false;
+    }
+  }),
 
   Template.idea.events({
     "click .delete": function () {
@@ -223,6 +256,42 @@ Meteor.methods({
       createTimeActual: moment().format('MMMM Do YYYY, h:mm:ss a')
     });
   },
+  editIdea: function (ideaId, title, slug, blurb, tags, imageURL, details) {
+    var idea = Ideas.findOne(ideaId);
+    if (idea.owner !== Meteor.userId()) {
+      // Make sure only the owner can delete it
+      throw new Meteor.Error("not-authorized");
+    }
+    else {
+      
+    Ideas.update(ideaId, {$set: {
+      title: title,
+      slug: slug,
+      blurb: blurb,
+      tags: tags,
+      imageURL: imageURL,
+      details: details
+    }});
+  }
+  },
+  editProject: function (projectId, title, slug, blurb, tags, imageURL, details) {
+    var project = Projects.findOne(ideaId);
+    if (project.owner !== Meteor.userId()) {
+      // Make sure only the owner can delete it
+      throw new Meteor.Error("not-authorized");
+    }
+    else {
+    
+    Projects.update(projectId, {$set: {
+      title: title,
+      slug: slug,
+      blurb: blurb,
+      tags: tags,
+      imageURL: imageURL,
+      details: details
+    }});
+  }
+  },
   deleteIdea: function (ideaId) {
     var idea = Ideas.findOne(ideaId);
     if (idea.owner !== Meteor.userId()) {
@@ -319,6 +388,11 @@ Router.route('/newidea', function(){
   this.render('newIdea');
 });
 
+Router.route('/newproject', function(){
+  window.scrollTo(0,0);
+  this.render('newProject');
+});
+
 Router.route('/ideas/:slug', function(){
   window.scrollTo(0,0);
   this.render('loading');
@@ -329,11 +403,6 @@ Router.route('/ideas/:slug', function(){
       }
     });
   }
-});
-
-Router.route('/newproject', function(){
-  window.scrollTo(0,0);
-  this.render('newProject');
 });
 
 Router.route('/projects/:slug', function(){
@@ -347,6 +416,19 @@ Router.route('/projects/:slug', function(){
     });
   }
 });
+
+Router.route('/ideas/:slug/edit', function(){
+  window.scrollTo(0,0);
+  this.render('editIdea')
+  document.title = "Edit Idea";
+});
+
+Router.route('/projects/:slug/edit', function(){
+  window.scrollTo(0,0);
+  this.render('editProject')
+  document.title = "Edit Project";
+});
+
 
 Router.route('/tos',function() {
   window.scrollTo(0,0);

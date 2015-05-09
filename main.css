@@ -231,6 +231,7 @@ a:active {
 }
 
 .delete, .close, .edit {
+  outline: 0;
   background: none;
   border: none;
   color: #BDC3C7;
