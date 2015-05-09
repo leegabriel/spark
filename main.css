@@ -40,7 +40,6 @@ h1, h2, h3, h4, h5, h6, p, small {
 }
 
 .navbar-default {
-  opacity: 0.87;
   background-color: #fff !important;
   border-radius: 0px !important;
   border-bottom: 1px solid #ddd;
@@ -115,7 +114,7 @@ h1, h2, h3, h4, h5, h6, p, small {
   border: 1px solid #2980B9 !important;
 }
 
-#login, #logout {
+#signin{
   color: #2980B9 !important;
   text-decoration: none;
   padding-top: 7.5px;
@@ -124,11 +123,27 @@ h1, h2, h3, h4, h5, h6, p, small {
   margin-left: 7.5px;
 }
 
-#login:hover, #logout:hover {
+#signin:hover{
   background-color: #f1f8fb !important;
 }
 
-#login-email, #login-password {
+#signup {
+  border: 1px solid #badbc0 !important;
+  color: #29ba29 !important;
+  background-color: #f0faf0 !important;
+  text-decoration: none;
+  padding-top: 7.5px;
+  padding-bottom: 7.5px;
+  margin-top: 7.5px;
+  margin-left: 7.5px;
+}
+
+#signup:hover {
+  border: 1px solid #29ba29 !important;
+  background-color: #f0faf0 !important;
+}
+
+#signin-email, #signin-password {
   width: 100%;
   max-width: 300px;
 }

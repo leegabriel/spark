@@ -6,6 +6,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <link rel="icon" sizes="16x16 32x32" href="/favicon.ico?v=2">
+
 </head>
 
 
@@ -37,34 +38,28 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             {{#if currentUser}}
-            <li class="dropdown" >
+            <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="glyphicon glyphicon-plus"></i><span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="/newidea">New Idea</a></li>
                 <li><a href="/newproject">New Project</a></li>
               </ul>
             </li>
-            <li>
-              <a href="/" id="logout" class="btn btn-default">Logout</a>
-            </li>
-            {{else}}
-            <li>
-              <a href="/login" id="login" class="btn btn-default">Login</a>
-            </li>
             {{/if}}
+            <li class="navbar-text">{{>loginButtons align="right"}}</li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </div><!-- /.delta -->
   </nav>
-  <script>
-  document.getElementById("logout").onclick = function () {
-    document.getElementById("logout").innerHTML = "Logging out..."
-    Meteor.logout();
-    Meteor.logoutOtherClients();
-    Router.go('landing');
-  }
-  </script>
+</template>
+
+<template name="_loginButtonsAdditionalLoggedInDropdownActions">
+    <button class="btn btn-default btn-block" id="login-buttons-profile">Profile</button>
+    <button class="btn btn-default btn-block" id="login-buttons-watched">Watched</button>
+    <button class="btn btn-default btn-block" id="login-buttons-stats">Stats</button>
+    <button class="btn btn-default btn-block" id="login-buttons-gold">Gold</button>
+    <button class="btn btn-default btn-block" id="login-buttons-settings">Settings</button>
 </template>
 
 
@@ -372,8 +367,8 @@ document.title = "Create a New Project"
           <h3>
             <a id="middle-link" href="/ideas/{{slug}}">{{title}}</a> 
             {{#if isOwner}}
-            <button class="edit" ><i class="fa fa-pencil" title="Edit this idea"></i></button>
-            <button class="delete"><i class="fa fa-times-circle" title="Delete this idea"></i></button>
+            <button class="edit" ><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit this idea"></i></button>
+            <button class="delete"><i class="fa fa-times-circle" data-toggle="tooltip" data-placement="top" title="Delete this idea"></i></button>
 
             {{/if}}
             
@@ -384,9 +379,15 @@ document.title = "Create a New Project"
         <td style="width: 150px">
           <ul>
             <center>
-              <li class="actions"><i class="fa fa-chevron-up" title="Upvote this idea"></i></li>
-              <li class="actions" ><span class="badge" style="font-size: 20px" >{{count}}</span></li>
-              <li class="actions"><i class="fa fa-chevron-down" title="Downvote this idea"></i></li>
+              {{#if currentUser}}
+              <li class="actions"><i class="fa fa-chevron-up"></i></li>
+              <li class="actions"><span class="badge" style="font-size: 20px">{{count}}</span></li>
+              <li class="actions"><i class="fa fa-chevron-down"></i></li>
+              {{else}}
+              <li class="actions"><i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top" title="Sign in to upvote this idea"></i></li>
+              <li class="actions"><span class="badge" style="font-size: 20px">{{count}}</span></li>
+              <li class="actions"><i class="fa fa-chevron-down" data-toggle="tooltip" data-placement="bottom" title="Sign in to downvote this idea"></i></li>
+              {{/if}}
             </center>
           </ul>
         </td>
@@ -397,6 +398,11 @@ document.title = "Create a New Project"
     <br><br>
 
   </li>
+  <script>
+  $(document).ready(function() {
+    $('.fa').tooltip()
+  });
+  </script>
 </template>
 
 
@@ -415,8 +421,8 @@ document.title = "Create a New Project"
           <h3>
             <a id="middle-link" href="/projects/{{slug}}">{{title}}</a>
             {{#if isOwner}}
-            <button class="edit"><i class="fa fa-pencil" title="Delete this project"></i></button>
-            <button class="delete"><i class="fa fa-times-circle" title="Delete this project"></i></button>
+            <button class="edit"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit this project"></i></button>
+            <button class="delete"><i class="fa fa-times-circle" data-toggle="tooltip" data-placement="top" title="Delete this project"></i></button>
             {{/if}}
           </h3>
         </td>
@@ -424,9 +430,15 @@ document.title = "Create a New Project"
         <td style="width: 150px">
           <ul>
             <center>
-              <li class="actions"><i class="fa fa-chevron-up" title="Upvote this project"></i></li>
+              {{#if currentUser}}
+              <li class="actions"><i class="fa fa-chevron-up"></i></li>
               <li class="actions"><span class="badge" style="font-size: 20px">{{count}}</span></li>
-              <li class="actions"><i class="fa fa-chevron-down" title="Downvote this project"></i></li>
+              <li class="actions"><i class="fa fa-chevron-down"></i></li>
+              {{else}}
+              <li class="actions"><i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top" title="Sign in to upvote this project"></i></li>
+              <li class="actions"><span class="badge" style="font-size: 20px">{{count}}</span></li>
+              <li class="actions"><i class="fa fa-chevron-down" data-toggle="tooltip" data-placement="bottom" title="Sign in to downvote this project"></i></li>
+              {{/if}}
             </center>
           </ul>
         </td>
@@ -437,6 +449,12 @@ document.title = "Create a New Project"
     <br><br>
 
   </li>
+
+  <script>
+  $(document).ready(function() {
+    $('.fa').tooltip()
+  });
+  </script>
 </template>
 
 
@@ -783,20 +801,37 @@ document.title = "Create a New Project"
   {{>nav}}
   {{>footer}}
 </template>
-
-<template name="login">
+<template name="watched">
+  {{>nav}}
+  {{>footer}}
+</template>
+<template name="stats">
+  {{>nav}}
+  {{>footer}}
+</template>
+<template name="gold">
+  {{>nav}}
+  {{>footer}}
+</template>
+<template name="settings">
+  {{>nav}}
+  {{>footer}}
+</template>
+<!-- 
+<template name="signin">
   {{#if currentUser}}
 {{#unless loggingIn}}
-{{>pageNotFound}}
+{{> pageNotFound}}
 {{/unless}}
   {{else}}
+
   {{>nav}}
 
   <div class="container">
     <div class="gamma">
       <div class="row">
 
-        <form id="login-form" action="action">
+        <form id="signin-form" action="action">
           <div class="col-sm-12">
             <br>
             <div class="panel panel-default">
@@ -805,12 +840,12 @@ document.title = "Create a New Project"
               </div>
               <div class="panel-body">
                 <label>Username or Email</label>
-                <input type="email" id="login-email" placeholder="Username">
+                <input type="email" id="signin-email" placeholder="Username">
                 <br>
                 <label>Password <a>(forgot password)</a></label>
-                <input type="password" id="login-password" placeholder="Password">
+                <input type="password" id="signin-password" placeholder="Password">
                 <br>
-                <input type="submit" id="login-submit" value="Sign in" class="btn btn-primary">
+                <input type="submit" id="signin-submit" value="Sign in" class="btn btn-primary">
               </div>
             </div>
           </div>
@@ -821,8 +856,10 @@ document.title = "Create a New Project"
   </div>
 
   {{>footer}}
+
   {{/if}}
-</template>
+
+</template> -->
 
 <template name="loading">
   {{>spinner}}

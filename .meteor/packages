@@ -9,4 +9,4 @@ iron:router
 momentjs:moment
 accounts-password
 sacha:spin
-accounts-base
+ian:accounts-ui-bootstrap-3

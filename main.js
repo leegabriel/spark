@@ -173,38 +173,30 @@ if (Meteor.isClient) {
       Meteor.call("downvoteProject", this._id);
     }
   }),
+
   Template.project.helpers({
     isOwner: function () {
       return this.owner === Meteor.userId();
     }
   }),
 
-  Template.login.events({
-    'submit #login-form' : function(e, t){
-      e.preventDefault();
-      // retrieve the input field values
-      var email = t.find('#login-email').value;
-      var password = t.find('#login-password').value;
-
-        // Trim and validate your fields here.... 
-
-        // If validation passes, supply the appropriate fields to the
-        // Meteor.loginWithPassword() function.
-        Meteor.loginWithPassword(email, password, function(err){
-          if (err) {
-            // The user might not have been found, or their passwword
-            // could be incorrect. Inform the user that their
-            // login attempt has failed. 
-          }  
-          else {
-            // The user has been logged in.
-            window.location = '/ideas';
-          }
-        });
-        
-        return false; 
-      }
-    });
+  Template._loginButtonsLoggedInDropdown.events({
+    'click #login-buttons-profile': function(event) {
+        Router.go('profile');
+    },
+    'click #login-buttons-watched': function(event) {
+        Router.go('watched');
+    },
+    'click #login-buttons-stats': function(event) {
+        Router.go('stats');
+    },
+    'click #login-buttons-gold': function(event) {
+        Router.go('gold');
+    },
+    'click #login-buttons-settings': function(event) {
+        Router.go('settings');
+    }
+  });
 
 } /* isClient */
 
@@ -304,10 +296,15 @@ Meteor.methods({
 
 Router.configure({
  notFoundTemplate: 'pageNotFound',
- loadingTemplate: 'loading'
+ loadingTemplate: 'loading', 
+  waitOn: function() {
+    return [
+      Meteor.subscribe('ideasList'),
+      Meteor.subscribe('projectsList')
+    ];
+  }
 });
 
-Router.onBeforeAction('loading')
 
 Router.route('/', function() {
   window.scrollTo(0,0);
@@ -402,11 +399,30 @@ Router.route('/profile',function() {
   document.title = "Spark";
 });
 
-Router.route('/login',function() {
+Router.route('/watched',function() {
   window.scrollTo(0,0);
-  this.render('login');
-  document.title = "Spark | Sign in";
+  this.render('watched');
+  document.title = "Spark";
 });
+
+Router.route('/stats',function() {
+  window.scrollTo(0,0);
+  this.render('stats');
+  document.title = "Spark";
+});
+
+Router.route('/gold',function() {
+  window.scrollTo(0,0);
+  this.render('gold');
+  document.title = "Spark";
+});
+
+Router.route('/settings',function() {
+  window.scrollTo(0,0);
+  this.render('settings');
+  document.title = "Spark";
+});
+
 
 
 
