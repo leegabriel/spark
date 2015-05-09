@@ -359,8 +359,8 @@ document.title = "Create a New Project"
           <table width="100%">
             <tr> 
               <td>
-                <h1 contentEditable="true">{{title}}</h1>
-                <h1 contentEditable="true"><small>{{blurb}}</small></h1>
+                <h1 contenteditable="true">{{title}}</h1>
+                <h1 contenteditable="true"><small>{{blurb}}</small></h1>
               </td>
               <td> 
                 <div class="pull-right">
@@ -373,7 +373,7 @@ document.title = "Create a New Project"
             </tr>
           </table>
           <br>
-          {{imageURL}}
+          <p contenteditable="true">{{imageURL}}</p>
           {{> picture}}
           <br>
           <div class="panel panel-default">
@@ -399,14 +399,14 @@ document.title = "Create a New Project"
               <h2>Details</h2>
               <b><p>Published on {{createdAt}}</p></b>
               <br>
-              <p contentEditable="true">{{details}}</p>
+              <p contenteditable="true">{{details}}</p>
             </div>
           </div>
           <div class="panel panel-default">
             <div class="panel-body">
               <h2>Permalink</h2>
               <br>
-              <div contentEditable="true">spark-app.meteor.com/ideas/{{slug}}</div>
+              <p>/ideas/<span contenteditable="true">{{slug}}</span></p>
             </div>
           </div>
           <div class="panel panel-default">
@@ -685,7 +685,10 @@ document.title = "Create a New Project"
     <div class="alpha">
       <div class="row">
         <div class="col-sm-12">
-
+          {{#if isOwner}}
+          <button class="edit" ><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit this idea"></i></button>
+          <button class="delete"><i class="fa fa-times-circle" data-toggle="tooltip" data-placement="top" title="Delete this idea"></i></button>
+          {{/if}} 
           <table width="100%">
             <tr> 
               <td>
@@ -782,7 +785,10 @@ document.title = "Create a New Project"
     <div class="alpha">
       <div class="row">
         <div class="col-sm-12">
-
+          {{#if isOwner}}
+          <button class="edit" ><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit this idea"></i></button>
+          <button class="delete"><i class="fa fa-times-circle" data-toggle="tooltip" data-placement="top" title="Delete this idea"></i></button>
+          {{/if}}
           <table width="100%">
             <tr> 
               <td>

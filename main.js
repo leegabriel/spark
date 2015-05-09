@@ -50,6 +50,8 @@ if (Meteor.isClient) {
   }),
 
 
+
+
   Template.projectsTab.helpers({
     projects: function () {
       if (Session.equals('order', 'hot')) {
@@ -86,6 +88,8 @@ if (Meteor.isClient) {
   }),
 
 
+
+
   Template.newIdea.events({
     'submit .addIdeaForm':function(e){
       var title = e.target.title.value;
@@ -103,7 +107,6 @@ if (Meteor.isClient) {
     }
   }),
 
-
   Template.newProject.events({
     'submit .addProjectForm':function(e){
       var title = e.target.title.value;
@@ -120,6 +123,7 @@ if (Meteor.isClient) {
       return false;
     }
   }),
+
 
   Template.editIdea.events({
     'submit .editIdeaForm':function(e){
@@ -155,6 +159,9 @@ if (Meteor.isClient) {
     }
   }),
 
+
+
+
   Template.idea.events({
     "click .edit": function () {
       var path = '/ideas/' + this.slug + '/edit';
@@ -180,6 +187,8 @@ if (Meteor.isClient) {
   }),
 
 
+
+
   Template.project.events({
     "click .edit": function () {
       var path = '/projects/' + this.slug + '/edit';
@@ -203,6 +212,40 @@ if (Meteor.isClient) {
       return this.owner === Meteor.userId();
     }
   }),
+
+
+
+
+  Template.ideaView.events({
+    "click .edit": function () {
+      var path = '/ideas/' + this.slug + '/edit';
+      Router.go(path);
+    },
+    "click .delete": function () {
+      if (confirm("Are you sure you want to delete this?")){
+        Meteor.call("deleteIdea", this._id);
+      }
+    }
+  }),
+
+
+
+
+  Template.projectView.events({
+    "click .edit": function () {
+      var path = '/projects/' + this.slug + '/edit';
+      Router.go(path);
+    },
+    "click .delete": function () {
+      if (confirm("Are you sure you want to delete this?")){
+        Meteor.call("deleteProject", this._id);
+      }
+    },
+  })
+
+
+
+
 
   Template._loginButtonsLoggedInDropdown.events({
     'click #login-buttons-myIdeas': function(event) {
@@ -269,7 +312,7 @@ Meteor.methods({
       throw new Meteor.Error("not-authorized");
     }
     else {
-      
+
       Ideas.update(ideaId, {$set: {
         title: title,
         slug: slug,
@@ -287,7 +330,7 @@ Meteor.methods({
       throw new Meteor.Error("not-authorized");
     }
     else {
-      
+
       Projects.update(projectId, {$set: {
         title: title,
         slug: slug,
