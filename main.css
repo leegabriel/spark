@@ -365,12 +365,3 @@ textarea {
     width: 150px;
   }
 }
-
-::selection {
-  background: #c7e6e6;
-}
-
-::-moz-selection {
-  background: #c7e6e6;
-
-}

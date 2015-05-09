@@ -347,140 +347,212 @@ document.title = "Create a New Project"
 
 
 <template name="editIdea">
-    {{#if currentUser}}
+  {{#if currentUser}}
   
   {{> nav}}
 
   <div class="container">
     <div class="alpha">
-     <div class="row">
-      <form class="editForm" id="form">
+      <div class="row">
         <div class="col-sm-12">
 
           <table width="100%">
             <tr> 
               <td>
-                <h1><input type="text" name="title" id="title" placeholder={{title}}></h1>
-                <h1><small><input type="text" name="blurb" id="blurb" placeholder={{blurb}}></small></h1>
+                <h1 contentEditable="true">{{title}}</h1>
+                <h1 contentEditable="true"><small>{{blurb}}</small></h1>
+              </td>
+              <td> 
+                <div class="pull-right">
+                  <center>
+                    <span class="badge" id="badge-lg">{{count}}</span>
+                    <h1><small>votes</small></h1>
+                  </center>
+                </div>
               </td>
             </tr>
           </table>
-
           <br>
-
-          <input type="text" name="image" id="image" placeholder={{imageURL}}>
-
+          {{imageURL}}
+          {{> picture}}
           <br>
-
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <table width="100%">
+                <tr> 
+                  <td>
+                    <h3><small>{{ownerName}}</small></h3>
+                  </td>
+                  <td> 
+                    <div class="pull-right">
+                      <center>
+                        <button class="btn btn-default">Follow {{ownerName}}</button>
+                      </center>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
           <div class="panel panel-default">
             <div class="panel-body">
               <h2>Details</h2>
+              <b><p>Published on {{createdAt}}</p></b>
               <br>
-              <textarea type="text" name="details" id="details" placeholder={{details}} rows="6"></textarea><br>
+              <p contentEditable="true">{{details}}</p>
             </div>
           </div>
-
           <div class="panel panel-default">
             <div class="panel-body">
               <h2>Permalink</h2>
-              <span id="helpBlock" class="help-block">/ideas/<b>your-unique-idea-address</b></span>
-              <input type="text" name="slug" id="slug" placeholder={{slug}}><br>
+              <br>
+              <div contentEditable="true">spark-app.meteor.com/ideas/{{slug}}</div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h2>Comments</h2>
+              {{> comments}}
             </div>
           </div>
         </div>
 
-
         <div class="col-sm-12">
           <div class="panel panel-default">
-            <div class="updatepanel-body">
-              <h2>Tags</h2>
+            <div class="panel-body">
+              <h2>Similar Ideas</h2>
               <br>
-              <input type="text" name="tags" id="tags" placeholder={{tags}}><br>
+              <center>
+                {{>thumbnail}}
+              </center>
             </div>
           </div>         
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h2>Similar Projects</h2>
+              <br>
+              <center>
+                {{>thumbnail}}
+              </center>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <input id="submit" type="submit" value="Done editing" class="btn btn-primary">
-      </form>
     </div>
   </div>
-</div>
-{{> footer}}
+  {{> footer}}
 
-{{else}}
-{{#unless loggingIn}}
-{{>pageNotFound}}
-{{/unless}}
-{{/if}}
+  {{else}}
+  {{#unless loggingIn}}
+  {{>pageNotFound}}
+  {{/unless}}
+  {{/if}}
 
 </template>
 
 <template name="editProject">
-    {{#if currentUser}}
+  {{#if currentUser}}
   
   {{> nav}}
 
   <div class="container">
     <div class="alpha">
-     <div class="row">
-      <form class="editForm" id="form">
+      <div class="row">
         <div class="col-sm-12">
 
           <table width="100%">
             <tr> 
               <td>
-                <h1><input type="text" name="title" id="title" placeholder={{title}}></h1>
-                <h1><small><input type="text" name="blurb" id="blurb" placeholder={{blurb}}></small></h1>
+                <h1 contenteditable="true">{{title}}</h1>
+                <h1 contenteditable="true"><small>{{blurb}}</small></h1>
+              </td>
+              <td> 
+                <div class="pull-right">
+                  <center>
+                    <span class="badge" id="badge-lg">{{count}}</span>
+                    <h1><small>votes</small></h1>
+                  </center>
+                </div>
               </td>
             </tr>
           </table>
-
           <br>
-
-          <input type="text" name="image" id="image" placeholder={{imageURL}}>
-
+          <p contenteditable="true">{{imageURL}}</p>
+          {{> picture}}
           <br>
-
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <table width="100%">
+                <tr> 
+                  <td>
+                    <h3><small>{{ownerName}}</small></h3>
+                  </td>
+                  <td> 
+                    <div class="pull-right">
+                      <center>
+                        <button class="btn btn-default">Follow {{ownerName}}</button>
+                      </center>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
           <div class="panel panel-default">
             <div class="panel-body">
               <h2>Details</h2>
+              <b><p>Published on {{createdAt}}</p></b>
               <br>
-              <textarea type="text" name="details" id="details" placeholder={{details}} rows="6"></textarea><br>
+              <p contenteditable="true">{{details}}</p>
             </div>
           </div>
-
           <div class="panel panel-default">
             <div class="panel-body">
               <h2>Permalink</h2>
-              <span id="helpBlock" class="help-block">/ideas/<b>your-unique-idea-address</b></span>
-              <input type="text" name="slug" id="slug" placeholder={{slug}}><br>
+              <br>
+              <p>/projects/<span contenteditable="true">{{slug}}</span></p>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h2>Comments</h2>
+              {{> comments}}
             </div>
           </div>
         </div>
 
-
         <div class="col-sm-12">
           <div class="panel panel-default">
-            <div class="updatepanel-body">
-              <h2>Tags</h2>
+            <div class="panel-body">
+              <h2>Similar Ideas</h2>
               <br>
-              <input type="text" name="tags" id="tags" placeholder={{tags}}><br>
+              <center>
+                {{>thumbnail}}
+              </center>
             </div>
           </div>         
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h2>Similar Projects</h2>
+              <br>
+              <center>
+                {{>thumbnail}}
+              </center>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <input id="submit" type="submit" value="Done editing" class="btn btn-primary">
-      </form>
     </div>
   </div>
-</div>
-{{> footer}}
+  {{> footer}}
 
-{{else}}
-{{#unless loggingIn}}
-{{>pageNotFound}}
-{{/unless}}
-{{/if}}
+  {{else}}
+  {{#unless loggingIn}}
+  {{>pageNotFound}}
+  {{/unless}}
+  {{/if}}
 
 </template>
 

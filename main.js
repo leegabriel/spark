@@ -206,25 +206,25 @@ if (Meteor.isClient) {
 
   Template._loginButtonsLoggedInDropdown.events({
     'click #login-buttons-myIdeas': function(event) {
-        Router.go('myideas');
+      Router.go('myideas');
     },
     'click #login-buttons-myProjects': function(event) {
-        Router.go('myprojects');
+      Router.go('myprojects');
     },
     'click #login-buttons-profile': function(event) {
-        Router.go('profile');
+      Router.go('profile');
     },
     'click #login-buttons-watched': function(event) {
-        Router.go('watched');
+      Router.go('watched');
     },
     'click #login-buttons-stats': function(event) {
-        Router.go('stats');
+      Router.go('stats');
     },
     'click #login-buttons-gold': function(event) {
-        Router.go('gold');
+      Router.go('gold');
     },
     'click #login-buttons-settings': function(event) {
-        Router.go('settings');
+      Router.go('settings');
     }
   });
 
@@ -270,15 +270,15 @@ Meteor.methods({
     }
     else {
       
-    Ideas.update(ideaId, {$set: {
-      title: title,
-      slug: slug,
-      blurb: blurb,
-      tags: tags,
-      imageURL: imageURL,
-      details: details
-    }});
-  }
+      Ideas.update(ideaId, {$set: {
+        title: title,
+        slug: slug,
+        blurb: blurb,
+        tags: tags,
+        imageURL: imageURL,
+        details: details
+      }});
+    }
   },
   editProject: function (projectId, title, slug, blurb, tags, imageURL, details) {
     var project = Projects.findOne(ideaId);
@@ -287,16 +287,16 @@ Meteor.methods({
       throw new Meteor.Error("not-authorized");
     }
     else {
-    
-    Projects.update(projectId, {$set: {
-      title: title,
-      slug: slug,
-      blurb: blurb,
-      tags: tags,
-      imageURL: imageURL,
-      details: details
-    }});
-  }
+      
+      Projects.update(projectId, {$set: {
+        title: title,
+        slug: slug,
+        blurb: blurb,
+        tags: tags,
+        imageURL: imageURL,
+        details: details
+      }});
+    }
   },
   deleteIdea: function (ideaId) {
     var idea = Ideas.findOne(ideaId);
@@ -363,12 +363,12 @@ Meteor.methods({
 Router.configure({
  notFoundTemplate: 'pageNotFound',
  loadingTemplate: 'loading', 
-  waitOn: function() {
-    return [
-      Meteor.subscribe('ideasList'),
-      Meteor.subscribe('projectsList')
-    ];
-  }
+ waitOn: function() {
+  return [
+  Meteor.subscribe('ideasList'),
+  Meteor.subscribe('projectsList')
+  ];
+}
 });
 
 
@@ -425,13 +425,26 @@ Router.route('/projects/:slug', function(){
 
 Router.route('/ideas/:slug/edit', function(){
   window.scrollTo(0,0);
-  this.render('editIdea')
+  var ideaSlug = Session.get('choice');
+  if (Ideas.findOne({slug: this.params.slug})) {
+    this.render('editIdea', {
+      data: function(){
+        return Ideas.findOne({slug: this.params.slug});
+      }
+    });
+  }
   document.title = "Edit Idea";
 });
 
 Router.route('/projects/:slug/edit', function(){
   window.scrollTo(0,0);
-  this.render('editProject')
+  if (Projects.findOne({slug: this.params.slug})) {
+    this.render('editProject', {
+      data: function(){
+        return Projects.findOne({slug: this.params.slug});
+      }
+    });
+  }
   document.title = "Edit Project";
 });
 
