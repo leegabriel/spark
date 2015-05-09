@@ -156,10 +156,13 @@ if (Meteor.isClient) {
   }),
 
   Template.idea.events({
+    "click .edit": function () {
+      var path = '/ideas/' + this.slug + '/edit';
+      Router.go(path);
+    },
     "click .delete": function () {
-      var result;
       if (confirm("Are you sure you want to delete this?")){
-        result = Meteor.call("deleteIdea", this._id);
+        Meteor.call("deleteIdea", this._id);
       }
     },
     "click .fa-chevron-up": function () {
@@ -178,10 +181,13 @@ if (Meteor.isClient) {
 
 
   Template.project.events({
+    "click .edit": function () {
+      var path = '/projects/' + this.slug + '/edit';
+      Router.go(path);
+    },
     "click .delete": function () {
-      var result;
       if (confirm("Are you sure you want to delete this?")){
-        result = Meteor.call("deleteProject", this._id);
+        Meteor.call("deleteProject", this._id);
       }
     },
     "click .fa-chevron-up": function () {
