@@ -38,6 +38,7 @@ Important:
 	<li>Be able to Edit Idea/Project's Text</li>
 	<li>Single Vote Only Per Account Per Idea/Project</li>
 	<li>Get selection of up to 3 Categories associated with Idea/Project</li>
+	<li>Submitted ... ago</li>
 </ul>
 
 

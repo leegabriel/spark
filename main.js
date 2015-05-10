@@ -99,7 +99,11 @@ if (Meteor.isClient) {
       var details = e.target.details.value;
       var tags = e.target.tags.value.split(', ');
 
-      if (!title || !slug || !blurb || !imageURL || !details)
+      if (!imageURL){
+        imageURL = 'http://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Bolt_font_awesome.svg/120px-Bolt_font_awesome.svg.png';
+      }
+
+      if (!title || !slug || !blurb || !details)
         return false;
       Meteor.call('addIdea', title, slug, blurb, imageURL, details);
       Router.go('ideas');
@@ -116,7 +120,11 @@ if (Meteor.isClient) {
       var details = e.target.details.value;
       var tags = e.target.tags.value.split(', ');
 
-      if (!title || !slug || !blurb || !imageURL || !details)
+      if (!imageURL){
+        imageURL = 'http://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Fire_font_awesome.svg/120px-Fire_font_awesome.svg.png';
+      }
+
+      if (!title || !slug || !blurb|| !details)
         return false;
       Meteor.call('addProject', title, slug, blurb, imageURL, details);
       Router.go('projects');
@@ -134,7 +142,7 @@ if (Meteor.isClient) {
       var details = e.target.details.value;
       var tags = e.target.tags.value.split(', ');
 
-      if (!title || !slug || !blurb || !imageURL || !details)
+      if (!title || !slug || !blurb || !details)
         return false;
       Meteor.call('editIdea', this._id, title, slug, blurb, tags, imageURL, details);
       Router.go('ideas');
@@ -151,9 +159,9 @@ if (Meteor.isClient) {
       var details = e.target.details.value;
       var tags = e.target.tags.value.split(', ');
 
-      if (!title || !slug || !blurb || !imageURL || !details)
+      if (!title || !slug || !blurb || !details)
         return false;
-      Meteor.call('editProjectIdea', this._id, title, slug, blurb, tags, imageURL, details);
+      Meteor.call('editProject', this._id, title, slug, blurb, tags, imageURL, details);
       Router.go('projects');
       return false;
     }
@@ -228,6 +236,11 @@ if (Meteor.isClient) {
     }
   }),
 
+  Template.ideaView.helpers({
+    isOwner: function () {
+      return this.owner === Meteor.userId();
+    }
+  }),
 
 
 
@@ -241,7 +254,13 @@ if (Meteor.isClient) {
         Meteor.call("deleteProject", this._id);
       }
     },
-  })
+  }),
+
+  Template.projectView.helpers({
+    isOwner: function () {
+      return this.owner === Meteor.userId();
+    }
+  }),
 
 
 
@@ -349,6 +368,8 @@ Meteor.methods({
     }
     else {
       Ideas.remove(ideaId);
+      Router.go('ideas');
+      alert("Idea was removed.");
     }
   },
   deleteProject: function (projectId) {
@@ -359,6 +380,8 @@ Meteor.methods({
     }
     else {
       Projects.remove(projectId);
+      Router.go('projects');
+      alert("Project was removed.");
     }
   }, 
   upvoteIdea: function (ideaId) {

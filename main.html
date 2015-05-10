@@ -220,32 +220,16 @@
 
           <br>
 
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Details</h2>
-              <br>
-              <textarea type="text" name="details" id="details" placeholder="Idea details" rows="6"></textarea><br>
-            </div>
-          </div>
+          <textarea type="text" name="details" id="details" placeholder="Idea details" rows="6"></textarea><br>
 
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Permalink</h2>
-              <span id="helpBlock" class="help-block">/ideas/<b>your-unique-idea-address</b></span>
-              <input type="text" name="slug" id="slug" placeholder="your-unique-idea-address"><br>
-            </div>
-          </div>
+          <span id="helpBlock" class="help-block">/ideas/<b>your-unique-idea-address</b></span>
+          <input type="text" name="slug" id="slug" placeholder="your-unique-idea-address"><br>
+
         </div>
 
 
         <div class="col-sm-12">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Tags</h2>
-              <br>
-              <input type="text" name="tags" id="tags" placeholder="Idea Tags">
-            </div>
-          </div>         
+          <input type="text" name="tags" id="tags" placeholder="Idea tags">  
         </div>
 
         <input id="submit" type="submit" value="Spark!" class="btn btn-primary">
@@ -296,32 +280,16 @@ document.title = "Create a New Idea"
 
           <br>
 
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Details</h2>
-              <br>
-              <textarea type="text" name="details" id="details" placeholder="Project details" rows="6"></textarea><br>
-            </div>
-          </div>
+          <textarea type="text" name="details" id="details" placeholder="Project details" rows="6"></textarea><br>
 
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Permalink</h2>
-              <span id="helpBlock" class="help-block">/projects/<b>your-unique-project-address</b></span>
-              <input type="text" name="slug" id="slug" placeholder="your-unique-project-address"><br>
-            </div>
-          </div>
+          <span id="helpBlock" class="help-block">/projects/<b>your-unique-project-address</b></span>
+          <input type="text" name="slug" id="slug" placeholder="your-unique-project-address"><br>
+
         </div>
 
 
         <div class="col-sm-12">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Tags</h2>
-              <br>
-              <input type="text" name="tags" id="tags" placeholder="Project Tags">
-            </div>
-          </div>         
+          <input type="text" name="tags" id="tags" placeholder="Project tags">  
         </div>
 
         <input id="submit" type="submit" value="Spark!" class="btn btn-primary">
@@ -355,7 +323,7 @@ document.title = "Create a New Project"
     <div class="alpha">
       <div class="row">
         <div class="col-sm-12">
-
+          <input type="submit" id="update" value="Done editing" class="btn btn-primary">
           <table width="100%">
             <tr> 
               <td>
@@ -460,7 +428,7 @@ document.title = "Create a New Project"
     <div class="alpha">
       <div class="row">
         <div class="col-sm-12">
-
+          <input type="submit" id="update" value="Done editing" class="btn btn-primary">
           <table width="100%">
             <tr> 
               <td>
@@ -686,8 +654,8 @@ document.title = "Create a New Project"
       <div class="row">
         <div class="col-sm-12">
           {{#if isOwner}}
-          <button class="edit" ><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit this idea"></i></button>
-          <button class="delete"><i class="fa fa-times-circle" data-toggle="tooltip" data-placement="top" title="Delete this idea"></i></button>
+          <button class="edit" ><i class="fa fa-pencil"></i> Edit</button>
+          <button class="delete"><i class="fa fa-times-circle"></i> Delete</button>
           {{/if}} 
           <table width="100%">
             <tr> 
@@ -732,12 +700,7 @@ document.title = "Create a New Project"
               <b><p>Published on {{createdAt}}</p></b>
               <br>
               <p>{{details}}</p>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Permalink</h2>
-              <br>
+              <p>Permalink:</p> 
               <div class="well">spark-app.meteor.com/ideas/{{slug}}</div>
             </div>
           </div>
@@ -786,9 +749,9 @@ document.title = "Create a New Project"
       <div class="row">
         <div class="col-sm-12">
           {{#if isOwner}}
-          <button class="edit" ><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit this idea"></i></button>
-          <button class="delete"><i class="fa fa-times-circle" data-toggle="tooltip" data-placement="top" title="Delete this idea"></i></button>
-          {{/if}}
+          <button class="edit" ><i class="fa fa-pencil"></i> Edit</button>
+          <button class="delete"><i class="fa fa-times-circle"></i> Delete</button>
+          {{/if}} 
           <table width="100%">
             <tr> 
               <td>
@@ -832,12 +795,7 @@ document.title = "Create a New Project"
               <b><p>Published on {{createdAt}}</p></b>
               <br>
               <p>{{details}}</p>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Permalink</h2>
-              <br>
+              <p>Permalink:</p>
               <div class="well">spark-app.meteor.com/projects/{{slug}}</div>
             </div>
           </div>
