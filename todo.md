@@ -39,6 +39,8 @@ Important:
 	<li>Single Vote Only Per Account Per Idea/Project</li>
 	<li>Get selection of up to 3 Categories associated with Idea/Project</li>
 	<li>Submitted ... ago</li>
+	<li>Show write option on front page, but add tooltip that says must sign in</li>
+	<li>Possibly show modal on clicking login-required item, to make it easier for user to sign up</li>
 </ul>
 
 
