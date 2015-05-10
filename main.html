@@ -38,7 +38,7 @@
           <ul class="nav navbar-nav navbar-right">
             {{#if currentUser}}
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="glyphicon glyphicon-plus"></i><span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-pencil"></i><span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="/newidea">New Idea</a></li>
                 <li><a href="/newproject">New Project</a></li>
@@ -323,15 +323,16 @@ document.title = "Create a New Project"
     <div class="alpha">
       <div class="row">
         <div class="col-sm-12">
-          <input type="submit" id="update" value="Done editing" class="btn btn-primary">
+          <button class="cancel" ><i class="fa fa-times-circle"></i> Cancel</button>
+          <button class="update"><i class="fa fa-check"></i> Update</button>
           <table width="100%">
             <tr> 
               <td>
-                <h1 contenteditable="true">{{title}}</h1>
-                <h1 contenteditable="true"><small>{{blurb}}</small></h1>
+                <h1 id="editable" contenteditable="true">{{title}}</h1>
+                <h1 id="editable" contenteditable="true"><small>{{blurb}}</small></h1>
               </td>
               <td> 
-                <div class="pull-right">
+                <div class="pull-right non-editable">
                   <center>
                     <span class="badge" id="badge-lg">{{count}}</span>
                     <h1><small>votes</small></h1>
@@ -341,15 +342,15 @@ document.title = "Create a New Project"
             </tr>
           </table>
           <br>
-          <p contenteditable="true">{{imageURL}}</p>
+          <p id="editable" contenteditable="true">{{imageURL}}</p>
           {{> picture}}
           <br>
-          <div class="panel panel-default">
+          <div id="non-editable" class="panel panel-default">
             <div class="panel-body">
               <table width="100%">
                 <tr> 
                   <td>
-                    <h3><small>{{ownerName}}</small></h3>
+                    <h3 id="non-editable" ><small>{{ownerName}}</small></h3>
                   </td>
                   <td> 
                     <div class="pull-right">
@@ -367,17 +368,14 @@ document.title = "Create a New Project"
               <h2>Details</h2>
               <b><p>Published on {{createdAt}}</p></b>
               <br>
-              <p contenteditable="true">{{details}}</p>
+              <p id="editable" contenteditable="true">{{details}}</p>
+              <b><p>Permalink</p></b>
+              <p>/ideas/<span id="editable" contenteditable="true">{{slug}}</span></p>
+              <b><p>Tags</p></b>
+              <p id="editable" contenteditable="true">{{tags}}</p>
             </div>
           </div>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Permalink</h2>
-              <br>
-              <p>/ideas/<span contenteditable="true">{{slug}}</span></p>
-            </div>
-          </div>
-          <div class="panel panel-default">
+          <div id="non-editable" class="panel panel-default">
             <div class="panel-body">
               <h2>Comments</h2>
               {{> comments}}
@@ -386,7 +384,7 @@ document.title = "Create a New Project"
         </div>
 
         <div class="col-sm-12">
-          <div class="panel panel-default">
+          <div id="non-editable" class="panel panel-default">
             <div class="panel-body">
               <h2>Similar Ideas</h2>
               <br>
@@ -395,7 +393,7 @@ document.title = "Create a New Project"
               </center>
             </div>
           </div>         
-          <div class="panel panel-default">
+          <div id="non-editable" class="panel panel-default">
             <div class="panel-body">
               <h2>Similar Projects</h2>
               <br>
@@ -417,6 +415,7 @@ document.title = "Create a New Project"
   {{/unless}}
   {{/if}}
 
+
 </template>
 
 <template name="editProject">
@@ -428,15 +427,16 @@ document.title = "Create a New Project"
     <div class="alpha">
       <div class="row">
         <div class="col-sm-12">
-          <input type="submit" id="update" value="Done editing" class="btn btn-primary">
+          <button class="cancel" ><i class="fa fa-times-circle"></i> Cancel</button>
+          <button class="update"><i class="fa fa-check"></i> Update</button>
           <table width="100%">
             <tr> 
               <td>
-                <h1 contenteditable="true">{{title}}</h1>
-                <h1 contenteditable="true"><small>{{blurb}}</small></h1>
+                <h1 id="editable" contenteditable="true">{{title}}</h1>
+                <h1 id="editable" contenteditable="true"><small>{{blurb}}</small></h1>
               </td>
               <td> 
-                <div class="pull-right">
+                <div class="pull-right non-editable">
                   <center>
                     <span class="badge" id="badge-lg">{{count}}</span>
                     <h1><small>votes</small></h1>
@@ -446,15 +446,15 @@ document.title = "Create a New Project"
             </tr>
           </table>
           <br>
-          <p contenteditable="true">{{imageURL}}</p>
+          <p id="editable" contenteditable="true">{{imageURL}}</p>
           {{> picture}}
           <br>
-          <div class="panel panel-default">
+          <div id="non-editable" class="panel panel-default">
             <div class="panel-body">
               <table width="100%">
                 <tr> 
                   <td>
-                    <h3><small>{{ownerName}}</small></h3>
+                    <h3 id="non-editable" ><small>{{ownerName}}</small></h3>
                   </td>
                   <td> 
                     <div class="pull-right">
@@ -472,17 +472,14 @@ document.title = "Create a New Project"
               <h2>Details</h2>
               <b><p>Published on {{createdAt}}</p></b>
               <br>
-              <p contenteditable="true">{{details}}</p>
+              <p id="editable" contenteditable="true">{{details}}</p>
+              <b><p>Permalink</p></b>
+              <p>/projects/<span id="editable" contenteditable="true">{{slug}}</span></p>
+              <b><p>Tags</p></b>
+              <p id="editable" contenteditable="true">{{tags}}</p>
             </div>
           </div>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Permalink</h2>
-              <br>
-              <p>/projects/<span contenteditable="true">{{slug}}</span></p>
-            </div>
-          </div>
-          <div class="panel panel-default">
+          <div id="non-editable" class="panel panel-default">
             <div class="panel-body">
               <h2>Comments</h2>
               {{> comments}}
@@ -491,7 +488,7 @@ document.title = "Create a New Project"
         </div>
 
         <div class="col-sm-12">
-          <div class="panel panel-default">
+          <div id="non-editable" class="panel panel-default">
             <div class="panel-body">
               <h2>Similar Ideas</h2>
               <br>
@@ -500,7 +497,7 @@ document.title = "Create a New Project"
               </center>
             </div>
           </div>         
-          <div class="panel panel-default">
+          <div id="non-editable" class="panel panel-default">
             <div class="panel-body">
               <h2>Similar Projects</h2>
               <br>
@@ -654,7 +651,7 @@ document.title = "Create a New Project"
       <div class="row">
         <div class="col-sm-12">
           {{#if isOwner}}
-          <button class="edit" ><i class="fa fa-pencil"></i> Edit</button>
+          <button class="edit" ><i class="fa fa-edit"></i> Edit</button>
           <button class="delete"><i class="fa fa-times-circle"></i> Delete</button>
           {{/if}} 
           <table width="100%">
@@ -700,8 +697,10 @@ document.title = "Create a New Project"
               <b><p>Published on {{createdAt}}</p></b>
               <br>
               <p>{{details}}</p>
-              <p>Permalink:</p> 
+              <b><p>Permalink:</p></b> 
               <div class="well">spark-app.meteor.com/ideas/{{slug}}</div>
+              <b><p>Tags:</p></b> 
+              <p>{{tags}}</p>
             </div>
           </div>
           <div class="panel panel-default">
@@ -749,7 +748,7 @@ document.title = "Create a New Project"
       <div class="row">
         <div class="col-sm-12">
           {{#if isOwner}}
-          <button class="edit" ><i class="fa fa-pencil"></i> Edit</button>
+          <button class="edit" ><i class="fa fa-edit"></i> Edit</button>
           <button class="delete"><i class="fa fa-times-circle"></i> Delete</button>
           {{/if}} 
           <table width="100%">
@@ -795,8 +794,10 @@ document.title = "Create a New Project"
               <b><p>Published on {{createdAt}}</p></b>
               <br>
               <p>{{details}}</p>
-              <p>Permalink:</p>
+              <b><p>Permalink:</p></b> 
               <div class="well">spark-app.meteor.com/projects/{{slug}}</div>
+              <b><p>Tags:</p></b> 
+              <p>{{tags}}</p>
             </div>
           </div>
           <div class="panel panel-default">

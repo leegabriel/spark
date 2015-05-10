@@ -147,6 +147,9 @@ if (Meteor.isClient) {
       Meteor.call('editIdea', this._id, title, slug, blurb, tags, imageURL, details);
       Router.go('ideas');
       return false;
+    }, 
+    '.click .cancel':function(){
+      Router.go('ideas');
     }
   }),
 
@@ -164,6 +167,9 @@ if (Meteor.isClient) {
       Meteor.call('editProject', this._id, title, slug, blurb, tags, imageURL, details);
       Router.go('projects');
       return false;
+    },
+    '.click .cancel':function(){
+      Router.go('projects');
     }
   }),
 

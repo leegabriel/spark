@@ -223,7 +223,7 @@ a:active {
   color: #2980B9 !important;
 }
 
-.delete, .close, .edit {
+.delete, .close, .edit, .cancel, .update {
   outline: 0;
   background: none;
   border: none;
@@ -234,7 +234,7 @@ a:active {
   color: #E74C3C !important;
 }
 
-.edit:hover {
+.edit:hover, .cancel:hover, .update:hover {
   color: #3498db !important;
 }
 
@@ -357,4 +357,24 @@ textarea {
   #middle-row {
     width: 0px;
   }
+}
+
+#editable {
+  outline: 0;
+  color: #000;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #eee;
+  border-radius: 2px;
+  box-shadow: inset 0 2px 3px -3px rgba(200,200,200,0.5);
+  box-sizing: border-box;
+  -webkit-appearance: textfield;
+  -webkit-rtl-ordering: logical;
+  -webkit-user-select: text;
+  cursor: auto;
+  -webkit-writing-mode: horizontal-tb;
+}
+
+#non-editable {
+  opacity: 0.6;
 }
