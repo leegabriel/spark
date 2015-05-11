@@ -183,10 +183,6 @@ body {
   color: #666 !important;
 }
 
-#thumbnail:hover {
-  opacity: 0.87;
-}
-
 ol {
   font-size: 20px;
   color: #666;
@@ -304,6 +300,10 @@ textarea {
   -webkit-writing-mode: horizontal-tb;
 }
 
+#thumbnail:hover {
+  opacity: 0.87;
+}
+
 #tab {
   border-top: 0px; 
   border-top-left-radius: 0px; 
@@ -359,7 +359,7 @@ textarea {
   }
 }
 
-#editable {
+.editable {
   outline: 0;
   color: #000;
   background-color: #fff;
@@ -375,6 +375,6 @@ textarea {
   -webkit-writing-mode: horizontal-tb;
 }
 
-#non-editable {
-  opacity: 0.6;
+.non-editable {
+  opacity: 0.3;
 }

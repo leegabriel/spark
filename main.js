@@ -134,19 +134,16 @@ if (Meteor.isClient) {
 
 
   Template.editIdea.events({
-    'submit .editIdeaForm':function(e){
-      var title = e.target.title.value;
-      var slug = e.target.slug.value;
-      var blurb = e.target.blurb.value;
-      var imageURL = e.target.image.value;
-      var details = e.target.details.value;
-      var tags = e.target.tags.value.split(', ');
+    'click .update':function(event){
+      var title = document.getElementById('title').innerHTML;
+      var slug = document.getElementById('slug').innerHTML;
+      var blurb = document.getElementById('blurb').innerHTML;
+      var imageURL = document.getElementById('imageURL').innerHTML;
+      var details = document.getElementById('details').innerHTML;
+      var tags = document.getElementById('tags').innerHTML.split(', ');
 
-      if (!title || !slug || !blurb || !details)
-        return false;
       Meteor.call('editIdea', this._id, title, slug, blurb, tags, imageURL, details);
       Router.go('ideas');
-      return false;
     }, 
     '.click .cancel':function(){
       Router.go('ideas');
@@ -154,20 +151,17 @@ if (Meteor.isClient) {
   }),
 
   Template.editProject.events({
-    'submit .editProjectForm':function(e){
-      var title = e.target.title.value;
-      var slug = e.target.slug.value;
-      var blurb = e.target.blurb.value;
-      var imageURL = e.target.image.value;
-      var details = e.target.details.value;
-      var tags = e.target.tags.value.split(', ');
+    'click .update':function(event){
+      var title = document.getElementById('title').innerHTML;
+      var slug = document.getElementById('slug').innerHTML;
+      var blurb = document.getElementById('blurb').innerHTML;
+      var imageURL = document.getElementById('imageURL').innerHTML;
+      var details = document.getElementById('details').innerHTML;
+      var tags = document.getElementById('tags').innerHTML.split(', ');
 
-      if (!title || !slug || !blurb || !details)
-        return false;
       Meteor.call('editProject', this._id, title, slug, blurb, tags, imageURL, details);
       Router.go('projects');
-      return false;
-    },
+    }, 
     '.click .cancel':function(){
       Router.go('projects');
     }
@@ -349,7 +343,7 @@ Meteor.methods({
     }
   },
   editProject: function (projectId, title, slug, blurb, tags, imageURL, details) {
-    var project = Projects.findOne(ideaId);
+    var project = Projects.findOne(projectId);
     if (project.owner !== Meteor.userId()) {
       // Make sure only the owner can delete it
       throw new Meteor.Error("not-authorized");
