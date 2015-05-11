@@ -30,17 +30,18 @@ Important:
 	<li><strike>Login Login Login Login Login and.... Login. Need Good Login Navigation</strike></li>
 	<li><strike>Change nav dropdown (Hot, Newest, etc.) based on selected choice, and implement effects based on tab (reset to hot whenever tab switch)</strike></li>
 	<li><strike>When logged in, show My Projects, My Ideas, etc. Options in a drop down on top right. Change Logout to say name instead. Probably should get rid of modal. Logout link should be at bottom.</strike></li> don't need but would've probably used session variables
+	<li><strike>Be able to Edit Idea/Project's Text</strike></li>
 	<li>Categories Option</li>
 	<li>Search Engine - See Atmosphere matteodem easy-search</li>
 	<li>Fundraising Option, progress bars, fund logistics</li>
 	<li>Pagination</li>
 	<li>Comments (preferably Atmosphere packages)</li>
-	<li>Be able to Edit Idea/Project's Text</li>
 	<li>Single Vote Only Per Account Per Idea/Project</li>
 	<li>Get selection of up to 3 Categories associated with Idea/Project</li>
 	<li>Submitted ... ago</li>
 	<li>Show write option on front page, but add tooltip that says must sign in</li>
 	<li>Possibly show modal on clicking login-required item, to make it easier for user to sign up</li>
+	<li>Get a better style man, seriously</li>
 </ul>
 
 
