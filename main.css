@@ -97,7 +97,7 @@ h1, h2, h3, h4, h5, h6, p, small {
   box-shadow: none !important; 
 }
 
-.btn-default {
+/*.btn-default {
   background-color: #f1f8fb !important;
   border: 1px solid #bbcadc !important;
   color: #2980B9 !important;
@@ -105,9 +105,9 @@ h1, h2, h3, h4, h5, h6, p, small {
 
 .btn-default:hover {
   border: 1px solid #2980B9 !important;
-}
+}*/
 
-#signin{
+/*#signin{
   color: #2980B9 !important;
   text-decoration: none;
   padding-top: 7.5px;
@@ -118,9 +118,9 @@ h1, h2, h3, h4, h5, h6, p, small {
 
 #signin:hover{
   background-color: #f1f8fb !important;
-}
+}*/
 
-#signup {
+/*#signup {
   border: 1px solid #badbc0 !important;
   color: #29ba29 !important;
   background-color: #f0faf0 !important;
@@ -134,12 +134,12 @@ h1, h2, h3, h4, h5, h6, p, small {
 #signup:hover {
   border: 1px solid #29ba29 !important;
   background-color: #f0faf0 !important;
-}
+}*/
 
-#signin-email, #signin-password {
+/*#signin-email, #signin-password {
   width: 100%;
   max-width: 300px;
-}
+}*/
 
 #login-dropdown-list .dropdown-menu {
 }
@@ -212,301 +212,8 @@ a:visited {
 }   
 
 /* mouse over link */
-a:hover {
+a:hover{
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
 }
 
 /* selected link */
@@ -514,20 +221,21 @@ a:active {
   color: #58595b !important;
 }
 
-.delete, .close, .edit, .cancel, .update {
+.cancel {
   outline: 0;
   background: none;
   border: none;
-  color: #666;
 }
 
-.delete:hover, .close:hover {
-  color: #E74C3C !important;
+.cancel:hover {
+  text-decoration: underline;
+  opacity: 1;
 }
 
-.edit:hover, .cancel:hover, .update:hover {
-  color: #3498db !important;
+#tos:hover, #privacy:hover, #developers:hover, #artists:hover, #about:hover {
+  text-decoration: underline !important;
 }
+
 
 /* fit picture to browser size*/
 #banner {

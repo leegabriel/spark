@@ -229,7 +229,7 @@
           <input type="text" name="tags" id="tags" placeholder="Idea tags">  
         </div>
 
-        <input id="submit" type="submit" value="Spark!" class="btn btn-primary">
+        <input id="submit" type="submit" value="Spark!" class="btn btn-lg btn-primary">
       </form>
     </div>
   </div>
@@ -289,7 +289,7 @@ document.title = "Create a New Idea"
           <input type="text" name="tags" id="tags" placeholder="Project tags">  
         </div>
 
-        <input id="submit" type="submit" value="Spark!" class="btn btn-primary">
+        <input id="submit" type="submit" value="Spark!" class="btn btn-lg btn-primary">
       </form>
     </div>
   </div>
@@ -320,8 +320,8 @@ document.title = "Create a New Project"
     <div class="alpha">
       <div class="row">
         <div class="col-sm-12">
-          <button class="cancel" ><i class="fa fa-times-circle"></i> Cancel</button>
-          <button class="update"><i class="fa fa-check"></i> Update</button>
+          <button class="cancel">Cancel</button>
+          <button class="btn btn-primary update">Done</button>
           <table width="100%">
             <tr> 
               <td>
@@ -423,8 +423,8 @@ document.title = "Create a New Project"
     <div class="alpha">
       <div class="row">
         <div class="col-sm-12">
-          <button class="cancel" ><i class="fa fa-times-circle"></i> Cancel</button>
-          <button class="update"><i class="fa fa-check"></i> Update</button>
+          <button class="cancel">Cancel</button>
+          <button class="btn btn-primary update">Done</button>
           <table width="100%">
             <tr> 
               <td>
@@ -531,9 +531,8 @@ document.title = "Create a New Project"
           <h3>
             <a id="middle-link" href="/ideas/{{slug}}">{{title}}</a> 
             {{#if isOwner}}
-            <button class="edit" ><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit this idea"></i></button>
-            <button class="delete"><i class="fa fa-times-circle" data-toggle="tooltip" data-placement="top" title="Delete this idea"></i></button>
-
+            <button class="btn btn-primary edit"><i class="fa fa-edit"></i> Edit</button>
+            <button class="btn btn-danger delete"><i class="fa fa-trash"></i> Delete</button>
             {{/if}}
             
 
@@ -585,8 +584,8 @@ document.title = "Create a New Project"
           <h3>
             <a id="middle-link" href="/projects/{{slug}}">{{title}}</a>
             {{#if isOwner}}
-            <button class="edit"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit this project"></i></button>
-            <button class="delete"><i class="fa fa-times-circle" data-toggle="tooltip" data-placement="top" title="Delete this project"></i></button>
+            <button class="btn btn-primary edit"><i class="fa fa-edit"></i> Edit</button>
+            <button class="btn btn-danger delete"><i class="fa fa-trash"></i> Delete</button>
             {{/if}}
           </h3>
         </td>
@@ -646,8 +645,8 @@ document.title = "Create a New Project"
       <div class="row">
         <div class="col-sm-12">
           {{#if isOwner}}
-          <button class="edit" ><i class="fa fa-edit"></i> Edit</button>
-          <button class="delete"><i class="fa fa-times-circle"></i> Delete</button>
+          <button class="btn btn-primary edit"><i class="fa fa-edit"></i> Edit</button>
+          <button class="btn btn-danger delete"><i class="fa fa-trash"></i> Delete</button>
           {{/if}} 
           <table width="100%">
             <tr> 
@@ -745,8 +744,8 @@ document.title = "Create a New Project"
       <div class="row">
         <div class="col-sm-12">
           {{#if isOwner}}
-          <button class="edit" ><i class="fa fa-edit"></i> Edit</button>
-          <button class="delete"><i class="fa fa-times-circle"></i> Delete</button>
+          <button class="btn btn-primary edit"><i class="fa fa-edit"></i> Edit</button>
+          <button class="btn btn-danger delete"><i class="fa fa-trash"></i> Delete</button>
           {{/if}} 
           <table width="100%">
             <tr> 
@@ -940,19 +939,19 @@ document.title = "Create a New Project"
             <p>&copy; 2015 Spark</p>  
           </div>
           <div class="col-sm-2">
-            <p><a href="/tos">Terms of Service</a></p>  
+            <p><a id="tos" ref="/tos">Terms of Service</a></p>  
           </div>
           <div class="col-sm-2">
-            <p><a href="/privacy">Privacy Policy</a></p>   
+            <p><a id="privacy" href="/privacy">Privacy Policy</a></p>   
           </div>
           <div class="col-sm-2">
-            <p><a href="/developers">Developers</a></p>  
+            <p><a id="developers" href="/developers">Developers</a></p>  
           </div>
           <div class="col-sm-2">
-            <p><a href="/artists">Artists</a></p>  
+            <p><a id="artists" href="/artists">Artists</a></p>  
           </div>
           <div class="col-sm-2">
-            <p><a href="/about">About</a></p>  
+            <p><a id="about" href="/about">About</a></p>  
           </div>
         </center>
       </div>
