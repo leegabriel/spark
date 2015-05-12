@@ -5,7 +5,6 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-  <link rel="icon" sizes="16x16 32x32" href="/favicon.ico?v=2">
 </head>
 
 
@@ -105,7 +104,6 @@
 <template name="ideasTab">
   {{> nav}}
   <div class="delta">
-    <h1 class="header" id="space">Ideas</h1>
     <div role="tabpanel">
 
      <!-- Nav tabs -->
@@ -151,7 +149,6 @@
   {{>nav}}
   
   <div class="delta">
-    <h1 class="header" id="space">Projects</h1>
     <div role="tabpanel">
 
      <!-- Nav tabs -->
@@ -652,6 +649,8 @@ document.title = "Create a New Project"
           <button class="edit" ><i class="fa fa-edit"></i> Edit</button>
           <button class="delete"><i class="fa fa-times-circle"></i> Delete</button>
           {{/if}} 
+          {{> picture}}
+          <br>
           <table width="100%">
             <tr> 
               <td>
@@ -668,8 +667,6 @@ document.title = "Create a New Project"
               </td>
             </tr>
           </table>
-          <br>
-          {{> picture}}
           <br>
           <div class="panel panel-default">
             <div class="panel-body">
@@ -695,6 +692,7 @@ document.title = "Create a New Project"
               <b><p>Published on {{createdAt}}</p></b>
               <br>
               <p>{{details}}</p>
+              <br>
               <b><p>Permalink</p></b> 
               <div class="well">spark-app.meteor.com/ideas/{{slug}}</div>
               <b><p>Tags
@@ -793,6 +791,7 @@ document.title = "Create a New Project"
               <b><p>Published on {{createdAt}}</p></b>
               <br>
               <p>{{details}}</p>
+              <br>
               <b><p>Permalink</p></b> 
               <div class="well">spark-app.meteor.com/projects/{{slug}}</div>
               <b><p>Tags</p></b> 
@@ -837,7 +836,7 @@ document.title = "Create a New Project"
 
 
 <template name="thumbnail">
-  <img id="thumbnail" src={{imageURL}} width="150">
+  <img id="thumbnail" src={{imageURL}} width="120px">
 </template>
 
 

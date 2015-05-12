@@ -8,12 +8,12 @@ h1, h2, h3, h4, h5, h6, p, small {
 }
 .alpha {
   margin: auto;
-  max-width: 700px; 
+  max-width: 800px; 
 }
 
 .delta {
   margin: auto;
-  max-width: 900px;
+  max-width: 1000px;
 }
 
 .gamma {
@@ -151,7 +151,7 @@ body {
   margin-top: 35px !important;
   padding:0;
   height:100%;
-  background-color: #fff !important;
+  background-color: #f9f9f9 !important;
 }
 
 #container {
@@ -165,7 +165,7 @@ body {
  bottom:0;
  width:100%;
  height:100px;   /* Height of the footer */
- background: #fff;
+ background: #f9f9f9;
 }
 
 #footer .copyright {
@@ -184,6 +184,7 @@ body {
 }
 
 ol {
+  font-weight: 300;
   font-size: 20px;
   color: #666;
   margin-left: 15px;
@@ -201,12 +202,12 @@ li table {
 
 /* unvisited link */
 a:link {
-  color: #2980B9 !important;
+  color: #58595b !important;
 }
 
 /* visited link */
 a:visited {
-  color: #2980B9 !important;
+  color: #58595b !important;
 }   
 
 /* mouse over link */
@@ -216,7 +217,7 @@ a:hover {
 
 /* selected link */
 a:active {
-  color: #2980B9 !important;
+  color: #58595b !important;
 }
 
 .delete, .close, .edit, .cancel, .update {
@@ -338,7 +339,7 @@ textarea {
    bottom:0;
    width:100%;
    height:250px !important;   /* Height of the footer */
-   background: #fff;
+   background: #f9f9f9;
 
  }
 
