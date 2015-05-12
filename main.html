@@ -649,8 +649,6 @@ document.title = "Create a New Project"
           <button class="edit" ><i class="fa fa-edit"></i> Edit</button>
           <button class="delete"><i class="fa fa-times-circle"></i> Delete</button>
           {{/if}} 
-          {{> picture}}
-          <br>
           <table width="100%">
             <tr> 
               <td>
@@ -667,6 +665,8 @@ document.title = "Create a New Project"
               </td>
             </tr>
           </table>
+          <br>
+          {{> picture}}
           <br>
           <div class="panel panel-default">
             <div class="panel-body">
@@ -747,9 +747,7 @@ document.title = "Create a New Project"
           {{#if isOwner}}
           <button class="edit" ><i class="fa fa-edit"></i> Edit</button>
           <button class="delete"><i class="fa fa-times-circle"></i> Delete</button>
-          {{/if}}
-          {{> picture}}
-          <br> 
+          {{/if}} 
           <table width="100%">
             <tr> 
               <td>
@@ -767,7 +765,8 @@ document.title = "Create a New Project"
             </tr>
           </table>
           <br>
-
+          {{> picture}}
+          <br>
           <div class="panel panel-default">
             <div class="panel-body">
               <table width="100%">
@@ -851,7 +850,6 @@ document.title = "Create a New Project"
 
   <div class="alpha">
     <h1 class="header">Terms of Service</h1>
-    <p>Whoa, whoa, what are you doing? Nobody ever reads Terms of Service. Nobody. Ever.</p> 
   </div>
   {{> footer}}
 
@@ -863,7 +861,6 @@ document.title = "Create a New Project"
 
   <div class="alpha">
     <h1 class="header">Privacy Policy</h1>
-    <p>We take your privacy very seriously. Your password is encrypted as it is stored in our database. We cannot read it. Seriously, it looks like gibberish.</p>
   </div>
   {{> footer}}
 
@@ -874,7 +871,6 @@ document.title = "Create a New Project"
   {{>nav}}
   <div class="alpha">
     <h1 class="header">Developers</h1>
-    <p>If you are an aspiring developer, Spark is the web app for you. Ideas runneth in the website's veins.</p>
   </div>
   {{> footer}}
 
@@ -886,7 +882,6 @@ document.title = "Create a New Project"
 
   <div class="alpha">
     <h1 class="header">Artists</h1>
-    <p>We at Spark love visuals. So we need artists to make the ideas and projects very pretty. </p>
   </div>
   {{> footer}}
 
@@ -897,9 +892,10 @@ document.title = "Create a New Project"
   {{>nav}}
   <div class="alpha">
     <h1 class="header">About Spark</h1>
-    <p>
-      Spark is a web app built for developers, by developers. It is the holy mecca for those who have good ideas but no skills, or those who have good skills but no ideas. If you think you're one of these people, Spark is for you. 
-    </p>
+    <h1><small>Overview</small></h1>
+    <p>Spark is an idea and project sharing platform built to facilitate human progress and innovation.</p>
+    <h1><small>There are no bad ideas</small></h1>
+    <p>Aside from criminal thoughts, we at Spark believe that there is no such things as a bad idea. Whether you're an artist or a blogger or an aerospace engineer, your voice must be heard. No matter how stupid or silly you think your idea may be, somebody, somewhere, just may find it inspiring.</p>
   </div>
   {{> footer}}
 
