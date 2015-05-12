@@ -747,7 +747,9 @@ document.title = "Create a New Project"
           {{#if isOwner}}
           <button class="edit" ><i class="fa fa-edit"></i> Edit</button>
           <button class="delete"><i class="fa fa-times-circle"></i> Delete</button>
-          {{/if}} 
+          {{/if}}
+          {{> picture}}
+          <br> 
           <table width="100%">
             <tr> 
               <td>
@@ -765,8 +767,7 @@ document.title = "Create a New Project"
             </tr>
           </table>
           <br>
-          {{> picture}}
-          <br>
+
           <div class="panel panel-default">
             <div class="panel-body">
               <table width="100%">
