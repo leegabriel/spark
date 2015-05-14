@@ -98,7 +98,6 @@ if (Meteor.isClient) {
       var imageURL = e.target.image.value;
       var details = e.target.details.value;
       var tags = e.target.tags.value.split(', ');
-      console.log(tags);
 
       if (!imageURL){
         imageURL = 'http://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Bolt_font_awesome.svg/120px-Bolt_font_awesome.svg.png';
@@ -304,7 +303,7 @@ Meteor.methods({
       blurb: blurb,
       tags: tags,
       owner: Meteor.userId(),
-      ownerName: Meteor.user().username,
+      ownerName: Meteor.user().emails[0].address,
       imageURL: imageURL,
       details: details,
       createdAt: moment().format("MMMM D, YYYY"),
@@ -319,7 +318,7 @@ Meteor.methods({
       tags: tags,
       blurb: blurb,
       owner: Meteor.userId(),
-      ownerName: Meteor.user().username,
+      ownerName: Meteor.user().emails[0].address,
       imageURL: imageURL,
       details: details,
       createdAt: moment().format("MMMM D, YYYY"),
