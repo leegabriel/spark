@@ -47,15 +47,13 @@ h1, h2, h3, h4, h5, h6, p, small {
 }
 
 .navbar-default .navbar-brand {
-  font-size: 25px; 
-  font-style: bold;
+  font-size: 24px;
   background-color: transparent;
   color: #58595b !important;
 }
 
 .navbar-default .navbar-brand:hover {
-  font-size: 25px; 
-  font-style: bold;
+  font-size: 24px; 
   background-color: transparent !important;
   color: #58595b  !important;
 }
@@ -319,8 +317,7 @@ textarea {
 }
 
 .jumbotron{
-  padding: 100px 0;
-  margin-top: 0px !important;
+  background-color: transparent !important;
 }
 
 
