@@ -381,3 +381,7 @@ textarea {
 .non-editable {
   opacity: 0.3;
 }
+
+#req {
+  color: red;
+}
