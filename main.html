@@ -526,6 +526,7 @@ document.title = "Create a New Project"
   <li>
     <table>
       <tr>
+
         <td>
           <div class="actionBar">
           <ul>
@@ -543,6 +544,7 @@ document.title = "Create a New Project"
           </ul>
         </div>
         </td>
+
         <td>
           <a href="/ideas/{{slug}}" style="margin-left: 10px">
             {{>thumbnail}}
@@ -553,15 +555,12 @@ document.title = "Create a New Project"
           <h3>
             <a id="middle-link" href="/ideas/{{slug}}">{{title}}</a> 
             {{#if isOwner}}
-            <button class="btn btn-primary edit"><i class="fa fa-edit"></i> Edit</button>
-            <button class="btn btn-danger delete"><i class="fa fa-trash"></i> Delete</button>
+            <br>
+            <button class="btn btn-sm btn-primary edit" style="margin-top:7.5px;margin-left: 20px"><i class="fa fa-edit"></i> Edit</button><br>
+            <button class="btn btn-sm btn-danger delete" style="margin-top:7.5px;margin-left: 20px"><i class="fa fa-trash"></i> Delete</button>
             {{/if}}
-            
-
           </h3>
         </td>
-
-
 
       </tr>
     </table>
@@ -583,22 +582,7 @@ document.title = "Create a New Project"
       <tr>
 
         <td>
-          <a href="/projects/{{slug}}" style="margin-left: 10px">
-            {{>thumbnail}}
-          </a>
-        </td>
-
-        <td id="middle-row" style="width: 600px">
-          <h3>
-            <a id="middle-link" href="/projects/{{slug}}">{{title}}</a>
-            {{#if isOwner}}
-            <button class="btn btn-primary edit"><i class="fa fa-edit"></i> Edit</button>
-            <button class="btn btn-danger delete"><i class="fa fa-trash"></i> Delete</button>
-            {{/if}}
-          </h3>
-        </td>
-
-        <td style="width: 150px">
+          <div class="actionBar">
           <ul>
             <center>
               {{#if currentUser}}
@@ -612,6 +596,24 @@ document.title = "Create a New Project"
               {{/if}}
             </center>
           </ul>
+        </div>
+        </td>
+
+        <td>
+          <a href="/projects/{{slug}}" style="margin-left: 10px">
+            {{>thumbnail}}
+          </a>
+        </td>
+
+        <td id="middle-row" style="width: 600px">
+          <h3>
+            <a id="middle-link" href="/projects/{{slug}}">{{title}}</a>
+            {{#if isOwner}}
+            <br><br>
+            <button class="btn btn-sm btn-primary edit" style="margin-top:7.5px;margin-left: 20px"><i class="fa fa-edit"></i> Edit</button><br>
+            <button class="btn btn-sm btn-danger delete" style="margin-top:7.5px;margin-left: 20px"><i class="fa fa-trash"></i> Delete</button>
+            {{/if}}
+          </h3>
         </td>
 
       </tr>
@@ -677,20 +679,7 @@ document.title = "Create a New Project"
           <br>
           <div class="panel panel-default">
             <div class="panel-body">
-              <table width="100%">
-                <tr> 
-                  <td>
-                    <h3><small>{{ownerName}}</small></h3>
-                  </td>
-                  <td> 
-                    <div class="pull-right">
-                      <center>
-                        <button class="btn btn-default">Follow {{ownerName}}</button>
-                      </center>
-                    </div>
-                  </td>
-                </tr>
-              </table>
+              <h3><small>{{ownerName}}</small></h3><button class="btn btn-sm btn-default">Follow {{ownerName}}</button>
             </div>
           </div>
           <div class="panel panel-default">
@@ -776,20 +765,7 @@ document.title = "Create a New Project"
           <br>
           <div class="panel panel-default">
             <div class="panel-body">
-              <table width="100%">
-                <tr> 
-                  <td>
-                    <h3><small>{{ownerName}}</small></h3>
-                  </td>
-                  <td> 
-                    <div class="pull-right">
-                      <center>
-                        <button class="btn btn-default">Follow {{ownerName}}</button>
-                      </center>
-                    </div>
-                  </td>
-                </tr>
-              </table>
+              <h3><small>{{ownerName}}</small></h3><button class="btn btn-sm btn-default">Follow {{ownerName}}</button>
             </div>
           </div>
           <div class="panel panel-default">

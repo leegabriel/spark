@@ -95,49 +95,13 @@ h1, h2, h3, h4, h5, h6, p, small {
   box-shadow: none !important; 
 }
 
-/*.btn-default {
-  background-color: #f1f8fb !important;
-  border: 1px solid #bbcadc !important;
-  color: #2980B9 !important;
+.actionBar {
+  width: 100px;
 }
 
-.btn-default:hover {
-  border: 1px solid #2980B9 !important;
-}*/
-
-/*#signin{
-  color: #2980B9 !important;
-  text-decoration: none;
-  padding-top: 7.5px;
-  padding-bottom: 7.5px;
-  margin-top: 7.5px;
-  margin-left: 7.5px;
+ol ul {
+  padding: 0px !important;
 }
-
-#signin:hover{
-  background-color: #f1f8fb !important;
-}*/
-
-/*#signup {
-  border: 1px solid #badbc0 !important;
-  color: #29ba29 !important;
-  background-color: #f0faf0 !important;
-  text-decoration: none;
-  padding-top: 7.5px;
-  padding-bottom: 7.5px;
-  margin-top: 7.5px;
-  margin-left: 7.5px;
-}
-
-#signup:hover {
-  border: 1px solid #29ba29 !important;
-  background-color: #f0faf0 !important;
-}*/
-
-/*#signin-email, #signin-password {
-  width: 100%;
-  max-width: 300px;
-}*/
 
 #login-dropdown-list .dropdown-menu {
 }
@@ -256,7 +220,6 @@ a:active {
 .actions {
   font-size:20px; 
   color:#BDC3C7; 
-  margin-right: 20px; 
   list-style:none;
 }
 
@@ -318,7 +281,6 @@ textarea {
 .jumbotron{
   background-color: transparent !important;
 }
-
 
 @media (min-width: 768px) {
   .nav-tabs.nav-justified>li>a:hover{
@@ -382,8 +344,12 @@ textarea {
     font-size: 12px !important;
   }
 
+  .actions {
+    margin: 0px;
+  }
+
   .actionBar {
-    width: 70px;
+    width: 50px;
   }
 
   .navbar-text{
