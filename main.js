@@ -119,6 +119,10 @@ if (Meteor.isClient) {
       var imageURL = e.target.image.value;
       var details = e.target.details.value;
       var tags = e.target.tags.value.split(', ');
+      var goal = e.target.tags.value;
+      var duration = e.target.duration.value;
+      var location = e.target.location.value;
+      var rewards = e.target.rewards.value;
 
       if (!imageURL){
         imageURL = 'http://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Fire_font_awesome.svg/120px-Fire_font_awesome.svg.png';
@@ -126,7 +130,7 @@ if (Meteor.isClient) {
 
       if (!title || !slug || !blurb|| !details)
         return false;
-      Meteor.call('addProject', title, slug, blurb, imageURL, details, tags);
+      Meteor.call('addProject', title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards);
       Router.go('projects');
       return false;
     }
@@ -143,7 +147,7 @@ if (Meteor.isClient) {
       var details = document.getElementById('details').innerHTML;
       var tags = document.getElementById('tags').innerHTML.split(', ');
 
-      Meteor.call('editIdea', this._id, title, slug, blurb, tags, imageURL, details);
+      Meteor.call('editIdea', this._id, title, slug, blurb, imageURL, details, tags);
       Router.go('ideas');
     }, 
     'click .cancel':function(){
@@ -160,7 +164,7 @@ if (Meteor.isClient) {
       var details = document.getElementById('details').innerHTML;
       var tags = document.getElementById('tags').innerHTML.split(', ');
 
-      Meteor.call('editProject', this._id, title, slug, blurb, tags, imageURL, details);
+      Meteor.call('editProject', this._id, title, slug, blurb, imageURL, details, tags);
       window.history.back();
     }, 
     'click .cancel':function(){
@@ -297,35 +301,42 @@ if (Meteor.isClient) {
 Meteor.methods({
   addIdea: function (title, slug, blurb, imageURL, details, tags) {
     Ideas.insert({
-      count: 0,
       title: title,
       slug: slug,
       blurb: blurb,
-      tags: tags,
-      owner: Meteor.userId(),
-      ownerName: Meteor.user().emails[0].address,
       imageURL: imageURL,
       details: details,
+      tags: tags,
+      count: 0,
+      owner: Meteor.userId(),
+      ownerName: Meteor.user().emails[0].address,
       createdAt: moment().format("MMMM D, YYYY"),
       createTimeActual: moment().format('MMMM Do YYYY, h:mm:ss a')
     });
   },
-  addProject: function (title, slug, blurb, imageURL, details, tags) {
+  addProject: function (title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards) {
     Projects.insert({
-      count: 0,
       title: title,
       slug: slug,
-      tags: tags,
       blurb: blurb,
-      owner: Meteor.userId(),
-      ownerName: Meteor.user().emails[0].address,
       imageURL: imageURL,
       details: details,
+      tags: tags,
+      goal: goal,
+      duration: duration,
+      location: location, 
+      rewards: rewards,
+      count: 0,
+      owner: Meteor.userId(),
+      ownerName: Meteor.user().emails[0].address,
       createdAt: moment().format("MMMM D, YYYY"),
-      createTimeActual: moment().format('MMMM Do YYYY, h:mm:ss a')
+      createTimeActual: moment().format('MMMM Do YYYY, h:mm:ss a'),
+      funded: 0,
+      pledged: 0,
+      backers: 0
     });
   },
-  editIdea: function (ideaId, title, slug, blurb, tags, imageURL, details) {
+  editIdea: function (ideaId, title, slug, blurb, imageURL, details, tags) {
     var idea = Ideas.findOne(ideaId);
     if (idea.owner !== Meteor.userId()) {
       // Make sure only the owner can delete it
@@ -337,13 +348,13 @@ Meteor.methods({
         title: title,
         slug: slug,
         blurb: blurb,
-        tags: tags,
         imageURL: imageURL,
-        details: details
+        details: details,
+        tags: tags
       }});
     }
   },
-  editProject: function (projectId, title, slug, blurb, tags, imageURL, details) {
+  editProject: function (projectId, title, slug, blurb, imageURL, details, tags) {
     var project = Projects.findOne(projectId);
     if (project.owner !== Meteor.userId()) {
       // Make sure only the owner can delete it
@@ -355,9 +366,9 @@ Meteor.methods({
         title: title,
         slug: slug,
         blurb: blurb,
-        tags: tags,
         imageURL: imageURL,
-        details: details
+        details: details,
+        tags: tags
       }});
     }
   },
