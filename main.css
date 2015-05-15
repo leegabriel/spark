@@ -312,8 +312,7 @@ textarea {
 }
 
 #middle-link {
-  margin-left: 30px; 
-  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .jumbotron{
@@ -333,6 +332,11 @@ textarea {
 
 @media screen and (max-width: 768px) {
 
+  body, html {
+    margin-right: 7.5px;
+    margin-left: 7.5px;
+  }
+
   #footer {
    position:relative;
    bottom:0;
@@ -343,9 +347,8 @@ textarea {
  }
 
  #thumbnail {
-  width: 100px;
+  width: 67px;
   margin-right: 20px ;
-  margin-left: 20px;
 }
 
   /* remove indentation from list*/
@@ -354,10 +357,72 @@ textarea {
     list-style-type: none;
   }
 
+  ol ul {
+    padding: 0;
+  }
+
   #middle-row {
     width: 0px;
   }
+
+  .editable, .non-editable {
+    width: 100% !important;
+  }
+
+  #title, #slug, #category, #tags, #details {
+    width: 100% !important;
+  }
+
+  #middle-link {
+    font-size: 18px;
+    margin-left: 0px;
+  }
+
+  .actionBar .badge {
+    font-size: 12px !important;
+  }
+
+  .actionBar {
+    width: 70px;
+  }
+
+  .navbar-text{
+    margin-left: 15px;
+  }
+
+  .navbar-form {
+    border: 0px !important;
+    margin-top: 0px !important;
+    box-shadow: 0 3px 2px -2px rgba(200,200,200,0.3);
+  }
+
+  .navbar-toggle {
+    border: none !important;
+    border-bottom: transparent !important;
+  }
+
+
+  .navbar-toggle:link {
+    background: none !important;
+  }
+  .navbar-toggle:hover {
+    background: none !important;
+    color: #000;
+  }
+
+  .navbar-toggle:active {
+    background: none !important;
+  }
+
+  .navbar-toggle:visited {
+    background: none !important;
+  }
+
+  input {
+    width: 100% !important;
+  }
 }
+
 
 .editable {
   outline: 0;

@@ -526,7 +526,23 @@ document.title = "Create a New Project"
   <li>
     <table>
       <tr>
-
+        <td>
+          <div class="actionBar">
+          <ul>
+            <center>
+              {{#if currentUser}}
+              <li class="actions"><i class="fa fa-chevron-up"></i></li>
+              <li class="actions"><span class="badge" style="font-size: 20px">{{count}}</span></li>
+              <li class="actions"><i class="fa fa-chevron-down"></i></li>
+              {{else}}
+              <li class="actions"><i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top" title="Sign in to upvote this idea"></i></li>
+              <li class="actions"><span class="badge" style="font-size: 20px">{{count}}</span></li>
+              <li class="actions"><i class="fa fa-chevron-down" data-toggle="tooltip" data-placement="bottom" title="Sign in to downvote this idea"></i></li>
+              {{/if}}
+            </center>
+          </ul>
+        </div>
+        </td>
         <td>
           <a href="/ideas/{{slug}}" style="margin-left: 10px">
             {{>thumbnail}}
@@ -545,21 +561,7 @@ document.title = "Create a New Project"
           </h3>
         </td>
 
-        <td style="width: 150px">
-          <ul>
-            <center>
-              {{#if currentUser}}
-              <li class="actions"><i class="fa fa-chevron-up"></i></li>
-              <li class="actions"><span class="badge" style="font-size: 20px">{{count}}</span></li>
-              <li class="actions"><i class="fa fa-chevron-down"></i></li>
-              {{else}}
-              <li class="actions"><i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top" title="Sign in to upvote this idea"></i></li>
-              <li class="actions"><span class="badge" style="font-size: 20px">{{count}}</span></li>
-              <li class="actions"><i class="fa fa-chevron-down" data-toggle="tooltip" data-placement="bottom" title="Sign in to downvote this idea"></i></li>
-              {{/if}}
-            </center>
-          </ul>
-        </td>
+
 
       </tr>
     </table>
