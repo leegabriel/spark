@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5, h6, p, small {
   max-width: 450px;
 }
 
-#title, #slug, #category, #tags, #details {
+#title, #slug, #details, #tags, #goal, #duration, #location, #rewards {
   width: 400px;
 }
 
@@ -80,7 +80,8 @@ h1, h2, h3, h4, h5, h6, p, small {
 }
 
 #submit {
-  width: 150px;
+  width: 100%;
+  max-width: 150px;
   margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 15px;
@@ -331,7 +332,7 @@ textarea {
     width: 100% !important;
   }
 
-  #title, #slug, #category, #tags, #details {
+  #title, #slug, #details, #tags, #goal, #duration, #location, #rewards {
     width: 100% !important;
   }
 
