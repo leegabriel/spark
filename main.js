@@ -119,7 +119,7 @@ if (Meteor.isClient) {
       var imageURL = e.target.image.value;
       var details = e.target.details.value;
       var tags = e.target.tags.value.split(', ');
-      var goal = e.target.tags.value;
+      var goal = e.target.goal.value;
       var duration = e.target.duration.value;
       var location = e.target.location.value;
       var rewards = e.target.rewards.value;

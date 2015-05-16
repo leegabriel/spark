@@ -37,19 +37,28 @@
           <ul class="nav navbar-nav navbar-right">
             {{#if currentUser}}
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-pencil"></i><span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-pencil"></i></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="/newidea">New Idea</a></li>
                 <li><a href="/newproject">New Project</a></li>
               </ul>
             </li>
-            {{/if}}
             <li class="navbar-text">{{>loginButtons align="right"}}</li>
+            {{else}}
+            <li><a href="#" role="button" aria-expanded="false"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="bottom" title="Sign in to compose ideas/projects"></i></a></li>
+            <li class="navbar-text">{{>loginButtons align="right"}}</li>
+            {{/if}}
           </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </div><!-- /.delta -->
+        </div>
+      </div>
+    </div>
   </nav>
+
+  <script>
+  $(document).ready(function() {
+    $('.fa').tooltip()
+  });
+  </script>
 </template>
 
 <template name="_loginButtonsAdditionalLoggedInDropdownActions">
@@ -67,6 +76,7 @@
 
 <template name="footer">
   <br>
+  <div class="col-sm-12">
   <div id="footer">
     <div class="copyright">
       <div class="delta">
@@ -93,6 +103,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 
@@ -103,7 +114,28 @@
 
 <template name="ideasTab">
   {{> nav}}
-  <div class="delta">
+  <div class="col-sm-2">
+    <div class="panel panel-default">
+      <div class="panel-body">
+          <b>Categories</b><br>
+          <a href="#">Art</a><br>
+          <a href="#">Comics</a><br>
+          <a href="#">Dance</a><br>
+          <a href="#">Design</a><br>
+          <a href="#">Fashion</a><br>
+          <a href="#">Film & Video</a><br>
+          <a href="#">Food</a><br>
+          <a href="#">Games</a><br>
+          <a href="#">Journalism</a><br>
+          <a href="#">Music</a><br>
+          <a href="#">Photography</a><br>
+          <a href="#">Publishing</a><br>
+          <a href="#">Technology</a><br>
+          <a href="#">Theater</a><br>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-10">
     <div role="tabpanel">
 
      <!-- Nav tabs -->
@@ -140,15 +172,34 @@
   </div>
 
 </div>
-
 {{> footer}}
 </template>
 
 
 <template name="projectsTab">
-  {{>nav}}
-  
-  <div class="delta">
+  {{> nav}}
+  <div class="col-sm-2">
+    <div class="panel panel-default">
+      <div class="panel-body">
+          <b>Categories</b><br>
+          <a href="#">Art</a><br>
+          <a href="#">Comics</a><br>
+          <a href="#">Dance</a><br>
+          <a href="#">Design</a><br>
+          <a href="#">Fashion</a><br>
+          <a href="#">Film & Video</a><br>
+          <a href="#">Food</a><br>
+          <a href="#">Games</a><br>
+          <a href="#">Journalism</a><br>
+          <a href="#">Music</a><br>
+          <a href="#">Photography</a><br>
+          <a href="#">Publishing</a><br>
+          <a href="#">Technology</a><br>
+          <a href="#">Theater</a><br>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-10">
     <div role="tabpanel">
 
      <!-- Nav tabs -->
@@ -185,7 +236,6 @@
   </div>
 
 </div>
-
 {{> footer}}
 
 </template>
@@ -286,7 +336,7 @@ document.title = "Create a New Idea"
           <p>Permalink <span id="req">*</span></p>
           <span id="helpBlock" class="help-block">/projects/<b>your-unique-project-address</b></span>
           <input type="text" name="slug" id="slug" placeholder="your-unique-project-address"><br>
-        
+
           <p>Tags</p>
           <input type="text" name="tags" id="tags" placeholder="Project tags"><br>  
 
@@ -537,20 +587,20 @@ document.title = "Create a New Project"
 
         <td>
           <div class="actionBar">
-          <ul>
-            <center>
-              {{#if currentUser}}
-              <li class="actions"><i class="fa fa-chevron-up"></i></li>
-              <li class="actions"><span class="badge" style="font-size: 20px">{{count}}</span></li>
-              <li class="actions"><i class="fa fa-chevron-down"></i></li>
-              {{else}}
-              <li class="actions"><i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top" title="Sign in to upvote this idea"></i></li>
-              <li class="actions"><span class="badge" style="font-size: 20px">{{count}}</span></li>
-              <li class="actions"><i class="fa fa-chevron-down" data-toggle="tooltip" data-placement="bottom" title="Sign in to downvote this idea"></i></li>
-              {{/if}}
-            </center>
-          </ul>
-        </div>
+            <ul>
+              <center>
+                {{#if currentUser}}
+                <li class="actions"><i class="fa fa-chevron-up"></i></li>
+                <li class="actions"><span class="badge" style="font-size: 20px">{{count}}</span></li>
+                <li class="actions"><i class="fa fa-chevron-down"></i></li>
+                {{else}}
+                <li class="actions"><i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top" title="Sign in to upvote this idea"></i></li>
+                <li class="actions"><span class="badge" style="font-size: 20px">{{count}}</span></li>
+                <li class="actions"><i class="fa fa-chevron-down" data-toggle="tooltip" data-placement="bottom" title="Sign in to downvote this idea"></i></li>
+                {{/if}}
+              </center>
+            </ul>
+          </div>
         </td>
 
         <td>
@@ -576,11 +626,7 @@ document.title = "Create a New Project"
     <br><br>
 
   </li>
-  <script>
-  $(document).ready(function() {
-    $('.fa').tooltip()
-  });
-  </script>
+
 </template>
 
 
@@ -591,20 +637,20 @@ document.title = "Create a New Project"
 
         <td>
           <div class="actionBar">
-          <ul>
-            <center>
-              {{#if currentUser}}
-              <li class="actions"><i class="fa fa-chevron-up"></i></li>
-              <li class="actions"><span class="badge" style="font-size: 20px">{{count}}</span></li>
-              <li class="actions"><i class="fa fa-chevron-down"></i></li>
-              {{else}}
-              <li class="actions"><i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top" title="Sign in to upvote this project"></i></li>
-              <li class="actions"><span class="badge" style="font-size: 20px">{{count}}</span></li>
-              <li class="actions"><i class="fa fa-chevron-down" data-toggle="tooltip" data-placement="bottom" title="Sign in to downvote this project"></i></li>
-              {{/if}}
-            </center>
-          </ul>
-        </div>
+            <ul>
+              <center>
+                {{#if currentUser}}
+                <li class="actions"><i class="fa fa-chevron-up"></i></li>
+                <li class="actions"><span class="badge" style="font-size: 20px">{{count}}</span></li>
+                <li class="actions"><i class="fa fa-chevron-down"></i></li>
+                {{else}}
+                <li class="actions"><i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top" title="Sign in to upvote this project"></i></li>
+                <li class="actions"><span class="badge" style="font-size: 20px">{{count}}</span></li>
+                <li class="actions"><i class="fa fa-chevron-down" data-toggle="tooltip" data-placement="bottom" title="Sign in to downvote this project"></i></li>
+                {{/if}}
+              </center>
+            </ul>
+          </div>
         </td>
 
         <td>
@@ -661,7 +707,7 @@ document.title = "Create a New Project"
   <div class="container">
     <div class="alpha">
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-9">
           {{#if isOwner}}
           <button class="btn btn-primary edit"><i class="fa fa-edit"></i> Edit</button>
           <button class="btn btn-danger delete"><i class="fa fa-trash"></i> Delete</button>
@@ -712,7 +758,7 @@ document.title = "Create a New Project"
           </div>
         </div>
 
-        <div class="col-sm-12">
+        <div class="col-sm-3">
           <div class="panel panel-default">
             <div class="panel-body">
               <h2>Similar Ideas</h2>
@@ -747,7 +793,7 @@ document.title = "Create a New Project"
   <div class="container">
     <div class="alpha">
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-8">
           {{#if isOwner}}
           <button class="btn btn-primary edit"><i class="fa fa-edit"></i> Edit</button>
           <button class="btn btn-danger delete"><i class="fa fa-trash"></i> Delete</button>
@@ -797,7 +843,28 @@ document.title = "Create a New Project"
           </div>
         </div>
 
-        <div class="col-sm-12">
+        <div class="col-sm-4">
+
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h2>Funding</h2>
+              <br>
+              <b>Funding goal</b>
+              <p>{{goal}}</p>
+              <b>Days to go</b>
+              <p>{{duration}}</p>
+              <b>Location</b>
+              <p>{{location}}</p>
+              <b>Progress</b>
+              <p>{{funded}}</p>
+              <b>Amount Pledged</b>
+              <p>{{pledged}}</p>
+              <b>Backers</b>
+              <p>{{backers}}</p>
+              <b>Rewards</b>
+              <p>{{rewards}}</p>
+            </div>
+          </div>     
           <div class="panel panel-default">
             <div class="panel-body">
               <h2>Similar Ideas</h2>

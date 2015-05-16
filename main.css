@@ -8,12 +8,12 @@ h1, h2, h3, h4, h5, h6, p, small {
 }
 .alpha {
   margin: auto;
-  max-width: 800px; 
+  max-width: 1000px; 
 }
 
 .delta {
   margin: auto;
-  max-width: 1000px;
+  max-width: 1200px;
 }
 
 .gamma {
@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5, h6, p, small {
   max-width: 450px;
 }
 
-#title, #slug, #details, #tags, #goal, #duration, #location, #rewards {
+#title, #slug, #tags, #goal, #duration, #location {
   width: 400px;
 }
 
@@ -29,7 +29,7 @@ h1, h2, h3, h4, h5, h6, p, small {
   width: 500px;
 }
 
-#details {
+#details, #rewards {
   width: 650px !important; 
 }
 
@@ -64,11 +64,11 @@ h1, h2, h3, h4, h5, h6, p, small {
 
 .navbar-default .navbar-nav>li>a:hover {
   color: #000 !important;
-  background-color: #f6f6f6 !important;
+  background-color: none !important;
 }
 
 .navbar-default .navbar-nav>.open>a {
-  background-color: #f6f6f6 !important;
+  background-color: none !important;
 }
 
 .dropdown-menu>li>a {
@@ -76,7 +76,7 @@ h1, h2, h3, h4, h5, h6, p, small {
 }
 .dropdown-menu>li>a:hover {
   color: #000 !important;
-  background-color: #f6f6f6 !important;
+  background-color: #f9f9f9 !important;
 }
 
 #submit {
@@ -128,7 +128,7 @@ body {
  bottom:0;
  width:100%;
  height:100px;   /* Height of the footer */
- background: #f9f9f9;
+ background: transparent;
 }
 
 #footer .copyright {
@@ -233,7 +233,7 @@ input {
   background-color: #fff;
   background-image: none;
   border: 1px solid #eee;
-  border-radius: 2px;
+  border-radius: 5px;
   box-shadow: inset 0 2px 3px -3px rgba(200,200,200,0.5);
   margin: 0;
   font: inherit;
@@ -253,7 +253,7 @@ textarea {
   background-color: #fff;
   background-image: none;
   border: 1px solid #eee;
-  border-radius: 2px;
+  border-radius: 5px;
   box-shadow: inset 0 2px 3px -3px rgba(200,200,200,0.5);
   margin: 0;
   font: inherit;
@@ -332,7 +332,7 @@ textarea {
     width: 100% !important;
   }
 
-  #title, #slug, #details, #tags, #goal, #duration, #location, #rewards {
+  #title, #slug, #category, #tags, #details, #rewards {
     width: 100% !important;
   }
 
