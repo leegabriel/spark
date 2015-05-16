@@ -426,8 +426,8 @@ document.title = "Create a New Project"
           </div>
           <div class="panel panel-default">
             <div class="panel-body">
-              <h2 class="non-editable">Details</h2>
-              <b><p class="non-editable">Published on {{createdAt}}</p></b>
+              <h2>Details</h2>
+              <b><p>Published on {{createdAt}}</p></b>
               <p id="details" class="editable" contenteditable="true">{{details}}</p>
               <b><p>Permalink</p></b>
               <p>/ideas/<span id="slug" class="editable" contenteditable="true">{{slug}}</span></p>
@@ -486,7 +486,7 @@ document.title = "Create a New Project"
   <div class="container">
     <div class="alpha">
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-8">
           <button class="cancel">Cancel</button>
           <button class="btn btn-primary update">Done</button>
           <table width="100%">
@@ -529,8 +529,8 @@ document.title = "Create a New Project"
           </div>
           <div class="panel panel-default">
             <div class="panel-body">
-              <h2 class="non-editable">Details</h2>
-              <b><p class="non-editable">Published on {{createdAt}}</p></b>
+              <h2>Details</h2>
+              <b><p>Published on {{createdAt}}</p></b>
               <p id="details" class="editable" contenteditable="true">{{details}}</p>
               <b><p>Permalink</p></b>
               <p>/projects/<span id="slug" class="editable" contenteditable="true">{{slug}}</span></p>
@@ -546,7 +546,28 @@ document.title = "Create a New Project"
           </div>
         </div>
 
-        <div class="col-sm-12">
+        <div class="col-sm-4">
+
+          <div class="panel panel-default editable">
+            <div class="panel-body">
+              <h2>Funding</h2>
+              <br>
+              <b>Funding goal</b>
+              <p id="goal" class="editable" contenteditable="true">{{goal}}</p>
+              <b>Days to go</b>
+              <p id="duration" class="editable" contenteditable="true">{{duration}}</p>
+              <b>Location</b>
+              <p id="location" class="editable" contenteditable="true">{{location}}</p>
+              <b>Progress</b>
+              <p id="funded">{{funded}}</p>
+              <b>Amount Pledged</b>
+              <p id="pledged">{{pledged}}</p>
+              <b>Backers</b>
+              <p id="backers">{{backers}}</p>
+              <b>Rewards</b>
+              <p id="rewards" class="editable" contenteditable="true">{{rewards}}</p>
+            </div>
+          </div>     
           <div class="panel panel-default non-editable">
             <div class="panel-body">
               <h2>Similar Ideas</h2>

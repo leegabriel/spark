@@ -163,9 +163,13 @@ if (Meteor.isClient) {
       var imageURL = document.getElementById('imageURL').innerHTML;
       var details = document.getElementById('details').innerHTML;
       var tags = document.getElementById('tags').innerHTML.split(', ');
+      var goal = document.getElementById('goal').innerHTML;
+      var duration = document.getElementById('duration').innerHTML;
+      var location = document.getElementById('location').innerHTML;
+      var rewards = document.getElementById('rewards').innerHTML;
 
-      Meteor.call('editProject', this._id, title, slug, blurb, imageURL, details, tags);
-      window.history.back();
+      Meteor.call('editProject', this._id, title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards);
+      Router.go('projects')
     }, 
     'click .cancel':function(){
       window.history.back();
@@ -354,7 +358,7 @@ Meteor.methods({
       }});
     }
   },
-  editProject: function (projectId, title, slug, blurb, imageURL, details, tags) {
+  editProject: function (projectId, title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards) {
     var project = Projects.findOne(projectId);
     if (project.owner !== Meteor.userId()) {
       // Make sure only the owner can delete it
@@ -368,7 +372,11 @@ Meteor.methods({
         blurb: blurb,
         imageURL: imageURL,
         details: details,
-        tags: tags
+        tags: tags,
+        goal: goal,
+        duration: duration,
+        location: location, 
+        rewards: rewards
       }});
     }
   },
