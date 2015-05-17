@@ -30,23 +30,29 @@
             </div>
           </form>
           <ul class="nav navbar-nav" >
-
             <li><a href="{{pathFor 'ideas'}}">Ideas</a></li>
             <li><a href="{{pathFor 'projects'}}">Projects</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
+
             {{#if currentUser}}
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-pencil"></i></a>
+              <button class="btn btn-default btn-circle dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-pencil"></i></button>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="/newidea">New Idea</a></li>
                 <li><a href="/newproject">New Project</a></li>
               </ul>
             </li>
-            <li class="navbar-text">{{>loginButtons align="right"}}</li>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li class="navbar-text">{{>loginButtons align="right"}}</li>
+            </ul>
+
             {{else}}
-            <li><a href="#" role="button" aria-expanded="false"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="bottom" title="Sign in to compose ideas/projects"></i></a></li>
-            <li class="navbar-text">{{>loginButtons align="right"}}</li>
+
+              <button class="btn btn-default btn-circle" href="#" role="button" aria-expanded="false" data-toggle="tooltip" data-placement="bottom" title="Sign in to compose ideas/projects"><i class="fa fa-pencil"></i></button>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li class="navbar-text">{{>loginButtons align="right"}}</li>
+            </ul>
             {{/if}}
           </ul>
         </div>
@@ -56,7 +62,7 @@
 
   <script>
   $(document).ready(function() {
-    $('.fa').tooltip()
+    $('.btn-circle').tooltip()
   });
   </script>
 </template>
@@ -77,33 +83,33 @@
 <template name="footer">
   <br>
   <div class="col-sm-12">
-  <div id="footer">
-    <div class="copyright">
-      <div class="delta">
-        <center>
-          <div class="col-sm-2">
-            <p>&copy; 2015 Spark</p>  
-          </div>
-          <div class="col-sm-2">
-            <p><a href="/tos">Terms of Service</a></p>  
-          </div>
-          <div class="col-sm-2">
-            <p><a href="/privacy">Privacy Policy</a></p>   
-          </div>
-          <div class="col-sm-2">
-            <p><a href="/developers">Developers</a></p>  
-          </div>
-          <div class="col-sm-2">
-            <p><a href="/artists">Artists</a></p>  
-          </div>
-          <div class="col-sm-2">
-            <p><a href="/about">About</a></p>  
-          </div>
-        </center>
+    <div id="footer">
+      <div class="copyright">
+        <div class="delta">
+          <center>
+            <div class="col-sm-2">
+              <p>&copy; 2015 Spark</p>  
+            </div>
+            <div class="col-sm-2">
+              <p><a href="/tos">Terms of Service</a></p>  
+            </div>
+            <div class="col-sm-2">
+              <p><a href="/privacy">Privacy Policy</a></p>   
+            </div>
+            <div class="col-sm-2">
+              <p><a href="/developers">Developers</a></p>  
+            </div>
+            <div class="col-sm-2">
+              <p><a href="/artists">Artists</a></p>  
+            </div>
+            <div class="col-sm-2">
+              <p><a href="/about">About</a></p>  
+            </div>
+          </center>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </template>
 
 
@@ -117,21 +123,21 @@
   <div class="col-sm-2">
     <div class="panel panel-default">
       <div class="panel-body">
-          <b>Categories</b><br>
-          <a href="#">Art</a><br>
-          <a href="#">Comics</a><br>
-          <a href="#">Dance</a><br>
-          <a href="#">Design</a><br>
-          <a href="#">Fashion</a><br>
-          <a href="#">Film & Video</a><br>
-          <a href="#">Food</a><br>
-          <a href="#">Games</a><br>
-          <a href="#">Journalism</a><br>
-          <a href="#">Music</a><br>
-          <a href="#">Photography</a><br>
-          <a href="#">Publishing</a><br>
-          <a href="#">Technology</a><br>
-          <a href="#">Theater</a><br>
+        <b>Categories</b><br>
+        <a href="#">Art</a><br>
+        <a href="#">Comics</a><br>
+        <a href="#">Dance</a><br>
+        <a href="#">Design</a><br>
+        <a href="#">Fashion</a><br>
+        <a href="#">Film & Video</a><br>
+        <a href="#">Food</a><br>
+        <a href="#">Games</a><br>
+        <a href="#">Journalism</a><br>
+        <a href="#">Music</a><br>
+        <a href="#">Photography</a><br>
+        <a href="#">Publishing</a><br>
+        <a href="#">Technology</a><br>
+        <a href="#">Theater</a><br>
       </div>
     </div>
   </div>
@@ -181,21 +187,21 @@
   <div class="col-sm-2">
     <div class="panel panel-default">
       <div class="panel-body">
-          <b>Categories</b><br>
-          <a href="#">Art</a><br>
-          <a href="#">Comics</a><br>
-          <a href="#">Dance</a><br>
-          <a href="#">Design</a><br>
-          <a href="#">Fashion</a><br>
-          <a href="#">Film & Video</a><br>
-          <a href="#">Food</a><br>
-          <a href="#">Games</a><br>
-          <a href="#">Journalism</a><br>
-          <a href="#">Music</a><br>
-          <a href="#">Photography</a><br>
-          <a href="#">Publishing</a><br>
-          <a href="#">Technology</a><br>
-          <a href="#">Theater</a><br>
+        <b>Categories</b><br>
+        <a href="#">Art</a><br>
+        <a href="#">Comics</a><br>
+        <a href="#">Dance</a><br>
+        <a href="#">Design</a><br>
+        <a href="#">Fashion</a><br>
+        <a href="#">Film & Video</a><br>
+        <a href="#">Food</a><br>
+        <a href="#">Games</a><br>
+        <a href="#">Journalism</a><br>
+        <a href="#">Music</a><br>
+        <a href="#">Photography</a><br>
+        <a href="#">Publishing</a><br>
+        <a href="#">Technology</a><br>
+        <a href="#">Theater</a><br>
       </div>
     </div>
   </div>
@@ -548,7 +554,7 @@ document.title = "Create a New Project"
 
         <div class="col-sm-4">
 
-          <div class="panel panel-default editable">
+          <div class="panel panel-default">
             <div class="panel-body">
               <h2>Funding</h2>
               <br>
