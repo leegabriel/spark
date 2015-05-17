@@ -253,7 +253,6 @@
   {{> nav}}
 
   <div class="container">
-    <div class="alpha">
      <div class="row">
       <form class="addIdeaForm" id="form">
         <div class="col-sm-12">
@@ -290,7 +289,6 @@
 
         <input id="submit" type="submit" value="Spark!" class="btn btn-lg btn-primary">
       </form>
-    </div>
   </div>
 </div>
 {{> footer}}
@@ -316,7 +314,6 @@ document.title = "Create a New Idea"
   {{> nav}}
 
   <div class="container">
-    <div class="alpha">
      <div class="row">
       <form class="addProjectForm" id="form">
         <div class="col-sm-12">
@@ -361,7 +358,6 @@ document.title = "Create a New Idea"
 
         <input id="submit" type="submit" value="Spark!" class="btn btn-lg btn-primary">
       </form>
-    </div>
   </div>
 </div>
 {{> footer}}
@@ -389,7 +385,7 @@ document.title = "Create a New Project"
   <div class="container">
     <div class="alpha">
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-9">
           <button class="cancel">Cancel</button>
           <button class="btn btn-primary update">Done</button>
           <table width="100%">
@@ -436,7 +432,8 @@ document.title = "Create a New Project"
               <b><p>Published on {{createdAt}}</p></b>
               <p id="details" class="editable" contenteditable="true">{{details}}</p>
               <b><p>Permalink</p></b>
-              <p>/ideas/<span id="slug" class="editable" contenteditable="true">{{slug}}</span></p>
+              <p>/projects/<b>{{slug}}</b></p>
+              <p id="slug" class="editable" contenteditable="true">{{slug}}</p>
               <b><p>Tags</p></b>
               <p id="tags" class="editable" contenteditable="true">{{tags}}</p>
             </div>
@@ -449,7 +446,7 @@ document.title = "Create a New Project"
           </div>
         </div>
 
-        <div class="col-sm-12">
+        <div class="col-sm-3">
           <div class="panel panel-default non-editable">
             <div class="panel-body">
               <h2>Similar Ideas</h2>
@@ -539,7 +536,8 @@ document.title = "Create a New Project"
               <b><p>Published on {{createdAt}}</p></b>
               <p id="details" class="editable" contenteditable="true">{{details}}</p>
               <b><p>Permalink</p></b>
-              <p>/projects/<span id="slug" class="editable" contenteditable="true">{{slug}}</span></p>
+              <p>/projects/<b>{{slug}}</b></p>
+              <p id="slug" class="editable" contenteditable="true">{{slug}}</p>
               <b><p>Tags</p></b>
               <p id="tags" class="editable" contenteditable="true">{{tags}}</p>
             </div>

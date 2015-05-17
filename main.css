@@ -6,25 +6,6 @@ h1, h2, h3, h4, h5, h6, p, small {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.alpha {
-  margin: auto;
-  max-width: 1100px; 
-}
-
-.delta {
-  margin: auto;
-  max-width: 1200px;
-}
-
-.gamma {
-  margin: auto;
-  max-width: 450px;
-}
-
-#title, #slug, #blurb, #image, #details, #tags, #goal, #duration, #location, #rewards {
-  max-width: 450px;
-  min-width: 300px;
-}
 
 .navbar {
   border: none !important;
@@ -158,7 +139,7 @@ li table {
 .btn-circle {
   margin-top: 5px;
   margin-left: 15px;
-  border-radius: 50%;
+  border-radius: 50px;
   font-size: 18px;
   border: 0px;
   border-bottom: 1px solid #ddd;
@@ -250,6 +231,7 @@ input {
 }
 
 textarea { 
+  resize: vertical;
   max-width: 450px;
   min-width: 350px;
   outline: 0;
