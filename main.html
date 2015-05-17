@@ -48,7 +48,7 @@
 
             {{else}}
 
-              <button class="btn btn-default btn-circle" href="#" role="button" aria-expanded="false" data-toggle="tooltip" data-placement="bottom" title="Sign in to compose ideas/projects"><i class="fa fa-pencil"></i></button>
+            <button class="btn btn-default btn-circle" href="#" role="button" aria-expanded="false" data-toggle="tooltip" data-placement="bottom" title="Sign in to compose ideas/projects"><i class="fa fa-pencil"></i></button>
 
             <ul class="nav navbar-nav navbar-right">
               <li class="navbar-text">{{>loginButtons align="right"}}</li>
@@ -253,42 +253,51 @@
   {{> nav}}
 
   <div class="container">
-     <div class="row">
+   <div class="row">
+    <div class="col-sm-8">
       <form class="addIdeaForm" id="form">
-        <div class="col-sm-12">
-          <table width="100%">
-            <tr> 
-              <td>
-                <p>Title <span id="req">*</span></p>
-                <h1><input type="text" name="title" id="title" placeholder="Idea Title"></h1>
-                <p>Blurb <span id="req">*</span></p>
-                <h1><small><input type="text" name="blurb" id="blurb" placeholder="Idea Blurb"></small></h1>
-              </td>
-            </tr>
-          </table>
+        <table width="100%">
+          <tr> 
+            <td>
+              <p>Title <span id="req">*</span></p>
+              <h1><input type="text" name="title" id="title" placeholder="Idea Title"></h1>
+              <p>Blurb <span id="req">*</span></p>
+              <h1><small><input type="text" name="blurb" id="blurb" placeholder="Idea Blurb"></small></h1>
+            </td>
+          </tr>
+        </table>
 
-          <br>
-          <p>Image Link</p>
-          <input type="text" name="image" id="image" placeholder="Link to idea image">
+        <br>
+        <p>Image Link</p>
+        <input type="text" name="image" id="image" placeholder="Link to idea image">
 
-          <br>
-          <p>Details <span id="req">*</span></p>
-          <textarea type="text" name="details" id="details" placeholder="Idea details" rows="6"></textarea><br>
+        <br>
+        <p>Details <span id="req">*</span></p>
+        <textarea type="text" name="details" id="details" placeholder="Idea details" rows="6"></textarea><br>
 
-          <p>Permalink <span id="req">*</span></p>
-          <span id="helpBlock" class="help-block">/ideas/<b>your-unique-idea-address</b></span>
-          <input type="text" name="slug" id="slug" placeholder="your-unique-idea-address"><br>
+        <p>Permalink <span id="req">*</span></p>
+        <span id="helpBlock" class="help-block">/ideas/<b>your-unique-idea-address</b></span>
+        <input type="text" name="slug" id="slug" placeholder="your-unique-idea-address"><br>
 
-        </div>
-
-
-        <div class="col-sm-12">
-          <p>Tags</p>
-          <input type="text" name="tags" id="tags" placeholder="Idea tags">  
-        </div>
+        <p>Tags</p>
+        <input type="text" name="tags" id="tags" placeholder="Idea tags">  
 
         <input id="submit" type="submit" value="Spark!" class="btn btn-lg btn-primary">
       </form>
+    </div>
+    <div class="col-sm-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <b>FAQs <i class="fa fa-question-circle"></i></b><br><br>
+          <em>How do I make a catchy title?</em><br><br>
+          <p>Try to make the title well-balanced ie. <em>Rooster Booster, Lord-of-the-Flies Sized Fries, Superman Suit</em></p>
+          <em>What image should I use?</em><br><br>
+          <p>As long as the picture is high quality and relevant to your project, it should be fine. Any ideas or projects with inappropriate or irrelevant content will be deleted and users posting them will be banned.</p>
+          <em>What should I put as my permalink?</em><br><br>
+          <p>The permalink is your personal link that you can send to other people. It should capture the main points of your project, ie. <em>archie-comic-book-series or hawaii-t-shirts</em></p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 {{> footer}}
@@ -314,50 +323,65 @@ document.title = "Create a New Idea"
   {{> nav}}
 
   <div class="container">
-     <div class="row">
+   <div class="row">
+    <div class="col-sm-8">
       <form class="addProjectForm" id="form">
-        <div class="col-sm-12">
-          <table width="100%">
-            <tr> 
-              <td>
-                <p>Title <span id="req">*</span></p>
-                <h1><input type="text" name="title" id="title" placeholder="Project Title"></h1>
-                <p>Blurb <span id="req">*</span></p>
-                <h1><small><input type="text" name="blurb" id="blurb" placeholder="Project Blurb"></small></h1>
-              </td>
-            </tr>
-          </table>
 
-          <br>
-          <p>Image Link</p>
-          <input type="text" name="image" id="image" placeholder="Link to project image">
+        <table width="100%">
+          <tr> 
+            <td>
+              <p>Title <span id="req">*</span></p>
+              <h1><input type="text" name="title" id="title" placeholder="Project Title"></h1>
+              <p>Blurb <span id="req">*</span></p>
+              <h1><small><input type="text" name="blurb" id="blurb" placeholder="Project Blurb"></small></h1>
+            </td>
+          </tr>
+        </table>
 
-          <br>
-          <p>Details <span id="req">*</span></p>
-          <textarea type="text" name="details" id="details" placeholder="Project details" rows="6"></textarea><br>
+        <br>
+        <p>Image Link</p>
+        <input type="text" name="image" id="image" placeholder="Link to project image">
 
-          <p>Permalink <span id="req">*</span></p>
-          <span id="helpBlock" class="help-block">/projects/<b>your-unique-project-address</b></span>
-          <input type="text" name="slug" id="slug" placeholder="your-unique-project-address"><br>
+        <br>
+        <p>Details <span id="req">*</span></p>
+        <textarea type="text" name="details" id="details" placeholder="Project details" rows="6"></textarea><br>
 
-          <p>Tags</p>
-          <input type="text" name="tags" id="tags" placeholder="Project tags"><br>  
+        <p>Permalink <span id="req">*</span></p>
+        <span id="helpBlock" class="help-block">/projects/<b>your-unique-project-address</b></span>
+        <input type="text" name="slug" id="slug" placeholder="your-unique-project-address"><br>
 
-          <p>Funding Goal</p>
-          <input type="text" name="goal" id="goal" placeholder="Project funding goal"><br>  
+        <p>Tags</p>
+        <input type="text" name="tags" id="tags" placeholder="Project tags"><br>  
 
-          <p>Duration</p>
-          <input type="text" name="duration" id="duration" placeholder="Project duration"><br>
+        <p>Funding Goal</p>
+        <input type="text" name="goal" id="goal" placeholder="Project funding goal"><br>  
 
-          <p>Location</p>
-          <input type="text" name="location" id="location" placeholder="Project location"><br>   
+        <p>Duration</p>
+        <input type="text" name="duration" id="duration" placeholder="Project duration"><br>
 
-          <p>Rewards</p>
-          <textarea type="text" name="rewards" id="rewards" placeholder="Project Rewards"></textarea><br> 
-        </div>
+        <p>Location</p>
+        <input type="text" name="location" id="location" placeholder="Project location"><br>   
+
+        <p>Rewards</p>
+        <textarea type="text" name="rewards" id="rewards" placeholder="Project Rewards"></textarea><br> 
+
 
         <input id="submit" type="submit" value="Spark!" class="btn btn-lg btn-primary">
       </form>
+    </div>
+    <div class="col-sm-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <b>FAQs <i class="fa fa-question-circle"></i></b><br><br>
+          <em>How do I make a catchy title?</em><br><br>
+          <p>Try to make the title well-balanced ie. <em>Rooster Booster, Lord-of-the-Flies Sized Fries, Superman Suit</em></p>
+          <em>What image should I use?</em><br><br>
+          <p>As long as the picture is high quality and relevant to your project, it should be fine. Any ideas or projects with inappropriate or irrelevant content will be deleted and users posting them will be banned.</p>
+          <em>What should I put as my permalink?</em><br><br>
+          <p>The permalink is your personal link that you can send to other people. It should capture the main points of your project, ie. <em>archie-comic-book-series or hawaii-t-shirts</em></p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 {{> footer}}
@@ -385,7 +409,7 @@ document.title = "Create a New Project"
   <div class="container">
     <div class="alpha">
       <div class="row">
-        <div class="col-sm-9">
+        <div class="col-sm-8">
           <button class="cancel">Cancel</button>
           <button class="btn btn-primary update">Done</button>
           <table width="100%">
@@ -446,7 +470,7 @@ document.title = "Create a New Project"
           </div>
         </div>
 
-        <div class="col-sm-3">
+        <div class="col-sm-4">
           <div class="panel panel-default non-editable">
             <div class="panel-body">
               <h2>Similar Ideas</h2>
@@ -732,7 +756,7 @@ document.title = "Create a New Project"
   <div class="container">
     <div class="alpha">
       <div class="row">
-        <div class="col-sm-9">
+        <div class="col-sm-8">
           {{#if isOwner}}
           <button class="btn btn-primary edit"><i class="fa fa-edit"></i> Edit</button>
           <button class="btn btn-danger delete"><i class="fa fa-trash"></i> Delete</button>
@@ -783,7 +807,7 @@ document.title = "Create a New Project"
           </div>
         </div>
 
-        <div class="col-sm-3">
+        <div class="col-sm-4">
           <div class="panel panel-default">
             <div class="panel-body">
               <h2>Similar Ideas</h2>

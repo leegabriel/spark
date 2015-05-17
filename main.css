@@ -2,6 +2,11 @@ h1, h2, h3, h4, h5, h6, p, small {
   color: #58595b !important;
 }
 
+#title, #blurb, #image, #details, #slug, #tags, #goal, #duration, #location, #rewards {
+  width: 100%;
+}
+
+
 .header {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -54,11 +59,8 @@ h1, h2, h3, h4, h5, h6, p, small {
 }
 
 #submit {
-  width: 100%;
-  max-width: 150px !important;
   margin-top: 20px;
   margin-bottom: 20px;
-  margin-left: 15px;
 }
 
 .btn {
@@ -78,7 +80,17 @@ ol ul {
   padding: 0px !important;
 }
 
-#login-dropdown-list .dropdown-menu {
+#login-dropdown-list {
+  margin-left: 15px;
+}
+
+.nav .open>a {
+  background: none;
+}
+
+
+.nav .open>a:hover {
+  background: none;
 }
 
 /* Allow a sticky footer */
