@@ -22,15 +22,15 @@ h1, h2, h3, h4, h5, h6, p, small {
 }
 
 #title, #slug, #tags, #goal, #duration, #location {
-  width: 400px;
+  /*width: 400px;*/
 }
 
 #blurb, #image {
-  width: 500px;
+  /*width: 500px;*/
 }
 
 #details, #rewards {
-  width: 650px !important; 
+ /* width: 650px;*/ 
 }
 
 .navbar {
@@ -394,11 +394,12 @@ textarea {
 .editable {
   outline: 0;
   color: #000;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #eee;
-  border-radius: 2px;
-  box-shadow: inset 0 2px 3px -3px rgba(200,200,200,0.5);
+  background: #fff;
+  border-radius: 1px;
+  border: 1px solid #ccc;
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1);
+  padding: 4px 4px;
+  width: 100%;
   box-sizing: border-box;
   -webkit-appearance: textfield;
   -webkit-rtl-ordering: logical;
