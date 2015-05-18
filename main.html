@@ -193,7 +193,7 @@
 
   <div class="container">
     <div class="row">
-      
+
       <div class="col-sm-2">
         <div class="panel panel-default">
           <div class="panel-body">
@@ -748,17 +748,59 @@ document.title = "Create a New Project"
 
 
 <template name="comments">
-  <table style="margin: 30px">
-    <tr>
-      <p>Comment #1</p>
-    </tr>
-    <tr>
-      <p>Comment #2</p>
-    </tr>
-    <tr>
-      <p>Comment #3</p>
-    </tr>
-  </table>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-sm-1">
+        <div class="thumbnail">
+          <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+        </div><!-- /thumbnail -->
+      </div><!-- /col-sm-1 -->
+
+      <div class="col-sm-5">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <strong>myusername</strong> <span class="text-muted">commented 5 days ago</span>
+          </div>
+          <div class="panel-body">
+            Panel content
+          </div><!-- /panel-body -->
+        </div><!-- /panel panel-default -->
+      </div><!-- /col-sm-5 -->
+
+
+    </div><!-- /row -->
+  </div><!-- /container -->
+<style>
+.thumbnail {
+    padding:0px;
+}
+.panel {
+  position:relative;
+}
+.panel>.panel-heading:after,.panel>.panel-heading:before{
+  position:absolute;
+  top:11px;left:-16px;
+  right:100%;
+  width:0;
+  height:0;
+  display:block;
+  content:" ";
+  border-color:transparent;
+  border-style:solid solid outset;
+  pointer-events:none;
+}
+.panel>.panel-heading:after{
+  border-width:7px;
+  border-right-color:#f7f7f7;
+  margin-top:1px;
+  margin-left:2px;
+}
+.panel>.panel-heading:before{
+  border-right-color:#ddd;
+  border-width:8px;
+}
+</style>
 </template>
 
 
@@ -1103,49 +1145,7 @@ document.title = "Create a New Project"
   {{>nav}}
   {{>footer}}
 </template>
-<!-- 
-<template name="signin">
-  {{#if currentUser}}
-{{#unless loggingIn}}
-{{> pageNotFound}}
-{{/unless}}
-  {{else}}
 
-  {{>nav}}
-
-  <div class="container">
-    <div class="gamma">
-      <div class="row">
-
-        <form id="signin-form" action="action">
-          <div class="col-sm-12">
-            <br>
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <b>Sign In</b>
-              </div>
-              <div class="panel-body">
-                <label>Username or Email</label>
-                <input type="email" id="signin-email" placeholder="Username">
-                <br>
-                <label>Password <a>(forgot password)</a></label>
-                <input type="password" id="signin-password" placeholder="Password">
-                <br>
-                <input type="submit" id="signin-submit" value="Sign in" class="btn btn-primary">
-              </div>
-            </div>
-          </div>
-        </form>
-
-      </div>
-    </div>
-  </div>
-
-  {{>footer}}
-
-  {{/if}}
-
-</template> -->
 
 <template name="loading">
   {{>spinner}}
