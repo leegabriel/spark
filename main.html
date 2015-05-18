@@ -120,63 +120,69 @@
 
 <template name="ideasTab">
   {{> nav}}
-  <div class="col-sm-2">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <b>Categories</b><br>
-        <a href="#">Art</a><br>
-        <a href="#">Comics</a><br>
-        <a href="#">Dance</a><br>
-        <a href="#">Design</a><br>
-        <a href="#">Fashion</a><br>
-        <a href="#">Film & Video</a><br>
-        <a href="#">Food</a><br>
-        <a href="#">Games</a><br>
-        <a href="#">Journalism</a><br>
-        <a href="#">Music</a><br>
-        <a href="#">Photography</a><br>
-        <a href="#">Publishing</a><br>
-        <a href="#">Technology</a><br>
-        <a href="#">Theater</a><br>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-10">
-    <div role="tabpanel">
+  <div class="container">
+    <div class="row">
 
-     <!-- Nav tabs -->
-     <ul class="nav nav-tabs nav-justified" role="tablist">
-      <li role="presentation" class="hot active"><a href="#hot" aria-controls="hot" role="tab" data-toggle="tab">Hot</a></li>
-      <li role="presentation" class="top"><a href="#top" aria-controls="top" role="tab" data-toggle="tab">Top</a></li>
-      <li role="presentation" class="newest"><a href="#newest" aria-controls="newest" role="tab" data-toggle="tab">Newest</a></li>
-      <li role="presentation" class="promoted"><a href="#promoted" aria-controls="promoted" role="tab" data-toggle="tab">Promoted</a></li>
-    </ul>
-
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="hot">
-        <div class="panel panel-default" id="tab">
+      <div class="col-sm-2">
+        <div class="panel panel-default">
           <div class="panel-body">
-            <ol>
-              {{#each ideas}}
-              {{> idea}}
-              {{/each}}
-            </ol>
+            <b>Categories</b><br>
+            <a href="#">Art</a><br>
+            <a href="#">Comics</a><br>
+            <a href="#">Dance</a><br>
+            <a href="#">Design</a><br>
+            <a href="#">Fashion</a><br>
+            <a href="#">Film & Video</a><br>
+            <a href="#">Food</a><br>
+            <a href="#">Games</a><br>
+            <a href="#">Journalism</a><br>
+            <a href="#">Music</a><br>
+            <a href="#">Photography</a><br>
+            <a href="#">Publishing</a><br>
+            <a href="#">Technology</a><br>
+            <a href="#">Theater</a><br>
           </div>
         </div>
       </div>
-      <nav style="text-align: center">
-        <ul class="pager">
-          <li><a href="#">Previous</a></li>
-          <li><a href="#">Next</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="top"></div>
-    <div role="tabpanel" class="tab-pane" id="newest"></div>
-    <div role="tabpanel" class="tab-pane" id="promoted"></div>
-  </div>
 
+      <div class="col-sm-10">
+        <div role="tabpanel">
+
+         <!-- Nav tabs -->
+         <ul class="nav nav-tabs nav-justified" role="tablist">
+          <li role="presentation" class="hot active"><a href="#hot" aria-controls="hot" role="tab" data-toggle="tab">Hot</a></li>
+          <li role="presentation" class="top"><a href="#top" aria-controls="top" role="tab" data-toggle="tab">Top</a></li>
+          <li role="presentation" class="newest"><a href="#newest" aria-controls="newest" role="tab" data-toggle="tab">Newest</a></li>
+          <li role="presentation" class="promoted"><a href="#promoted" aria-controls="promoted" role="tab" data-toggle="tab">Promoted</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="hot">
+            <div class="panel panel-default" id="tab">
+              <div class="panel-body">
+                <ol>
+                  {{#each ideas}}
+                  {{> idea}}
+                  {{/each}}
+                </ol>
+              </div>
+            </div>
+          </div>
+          <nav style="text-align: center">
+            <ul class="pager">
+              <li><a href="#">Previous</a></li>
+              <li><a href="#">Next</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="top"></div>
+        <div role="tabpanel" class="tab-pane" id="newest"></div>
+        <div role="tabpanel" class="tab-pane" id="promoted"></div>
+      </div>
+    </div>
+
+  </div>
 </div>
 {{> footer}}
 </template>
@@ -184,63 +190,70 @@
 
 <template name="projectsTab">
   {{> nav}}
-  <div class="col-sm-2">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <b>Categories</b><br>
-        <a href="#">Art</a><br>
-        <a href="#">Comics</a><br>
-        <a href="#">Dance</a><br>
-        <a href="#">Design</a><br>
-        <a href="#">Fashion</a><br>
-        <a href="#">Film & Video</a><br>
-        <a href="#">Food</a><br>
-        <a href="#">Games</a><br>
-        <a href="#">Journalism</a><br>
-        <a href="#">Music</a><br>
-        <a href="#">Photography</a><br>
-        <a href="#">Publishing</a><br>
-        <a href="#">Technology</a><br>
-        <a href="#">Theater</a><br>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-10">
-    <div role="tabpanel">
 
-     <!-- Nav tabs -->
-     <ul class="nav nav-tabs nav-justified" role="tablist">
-      <li role="presentation" class="hot active"><a href="#hot" aria-controls="hot" role="tab" data-toggle="tab">Hot</a></li>
-      <li role="presentation" class="top"><a href="#top" aria-controls="top" role="tab" data-toggle="tab">Top</a></li>
-      <li role="presentation" class="newest"><a href="#newest" aria-controls="newest" role="tab" data-toggle="tab">Newest</a></li>
-      <li role="presentation" class="promoted"><a href="#promoted" aria-controls="promoted" role="tab" data-toggle="tab">Promoted</a></li>
-    </ul>
-
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="hot">
-        <div class="panel panel-default" id="tab">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-sm-2">
+        <div class="panel panel-default">
           <div class="panel-body">
-            <ol>
-              {{#each projects}}
-              {{> project}}
-              {{/each}}
-            </ol>
+            <b>Categories</b><br>
+            <a href="#">Art</a><br>
+            <a href="#">Comics</a><br>
+            <a href="#">Dance</a><br>
+            <a href="#">Design</a><br>
+            <a href="#">Fashion</a><br>
+            <a href="#">Film & Video</a><br>
+            <a href="#">Food</a><br>
+            <a href="#">Games</a><br>
+            <a href="#">Journalism</a><br>
+            <a href="#">Music</a><br>
+            <a href="#">Photography</a><br>
+            <a href="#">Publishing</a><br>
+            <a href="#">Technology</a><br>
+            <a href="#">Theater</a><br>
           </div>
         </div>
       </div>
-      <nav style="text-align: center">
-        <ul class="pager">
-          <li><a href="#">Previous</a></li>
-          <li><a href="#">Next</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="top"></div>
-    <div role="tabpanel" class="tab-pane" id="newest"></div>
-    <div role="tabpanel" class="tab-pane" id="promoted"></div>
-  </div>
 
+      <div class="col-sm-10">
+        <div role="tabpanel">
+
+         <!-- Nav tabs -->
+         <ul class="nav nav-tabs nav-justified" role="tablist">
+          <li role="presentation" class="hot active"><a href="#hot" aria-controls="hot" role="tab" data-toggle="tab">Hot</a></li>
+          <li role="presentation" class="top"><a href="#top" aria-controls="top" role="tab" data-toggle="tab">Top</a></li>
+          <li role="presentation" class="newest"><a href="#newest" aria-controls="newest" role="tab" data-toggle="tab">Newest</a></li>
+          <li role="presentation" class="promoted"><a href="#promoted" aria-controls="promoted" role="tab" data-toggle="tab">Promoted</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="hot">
+            <div class="panel panel-default" id="tab">
+              <div class="panel-body">
+                <ol>
+                  {{#each projects}}
+                  {{> project}}
+                  {{/each}}
+                </ol>
+              </div>
+            </div>
+          </div>
+          <nav style="text-align: center">
+            <ul class="pager">
+              <li><a href="#">Previous</a></li>
+              <li><a href="#">Next</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="top"></div>
+        <div role="tabpanel" class="tab-pane" id="newest"></div>
+        <div role="tabpanel" class="tab-pane" id="promoted"></div>
+      </div>
+    </div>
+
+  </div>
 </div>
 {{> footer}}
 
@@ -754,81 +767,78 @@ document.title = "Create a New Project"
   {{> nav}}
 
   <div class="container">
-    <div class="alpha">
-      <div class="row">
-        <div class="col-sm-8">
-          {{#if isOwner}}
-          <button class="btn btn-primary edit"><i class="fa fa-edit"></i> Edit</button>
-          <button class="btn btn-danger delete"><i class="fa fa-trash"></i> Delete</button>
-          {{/if}} 
-          <table width="100%">
-            <tr> 
-              <td>
-                <h1>{{title}}</h1>
-                <h1><small>{{blurb}}</small></h1>
-              </td>
-              <td> 
-                <div class="pull-right">
-                  <center>
-                    <span class="badge" id="badge-lg">{{count}}</span>
-                    <h1><small>votes</small></h1>
-                  </center>
-                </div>
-              </td>
-            </tr>
-          </table>
-          <br>
-          {{> picture}}
-          <br>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h3><small>{{ownerName}}</small></h3><button class="btn btn-sm btn-default">Follow {{ownerName}}</button>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Details</h2>
-              <b><p>Published on {{createdAt}}</p></b>
-              <br>
-              <p>{{details}}</p>
-              <br>
-              <b><p>Permalink</p></b> 
-              <div class="well">spark-app.meteor.com/ideas/{{slug}}</div>
-              <b><p>Tags
-              </p></b> 
-              <p>{{tags}}</p>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Comments</h2>
-              {{> comments}}
-            </div>
+    <div class="row">
+      <div class="col-sm-8">
+        {{#if isOwner}}
+        <button class="btn btn-primary edit"><i class="fa fa-edit"></i> Edit</button>
+        <button class="btn btn-danger delete"><i class="fa fa-trash"></i> Delete</button>
+        {{/if}} 
+        <table width="100%">
+          <tr> 
+            <td>
+              <h1>{{title}}</h1>
+              <h1><small>{{blurb}}</small></h1>
+            </td>
+            <td> 
+              <div class="pull-right">
+                <center>
+                  <span class="badge" id="badge-lg">{{count}}</span>
+                  <h1><small>votes</small></h1>
+                </center>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        {{> picture}}
+        <br>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h3><small>{{ownerName}}</small></h3><button class="btn btn-sm btn-default">Follow {{ownerName}}</button>
           </div>
         </div>
-
-        <div class="col-sm-4">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Similar Ideas</h2>
-              <br>
-              <center>
-                {{>thumbnail}}
-              </center>
-            </div>
-          </div>         
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Similar Projects</h2>
-              <br>
-              <center>
-                {{>thumbnail}}
-              </center>
-            </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h2>Details</h2>
+            <b><p>Published on {{createdAt}}</p></b>
+            <br>
+            <p>{{details}}</p>
+            <br>
+            <b><p>Permalink</p></b> 
+            <div class="well">spark-app.meteor.com/ideas/{{slug}}</div>
+            <b><p>Tags
+            </p></b> 
+            <p>{{tags}}</p>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h2>Comments</h2>
+            {{> comments}}
           </div>
         </div>
       </div>
 
+      <div class="col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h2>Similar Ideas</h2>
+            <br>
+            <center>
+              {{>thumbnail}}
+            </center>
+          </div>
+        </div>         
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h2>Similar Projects</h2>
+            <br>
+            <center>
+              {{>thumbnail}}
+            </center>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   {{>footer}}
@@ -840,101 +850,98 @@ document.title = "Create a New Project"
   {{>nav}}
 
   <div class="container">
-    <div class="alpha">
-      <div class="row">
-        <div class="col-sm-8">
-          {{#if isOwner}}
-          <button class="btn btn-primary edit"><i class="fa fa-edit"></i> Edit</button>
-          <button class="btn btn-danger delete"><i class="fa fa-trash"></i> Delete</button>
-          {{/if}} 
-          <table width="100%">
-            <tr> 
-              <td>
-                <h1>{{title}}</h1>
-                <h1><small>{{blurb}}</small></h1>
-              </td>
-              <td> 
-                <div class="pull-right">
-                  <center>
-                    <span class="badge" id="badge-lg">{{count}}</span>
-                    <h1><small>votes</small></h1>
-                  </center>
-                </div>
-              </td>
-            </tr>
-          </table>
-          <br>
-          {{> picture}}
-          <br>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h3><small>{{ownerName}}</small></h3><button class="btn btn-sm btn-default">Follow {{ownerName}}</button>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Details</h2>
-              <b><p>Published on {{createdAt}}</p></b>
-              <br>
-              <p>{{details}}</p>
-              <br>
-              <b><p>Permalink</p></b> 
-              <div class="well">spark-app.meteor.com/projects/{{slug}}</div>
-              <b><p>Tags</p></b> 
-              <p>{{tags}}</p>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Comments</h2>
-              {{> comments}}
-            </div>
+    <div class="row">
+      <div class="col-sm-8">
+        {{#if isOwner}}
+        <button class="btn btn-primary edit"><i class="fa fa-edit"></i> Edit</button>
+        <button class="btn btn-danger delete"><i class="fa fa-trash"></i> Delete</button>
+        {{/if}} 
+        <table width="100%">
+          <tr> 
+            <td>
+              <h1>{{title}}</h1>
+              <h1><small>{{blurb}}</small></h1>
+            </td>
+            <td> 
+              <div class="pull-right">
+                <center>
+                  <span class="badge" id="badge-lg">{{count}}</span>
+                  <h1><small>votes</small></h1>
+                </center>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        {{> picture}}
+        <br>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h3><small>{{ownerName}}</small></h3><button class="btn btn-sm btn-default">Follow {{ownerName}}</button>
           </div>
         </div>
-
-        <div class="col-sm-4">
-
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Funding</h2>
-              <br>
-              <b>Funding goal</b>
-              <p>{{goal}}</p>
-              <b>Days to go</b>
-              <p>{{duration}}</p>
-              <b>Location</b>
-              <p>{{location}}</p>
-              <b>Progress</b>
-              <p>{{funded}}</p>
-              <b>Amount Pledged</b>
-              <p>{{pledged}}</p>
-              <b>Backers</b>
-              <p>{{backers}}</p>
-              <b>Rewards</b>
-              <p>{{rewards}}</p>
-            </div>
-          </div>     
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Similar Ideas</h2>
-              <br>
-              <center>
-                {{>thumbnail}}
-              </center>
-            </div>
-          </div>         
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h2>Similar Projects</h2>
-              <br>
-              <center>
-                {{>thumbnail}}
-              </center>
-            </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h2>Details</h2>
+            <b><p>Published on {{createdAt}}</p></b>
+            <br>
+            <p>{{details}}</p>
+            <br>
+            <b><p>Permalink</p></b> 
+            <div class="well">spark-app.meteor.com/projects/{{slug}}</div>
+            <b><p>Tags</p></b> 
+            <p>{{tags}}</p>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h2>Comments</h2>
+            {{> comments}}
           </div>
         </div>
       </div>
 
+      <div class="col-sm-4">
+
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h2>Funding</h2>
+            <br>
+            <b>Funding goal</b>
+            <p>{{goal}}</p>
+            <b>Days to go</b>
+            <p>{{duration}}</p>
+            <b>Location</b>
+            <p>{{location}}</p>
+            <b>Progress</b>
+            <p>{{funded}}</p>
+            <b>Amount Pledged</b>
+            <p>{{pledged}}</p>
+            <b>Backers</b>
+            <p>{{backers}}</p>
+            <b>Rewards</b>
+            <p>{{rewards}}</p>
+          </div>
+        </div>     
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h2>Similar Ideas</h2>
+            <br>
+            <center>
+              {{>thumbnail}}
+            </center>
+          </div>
+        </div>         
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h2>Similar Projects</h2>
+            <br>
+            <center>
+              {{>thumbnail}}
+            </center>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   {{>footer}}
