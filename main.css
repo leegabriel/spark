@@ -152,8 +152,9 @@ li table {
   padding: 0px !important;
   margin-top: 5px;
   margin-left: 15px;
-  background: transparent;
+  background-color: transparent !important;
 }
+
 
 /* unvisited link */
 a:link {
