@@ -734,16 +734,14 @@ document.title = "Create a New Project"
 
 
 <template name="comments">
-  <div class="container">
-    <div class="row">
 
-      <div class="col-sm-1">
+      <div class="col-sm-2">
         <div class="thumbnail">
-          <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+          <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" width="50">
         </div><!-- /thumbnail -->
-      </div><!-- /col-sm-1 -->
+      </div><!-- /col-sm-2 -->
 
-      <div class="col-sm-5">
+      <div class="col-sm-10">
         <div class="panel panel-default">
           <div class="panel-heading">
             <strong>myusername</strong> <span class="text-muted">commented 5 days ago</span>
@@ -755,12 +753,8 @@ document.title = "Create a New Project"
       </div><!-- /col-sm-5 -->
 
 
-    </div><!-- /row -->
-  </div><!-- /container -->
 
-  <div class="container"> 
-    <div class="row">
-      <div class="col-md-6">
+      <div class="col-sm-12">
         <div class="widget-area no-padding blank">
           <div class="status-upload">
             <form>
@@ -777,8 +771,6 @@ document.title = "Create a New Project"
         </div><!-- Widget Area -->
       </div>
 
-    </div>
-  </div>
   <style>
   .thumbnail {
     padding:0px;
@@ -868,7 +860,7 @@ document.title = "Create a New Project"
     height: 142px;
     letter-spacing: 0.3px;
     padding: 20px;
-    width: 100%;
+    width: 100% !important;
     resize:vertical;
     outline:none;
     border: 1px solid #F2F2F2;
@@ -1140,10 +1132,8 @@ document.title = "Create a New Project"
 
 
 <template name="similar">
-  <div class="container">
-    <div class="row">
-      <ul class="thumbnails list-unstyled">
-        <li class="col-md-3">
+
+      <div class="crowdfund">
           <div class="thumbnail" style="padding: 0">
             <div style="padding:4px">
               <img alt="300x200" style="width: 100%" src="http://placehold.it/200x150">
@@ -1166,10 +1156,15 @@ document.title = "Create a New Project"
               </div>
             </div>
           </div>
-        </li>
-      </ul>
-    </div>
-  </div>
+        </div>
+ 
+
+  <style>
+  .crowdfund {
+    width: 100%;
+    max-width: 260.5px;
+  }
+  </style>
 </template>
 
 <template name="tos">
