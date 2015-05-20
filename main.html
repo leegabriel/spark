@@ -9,6 +9,8 @@
 
 
 <template name="nav">
+  <div class="container">
+    <div class="row">
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
 
@@ -58,7 +60,8 @@
       </div>
     </div>
   </nav>
-
+</div>
+</div>
   <script>
   $(document).ready(function() {
     $('.btn-circle').tooltip()
@@ -742,7 +745,7 @@ document.title = "Create a New Project"
 
       <div class="col-sm-2">
         <div class="thumbnail">
-          <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" width="50">
+          <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px">
         </div><!-- /thumbnail -->
       </div><!-- /col-sm-2 -->
 
@@ -763,7 +766,7 @@ document.title = "Create a New Project"
         <div class="widget-area no-padding blank">
           <div class="status-upload">
             <form>
-              <textarea placeholder="What are you doing right now?" ></textarea>
+              <textarea placeholder="What do you think?" ></textarea>
               <ul>
                 <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Audio"><i class="fa fa-music"></i></a></li>
                 <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Video"><i class="fa fa-video-camera"></i></a></li>
@@ -778,7 +781,8 @@ document.title = "Create a New Project"
 
   <style>
   .thumbnail {
-    padding:0px;
+    margin:0px;
+    border: none !important;
   }
   .panel {
     position:relative;
@@ -869,6 +873,7 @@ document.title = "Create a New Project"
     resize:vertical;
     outline:none;
     border: 1px solid #F2F2F2;
+    max-width: none !important;
   }
 
   .status-upload ul {
