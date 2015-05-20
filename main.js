@@ -315,7 +315,9 @@ Meteor.methods({
       owner: Meteor.userId(),
       ownerName: Meteor.user().emails[0].address,
       createdAt: moment().format("MMMM D, YYYY"),
-      createTimeActual: moment().format('MMMM Do YYYY, h:mm:ss a')
+      createTimeActual: moment().format('MMMM Do YYYY, h:mm:ss a'),
+      upvotedUsers: [],
+      downvotedUsers: []
     });
   },
   addProject: function (title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards) {
@@ -335,6 +337,8 @@ Meteor.methods({
       ownerName: Meteor.user().emails[0].address,
       createdAt: moment().format("MMMM D, YYYY"),
       createTimeActual: moment().format('MMMM Do YYYY, h:mm:ss a'),
+      upvotedUsers: [],
+      downvotedUsers: [],
       funded: 0,
       pledged: 0,
       backers: 0
@@ -405,39 +409,67 @@ Meteor.methods({
     }
   }, 
   upvoteIdea: function (ideaId) {
+    var thisUser = Meteor.userId();
     if (Meteor.userId() === null) {
       // Make sure logged out public can't upvote it
       throw new Meteor.Error("not-authorized");
     }
     else {
-      Ideas.update(ideaId, { $inc: { count: 1} });
+      if (!(Ideas.findOne({_id: ideaId, upvotedUsers: thisUser}))) {
+        Ideas.update(ideaId, { $inc: { count: 1 }});
+        Ideas.update(ideaId, { $push: { upvotedUsers: thisUser }});
+      }
+      else {
+        console.log("Did not find idea with this id, or user already upvoted this idea.")
+      }
     }
   },
   upvoteProject: function (projectId) {
+    var thisUser = Meteor.userId();
     if (Meteor.userId() === null) {
       // Make sure logged out public can't upvote it
       throw new Meteor.Error("not-authorized");
     }
     else {
-      Projects.update(projectId, { $inc: { count: 1} });
+      if (!(Projects.findOne({_id: projectId, upvotedUsers: thisUser}))) {
+        Projects.update(projectId, { $inc: { count: 1 }});
+        Projects.update(projectId, { $push: { upvotedUsers: thisUser }});
+      }
+      else{
+        console.log("Did not find project with this id, or user already upvoted this project.")
+      }
     }
   },
   downvoteIdea: function (ideaId) {
+    var thisUser = Meteor.userId();
     if (Meteor.userId() === null) {
-      // Make sure logged out public can't upvote it
+      // Make sure logged out public can't downvote it
       throw new Meteor.Error("not-authorized");
     }
     else {
-      Ideas.update(ideaId, { $inc: { count: -1} });
+      if (!(Ideas.findOne({_id: ideaId, downvotedUsers: thisUser}))) {
+        Ideas.update(ideaId, { $inc: { count: -1 }});
+        Ideas.update(ideaId, { $push: { downvotedUsers: thisUser }});
+      }
+      else{
+        console.log("Did not find project with this id, or user already downvoted this project.")
+      }
     }
   },
   downvoteProject: function (projectId) {
+    var thisUser = Meteor.userId();
     if (Meteor.userId() === null) {
-      // Make sure logged out public can't upvote it
+      // Make sure logged out public can't downvote it
       throw new Meteor.Error("not-authorized");
     }
     else {
-      Projects.update(projectId, { $inc: { count: -1} });
+      if (!(Projects.findOne({_id: projectId, downvotedUsers: thisUser}))) {
+        Projects.update(projectId, { $inc: { count: -1 }});
+        Projects.update(projectId, { $push: { downvotedUsers: thisUser }});
+      }
+      else{
+        console.log("Did not find project with this id, or user already downvoted this project.")
+      }
     }
   }
 

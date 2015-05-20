@@ -34,12 +34,12 @@ Important:
 	<li><strike>Get selection of up to 3 Categories associated with Idea/Project</strike></li>
 	<li><strike>Show write option on front page, but add tooltip that says must sign in</strike></li>
 	<li><strike>Get a better style man, seriously</strike></li>
+	<li><strike>Single Vote Only Per Account Per Idea/Project</strike></li>
 	<li>Categories Option</li>
 	<li>Search Engine - See Atmosphere matteodem easy-search</li>
 	<li>Fundraising Option, progress bars, fund logistics</li>
 	<li>Pagination</li>
 	<li>Comments (preferably Atmosphere packages)</li>
-	<li>Single Vote Only Per Account Per Idea/Project</li>
 	<li>Submitted ... ago</li>
 	<li>Possibly show modal on clicking login-required item, to make it easier for user to sign up</li>
 
