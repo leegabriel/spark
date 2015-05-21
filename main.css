@@ -156,26 +156,7 @@ li table {
 }
 
 
-/* unvisited link */
-a:link {
-  text-decoration: none !important;
-  color: #58595b !important;
-}
 
-/* visited link */
-a:visited {
-  color: #58595b !important;
-}   
-
-/* mouse over link */
-a:hover{
-
-}
-
-/* selected link */
-a:active {
-  color: #58595b !important;
-}
 
 .cancel {
   outline: 0;
