@@ -662,7 +662,7 @@ document.title = "Create a New Project"
 
         <td id="middle-row" style="width: 600px">
           <h3>
-            <a id="middle-link" href="/ideas/{{slug}}">{{title}}</a> 
+            <a id="middle-link" href="/ideas/{{slug}}">{{title}}</a>
             {{#if isOwner}}
             <br>
             <button class="btn btn-sm btn-primary edit" style="margin-top:7.5px;margin-left: 20px"><i class="fa fa-edit"></i> Edit</button><br>
@@ -766,7 +766,7 @@ document.title = "Create a New Project"
         <div class="widget-area no-padding blank">
           <div class="status-upload">
             <form>
-              <textarea placeholder="What do you think?" ></textarea>
+              <textarea placeholder="Leave a comment"></textarea>
               <ul>
                 <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Audio"><i class="fa fa-music"></i></a></li>
                 <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Video"><i class="fa fa-video-camera"></i></a></li>
@@ -989,8 +989,9 @@ document.title = "Create a New Project"
             <b><p>Permalink</p></b> 
             <div class="well">spark-app.meteor.com/ideas/{{slug}}</div>
             <b><p>Tags
-            </p></b> 
-            <p>{{tags}}</p>
+            </p></b>
+
+            <p><span class="label label-default">{{tags}}</span></p>
           </div>
         </div>
         <div class="panel panel-default">

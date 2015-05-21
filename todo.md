@@ -39,10 +39,9 @@ Important:
 	<li>Search Engine - See Atmosphere matteodem easy-search</li>
 	<li>Fundraising Option, progress bars, fund logistics</li>
 	<li>Pagination</li>
-	<li>Comments (preferably Atmosphere packages)</li>
+	<li>Comments (preferably something already done because of, you know, spam)</li>
 	<li>Submitted ... ago</li>
 	<li>Possibly show modal on clicking login-required item, to make it easier for user to sign up</li>
-
 </ul>
 
 
