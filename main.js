@@ -8,11 +8,24 @@ if(Meteor.isServer){
   }),
   Meteor.publish('projectsList', function(){
     return Projects.find();
+  }),
+
+
+  Meteor.publish('userData', function () {
+    if (this.userId) {
+      return Meteor.users.find({_id: this.userId},
+        {fields:{'username': 1, 'followers': 1}});
+    }
+    else {
+      this.ready();
+    }
   })
 } /* isServer */
 
 
 if (Meteor.isClient) {
+
+  Meteor.subscribe('userData');
 
   Template.ideasTab.helpers({
     ideas: function () {
@@ -467,7 +480,7 @@ Meteor.methods({
         Projects.update(projectId, { $inc: { count: -1 }});
         Projects.update(projectId, { $push: { downvotedUsers: thisUser }});
       }
-      else{
+      else {
         console.log("Did not find project with this id, or user already downvoted this project.")
       }
     }
