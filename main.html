@@ -27,12 +27,11 @@
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group searchForm">
-          <input id="args" name="args" type="text" placeholder="Search" style="width:300px">
-        </div>
-        <button id="search" name="search" type="submit" class="btn btn-default">Search</button>
-      </form>
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group searchForm">
+              {{> esInput index="ideas" placeholder="Search" }}
+            </div>
+          </form>
           <ul class="nav navbar-nav" >
             <li><a href="{{pathFor 'ideas'}}">Ideas</a></li>
             <li><a href="{{pathFor 'projects'}}">Projects</a></li>
@@ -667,7 +666,7 @@ document.title = "Create a New Project"
         </td>
 
         <td style="width: 600px">
-            <div class="middle-link">
+          <div class="middle-link">
             <h3><a title={{title}} id="middle-link" href="/ideas/{{slug}}">{{title}}</a></h3>
             <p>{{blurb}}</p>
             {{#if isOwner}}
@@ -1304,18 +1303,184 @@ document.title = "Create a New Project"
   </div>
 </template>
 
-
-<template name="myIdeas">
-  {{>nav}}
-  {{>footer}}
-</template>
-<template name="myProjects">
-  {{>nav}}
-  {{>footer}}
-</template>
 <template name="profile">
   {{>nav}}
+<div class="container">
+    <div class="row profile">
+    <div class="col-md-3">
+      <div class="profile-sidebar">
+        <!-- SIDEBAR USERPIC -->
+        <div class="profile-userpic">
+          <img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
+        </div>
+        <!-- END SIDEBAR USERPIC -->
+        <!-- SIDEBAR USER TITLE -->
+        <div class="profile-usertitle">
+          <div class="profile-usertitle-name">
+            Marcus Doe
+          </div>
+          <div class="profile-usertitle-job">
+            Developer
+          </div>
+        </div>
+        <!-- END SIDEBAR USER TITLE -->
+        <!-- SIDEBAR BUTTONS -->
+        <div class="profile-userbuttons">
+          <button type="button" class="btn btn-success btn-sm">Follow</button>
+          <button type="button" class="btn btn-danger btn-sm">Message</button>
+        </div>
+        <!-- END SIDEBAR BUTTONS -->
+        <!-- SIDEBAR MENU -->
+        <div class="profile-usermenu">
+          <ul class="nav">
+            <li class="active">
+              <a href="#">
+              <i class="fa fa-home"></i>
+              Overview </a>
+            </li>
+            <li>
+              <a href="#">
+              <i class="fa fa-user"></i>
+              Account Settings </a>
+            </li>
+            <li>
+              <a href="#">
+              <i class="fa fa-flag"></i>
+              Help </a>
+            </li>
+          </ul>
+        </div>
+        <!-- END MENU -->
+      </div>
+    </div>
+    <div class="col-md-9">
+            <div class="profile-content">
+         <div class="col-sm-6">
+          <h1>Ideas</h1>
+         </div>
+         <div class="col-sm-6">
+          <h1>Projects</h1>
+         </div>
+            </div>
+    </div>
+  </div>
+</div>
+<center>
+<strong><a href="#" target="_blank">Acivity</a></strong>
+</center>
+<br>
+<br>
   {{>footer}}
+  <style>
+
+body {
+  background: #F1F3FA;
+}
+
+/* Profile container */
+.profile {
+  margin: 20px 0;
+}
+
+/* Profile sidebar */
+.profile-sidebar {
+  padding: 20px 0 10px 0;
+  background: #fff;
+}
+
+.profile-userpic img {
+  float: none;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
+.profile-usertitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-usertitle-name {
+  color: #5a7391;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.profile-usertitle-job {
+  text-transform: uppercase;
+  color: #5b9bd1;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.profile-userbuttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.profile-userbuttons .btn {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 15px;
+  margin-right: 5px;
+}
+
+.profile-userbuttons .btn:last-child {
+  margin-right: 0px;
+}
+    
+.profile-usermenu {
+  margin-top: 30px;
+}
+
+.profile-usermenu ul li {
+  border-bottom: 1px solid #f0f4f7;
+}
+
+.profile-usermenu ul li:last-child {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li a {
+  color: #93a3b5;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profile-usermenu ul li a i {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.profile-usermenu ul li a:hover {
+  background-color: #fafcfd;
+  color: #5b9bd1;
+}
+
+.profile-usermenu ul li.active {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li.active a {
+  color: #5b9bd1;
+  background-color: #f6f9fb;
+  border-left: 2px solid #5b9bd1;
+  margin-left: -2px;
+}
+
+/* Profile Content */
+.profile-content {
+  padding: 20px;
+  background: #fff;
+  min-height: 460px;
+}
+  </style>
 </template>
 <template name="watched">
   {{>nav}}
@@ -1341,120 +1506,120 @@ document.title = "Create a New Project"
 
 
 <template name="search">
-    {{> esInput index="ideas" placeholder="Search..." }}
+  {{> esInput index="ideas" placeholder="Search..." }}
 
-    <ul>
-        {{#esEach index="ideas"}}
-            <li>Name of the idea: {{title}} ({{blurb}})</li>
-        {{/esEach}}
-    </ul>
+  <ul>
+    {{#esEach index="ideas"}}
+    <li>Name of the idea: {{title}} ({{blurb}})</li>
+    {{/esEach}}
+  </ul>
 
-    {{> esLoadMoreButton index="ideas"}}
+  {{> esLoadMoreButton index="ideas"}}
 
-    {{#ifEsHasNoResults index="ideas"}}
-        <div class="no-results">No results found!</div>
-    {{/ifEsHasNoResults}}
+  {{#ifEsHasNoResults index="ideas"}}
+  <div class="no-results">No results found!</div>
+  {{/ifEsHasNoResults}}
 
-    {{#ifEsIsSearching index="ideas"}}
-            <div>Loading...</div>
-    {{/ifEsIsSearching}}
+  {{#ifEsIsSearching index="ideas"}}
+  <div>Loading...</div>
+  {{/ifEsIsSearching}}
 </template>
 
 
 <template name="searchResults">
   {{>nav}}
-<div class="container">
+  <div class="container">
 
     <hgroup class="mb20">
-    <h1>Search Results</h1>
-    <h2 class="lead"><strong class="text-danger">3</strong> results were found for the search for <strong class="text-danger">Lorem</strong></h2>               
-  </hgroup>
+      <h1>Search Results</h1>
+      <h2 class="lead"><strong class="text-danger">3</strong> results were found for the search for <strong class="text-danger">Lorem</strong></h2>               
+    </hgroup>
 
     <section class="col-xs-12 col-sm-6 col-md-12">
-    <article class="search-result row">
-      <div class="col-xs-12 col-sm-12 col-md-3">
-        <a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/people" alt="Lorem ipsum" /></a>
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-2">
-        <ul class="meta-search">
-          <li><i class="glyphicon glyphicon-calendar"></i> <span>02/15/2014</span></li>
-          <li><i class="glyphicon glyphicon-time"></i> <span>4:28 pm</span></li>
-          <li><i class="glyphicon glyphicon-tags"></i> <span>People</span></li>
-        </ul>
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-        <h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>            
-                <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
-      </div>
-      <span class="clearfix borda"></span>
-    </article>
+      <article class="search-result row">
+        <div class="col-xs-12 col-sm-12 col-md-3">
+          <a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/people" alt="Lorem ipsum" /></a>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-2">
+          <ul class="meta-search">
+            <li><i class="glyphicon glyphicon-calendar"></i> <span>02/15/2014</span></li>
+            <li><i class="glyphicon glyphicon-time"></i> <span>4:28 pm</span></li>
+            <li><i class="glyphicon glyphicon-tags"></i> <span>People</span></li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
+          <h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>            
+          <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
+        </div>
+        <span class="clearfix borda"></span>
+      </article>
 
-        <article class="search-result row">
-      <div class="col-xs-12 col-sm-12 col-md-3">
-        <a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/food" alt="Lorem ipsum" /></a>
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-2">
-        <ul class="meta-search">
-          <li><i class="glyphicon glyphicon-calendar"></i> <span>02/13/2014</span></li>
-          <li><i class="glyphicon glyphicon-time"></i> <span>8:32 pm</span></li>
-          <li><i class="glyphicon glyphicon-tags"></i> <span>Food</span></li>
-        </ul>
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-7">
-        <h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>            
-                <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
-      </div>
-      <span class="clearfix borda"></span>
-    </article>
+      <article class="search-result row">
+        <div class="col-xs-12 col-sm-12 col-md-3">
+          <a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/food" alt="Lorem ipsum" /></a>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-2">
+          <ul class="meta-search">
+            <li><i class="glyphicon glyphicon-calendar"></i> <span>02/13/2014</span></li>
+            <li><i class="glyphicon glyphicon-time"></i> <span>8:32 pm</span></li>
+            <li><i class="glyphicon glyphicon-tags"></i> <span>Food</span></li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-7">
+          <h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>            
+          <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
+        </div>
+        <span class="clearfix borda"></span>
+      </article>
 
-    <article class="search-result row">
-      <div class="col-xs-12 col-sm-12 col-md-3">
-        <a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/sports" alt="Lorem ipsum" /></a>
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-2">
-        <ul class="meta-search">
-          <li><i class="glyphicon glyphicon-calendar"></i> <span>01/11/2014</span></li>
-          <li><i class="glyphicon glyphicon-time"></i> <span>10:13 am</span></li>
-          <li><i class="glyphicon glyphicon-tags"></i> <span>Sport</span></li>
-        </ul>
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-7">
-        <h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>            
-                <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
-      </div>
-      <span class="clearfix border"></span>
-    </article>      
+      <article class="search-result row">
+        <div class="col-xs-12 col-sm-12 col-md-3">
+          <a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/sports" alt="Lorem ipsum" /></a>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-2">
+          <ul class="meta-search">
+            <li><i class="glyphicon glyphicon-calendar"></i> <span>01/11/2014</span></li>
+            <li><i class="glyphicon glyphicon-time"></i> <span>10:13 am</span></li>
+            <li><i class="glyphicon glyphicon-tags"></i> <span>Sport</span></li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-7">
+          <h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>            
+          <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
+        </div>
+        <span class="clearfix border"></span>
+      </article>      
 
-  </section>
-  {{>footer}}
-</div>  
+    </section>
+    {{>footer}}
+  </div>  
 
-<style>
-.container { margin-top: 20px; }
-.mb20 { margin-bottom: 20px; } 
+  <style>
+  .container { margin-top: 20px; }
+  .mb20 { margin-bottom: 20px; } 
 
-hgroup { padding-left: 15px; border-bottom: 1px solid #ccc; }
-hgroup h1 { font: 500 normal 1.625em; color: #2a3644; margin-top: 0; line-height: 1.15; }
-hgroup h2.lead { font: normal normal 1.125em; color: #2a3644; margin: 0; padding-bottom: 10px; }
+  hgroup { padding-left: 15px; border-bottom: 1px solid #ccc; }
+  hgroup h1 { font: 500 normal 1.625em; color: #2a3644; margin-top: 0; line-height: 1.15; }
+  hgroup h2.lead { font: normal normal 1.125em; color: #2a3644; margin: 0; padding-bottom: 10px; }
 
-.search-result .thumbnail { border-radius: 0 !important; }
-.search-result:first-child { margin-top: 0 !important; }
-.search-result { margin-top: 20px; }
-.search-result .col-md-2 { border-right: 1px dotted #ccc; min-height: 140px; }
-.search-result ul { padding-left: 0 !important; list-style: none;  }
-.search-result ul li { font: 400 normal .85em;  line-height: 30px; }
-.search-result ul li i { padding-right: 5px; }
-.search-result .col-md-7 { position: relative; }
-.search-result h3 { font: 500 normal 1.375em; margin-top: 0 !important; margin-bottom: 10px !important; }
-.search-result h3 > a, .search-result i { color: #248dc1 !important; }
-.search-result p { font: normal normal 1.125em; } 
-.search-result span.plus { position: absolute; right: 0; top: 126px; }
-.search-result span.plus a { background-color: #248dc1; padding: 5px 5px 3px 5px; }
-.search-result span.plus a:hover { background-color: #414141; }
-.search-result span.plus a i { color: #fff !important; }
-.search-result span.border { display: block; width: 97%; margin: 0 15px; border-bottom: 1px dotted #ccc; }
-</style>
+  .search-result .thumbnail { border-radius: 0 !important; }
+  .search-result:first-child { margin-top: 0 !important; }
+  .search-result { margin-top: 20px; }
+  .search-result .col-md-2 { border-right: 1px dotted #ccc; min-height: 140px; }
+  .search-result ul { padding-left: 0 !important; list-style: none;  }
+  .search-result ul li { font: 400 normal .85em;  line-height: 30px; }
+  .search-result ul li i { padding-right: 5px; }
+  .search-result .col-md-7 { position: relative; }
+  .search-result h3 { font: 500 normal 1.375em; margin-top: 0 !important; margin-bottom: 10px !important; }
+  .search-result h3 > a, .search-result i { color: #248dc1 !important; }
+  .search-result p { font: normal normal 1.125em; } 
+  .search-result span.plus { position: absolute; right: 0; top: 126px; }
+  .search-result span.plus a { background-color: #248dc1; padding: 5px 5px 3px 5px; }
+  .search-result span.plus a:hover { background-color: #414141; }
+  .search-result span.plus a i { color: #fff !important; }
+  .search-result span.border { display: block; width: 97%; margin: 0 15px; border-bottom: 1px dotted #ccc; }
+  </style>
 </template>

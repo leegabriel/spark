@@ -4,13 +4,13 @@ Projects = new Mongo.Collection('projects');
 Ideas.initEasySearch(['title', 'slug', 'blurb', 'details', 'tags', 'count', 'ownerName', 'createdAt'], {
     // 'limit' : 20,
     'use' : 'mongo-db'
-});
+  });
 
 
 Projects.initEasySearch(['title', 'slug', 'blurb', 'details', 'tags', 'location', 'rewards', 'count', 'ownerName', 'createdAt', 'funded', 'pledged', 'backers'], {
     // 'limit' : 20,
     'use' : 'mongo-db'
-});
+  });
 
 
 if(Meteor.isServer){
@@ -27,7 +27,7 @@ if(Meteor.isServer){
       return Meteor.users.find(
         {_id: this.userId},
         {fields:{'username': 1, 'followers': 1, 'pic': 'http://placehold.it/50x50/'}}
-      );
+        );
     }
     else {
       this.ready();
@@ -641,19 +641,6 @@ Router.route('/landing',function() {
   document.title = "Spark";
 });
 
-Router.route('/myideas',function() {
-  window.scrollTo(0,0);
-  this.render('myIdeas');
-  document.title = "Spark";
-});
-
-Router.route('/myprojects',function() {
-  window.scrollTo(0,0);
-  this.render('myProjects');
-  document.title = "Spark";
-});
-
-
 Router.route('/profile',function() {
   window.scrollTo(0,0);
   this.render('profile');
@@ -688,6 +675,12 @@ Router.route('/search', function(){
   window.scrollTo(0,0);
   this.render('search');
   document.title = "Search";
+});
+
+Router.route('/results', function(){
+  window.scrollTo(0,0);
+  this.render('searchResults');
+  document.title = "Search Results";
 });
 
 
