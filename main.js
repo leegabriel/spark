@@ -14,7 +14,7 @@ if(Meteor.isServer){
   Meteor.publish('userData', function () {
     if (this.userId) {
       return Meteor.users.find({_id: this.userId},
-        {fields:{'username': 1, 'followers': 1}});
+        {fields:{'username': 1, 'followers': 1}, 'pic': 'http://placehold.it/50x50/'});
     }
     else {
       this.ready();

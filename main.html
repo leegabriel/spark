@@ -9,62 +9,62 @@
 
 
 <template name="nav">
-        
+  
 
   <nav class="navbar navbar-default navbar-fixed-top">
 
 
     <div class="container-fluid">
-        <div class="delta">
-          <div class="navbar-header" >
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Spark</a>
-          </div>
+      <div class="delta">
+        <div class="navbar-header" >
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Spark</a>
+        </div>
 
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
-            <form class="navbar-form navbar-left" role="search">
-              <div class="form-group">
-                <input type="text" placeholder="Search Spark" style="width:300px">
-              </div>
-            </form>
-            <ul class="nav navbar-nav" >
-              <li><a href="{{pathFor 'ideas'}}">Ideas</a></li>
-              <li><a href="{{pathFor 'projects'}}">Projects</a></li>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" placeholder="Search Spark" style="width:300px">
+            </div>
+          </form>
+          <ul class="nav navbar-nav" >
+            <li><a href="{{pathFor 'ideas'}}">Ideas</a></li>
+            <li><a href="{{pathFor 'projects'}}">Projects</a></li>
 
-              {{#if currentUser}}
-              <li class="dropdown">
-                <a class="btn-circle dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a>
+            {{#if currentUser}}
+            <li class="dropdown">
+              <a class="btn-circle dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a>
 
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="/newidea">New Idea</a></li>
-                  <li><a href="/newproject">New Project</a></li>
-                </ul>
-              </li>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/newidea">New Idea</a></li>
+                <li><a href="/newproject">New Project</a></li>
+              </ul>
+            </li>
 
-              {{else}}
+            {{else}}
 
-              <li><a class="btn-circle" href="#" data-toggle="tooltip" data-placement="bottom" title="Sign in to compose ideas/projects" role="button" aria-expanded="false"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a></li>
-              
-              {{/if}}
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li class="navbar-text">{{>loginButtons align="right"}}</li>
-            </ul>
+            <li><a class="btn-circle" href="#" data-toggle="tooltip" data-placement="bottom" title="Sign in to compose ideas/projects" role="button" aria-expanded="false"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a></li>
             
-          </div>
-</div>
+            {{/if}}
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="navbar-text">{{>loginButtons align="right"}}</li>
+          </ul>
+          
+        </div>
+      </div>
     </div>
 
-         
+    
 
   </nav>
 
- 
+  
   <script>
   $(document).ready(function() {
     $('.btn-circle').tooltip()
@@ -147,9 +147,11 @@
 </template>
 
 <template name="banner">
-  <h2>What is this?</h2>
-  <h2><small>Spark is an idea and project marketplace, where anyone can join and post.</small></h2>
-  <br>
+  <div class="ghost">
+    <h2>What is this?</h2>
+    <h2><small>Spark is an idea and project marketplace, where anyone can join and post.</small></h2>
+    <br>
+  </div>
 </template>
 
 <template name="ideasTab">

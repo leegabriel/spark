@@ -85,7 +85,7 @@ ol ul {
 }
 
 #login-dropdown-list {
-  margin-left: 15px;
+  
 }
 
 .nav .open>a {
@@ -276,6 +276,7 @@ textarea {
 
 @media screen and (max-width: 768px) {
 
+
   body, html {
     margin-right: 7.5px;
     margin-left: 7.5px;
@@ -364,6 +365,10 @@ textarea {
 
   input {
     width: 100% !important;
+  }
+
+  .ghost {
+    display:none;
   }
 }
 
