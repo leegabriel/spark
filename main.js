@@ -1,6 +1,17 @@
 Ideas = new Mongo.Collection('ideas');
 Projects = new Mongo.Collection('projects');
 
+Ideas.initEasySearch(['title', 'slug', 'blurb', 'details', 'tags', 'count', 'ownerName', 'createdAt'], {
+    // 'limit' : 20,
+    'use' : 'mongo-db'
+});
+
+
+Projects.initEasySearch(['title', 'slug', 'blurb', 'details', 'tags', 'location', 'rewards', 'count', 'ownerName', 'createdAt', 'funded', 'pledged', 'backers'], {
+    // 'limit' : 20,
+    'use' : 'mongo-db'
+});
+
 
 if(Meteor.isServer){
   Meteor.publish('ideasList', function(){
@@ -314,9 +325,15 @@ if (Meteor.isClient) {
     }
   }),
 
+
+
+
   Template.nav.events({
-    'click #search': function(event) {
-      Router.go('search');
+    'submit .searchForm': function(event) {
+      var args = document.getElementById('args').value;
+      console.log(args);
+      var path = '/search/' + args;
+      Router.go(path);
     }
   });
 
@@ -667,10 +684,10 @@ Router.route('/settings',function() {
   document.title = "Spark";
 });
 
-Router.route('/search',function() {
+Router.route('/search', function(){
   window.scrollTo(0,0);
-  this.render('searchResults');
-  document.title = "Search Results";
+  this.render('search');
+  document.title = "Search";
 });
 
 

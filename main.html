@@ -28,10 +28,10 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
       <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" placeholder="Search" style="width:300px">
+        <div class="form-group searchForm">
+          <input id="args" name="args" type="text" placeholder="Search" style="width:300px">
         </div>
-        <button id="search" type="submit" class="btn btn-default">Submit</button>
+        <button id="search" name="search" type="submit" class="btn btn-default">Search</button>
       </form>
           <ul class="nav navbar-nav" >
             <li><a href="{{pathFor 'ideas'}}">Ideas</a></li>
@@ -1338,6 +1338,28 @@ document.title = "Create a New Project"
 <template name="loading">
   {{>spinner}}
 </template>
+
+
+<template name="search">
+    {{> esInput index="ideas" placeholder="Search..." }}
+
+    <ul>
+        {{#esEach index="ideas"}}
+            <li>Name of the idea: {{title}} ({{blurb}})</li>
+        {{/esEach}}
+    </ul>
+
+    {{> esLoadMoreButton index="ideas"}}
+
+    {{#ifEsHasNoResults index="ideas"}}
+        <div class="no-results">No results found!</div>
+    {{/ifEsHasNoResults}}
+
+    {{#ifEsIsSearching index="ideas"}}
+            <div>Loading...</div>
+    {{/ifEsIsSearching}}
+</template>
+
 
 <template name="searchResults">
   {{>nav}}
