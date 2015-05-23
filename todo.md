@@ -8,10 +8,10 @@ Ideas from meetings:
 	<li><strike>banner</strike></li>
 	<li><strike>rewards - arbitrary choice of developer</strike></li>
 	<li><strike>fundraiser funding options, fund dollars</strike></li>
+	<li><strike>progress bar</strike></li>
 	<li>Funny animations ("extinguish the fire!") ("spark the flame!") ("supercharged ready to go!!!")</li>
 	<li>fund button will launch dropdown</li>
 	<li>categories - modals</li>
-	<li>progress bar</li>
 	<li>pledge - google wallet, not paying upfront</li>
 	<li>lightbox (maybe like quora)</li>
 </ul>
@@ -37,7 +37,6 @@ Important:
 	<li><strike>Single Vote Only Per Account Per Idea/Project</strike></li>
 	<li>Categories Option</li>
 	<li>Search Engine - See Atmosphere matteodem easy-search</li>
-	<li>Fundraising Option, progress bars, fund logistics</li>
 	<li>Pagination</li>
 	<li>Comments (preferably something already done because of, you know, spam)</li>
 	<li>Submitted ... ago</li>
