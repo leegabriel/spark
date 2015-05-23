@@ -13,13 +13,15 @@ if(Meteor.isServer){
 
   Meteor.publish('userData', function () {
     if (this.userId) {
-      return Meteor.users.find({_id: this.userId},
-        {fields:{'username': 1, 'followers': 1}, 'pic': 'http://placehold.it/50x50/'});
+      return Meteor.users.find(
+        {_id: this.userId},
+        {fields:{'username': 1, 'followers': 1, 'pic': 'http://placehold.it/50x50/'}}
+      );
     }
     else {
       this.ready();
     }
-  })
+  });
 } /* isServer */
 
 
@@ -309,6 +311,12 @@ if (Meteor.isClient) {
     },
     'click #login-buttons-settings': function(event) {
       Router.go('settings');
+    }
+  }),
+
+  Template.nav.events({
+    'click #search': function(event) {
+      Router.go('search');
     }
   });
 
@@ -657,6 +665,12 @@ Router.route('/settings',function() {
   window.scrollTo(0,0);
   this.render('settings');
   document.title = "Spark";
+});
+
+Router.route('/search',function() {
+  window.scrollTo(0,0);
+  this.render('searchResults');
+  document.title = "Search Results";
 });
 
 

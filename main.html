@@ -9,7 +9,7 @@
 
 
 <template name="nav">
-  
+
 
   <nav class="navbar navbar-default navbar-fixed-top">
 
@@ -27,11 +27,12 @@
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" placeholder="Search Spark" style="width:300px">
-            </div>
-          </form>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" placeholder="Search" style="width:300px">
+        </div>
+        <button id="search" type="submit" class="btn btn-default">Submit</button>
+      </form>
           <ul class="nav navbar-nav" >
             <li><a href="{{pathFor 'ideas'}}">Ideas</a></li>
             <li><a href="{{pathFor 'projects'}}">Projects</a></li>
@@ -49,22 +50,22 @@
             {{else}}
 
             <li><a class="btn-circle" href="#" data-toggle="tooltip" data-placement="bottom" title="Sign in to compose ideas/projects" role="button" aria-expanded="false"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a></li>
-            
+
             {{/if}}
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="navbar-text">{{>loginButtons align="right"}}</li>
           </ul>
-          
+
         </div>
       </div>
     </div>
 
-    
+
 
   </nav>
 
-  
+
   <script>
   $(document).ready(function() {
     $('.btn-circle').tooltip()
@@ -1336,4 +1337,102 @@ document.title = "Create a New Project"
 
 <template name="loading">
   {{>spinner}}
+</template>
+
+<template name="searchResults">
+  {{>nav}}
+<div class="container">
+
+    <hgroup class="mb20">
+    <h1>Search Results</h1>
+    <h2 class="lead"><strong class="text-danger">3</strong> results were found for the search for <strong class="text-danger">Lorem</strong></h2>               
+  </hgroup>
+
+    <section class="col-xs-12 col-sm-6 col-md-12">
+    <article class="search-result row">
+      <div class="col-xs-12 col-sm-12 col-md-3">
+        <a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/people" alt="Lorem ipsum" /></a>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-2">
+        <ul class="meta-search">
+          <li><i class="glyphicon glyphicon-calendar"></i> <span>02/15/2014</span></li>
+          <li><i class="glyphicon glyphicon-time"></i> <span>4:28 pm</span></li>
+          <li><i class="glyphicon glyphicon-tags"></i> <span>People</span></li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
+        <h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>            
+                <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
+      </div>
+      <span class="clearfix borda"></span>
+    </article>
+
+        <article class="search-result row">
+      <div class="col-xs-12 col-sm-12 col-md-3">
+        <a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/food" alt="Lorem ipsum" /></a>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-2">
+        <ul class="meta-search">
+          <li><i class="glyphicon glyphicon-calendar"></i> <span>02/13/2014</span></li>
+          <li><i class="glyphicon glyphicon-time"></i> <span>8:32 pm</span></li>
+          <li><i class="glyphicon glyphicon-tags"></i> <span>Food</span></li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-7">
+        <h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>            
+                <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
+      </div>
+      <span class="clearfix borda"></span>
+    </article>
+
+    <article class="search-result row">
+      <div class="col-xs-12 col-sm-12 col-md-3">
+        <a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/sports" alt="Lorem ipsum" /></a>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-2">
+        <ul class="meta-search">
+          <li><i class="glyphicon glyphicon-calendar"></i> <span>01/11/2014</span></li>
+          <li><i class="glyphicon glyphicon-time"></i> <span>10:13 am</span></li>
+          <li><i class="glyphicon glyphicon-tags"></i> <span>Sport</span></li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-7">
+        <h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>            
+                <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
+      </div>
+      <span class="clearfix border"></span>
+    </article>      
+
+  </section>
+  {{>footer}}
+</div>  
+
+<style>
+.container { margin-top: 20px; }
+.mb20 { margin-bottom: 20px; } 
+
+hgroup { padding-left: 15px; border-bottom: 1px solid #ccc; }
+hgroup h1 { font: 500 normal 1.625em; color: #2a3644; margin-top: 0; line-height: 1.15; }
+hgroup h2.lead { font: normal normal 1.125em; color: #2a3644; margin: 0; padding-bottom: 10px; }
+
+.search-result .thumbnail { border-radius: 0 !important; }
+.search-result:first-child { margin-top: 0 !important; }
+.search-result { margin-top: 20px; }
+.search-result .col-md-2 { border-right: 1px dotted #ccc; min-height: 140px; }
+.search-result ul { padding-left: 0 !important; list-style: none;  }
+.search-result ul li { font: 400 normal .85em;  line-height: 30px; }
+.search-result ul li i { padding-right: 5px; }
+.search-result .col-md-7 { position: relative; }
+.search-result h3 { font: 500 normal 1.375em; margin-top: 0 !important; margin-bottom: 10px !important; }
+.search-result h3 > a, .search-result i { color: #248dc1 !important; }
+.search-result p { font: normal normal 1.125em; } 
+.search-result span.plus { position: absolute; right: 0; top: 126px; }
+.search-result span.plus a { background-color: #248dc1; padding: 5px 5px 3px 5px; }
+.search-result span.plus a:hover { background-color: #414141; }
+.search-result span.plus a i { color: #fff !important; }
+.search-result span.border { display: block; width: 97%; margin: 0 15px; border-bottom: 1px dotted #ccc; }
+</style>
 </template>
