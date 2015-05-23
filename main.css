@@ -137,8 +137,6 @@ body {
 }
 
 ol {
-  font-weight: 300;
-  font-size: 20px;
   color: #666;
   margin-left: 15px;
 }
@@ -256,7 +254,7 @@ textarea {
   border-top-right-radius:0px;
 }
 
-#middle-link {
+.middle-link {
   margin-left: 20px;
 }
 
@@ -306,16 +304,11 @@ textarea {
     padding: 0;
   }
 
-  #middle-row {
-    width: 0px;
-  }
-
   #title, #slug, #category, #tags, #details, #rewards {
     width: 100% !important;
   }
 
-  #middle-link {
-    font-size: 18px;
+  .middle-link {
     margin-left: 0px;
   }
 

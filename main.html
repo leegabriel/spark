@@ -661,20 +661,20 @@ document.title = "Create a New Project"
         </td>
 
         <td>
-          <a href="/ideas/{{slug}}" style="margin-left: 10px">
+          <a title={{title}} href="/ideas/{{slug}}" style="margin-left: 10px">
             {{>thumbnail}}
           </a>
         </td>
 
-        <td id="middle-row" style="width: 600px">
-          <h3>
-            <a id="middle-link" href="/ideas/{{slug}}">{{title}}</a>
+        <td style="width: 600px">
+            <div class="middle-link">
+            <h3><a title={{title}} id="middle-link" href="/ideas/{{slug}}">{{title}}</a></h3>
+            <p>{{blurb}}</p>
             {{#if isOwner}}
-            <br>
-            <button class="btn btn-sm btn-primary edit" style="margin-top:7.5px;margin-left: 20px"><i class="fa fa-edit"></i> Edit</button><br>
-            <button class="btn btn-sm btn-danger delete" style="margin-top:7.5px;margin-left: 20px"><i class="fa fa-trash"></i> Delete</button>
+            <button class="btn btn-sm btn-primary edit"><i class="fa fa-edit"></i> Edit</button>
+            <button class="btn btn-sm btn-danger delete"><i class="fa fa-trash"></i> Delete</button>
             {{/if}}
-          </h3>
+          </div>
         </td>
 
       </tr>
@@ -716,20 +716,20 @@ document.title = "Create a New Project"
         </td>
 
         <td>
-          <a href="/projects/{{slug}}" style="margin-left: 10px">
+          <a title={{title}} href="/projects/{{slug}}" style="margin-left: 10px">
             {{>thumbnail}}
           </a>
         </td>
 
-        <td id="middle-row" style="width: 600px">
-          <h3>
-            <a id="middle-link" href="/projects/{{slug}}">{{title}}</a>
+        <td style="width: 600px">
+          <div class="middle-link">
+            <h3><a title={{title}} id="middle-link" href="/projects/{{slug}}">{{title}}</a></h3>
+            <p>{{blurb}}</p>
             {{#if isOwner}}
-            <br><br>
-            <button class="btn btn-sm btn-primary edit" style="margin-top:7.5px;margin-left: 20px"><i class="fa fa-edit"></i> Edit</button><br>
-            <button class="btn btn-sm btn-danger delete" style="margin-top:7.5px;margin-left: 20px"><i class="fa fa-trash"></i> Delete</button>
+            <button class="btn btn-sm btn-primary edit"><i class="fa fa-edit"></i> Edit</button>
+            <button class="btn btn-sm btn-danger delete"><i class="fa fa-trash"></i> Delete</button>
             {{/if}}
-          </h3>
+          </div>
         </td>
 
       </tr>
