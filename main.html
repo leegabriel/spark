@@ -1323,28 +1323,28 @@ document.title = "Create a New Project"
         </div>
         <!-- END SIDEBAR USER TITLE -->
         <!-- SIDEBAR BUTTONS -->
-        <div class="profile-userbuttons">
+<!--         <div class="profile-userbuttons">
           <button type="button" class="btn btn-success btn-sm">Follow</button>
           <button type="button" class="btn btn-danger btn-sm">Message</button>
-        </div>
+        </div> -->
         <!-- END SIDEBAR BUTTONS -->
         <!-- SIDEBAR MENU -->
         <div class="profile-usermenu">
           <ul class="nav">
-            <li class="active">
-              <a href="#">
-              <i class="fa fa-home"></i>
-              Overview </a>
+            <li>
+              <p><i class="fa fa-users"></i>Wayne Industries</p> 
             </li>
             <li>
-              <a href="#">
-              <i class="fa fa-user"></i>
-              Account Settings </a>
+              <p><i class="glyphicon glyphicon-map-marker"></i>Cupertino, CA</p>
             </li>
             <li>
-              <a href="#">
-              <i class="fa fa-flag"></i>
-              Help </a>
+              <p><i class="fa fa-envelope"></i><a href="mailto:bruce@wayne.org">bruce@wayne.org</a></p> 
+            </li>
+            <li>
+              <p><i class="fa fa-link"></i><a href="http://wayne.org" target="_blank">http://wayne.org</a></p>
+            </li>
+            <li>
+              <p><i class="fa fa-clock-o"></i>Joined Jan 15, 2015</p>
             </li>
           </ul>
         </div>
@@ -1353,19 +1353,29 @@ document.title = "Create a New Project"
     </div>
     <div class="col-md-9">
             <div class="profile-content">
-         <div class="col-sm-6">
-          <h1>Ideas</h1>
-         </div>
-         <div class="col-sm-6">
-          <h1>Projects</h1>
-         </div>
+        <div role="tabpanel">
+
+         <!-- Nav tabs -->
+         <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="ideas active"><a href="#ideas" aria-controls="ideas" role="tab" data-toggle="tab">Ideas</a></li>
+          <li role="presentation" class="projects"><a href="#projects" aria-controls="projects" role="tab" data-toggle="tab">Projects</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="ideas">
+            <div class="panel panel-default" id="tab">
+              <div class="panel-body">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="projects"></div>
+      </div>
             </div>
     </div>
   </div>
 </div>
-<center>
-<strong><a href="#" target="_blank">Recent Activity</a></strong>
-</center>
 <br>
 <br>
   {{>footer}}
@@ -1381,19 +1391,20 @@ body {
 }
 
 /* Profile sidebar */
-.profile-sidebar {
+/*.profile-sidebar {
   padding: 20px 0 10px 0;
   background: #fff;
-}
+}*/
 
 .profile-userpic img {
   float: none;
   margin: 0 auto;
-  width: 50%;
+  border-radius: 3px;
+/*  width: 50%;
   height: 50%;
   -webkit-border-radius: 50% !important;
   -moz-border-radius: 50% !important;
-  border-radius: 50% !important;
+  border-radius: 50% !important;*/
 }
 
 .profile-usertitle {
@@ -1416,7 +1427,7 @@ body {
   margin-bottom: 15px;
 }
 
-.profile-userbuttons {
+/*.profile-userbuttons {
   text-align: center;
   margin-top: 10px;
 }
@@ -1431,50 +1442,49 @@ body {
 
 .profile-userbuttons .btn:last-child {
   margin-right: 0px;
-}
+}*/
     
 .profile-usermenu {
   margin-top: 30px;
 }
 
-.profile-usermenu ul li {
+/*.profile-usermenu ul li {
   border-bottom: 1px solid #f0f4f7;
 }
 
 .profile-usermenu ul li:last-child {
   border-bottom: none;
-}
+}*/
 
-.profile-usermenu ul li a {
+.profile-usermenu ul li p {
   color: #93a3b5;
   font-size: 14px;
   font-weight: 400;
 }
 
-.profile-usermenu ul li a i {
+.profile-usermenu ul li p i {
   margin-right: 8px;
   font-size: 14px;
 }
 
-.profile-usermenu ul li a:hover {
+/*.profile-usermenu ul li p:hover {
   background-color: #fafcfd;
   color: #5b9bd1;
-}
+}*/
 
-.profile-usermenu ul li.active {
+/*.profile-usermenu ul li.active {
   border-bottom: none;
-}
+}*/
 
-.profile-usermenu ul li.active a {
+/*.profile-usermenu ul li.active p {
   color: #5b9bd1;
   background-color: #f6f9fb;
   border-left: 2px solid #5b9bd1;
   margin-left: -2px;
-}
+}*/
 
 /* Profile Content */
 .profile-content {
-  padding: 20px;
   background: #fff;
   min-height: 460px;
 }
