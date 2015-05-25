@@ -4,6 +4,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.6/animate.min.css">
+  <link rel="icon" sizes="16x16 32x32" href="/favicon.ico?v=2">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
@@ -29,8 +30,10 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
           <form class="navbar-form navbar-left" role="search">
-            <div class="form-group searchForm">
-              {{> esInput index="ideas" placeholder="Search" }}
+            <div class="span12">
+              <form>
+                <input type="text" class="search-query" placeholder="Search">
+              </form>
             </div>
           </form>
           <ul class="nav navbar-nav" >
@@ -64,13 +67,29 @@
 
 
   </nav>
+  <style>
 
 
-  <script>
-  $(document).ready(function() {
-    $('.btn-circle').tooltip()
-  });
-  </script>
+  .search-query {
+    width:200px;
+    background-color: #f9f9f9;
+    -webkit-transition: width 0.3s, background-color 0.3s;
+    transition: width 0.3s, background-color 0.3s;
+  }
+
+
+  .search-query:focus{
+   width:260px;
+   background-color: #fff;
+ }   
+
+ </style>
+
+ <script>
+ $(document).ready(function() {
+  $('.btn-circle').tooltip()
+});
+ </script>
 </template>
 
 <template name="_loginButtonsAdditionalLoggedInDropdownActions">
@@ -1270,26 +1289,26 @@ document.title = "Create a New Project"
 
 <template name="profile">
   {{>nav}}
-<div class="container animated fadeIn">
+  <div class="container animated fadeIn">
     <div class="row profile">
-    <div class="col-md-3">
-      <div class="profile-sidebar">
-        <!-- SIDEBAR USERPIC -->
-        <div class="profile-userpic">
-          <img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
-        </div>
-        <!-- END SIDEBAR USERPIC -->
-        <!-- SIDEBAR USER TITLE -->
-        <div class="profile-usertitle">
-          <div class="profile-usertitle-name">
-            Marcus Doe
+      <div class="col-md-3">
+        <div class="profile-sidebar">
+          <!-- SIDEBAR USERPIC -->
+          <div class="profile-userpic">
+            <img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
           </div>
-          <div class="profile-usertitle-job">
-            Developer
+          <!-- END SIDEBAR USERPIC -->
+          <!-- SIDEBAR USER TITLE -->
+          <div class="profile-usertitle">
+            <div class="profile-usertitle-name">
+              Marcus Doe
+            </div>
+            <div class="profile-usertitle-job">
+              Developer
+            </div>
           </div>
-        </div>
-        <!-- END SIDEBAR USER TITLE -->
-        <!-- SIDEBAR BUTTONS -->
+          <!-- END SIDEBAR USER TITLE -->
+          <!-- SIDEBAR BUTTONS -->
 <!--         <div class="profile-userbuttons">
           <button type="button" class="btn btn-success btn-sm">Follow</button>
           <button type="button" class="btn btn-danger btn-sm">Message</button>
@@ -1319,7 +1338,7 @@ document.title = "Create a New Project"
       </div>
     </div>
     <div class="col-md-9">
-            <div class="profile-content">
+      <div class="profile-content">
         <div role="tabpanel">
 
          <!-- Nav tabs -->
@@ -1339,14 +1358,14 @@ document.title = "Create a New Project"
         </div>
         <div role="tabpanel" class="tab-pane" id="projects"></div>
       </div>
-            </div>
     </div>
   </div>
 </div>
+</div>
 <br>
 <br>
-  {{>footer}}
-  <style>
+{{>footer}}
+<style>
 
 body {
   background: #F1F3FA;
@@ -1361,12 +1380,12 @@ body {
 /*.profile-sidebar {
   padding: 20px 0 10px 0;
   background: #fff;
-}*/
+  }*/
 
-.profile-userpic img {
-  float: none;
-  margin: 0 auto;
-  border-radius: 3px;
+  .profile-userpic img {
+    float: none;
+    margin: 0 auto;
+    border-radius: 3px;
 /*  width: 50%;
   height: 50%;
   -webkit-border-radius: 50% !important;
@@ -1409,11 +1428,11 @@ body {
 
 .profile-userbuttons .btn:last-child {
   margin-right: 0px;
-}*/
-    
-.profile-usermenu {
-  margin-top: 30px;
-}
+  }*/
+
+  .profile-usermenu {
+    margin-top: 30px;
+  }
 
 /*.profile-usermenu ul li {
   border-bottom: 1px solid #f0f4f7;
@@ -1421,40 +1440,40 @@ body {
 
 .profile-usermenu ul li:last-child {
   border-bottom: none;
-}*/
+  }*/
 
-.profile-usermenu ul li p {
-  color: #93a3b5;
-  font-size: 14px;
-  font-weight: 400;
-}
+  .profile-usermenu ul li p {
+    color: #93a3b5;
+    font-size: 14px;
+    font-weight: 400;
+  }
 
-.profile-usermenu ul li p i {
-  margin-right: 8px;
-  font-size: 14px;
-}
+  .profile-usermenu ul li p i {
+    margin-right: 8px;
+    font-size: 14px;
+  }
 
 /*.profile-usermenu ul li p:hover {
   background-color: #fafcfd;
   color: #5b9bd1;
-}*/
+  }*/
 
 /*.profile-usermenu ul li.active {
   border-bottom: none;
-}*/
+  }*/
 
 /*.profile-usermenu ul li.active p {
   color: #5b9bd1;
   background-color: #f6f9fb;
   border-left: 2px solid #5b9bd1;
   margin-left: -2px;
-}*/
+  }*/
 
-/* Profile Content */
-.profile-content {
-  background: #fff;
-  min-height: 460px;
-}
+  /* Profile Content */
+  .profile-content {
+    background: #fff;
+    min-height: 460px;
+  }
   </style>
 </template>
 <template name="watched">
