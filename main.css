@@ -275,6 +275,7 @@ textarea {
 @media screen and (max-width: 768px) {
 
 
+
   body, html {
     margin-right: 7.5px;
     margin-left: 7.5px;
@@ -335,6 +336,8 @@ ol ul {
 }
 
 .navbar-toggle {
+  float:left !important;
+  margin-left: 15px;
   border: none !important;
   border-bottom: transparent !important;
 }
