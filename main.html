@@ -3,6 +3,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.6/animate.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
@@ -86,7 +87,7 @@
 <template name="footer">
   <br>
   <div class="col-sm-12">
-    <div id="footer">
+    <div id="footer" class="fadeIn">
       <div class="copyright">
 
         <center>
@@ -113,6 +114,7 @@
       </div>
     </div>
   </div>
+  
 </template>
 
 
@@ -635,7 +637,7 @@ document.title = "Create a New Project"
 </template>
 
 <template name="idea">
-  <li>
+  <li class="animated fadeIn">
     <table>
       <tr>
 
@@ -690,7 +692,7 @@ document.title = "Create a New Project"
 
 
 <template name="project">
-  <li>
+  <li class="animated fadeIn">
     <table>
       <tr>
 
@@ -951,7 +953,7 @@ document.title = "Create a New Project"
 
   {{> nav}}
 
-  <div class="container">
+  <div class="container animated fadeIn">
     <div class="row">
       <div class="col-sm-8">
         {{#if isOwner}}
@@ -1035,7 +1037,7 @@ document.title = "Create a New Project"
 <template name="projectView">
   {{>nav}}
 
-  <div class="container">
+  <div class="container animated fadeIn">
     <div class="row">
       <div class="col-sm-8">
         {{#if isOwner}}
@@ -1231,7 +1233,7 @@ document.title = "Create a New Project"
 
 <template name="about">
   {{>nav}}
-  <div class="container">
+  <div class="container animated fadeIn">
     <div class="row">
       <h1 class="header">About Spark</h1>
       <h1><small>Overview</small></h1>
