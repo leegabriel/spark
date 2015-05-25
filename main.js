@@ -635,12 +635,6 @@ Router.route('/about',function() {
   document.title = "Spark | About";
 });
 
-Router.route('/landing',function() {
-  window.scrollTo(0,0);
-  this.render('landing');
-  document.title = "Spark";
-});
-
 Router.route('/profile',function() {
   window.scrollTo(0,0);
   this.render('profile');
