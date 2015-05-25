@@ -261,7 +261,7 @@
   
   {{> nav}}
 
-  <div class="container">
+  <div class="container animated fadeIn">
    <div class="row">
     <div class="col-sm-8">
       <form class="addIdeaForm" id="form">
@@ -331,7 +331,7 @@ document.title = "Create a New Idea"
   
   {{> nav}}
 
-  <div class="container">
+  <div class="container animated fadeIn">
    <div class="row">
     <div class="col-sm-8">
       <form class="addProjectForm" id="form">
@@ -415,7 +415,7 @@ document.title = "Create a New Project"
   
   {{> nav}}
 
-  <div class="container">
+  <div class="container animated fadeIn">
 
     <div class="row">
       <div class="col-sm-8">
@@ -518,7 +518,7 @@ document.title = "Create a New Project"
   
   {{> nav}}
 
-  <div class="container">
+  <div class="container animated fadeIn">
 
     <div class="row">
       <div class="col-sm-8">
@@ -1185,7 +1185,7 @@ document.title = "Create a New Project"
 
 <template name="tos">
   {{>nav}}
-  <div class="container">
+  <div class="container animated fadeIn">
     <div class="row">
       <h1 class="header">Terms of Service</h1>
     </div>
@@ -1197,7 +1197,7 @@ document.title = "Create a New Project"
 
 <template name="privacy">
   {{>nav}}
-  <div class="container">
+  <div class="container animated fadeIn">
     <div class="row">
       <h1 class="header">Privacy Policy</h1>
     </div>
@@ -1209,7 +1209,7 @@ document.title = "Create a New Project"
 
 <template name="developers">
   {{>nav}}
-  <div class="container">
+  <div class="container animated fadeIn">
     <div class="row">
       <h1 class="header">Developers</h1>
     </div>
@@ -1221,7 +1221,7 @@ document.title = "Create a New Project"
 
 <template name="artists">
   {{>nav}}
-  <div class="container">
+  <div class="container animated fadeIn">
     <div class="row">
       <h1 class="header">Artists</h1>
     </div>
@@ -1275,37 +1275,12 @@ document.title = "Create a New Project"
     <h1><small>Everyone welcome - both developers and non-techies.</small></h1>
   </div>
 
-  <div id="footer" style="height: 150px">
-    <div class="copyright">
-
-      <center>
-        <div class="col-sm-2">
-          <p>&copy; 2015 Spark</p>  
-        </div>
-        <div class="col-sm-2">
-          <p><a id="tos" ref="/tos">Terms of Service</a></p>  
-        </div>
-        <div class="col-sm-2">
-          <p><a id="privacy" href="/privacy">Privacy Policy</a></p>   
-        </div>
-        <div class="col-sm-2">
-          <p><a id="developers" href="/developers">Developers</a></p>  
-        </div>
-        <div class="col-sm-2">
-          <p><a id="artists" href="/artists">Artists</a></p>  
-        </div>
-        <div class="col-sm-2">
-          <p><a id="about" href="/about">About</a></p>  
-        </div>
-      </center>
-
-    </div>
-  </div>
+  {{>footer}}
 </template>
 
 <template name="profile">
   {{>nav}}
-<div class="container">
+<div class="container animated fadeIn">
     <div class="row profile">
     <div class="col-md-3">
       <div class="profile-sidebar">
@@ -1494,18 +1469,22 @@ body {
 </template>
 <template name="watched">
   {{>nav}}
+  Watched
   {{>footer}}
 </template>
 <template name="stats">
   {{>nav}}
+  Stats
   {{>footer}}
 </template>
 <template name="gold">
   {{>nav}}
+  Gold
   {{>footer}}
 </template>
 <template name="settings">
   {{>nav}}
+  Settings
   {{>footer}}
 </template>
 
@@ -1538,7 +1517,7 @@ body {
 
 <template name="searchResults">
   {{>nav}}
-  <div class="container">
+  <div class="container animated fadeIn">
 
     <hgroup class="mb20">
       <h1>Search Results</h1>
