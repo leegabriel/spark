@@ -283,48 +283,39 @@
   <div class="container animated fadeIn">
    <div class="row">
     <div class="col-sm-8">
+      <h1>Create a New Idea</h1><br>
       <form class="addIdeaForm" id="form">
         <table width="100%">
           <tr> 
             <td>
-              <p>Title <span id="req">*</span></p>
-              <h1><input type="text" name="title" id="title" placeholder="Idea Title"></h1>
-              <p>Blurb <span id="req">*</span></p>
-              <h1><small><input type="text" name="blurb" id="blurb" placeholder="Idea Blurb"></small></h1>
+              <label>Title <span id="req">*</span></label>
+              <h1><input type="text" name="title" id="title" placeholder="Super Smash Mobile"></h1>
+              <label>Blurb <span id="req">*</span></label>
+              <h1><small><input type="text" name="blurb" id="blurb" placeholder="Someone should put Smash on mobile!"></small></h1>
             </td>
           </tr>
         </table>
 
         <br>
-        <p>Image Link</p>
-        <input type="text" name="image" id="image" placeholder="Link to idea image">
+        <label>Image URL</label>
+        <input type="text" name="image" id="image" placeholder="http://smashmobile.com/smash.png">
 
         <br>
-        <p>Details <span id="req">*</span></p>
-        <textarea type="text" name="details" id="details" placeholder="Idea details" rows="6"></textarea><br>
+        <label>Details <span id="req">*</span></label>
+        <textarea type="text" name="details" id="details" placeholder="Please upvote this idea if you also want Super Smash Bros. on mobile!" rows="6"></textarea><br>
 
-        <p>Permalink <span id="req">*</span></p>
+        <label>Permalink <span id="req">*</span></label>
         <span id="helpBlock" class="help-block">/ideas/<b>your-unique-idea-address</b></span>
-        <input type="text" name="slug" id="slug" placeholder="your-unique-idea-address"><br>
+        <input type="text" name="slug" id="slug" placeholder="super-smash-mobile"><br>
 
-        <p>Tags</p>
-        <input type="text" name="tags" id="tags" placeholder="Idea tags">  
+        <label>Tags</label>
+        <input type="text" name="tags" id="tags" placeholder="games, action, fighting, Nintendo">  
 
         <input id="submit" type="submit" value="Spark!" class="btn btn-lg btn-primary">
       </form>
     </div>
     <div class="col-sm-4">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <b>FAQs <i class="fa fa-question-circle"></i></b><br><br>
-          <em>How do I make a catchy title?</em><br><br>
-          <p>Try to make the title well-balanced ie. <em>Rooster Booster, Lord-of-the-Flies Sized Fries, Superman Suit</em></p>
-          <em>What image should I use?</em><br><br>
-          <p>As long as the picture is high quality and relevant to your project, it should be fine. Any ideas or projects with inappropriate or irrelevant content will be deleted and users posting them will be banned.</p>
-          <em>What should I put as my permalink?</em><br><br>
-          <p>The permalink is your personal link that you can send to other people. It should capture the main points of your project, ie. <em>archie-comic-book-series or hawaii-t-shirts</em></p>
-        </div>
-      </div>
+      {{>faq}}
     </div>
   </div>
 </div>
@@ -344,7 +335,19 @@ document.title = "Create a New Idea"
 
 </template>
 
-
+<template name="faq">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <b>FAQs <i class="fa fa-question-circle"></i></b><br><br>
+      <em>How do I make a catchy title?</em><br><br>
+      <p>Try to make the title well-balanced ie. <em>Rooster Booster, Lord-of-the-Flies Sized Fries, Superman Suit</em></p>
+      <em>What image should I use?</em><br><br>
+      <p>As long as the picture is high quality and relevant to your project, it should be fine. Any ideas or projects with inappropriate or irrelevant content will be deleted and users posting them will be banned.</p>
+      <em>What should I put as my permalink?</em><br><br>
+      <p>The permalink is your personal link that you can send to other people. It should capture the main points of your project, ie. <em>archie-comic-book-series or hawaii-t-shirts</em></p>
+    </div>
+  </div>
+</template>
 <template name="newProject">
   {{#if currentUser}}
   
@@ -354,61 +357,52 @@ document.title = "Create a New Idea"
    <div class="row">
     <div class="col-sm-8">
       <form class="addProjectForm" id="form">
-
+        <h1>Create New Project</h1>
+        <br>
         <table width="100%">
           <tr> 
             <td>
-              <p>Title <span id="req">*</span></p>
-              <h1><input type="text" name="title" id="title" placeholder="Project Title"></h1>
-              <p>Blurb <span id="req">*</span></p>
-              <h1><small><input type="text" name="blurb" id="blurb" placeholder="Project Blurb"></small></h1>
+              <label>Title <span id="req">*</span></label>
+              <h1><input type="text" name="title" id="title" placeholder="Super Smash Mobile"></h1>
+              <label>Blurb <span id="req">*</span></label>
+              <h1><small><input type="text" name="blurb" id="blurb" placeholder="Play Smash on your phone!"></small></h1>
             </td>
           </tr>
         </table>
 
         <br>
-        <p>Image Link</p>
-        <input type="text" name="image" id="image" placeholder="Link to project image">
+        <label>Image URL</label>
+        <input type="text" name="image" id="image" placeholder="http://smashmobile.com/smash.png">
 
         <br>
-        <p>Details <span id="req">*</span></p>
-        <textarea type="text" name="details" id="details" placeholder="Project details" rows="6"></textarea><br>
+        <label>Details <span id="req">*</span></label>
+        <textarea type="text" name="details" id="details" placeholder="We are currently looking for developers to work on game mechanics!" rows="6"></textarea><br>
 
-        <p>Permalink <span id="req">*</span></p>
+        <label>Permalink <span id="req">*</span></label>
         <span id="helpBlock" class="help-block">/projects/<b>your-unique-project-address</b></span>
-        <input type="text" name="slug" id="slug" placeholder="your-unique-project-address"><br>
+        <input type="text" name="slug" id="slug" placeholder="super-smash-mobile"><br>
 
-        <p>Tags</p>
-        <input type="text" name="tags" id="tags" placeholder="Project tags"><br>  
+        <label>Tags</label>
+        <input type="text" name="tags" id="tags" placeholder="games, action, fighting, Nintendo"><br>  
 
-        <p>Funding Goal</p>
-        <input type="text" name="goal" id="goal" placeholder="Project funding goal"><br>  
+        <label>Funding Goal</label>
+        <input type="text" name="goal" id="goal" placeholder="$5000"><br>  
 
-        <p>Duration</p>
-        <input type="text" name="duration" id="duration" placeholder="Project duration"><br>
+        <label>Duration</label>
+        <input type="text" name="duration" id="duration" placeholder="90 Days"><br>
 
-        <p>Location</p>
-        <input type="text" name="location" id="location" placeholder="Project location"><br>   
+        <label>Location</label>
+        <input type="text" name="location" id="location" placeholder="Osaka, Japan"><br>   
 
-        <p>Rewards</p>
-        <textarea type="text" name="rewards" id="rewards" placeholder="Project Rewards"></textarea><br> 
+        <label>Rewards</label>
+        <textarea type="text" name="rewards" id="rewards" placeholder="$10 - Receive a Super Smash Mobile T-Shirt!"></textarea><br> 
 
 
         <input id="submit" type="submit" value="Spark!" class="btn btn-lg btn-primary">
       </form>
     </div>
     <div class="col-sm-4">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <b>FAQs <i class="fa fa-question-circle"></i></b><br><br>
-          <em>How do I make a catchy title?</em><br><br>
-          <p>Try to make the title well-balanced ie. <em>Rooster Booster, Lord-of-the-Flies Sized Fries, Superman Suit</em></p>
-          <em>What image should I use?</em><br><br>
-          <p>As long as the picture is high quality and relevant to your project, it should be fine. Any ideas or projects with inappropriate or irrelevant content will be deleted and users posting them will be banned.</p>
-          <em>What should I put as my permalink?</em><br><br>
-          <p>The permalink is your personal link that you can send to other people. It should capture the main points of your project, ie. <em>archie-comic-book-series or hawaii-t-shirts</em></p>
-        </div>
-      </div>
+      {{>faq}}
     </div>
   </div>
 </div>
