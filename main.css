@@ -252,11 +252,11 @@ textarea {
 }
 
 
-/*#tab {
+#tab {
   border-top: 0px; 
   border-top-left-radius: 0px; 
   border-top-right-radius:0px;
-}*/
+}
 
 .middle-link {
   margin-left: 20px;
@@ -264,6 +264,12 @@ textarea {
 
 .jumbotron{
   background-color: transparent !important;
+}
+
+/* To accomodate the sidebar */
+.container {
+  margin-left: 200px !important;
+  width: auto !important;
 }
 
 @media (min-width: 768px) {
@@ -277,7 +283,10 @@ textarea {
 }
 
 @media screen and (max-width: 768px) {
-
+  .container {
+  margin-left: none !important;
+  width: auto !important;
+}
 
 
   body, html {
