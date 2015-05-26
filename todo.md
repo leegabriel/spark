@@ -41,6 +41,9 @@ Important:
 	<li>Comments (preferably something already done because of, you know, spam)</li>
 	<li>Submitted ... ago</li>
 	<li>Possibly show modal on clicking login-required item, to make it easier for user to sign up</li>
+	<li>Hide sidebar on desktop view, and put search/everything in the navbar inside it on mobile view.</li>
+	<li> Style the idea/project tabs better</li>
+
 </ul>
 
 
