@@ -302,12 +302,6 @@ if (Meteor.isClient) {
 
 
   Template._loginButtonsLoggedInDropdown.events({
-    'click #login-buttons-myIdeas': function(event) {
-      Router.go('myideas');
-    },
-    'click #login-buttons-myProjects': function(event) {
-      Router.go('myprojects');
-    },
     'click #login-buttons-profile': function(event) {
       Router.go('profile');
     },
@@ -316,9 +310,6 @@ if (Meteor.isClient) {
     },
     'click #login-buttons-stats': function(event) {
       Router.go('stats');
-    },
-    'click #login-buttons-gold': function(event) {
-      Router.go('gold');
     },
     'click #login-buttons-settings': function(event) {
       Router.go('settings');

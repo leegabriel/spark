@@ -40,6 +40,9 @@
             <li><a href="{{pathFor 'ideas'}}">Ideas</a></li>
             <li><a href="{{pathFor 'projects'}}">Projects</a></li>
 
+            
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
             {{#if currentUser}}
             <li class="dropdown">
               <a class="btn-circle dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a>
@@ -55,8 +58,6 @@
             <li><a class="btn-circle" href="#" data-toggle="tooltip" data-placement="bottom" title="Sign in to compose ideas/projects" role="button" aria-expanded="false"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a></li>
 
             {{/if}}
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
             <li class="navbar-text">{{>loginButtons align="right"}}</li>
           </ul>
 
@@ -99,7 +100,6 @@
     <a id="login-buttons-profile">Profile</a>
     <a id="login-buttons-watched">Watched</a>
     <a id="login-buttons-stats">Stats</a>
-    <a id="login-buttons-gold">Gold</a>
     <a id="login-buttons-settings">Settings</a>
   </li>
 </template>
@@ -108,7 +108,7 @@
 <template name="footer">
   <br>
   <div class="col-sm-12">
-    <div id="footer" class="fadeIn">
+    <div id="footer" class="aniated fadeIn">
       <div class="copyright">
 
         <center>
@@ -144,283 +144,255 @@
 </template>
 
 <template name="categories">
-  <div class="col-sm-2">
+
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Choose a category
+      <span class="caret"></span></button>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Art</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Comics</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Dance</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Design</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Fashion</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Film & Video</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Food</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Games</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Journalism</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Music</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Photography</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Publishing</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Technology</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Theater</a></li>
+      </ul>
+    </div>
+
+  </template>
+
+  <template name="sortBar">
+
+    <div class="dropdown">
+      <a class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Sort by
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+          <li role="presentation"><a class="hot" role="menuitem" tabindex="-1" href="#">Hot</a></li>
+          <li role="presentation"><a class="top" role="menuitem" tabindex="-1" href="#">Top</a></li>
+          <li role="presentation"><a class="newest" role="menuitem" tabindex="-1" href="#">Newest</a></li>
+          <li role="presentation"><a class="promoted" role="menuitem" tabindex="-1" href="#">Promoted</a></li>
+        </ul>
+      </div>
+    </template>
+
+    <template name="alerts">
+      <div class="ghost">
+
+        <br>
+      </div>
+    </template>
+
+    <template name="ideasTab">
+      {{> nav}}
+      <div class="container">
+        <div class="row">
+
+          <div class="col-sm-12">
+            {{>sortBar}}
+            <br>
+
+            <ol>
+              {{#each ideas}}
+              {{> idea}}
+              {{/each}}
+            </ol>
+
+            <!-- </div> -->
+            <nav style="text-align: center">
+              <ul class="pager">
+                <li><a href="#">Previous</a></li>
+                <li><a href="#">Next</a></li>
+              </ul>
+            </nav>
+          </div>
+
+        </div>
+      </div>
+      {{> footer}}
+    </template>
+
+
+    <template name="projectsTab">
+      {{> nav}}
+      <div class="container">
+        <div class="row">
+
+          <div class="col-sm-12">
+            {{>sortBar}}
+            <br>
+
+            <ol>
+              {{#each projects}}
+              {{> project}}
+              {{/each}}
+            </ol>
+
+            <!-- </div> -->
+            <nav style="text-align: center">
+              <ul class="pager">
+                <li><a href="#">Previous</a></li>
+                <li><a href="#">Next</a></li>
+              </ul>
+            </nav>
+          </div>
+
+        </div>
+      </div>
+      {{> footer}}
+    </template>
+
+
+    <template name="newIdea">
+      {{#if currentUser}}
+
+      {{> nav}}
+
+      <div class="container animated fadeIn">
+       <div class="row">
+        <div class="col-sm-8">
+          <h1>Create a New Idea</h1><br>
+          <form class="addIdeaForm" id="form">
+            <table width="100%">
+              <tr> 
+                <td>
+                  <label>Title <span id="req">*</span></label>
+                  <h1><input type="text" name="title" id="title" placeholder="Super Smash Mobile"></h1>
+                  <label>Blurb <span id="req">*</span></label>
+                  <h1><small><input type="text" name="blurb" id="blurb" placeholder="Someone should put Smash on mobile!"></small></h1>
+                </td>
+              </tr>
+            </table>
+
+            <br>
+            <label>Image URL</label>
+            <input type="text" name="image" id="image" placeholder="http://smashmobile.com/smash.png">
+
+            <br>
+            <label>Details <span id="req">*</span></label>
+            <textarea type="text" name="details" id="details" placeholder="Please upvote this idea if you also want Super Smash Bros. on mobile!" rows="6"></textarea><br>
+
+            <label>Permalink <span id="req">*</span></label>
+            <span id="helpBlock" class="help-block">/ideas/<b>your-unique-idea-address</b></span>
+            <input type="text" name="slug" id="slug" placeholder="super-smash-mobile"><br>
+
+            <label>Tags</label>
+            <input type="text" name="tags" id="tags" placeholder="games, action, fighting, Nintendo">  
+
+            <input id="submit" type="submit" value="Spark!" class="btn btn-md btn-primary">
+          </form>
+        </div>
+        <div class="col-sm-4">
+          {{>faq}}
+        </div>
+      </div>
+    </div>
+    {{> footer}}
+
+    {{else}}
+    {{#unless loggingIn}}
+    {{>pageNotFound}}
+    {{/unless}}
+    {{/if}}
+
+
+
+    <script>
+    document.title = "Create a New Idea"
+    </script>
+
+  </template>
+
+  <template name="faq">
     <div class="panel panel-default">
       <div class="panel-body">
-        <b>Categories</b><br>
-        <a href="#">Art</a><br>
-        <a href="#">Comics</a><br>
-        <a href="#">Dance</a><br>
-        <a href="#">Design</a><br>
-        <a href="#">Fashion</a><br>
-        <a href="#">Film & Video</a><br>
-        <a href="#">Food</a><br>
-        <a href="#">Games</a><br>
-        <a href="#">Journalism</a><br>
-        <a href="#">Music</a><br>
-        <a href="#">Photography</a><br>
-        <a href="#">Publishing</a><br>
-        <a href="#">Technology</a><br>
-        <a href="#">Theater</a><br>
+        <b>FAQs <i class="fa fa-question-circle"></i></b><br><br>
+        <em>How do I make a catchy title?</em><br><br>
+        <p>Try to make the title well-balanced ie. <em>Rooster Booster, Lord-of-the-Flies Sized Fries, Superman Suit</em></p>
+        <em>What image should I use?</em><br><br>
+        <p>As long as the picture is high quality and relevant to your project, it should be fine. Any ideas or projects with inappropriate or irrelevant content will be deleted and users posting them will be banned.</p>
+        <em>What should I put as my permalink?</em><br><br>
+        <p>The permalink is your personal link that you can send to other people. It should capture the main points of your project, ie. <em>archie-comic-book-series or hawaii-t-shirts</em></p>
+      </div>
+    </div>
+  </template>
+  <template name="newProject">
+    {{#if currentUser}}
+    
+    {{> nav}}
+
+    <div class="container animated fadeIn">
+     <div class="row">
+      <div class="col-sm-8">
+        <form class="addProjectForm" id="form">
+          <h1>Create New Project</h1>
+          <br>
+          <table width="100%">
+            <tr> 
+              <td>
+                <label>Title <span id="req">*</span></label>
+                <h1><input type="text" name="title" id="title" placeholder="Super Smash Mobile"></h1>
+                <label>Blurb <span id="req">*</span></label>
+                <h1><small><input type="text" name="blurb" id="blurb" placeholder="Play Smash on your phone!"></small></h1>
+              </td>
+            </tr>
+          </table>
+
+          <br>
+          <label>Image URL</label>
+          <input type="text" name="image" id="image" placeholder="http://smashmobile.com/smash.png">
+
+          <br>
+          <label>Details <span id="req">*</span></label>
+          <textarea type="text" name="details" id="details" placeholder="We are currently looking for developers to work on game mechanics!" rows="6"></textarea><br>
+
+          <label>Permalink <span id="req">*</span></label>
+          <span id="helpBlock" class="help-block">/projects/<b>your-unique-project-address</b></span>
+          <input type="text" name="slug" id="slug" placeholder="super-smash-mobile"><br>
+
+          <label>Tags</label>
+          <input type="text" name="tags" id="tags" placeholder="games, action, fighting, Nintendo"><br>  
+
+          <label>Funding Goal</label>
+          <input type="text" name="goal" id="goal" placeholder="$5000"><br>  
+
+          <label>Duration</label>
+          <input type="text" name="duration" id="duration" placeholder="90 Days"><br>
+
+          <label>Location</label>
+          <input type="text" name="location" id="location" placeholder="Osaka, Japan"><br>   
+
+          <label>Rewards</label>
+          <textarea type="text" name="rewards" id="rewards" placeholder="$10 - Receive a Super Smash Mobile T-Shirt!"></textarea><br> 
+
+
+          <input id="submit" type="submit" value="Spark!" class="btn btn-md btn-primary">
+        </form>
+      </div>
+      <div class="col-sm-4">
+        {{>faq}}
       </div>
     </div>
   </div>
-</template>
+  {{> footer}}
 
-<template name="banner">
-  <div class="ghost">
-    <h2>What is this?</h2>
-    <h2><small>Spark is an idea and project marketplace, where anyone can join and post.</small></h2>
-    <br>
-  </div>
-</template>
-
-<template name="ideasTab">
-  {{> nav}}
-  <div class="container">
-    <div class="row">
-
-      <div class="col-sm-12">
-        {{>banner}}
-        <div role="tabpanel">
-
-         <!-- Nav tabs -->
-         <ul class="nav nav-tabs nav-justified" role="tablist">
-          <li role="presentation" class="hot active"><a href="#hot" aria-controls="hot" role="tab" data-toggle="tab">Hot</a></li>
-          <li role="presentation" class="top"><a href="#top" aria-controls="top" role="tab" data-toggle="tab">Top</a></li>
-          <li role="presentation" class="newest"><a href="#newest" aria-controls="newest" role="tab" data-toggle="tab">Newest</a></li>
-          <li role="presentation" class="promoted"><a href="#promoted" aria-controls="promoted" role="tab" data-toggle="tab">Promoted</a></li>
-        </ul>
-
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="hot">
-            <div class="panel panel-default" id="tab">
-              <div class="panel-body">
-                <ol>
-                  {{#each ideas}}
-                  {{> idea}}
-                  {{/each}}
-                </ol>
-              </div>
-            </div>
-          </div>
-          <nav style="text-align: center">
-            <ul class="pager">
-              <li><a href="#">Previous</a></li>
-              <li><a href="#">Next</a></li>
-            </ul>
-          </nav>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="top"></div>
-        <div role="tabpanel" class="tab-pane" id="newest"></div>
-        <div role="tabpanel" class="tab-pane" id="promoted"></div>
-      </div>
-    </div>
-
-  </div>
-</div>
-{{> footer}}
-</template>
-
-
-<template name="projectsTab">
-  {{> nav}}
-
-  <div class="container">
-    <div class="row">
+  {{else}}
+  {{#unless loggingIn}}
+  {{>pageNotFound}}
+  {{/unless}}
+  {{/if}}
 
 
 
-      <div class="col-sm-12">
-        {{>banner}}
-        <div role="tabpanel">
-
-         <!-- Nav tabs -->
-         <ul class="nav nav-tabs nav-justified" role="tablist">
-          <li role="presentation" class="hot active"><a href="#hot" aria-controls="hot" role="tab" data-toggle="tab">Hot</a></li>
-          <li role="presentation" class="top"><a href="#top" aria-controls="top" role="tab" data-toggle="tab">Top</a></li>
-          <li role="presentation" class="newest"><a href="#newest" aria-controls="newest" role="tab" data-toggle="tab">Newest</a></li>
-          <li role="presentation" class="promoted"><a href="#promoted" aria-controls="promoted" role="tab" data-toggle="tab">Promoted</a></li>
-        </ul>
-
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="hot">
-            <div class="panel panel-default" id="tab">
-              <div class="panel-body">
-                <ol>
-                  {{#each projects}}
-                  {{> project}}
-                  {{/each}}
-                </ol>
-              </div>
-            </div>
-          </div>
-          <nav style="text-align: center">
-            <ul class="pager">
-              <li><a href="#">Previous</a></li>
-              <li><a href="#">Next</a></li>
-            </ul>
-          </nav>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="top"></div>
-        <div role="tabpanel" class="tab-pane" id="newest"></div>
-        <div role="tabpanel" class="tab-pane" id="promoted"></div>
-      </div>
-    </div>
-
-  </div>
-</div>
-{{> footer}}
-
-</template>
-
-
-<template name="newIdea">
-  {{#if currentUser}}
-  
-  {{> nav}}
-
-  <div class="container animated fadeIn">
-   <div class="row">
-    <div class="col-sm-8">
-      <h1>Create a New Idea</h1><br>
-      <form class="addIdeaForm" id="form">
-        <table width="100%">
-          <tr> 
-            <td>
-              <label>Title <span id="req">*</span></label>
-              <h1><input type="text" name="title" id="title" placeholder="Super Smash Mobile"></h1>
-              <label>Blurb <span id="req">*</span></label>
-              <h1><small><input type="text" name="blurb" id="blurb" placeholder="Someone should put Smash on mobile!"></small></h1>
-            </td>
-          </tr>
-        </table>
-
-        <br>
-        <label>Image URL</label>
-        <input type="text" name="image" id="image" placeholder="http://smashmobile.com/smash.png">
-
-        <br>
-        <label>Details <span id="req">*</span></label>
-        <textarea type="text" name="details" id="details" placeholder="Please upvote this idea if you also want Super Smash Bros. on mobile!" rows="6"></textarea><br>
-
-        <label>Permalink <span id="req">*</span></label>
-        <span id="helpBlock" class="help-block">/ideas/<b>your-unique-idea-address</b></span>
-        <input type="text" name="slug" id="slug" placeholder="super-smash-mobile"><br>
-
-        <label>Tags</label>
-        <input type="text" name="tags" id="tags" placeholder="games, action, fighting, Nintendo">  
-
-        <input id="submit" type="submit" value="Spark!" class="btn btn-lg btn-primary">
-      </form>
-    </div>
-    <div class="col-sm-4">
-      {{>faq}}
-    </div>
-  </div>
-</div>
-{{> footer}}
-
-{{else}}
-{{#unless loggingIn}}
-{{>pageNotFound}}
-{{/unless}}
-{{/if}}
-
-
-
-<script>
-document.title = "Create a New Idea"
-</script>
-
-</template>
-
-<template name="faq">
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <b>FAQs <i class="fa fa-question-circle"></i></b><br><br>
-      <em>How do I make a catchy title?</em><br><br>
-      <p>Try to make the title well-balanced ie. <em>Rooster Booster, Lord-of-the-Flies Sized Fries, Superman Suit</em></p>
-      <em>What image should I use?</em><br><br>
-      <p>As long as the picture is high quality and relevant to your project, it should be fine. Any ideas or projects with inappropriate or irrelevant content will be deleted and users posting them will be banned.</p>
-      <em>What should I put as my permalink?</em><br><br>
-      <p>The permalink is your personal link that you can send to other people. It should capture the main points of your project, ie. <em>archie-comic-book-series or hawaii-t-shirts</em></p>
-    </div>
-  </div>
-</template>
-<template name="newProject">
-  {{#if currentUser}}
-  
-  {{> nav}}
-
-  <div class="container animated fadeIn">
-   <div class="row">
-    <div class="col-sm-8">
-      <form class="addProjectForm" id="form">
-        <h1>Create New Project</h1>
-        <br>
-        <table width="100%">
-          <tr> 
-            <td>
-              <label>Title <span id="req">*</span></label>
-              <h1><input type="text" name="title" id="title" placeholder="Super Smash Mobile"></h1>
-              <label>Blurb <span id="req">*</span></label>
-              <h1><small><input type="text" name="blurb" id="blurb" placeholder="Play Smash on your phone!"></small></h1>
-            </td>
-          </tr>
-        </table>
-
-        <br>
-        <label>Image URL</label>
-        <input type="text" name="image" id="image" placeholder="http://smashmobile.com/smash.png">
-
-        <br>
-        <label>Details <span id="req">*</span></label>
-        <textarea type="text" name="details" id="details" placeholder="We are currently looking for developers to work on game mechanics!" rows="6"></textarea><br>
-
-        <label>Permalink <span id="req">*</span></label>
-        <span id="helpBlock" class="help-block">/projects/<b>your-unique-project-address</b></span>
-        <input type="text" name="slug" id="slug" placeholder="super-smash-mobile"><br>
-
-        <label>Tags</label>
-        <input type="text" name="tags" id="tags" placeholder="games, action, fighting, Nintendo"><br>  
-
-        <label>Funding Goal</label>
-        <input type="text" name="goal" id="goal" placeholder="$5000"><br>  
-
-        <label>Duration</label>
-        <input type="text" name="duration" id="duration" placeholder="90 Days"><br>
-
-        <label>Location</label>
-        <input type="text" name="location" id="location" placeholder="Osaka, Japan"><br>   
-
-        <label>Rewards</label>
-        <textarea type="text" name="rewards" id="rewards" placeholder="$10 - Receive a Super Smash Mobile T-Shirt!"></textarea><br> 
-
-
-        <input id="submit" type="submit" value="Spark!" class="btn btn-lg btn-primary">
-      </form>
-    </div>
-    <div class="col-sm-4">
-      {{>faq}}
-    </div>
-  </div>
-</div>
-{{> footer}}
-
-{{else}}
-{{#unless loggingIn}}
-{{>pageNotFound}}
-{{/unless}}
-{{/if}}
-
-
-
-<script>
-document.title = "Create a New Project"
-</script>
+  <script>
+  document.title = "Create a New Project"
+  </script>
 
 </template>
 
@@ -652,7 +624,10 @@ document.title = "Create a New Project"
 </template>
 
 <template name="idea">
+  
+  
   <li class="animated fadeIn">
+
     <table>
       <tr>
 
@@ -694,9 +669,8 @@ document.title = "Create a New Project"
       </tr>
     </table>
 
-    <br><br>
-
   </li>
+
   <script>
   $(document).ready(function() {
     $('.fa').tooltip()
@@ -708,6 +682,7 @@ document.title = "Create a New Project"
 
 <template name="project">
   <li class="animated fadeIn">
+
     <table>
       <tr>
 
@@ -749,7 +724,6 @@ document.title = "Create a New Project"
       </tr>
     </table>
 
-    <br><br>
 
   </li>
 
@@ -1202,7 +1176,9 @@ document.title = "Create a New Project"
   {{>nav}}
   <div class="container animated fadeIn">
     <div class="row">
-      <h1 class="header">Terms of Service</h1>
+      <div class="jumbotron">
+        <h1 class="header">Terms of Service</h1>
+      </div>
     </div>
   </div>
   {{> footer}}
@@ -1214,7 +1190,9 @@ document.title = "Create a New Project"
   {{>nav}}
   <div class="container animated fadeIn">
     <div class="row">
-      <h1 class="header">Privacy Policy</h1>
+      <div class="jumbotron">
+        <h1 class="header">Privacy Policy</h1>
+      </div>
     </div>
   </div>
   {{> footer}}
@@ -1226,7 +1204,9 @@ document.title = "Create a New Project"
   {{>nav}}
   <div class="container animated fadeIn">
     <div class="row">
-      <h1 class="header">Developers</h1>
+      <div class="jumbotron">
+        <h1>Developers</h1>
+      </div>
     </div>
   </div>
   {{> footer}}
@@ -1238,7 +1218,9 @@ document.title = "Create a New Project"
   {{>nav}}
   <div class="container animated fadeIn">
     <div class="row">
-      <h1 class="header">Artists</h1>
+      <div class="jumbotron">
+        <h1>Artists</h1>
+      </div>
     </div>
   </div>
   {{> footer}}
@@ -1250,11 +1232,18 @@ document.title = "Create a New Project"
   {{>nav}}
   <div class="container animated fadeIn">
     <div class="row">
-      <h1 class="header">About Spark</h1>
-      <h1><small>Overview</small></h1>
-      <p>Spark is an idea and project sharing platform built to facilitate human progress and innovation.</p>
-      <h1><small>There are no bad ideas</small></h1>
-      <p>Aside from criminal thoughts, we at Spark believe that there is no such things as a bad idea. Whether you're an artist or a blogger or an aerospace engineer, your voice must be heard. No matter how stupid or silly you think your idea may be, somebody, somewhere, just may find it inspiring.</p>
+      <div class="jumbotron">
+        <h1>About Spark</h1>
+        <br>
+        <h2>Why Spark?</h2>
+        <p>We believe that everyone is powerful. We believe that everyone has some special talent or some special idea. We believe that everyone has something crazy to contribute to the world, and Spark is our way of connecting people to accomplish amazing things.</p>
+        <br>
+        <h2>What is Spark?</h2>
+        <p>Spark is an idea and project sharing community designed to encourage innovation.</p>
+        <br>
+        <h2>How does it work?</h2>
+        <p>Anyone can make an idea or a project, and anyone can upvote or downvote any idea or project. Anyone can turn their own ideas into projects, or turn their own projects into fundraising campaigns.</p>
+      </div>
     </div>
   </div>
   {{> footer}}
@@ -1480,11 +1469,6 @@ body {
 <template name="stats">
   {{>nav}}
   Stats
-  {{>footer}}
-</template>
-<template name="gold">
-  {{>nav}}
-  Gold
   {{>footer}}
 </template>
 <template name="settings">

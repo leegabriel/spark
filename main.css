@@ -31,14 +31,12 @@ h1, h2, h3, h4, h5, h6, p, small {
 
 .navbar-default .navbar-brand {
   font-size: 24px;
-  background-color: transparent;
   color: #58595b !important;
 }
 
 .navbar-default .navbar-brand:hover {
   font-size: 24px; 
-  background-color: transparent !important;
-  color: #58595b  !important;
+  /*color: #58595b  !important;*/
 }
 
 .navbar-default .navbar-nav>li>a {
@@ -53,6 +51,11 @@ h1, h2, h3, h4, h5, h6, p, small {
 .navbar-default .navbar-nav>.open>a {
   background-color: none !important;
 }
+
+.navbar-nav>li>.dropdown-menu {
+  margin-top: 7.5px !important;
+}
+
 
 .dropdown-menu>li>a {
   color: #000 !important;
@@ -104,13 +107,13 @@ body {
   margin-top: 35px !important;
   padding:0;
   height:100%;
-  background-color: #fff !important;
+  background-color: transparent !important;
 }
 
 #container {
  min-height:100%;
  position:relative;
- color: #fff;
+ color: transparent;
 }
 
 #footer {
@@ -210,7 +213,7 @@ input {
   background-color: #fff;
   background-image: none;
   border: 1px solid #eee;
-  border-radius: 1px;
+  border-radius: 5px;
   box-shadow: inset 0 2px 3px -3px rgba(200,200,200,0.5);
   margin: 0;
   font: inherit;
@@ -248,11 +251,12 @@ textarea {
   opacity: 0.87;
 }
 
-#tab {
+
+/*#tab {
   border-top: 0px; 
   border-top-left-radius: 0px; 
   border-top-right-radius:0px;
-}
+}*/
 
 .middle-link {
   margin-left: 20px;
@@ -286,7 +290,7 @@ textarea {
    bottom:0;
    width:100%;
    height:250px !important;   /* Height of the footer */
-   background: #f9f9f9;
+   background: transparent;
 
  }
 
@@ -373,7 +377,7 @@ input {
   outline: 0;
   color: #000;
   background: #fff;
-  border-radius: 1px;
+  border-radius: 5px;
   border: 1px solid #ccc;
   box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1);
   width: 100% !important;
