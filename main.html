@@ -45,7 +45,8 @@
             </div>
           </form>
           <ul class="nav navbar-nav" >
-
+            <li><a href="{{pathFor 'ideas'}}">Ideas</a></li>
+            <li><a href="{{pathFor 'projects'}}">Projects</a></li>
 
 
           </ul>
@@ -65,25 +66,26 @@
             <li><a class="btn-circle" href="#" data-toggle="tooltip" data-placement="bottom" title="Sign in to compose ideas/projects" role="button" aria-expanded="false"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a></li>
 
             {{/if}}
-
+            {{>loginButtons}}
           </ul>
 
         </div>
         <div id="sidebar-wrapper" class="sidebar-toggle">
           <ul class="sidebar-nav">
-
-            <li>{{>loginButtons}}</li>
-            <li><form class="navbar-form navbar-left" role="search">
+            
+<!--             <li><form class="navbar-form navbar-left" role="search">
               <div class="span12">
+
                 <form>
                   <input type="text" class="search-query-mobile" placeholder="Search">
                 </form>
               </div>
-            </form></li>
+            </form></li> -->
             <li><a href="{{pathFor 'ideas'}}">Ideas</a></li>
             <li><a href="{{pathFor 'projects'}}">Projects</a></li>
             <li><hr></li>
             {{>categories}}
+
           </ul>
         </div>
       </div>
@@ -114,9 +116,8 @@
  .search-query-mobile {
   line-height: 20px;
   width:100%;
-  margin: 0 7.5px;
-  margin: auto;
-  background-color: #f9f9f9;
+  maring: auto;
+  background-color: #f6f6f6;
   -webkit-transition: background-color 0.3s;
   transition: background-color 0.3s;
 }
@@ -127,9 +128,9 @@
 
 #sidebar-wrapper {
   display:none;
-  top: 0px;
-  left: -200px;
-  width: 200px;
+  top: 50px;
+  left: -250px;
+  width: 250px;
   background-color: #f9f9f9;
   color: #58595b;
   position: fixed;
@@ -141,7 +142,7 @@
   top: 0;
   margin: 0;
   padding: 0;
-  width: 200px;
+  width: 250px;
   list-style: none;
 }
 .sidebar-nav li {
@@ -153,7 +154,6 @@
   color: #58595b;
   display: block;
   text-decoration: none;
-
 }
 .sidebar-nav li a:hover {
   background: rgba(255,255,255,0.25);
@@ -173,15 +173,14 @@
 }
 
 #sidebar-wrapper.sidebar-toggle {
-  /*  transition: all 0.2s;*/
-  margin-left: -200px;
+    transition: all 0.3s; /*speed animation of sidebar's slide*/
+  margin-left: -250px;
 }
 @media (min-width: 768px) {
 
 
   #sidebar-wrapper.sidebar-toggle {
-    /*transition: all 0.2s;*/
-    left: 200px;
+    transition: all 0.3s; /*speed animation of sidebar's slide*/
   }
 }
 
@@ -225,11 +224,11 @@ $(document).ready(function() {
     e.preventDefault();
     var elem = document.getElementById("sidebar-wrapper");
     left = window.getComputedStyle(elem,null).getPropertyValue("left");
-    if(left == "200px"){
-      document.getElementsByClassName("sidebar-toggle")[0].style.left="-200px";
+    if(left == "250px"){
+      document.getElementsByClassName("sidebar-toggle")[0].style.left="-250px";
     }
-    else if(left == "-200px"){
-      document.getElementsByClassName("sidebar-toggle")[0].style.left="200px";
+    else if(left == "-250px"){
+      document.getElementsByClassName("sidebar-toggle")[0].style.left="250px";
     }
   });
 });
