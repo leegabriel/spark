@@ -17,50 +17,69 @@
 
 
     <div class="container-fluid">
-      <div class="navbar-header" >
-        <button id="menu-toggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">Spark</a>
-      </div>
+      <div class="delta">
+        <div class="navbar-header" >
+          <button id="menu-toggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
 
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
-        <form class="navbar-form navbar-left" role="search">
-          <div class="span12">
-            <form>
-              <input type="text" class="search-query" placeholder="Search">
-            </form>
-          </div>
-        </form>
-        <ul class="nav navbar-nav" >
+          </button>
+          <a class="navbar-brand" href="/">Spark</a>
+          <a class="btn-circle btn-mobile dropdown-toggle pull-right" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a>
+
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/newidea">New Idea</a></li>
+            <li><a href="/newproject">New Project</a></li>
+          </ul>
+
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+          <form class="navbar-form navbar-left" role="search">
+            <div class="span12">
+              <form>
+                <input type="text" class="search-query" placeholder="Search">
+              </form>
+            </div>
+          </form>
+          <ul class="nav navbar-nav" >
 
 
 
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          {{#if currentUser}}
-          <li class="dropdown">
-            <a class="btn-circle dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            {{#if currentUser}}
+            <li class="dropdown">
+              <a class="btn-circle dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a>
 
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="/newidea">New Idea</a></li>
-              <li><a href="/newproject">New Project</a></li>
-            </ul>
-          </li>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/newidea">New Idea</a></li>
+                <li><a href="/newproject">New Project</a></li>
+              </ul>
+            </li>
 
-          {{else}}
+            {{else}}
 
-          <li><a class="btn-circle" href="#" data-toggle="tooltip" data-placement="bottom" title="Sign in to compose ideas/projects" role="button" aria-expanded="false"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a></li>
+            <li><a class="btn-circle" href="#" data-toggle="tooltip" data-placement="bottom" title="Sign in to compose ideas/projects" role="button" aria-expanded="false"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a></li>
 
-          {{/if}}
+            {{/if}}
 
-        </ul>
+          </ul>
+
+        </div>
         <div id="sidebar-wrapper" class="sidebar-toggle">
           <ul class="sidebar-nav">
+
             <li>{{>loginButtons}}</li>
+            <li><form class="navbar-form navbar-left" role="search">
+              <div class="span12">
+                <form>
+                  <input type="text" class="search-query-mobile" placeholder="Search">
+                </form>
+              </div>
+            </form></li>
             <li><a href="{{pathFor 'ideas'}}">Ideas</a></li>
             <li><a href="{{pathFor 'projects'}}">Projects</a></li>
             <li><hr></li>
@@ -68,7 +87,6 @@
           </ul>
         </div>
       </div>
-
     </div>
 
 
@@ -80,7 +98,8 @@
 
 
   .search-query {
-    width:280px;
+    width:180px;
+    margin:auto;
     background-color: #f9f9f9;
     -webkit-transition: width 0.3s, background-color 0.3s;
     transition: width 0.3s, background-color 0.3s;
@@ -88,12 +107,27 @@
 
 
   .search-query:focus{
-   width:300px;
+   width:200px;
    background-color: #fff;
  }   
 
- #sidebar-wrapper {
-  top: 50px;
+ .search-query-mobile {
+  line-height: 20px;
+  width:100%;
+  margin: 0 7.5px;
+  margin: auto;
+  background-color: #f9f9f9;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.search-query-mobile:focus{
+ background-color: #fff;
+}   
+
+#sidebar-wrapper {
+  display:none;
+  top: 0px;
   left: -200px;
   width: 200px;
   background-color: #f9f9f9;
@@ -153,7 +187,7 @@
 
 @media (max-width: 768px) {
   #sidebar-wrapper {
-    top: 0px !important;
+    display:block;
   }
 
   .container {
@@ -182,10 +216,10 @@ $(window).resize(function() {
 });
 $(document).ready(function() {
   $('.dropdown').on('show.bs.dropdown', function(e){
-    $(this).find('.dropdown-menu').first().stop(true, true).slideDown(200);
+    $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
   });
   $('.dropdown').on('hide.bs.dropdown', function(e){
-    $(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+    $(this).find('.dropdown-menu').first().stop(true, true).slideUp(300);
   });
   $("#menu-toggle").click(function(e) {
     e.preventDefault();
@@ -360,7 +394,7 @@ $(document).ready(function() {
     <div class="container animated fadeIn">
      <div class="row">
       <div class="col-sm-8">
-        <h1>Create a New Idea</h1><br>
+        <h1>Create New Idea</h1><br>
         <form class="addIdeaForm" id="form">
           <table width="100%">
             <tr> 
@@ -1566,17 +1600,17 @@ body {
 </template>
 <template name="watched">
   {{>nav}}
-  Watched
+  
   {{>footer}}
 </template>
 <template name="stats">
   {{>nav}}
-  Stats
+  
   {{>footer}}
 </template>
 <template name="settings">
   {{>nav}}
-  Settings
+  
   {{>footer}}
 </template>
 
@@ -1631,7 +1665,7 @@ body {
         <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
           <h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>            
-          <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
+          <span class="pencil"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-pencil"></i></a></span>
         </div>
         <span class="clearfix borda"></span>
       </article>
@@ -1650,7 +1684,7 @@ body {
         <div class="col-xs-12 col-sm-12 col-md-7">
           <h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>            
-          <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
+          <span class="pencil"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-pencil"></i></a></span>
         </div>
         <span class="clearfix borda"></span>
       </article>
@@ -1669,7 +1703,7 @@ body {
         <div class="col-xs-12 col-sm-12 col-md-7">
           <h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>            
-          <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
+          <span class="pencil"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-pencil"></i></a></span>
         </div>
         <span class="clearfix border"></span>
       </article>      
@@ -1697,10 +1731,10 @@ body {
   .search-result h3 { font: 500 normal 1.375em; margin-top: 0 !important; margin-bottom: 10px !important; }
   .search-result h3 > a, .search-result i { color: #248dc1 !important; }
   .search-result p { font: normal normal 1.125em; } 
-  .search-result span.plus { position: absolute; right: 0; top: 126px; }
-  .search-result span.plus a { background-color: #248dc1; padding: 5px 5px 3px 5px; }
-  .search-result span.plus a:hover { background-color: #414141; }
-  .search-result span.plus a i { color: #fff !important; }
+  .search-result span.pencil { position: absolute; right: 0; top: 126px; }
+  .search-result span.pencil a { background-color: #248dc1; padding: 5px 5px 3px 5px; }
+  .search-result span.pencil a:hover { background-color: #414141; }
+  .search-result span.pencil a i { color: #fff !important; }
   .search-result span.border { display: block; width: 97%; margin: 0 15px; border-bottom: 1px dotted #ccc; }
   </style>
 </template>
