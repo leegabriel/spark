@@ -1,2 +1,2 @@
-# mockup
-a mockup
+# Spark
+A crowdfunding platform made with Meteor
