@@ -36,12 +36,13 @@ Important:
 	<li><strike>Get a better style man, seriously</strike></li>
 	<li><strike>Search Engine - See Atmosphere matteodem easy-search</strike></li>
 	<li><strike>Single Vote Only Per Account Per Idea/Project</strike></li>
+	<li><strike>Hide sidebar on desktop view, and put search/everything in the navbar inside it on mobile view.</strike></li>
 	<li>Categories Option</li>
 	<li>Pagination</li>
 	<li>Comments (preferably something already done because of, you know, spam)</li>
 	<li>Submitted ... ago</li>
 	<li>Possibly show modal on clicking login-required item, to make it easier for user to sign up</li>
-	<li>Hide sidebar on desktop view, and put search/everything in the navbar inside it on mobile view.</li>
+
 	<li> Style the idea/project tabs better</li>
 
 </ul>

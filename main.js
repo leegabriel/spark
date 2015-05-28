@@ -126,7 +126,7 @@ if (Meteor.isClient) {
       var tags = e.target.tags.value.split(', ');
 
       if (!imageURL){
-        imageURL = 'http://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Bolt_font_awesome.svg/120px-Bolt_font_awesome.svg.png';
+        imageURL = 'http://lorempixel.com/600/500/';
       }
 
       if (!title || !slug || !blurb || !details)
@@ -151,7 +151,7 @@ if (Meteor.isClient) {
       var rewards = e.target.rewards.value;
 
       if (!imageURL){
-        imageURL = 'http://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Fire_font_awesome.svg/120px-Fire_font_awesome.svg.png';
+        imageURL = 'http://lorempixel.com/600/500/';
       }
 
       if (!title || !slug || !blurb|| !details)

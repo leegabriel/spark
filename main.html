@@ -37,6 +37,13 @@
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+
+          <ul class="nav navbar-nav" >
+            <li><a href="{{pathFor 'ideas'}}">Ideas</a></li>
+            <li><a href="{{pathFor 'projects'}}">Projects</a></li>
+
+
+          </ul>
           <form class="navbar-form navbar-left" role="search">
             <div class="span12">
               <form>
@@ -44,12 +51,6 @@
               </form>
             </div>
           </form>
-          <ul class="nav navbar-nav" >
-            <li><a href="{{pathFor 'ideas'}}">Ideas</a></li>
-            <li><a href="{{pathFor 'projects'}}">Projects</a></li>
-
-
-          </ul>
           <ul class="nav navbar-nav navbar-right">
             {{#if currentUser}}
             <li class="dropdown">
@@ -72,7 +73,7 @@
         </div>
         <div id="sidebar-wrapper" class="sidebar-toggle">
           <ul class="sidebar-nav">
-            
+
 <!--             <li><form class="navbar-form navbar-left" role="search">
               <div class="span12">
 
@@ -100,7 +101,7 @@
 
 
   .search-query {
-    width:180px;
+    width:400px;
     margin:auto;
     background-color: #f9f9f9;
     -webkit-transition: width 0.3s, background-color 0.3s;
@@ -109,7 +110,7 @@
 
 
   .search-query:focus{
-   width:200px;
+   width:450px;
    background-color: #fff;
  }   
 
@@ -173,7 +174,7 @@
 }
 
 #sidebar-wrapper.sidebar-toggle {
-    transition: all 0.3s; /*speed animation of sidebar's slide*/
+  transition: all 0.3s; /*speed animation of sidebar's slide*/
   margin-left: -250px;
 }
 @media (min-width: 768px) {
@@ -351,6 +352,16 @@ $(document).ready(function() {
 
       </div>
     </div>
+    <script>
+    $(document).ready(function() {
+  $('.dropdown').on('show.bs.dropdown', function(e){
+    $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
+  });
+  $('.dropdown').on('hide.bs.dropdown', function(e){
+    $(this).find('.dropdown-menu').first().stop(true, true).slideUp(300);
+  });
+});
+    </script>
     {{> footer}}
   </template>
 
@@ -382,6 +393,17 @@ $(document).ready(function() {
       </div>
     </div>
     {{> footer}}
+
+        <script>
+    $(document).ready(function() {
+  $('.dropdown').on('show.bs.dropdown', function(e){
+    $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
+  });
+  $('.dropdown').on('hide.bs.dropdown', function(e){
+    $(this).find('.dropdown-menu').first().stop(true, true).slideUp(300);
+  });
+});
+    </script>
   </template>
 
 
