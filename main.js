@@ -1,5 +1,6 @@
 Ideas = new Mongo.Collection('ideas');
 Projects = new Mongo.Collection('projects');
+Comments = new Mongo.Collection('comments');
 
 Ideas.initEasySearch(['title', 'slug', 'blurb', 'details', 'tags', 'count', 'ownerName', 'createdAt'], {
     // 'limit' : 20,
@@ -21,24 +22,18 @@ if(Meteor.isServer){
     return Projects.find();
   }),
 
+  Meteor.publish('commentsList', function() {
+    return Comments.find();
+  });
 
-  Meteor.publish('userData', function () {
-    if (this.userId) {
-      return Meteor.users.find(
-        {_id: this.userId},
-        {fields:{'username': 1, 'followers': 1, 'pic': 'http://placehold.it/50x50/'}}
-        );
-    }
-    else {
-      this.ready();
-    }
+  Accounts.onCreateUser(function(options, user) {
+    user.profile['username'] = options.username;
+    return user;
   });
 } /* isServer */
 
 
 if (Meteor.isClient) {
-
-  Meteor.subscribe('userData');
 
   Template.ideasTab.helpers({
     ideas: function () {
@@ -626,10 +621,18 @@ Router.route('/about',function() {
   document.title = "Spark | About";
 });
 
-Router.route('/profile',function() {
+
+Router.route('/:_id', function(){
   window.scrollTo(0,0);
-  this.render('profile');
   document.title = "Spark";
+  this.render('loading');
+  if (Meteor.users.findOne({_id: Meteor.userId()})) {
+    this.render('profile', {
+      data: function(){
+        return Meteor.users.findOne({_id: Meteor.userId()});
+      }
+    });
+  }
 });
 
 Router.route('/watched',function() {

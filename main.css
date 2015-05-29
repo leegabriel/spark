@@ -286,6 +286,9 @@ textarea {
 }
 
 @media screen and (max-width: 768px) {
+  #blurb {
+    display:none;
+  }
 
   #bs-example-navbar-collapse-1 {
     display:none;

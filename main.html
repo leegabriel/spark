@@ -97,9 +97,6 @@
   </nav>
   <style>
 
-  
-
-
   .search-query {
     width:400px;
     margin:auto;
@@ -221,8 +218,8 @@ $(document).ready(function() {
   $('.dropdown').on('hide.bs.dropdown', function(e){
     $(this).find('.dropdown-menu').first().stop(true, true).slideUp(300);
   });
+
   $("#menu-toggle").click(function(e) {
-    e.preventDefault();
     var elem = document.getElementById("sidebar-wrapper");
     left = window.getComputedStyle(elem,null).getPropertyValue("left");
     if(left == "250px"){
@@ -895,7 +892,28 @@ document.title = "Create a New Project"
 
 <template name="comments">
 
-  <div class="col-sm-2">
+
+
+
+
+  <div class="col-sm-12">
+    <div class="widget-area no-padding blank">
+      <div class="status-upload">
+        <form>
+          <textarea></textarea>
+          <ul>
+            <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Audio"><i class="fa fa-music"></i></a></li>
+            <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Video"><i class="fa fa-video-camera"></i></a></li>
+            <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Sound Record"><i class="fa fa-microphone"></i></a></li>
+            <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Picture"><i class="fa fa-picture-o"></i></a></li>
+          </ul>
+          <button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Post</button>
+        </form>
+      </div><!-- Status Upload  -->
+    </div><!-- Widget Area -->
+  </div>
+<br>
+    <div class="col-sm-2">
     <div class="thumbnail">
       <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px">
     </div><!-- /thumbnail -->
@@ -911,25 +929,6 @@ document.title = "Create a New Project"
       </div><!-- /panel-body -->
     </div><!-- /panel panel-default -->
   </div><!-- /col-sm-5 -->
-
-
-
-  <div class="col-sm-12">
-    <div class="widget-area no-padding blank">
-      <div class="status-upload">
-        <form>
-          <textarea placeholder="Leave a comment"></textarea>
-          <ul>
-            <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Audio"><i class="fa fa-music"></i></a></li>
-            <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Video"><i class="fa fa-video-camera"></i></a></li>
-            <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Sound Record"><i class="fa fa-microphone"></i></a></li>
-            <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Picture"><i class="fa fa-picture-o"></i></a></li>
-          </ul>
-          <button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Share</button>
-        </form>
-      </div><!-- Status Upload  -->
-    </div><!-- Widget Area -->
-  </div>
 
   <style>
   .thumbnail {
@@ -1431,6 +1430,7 @@ document.title = "Create a New Project"
 
 
 <template name="profile">
+  
   {{>nav}}
   <div class="container animated fadeIn">
     <div class="row profile">
@@ -1444,7 +1444,7 @@ document.title = "Create a New Project"
           <!-- SIDEBAR USER TITLE -->
           <div class="profile-usertitle">
             <div class="profile-usertitle-name">
-              Marcus Doe
+              {{emails}}
             </div>
             <div class="profile-usertitle-job">
               Developer
@@ -1508,6 +1508,7 @@ document.title = "Create a New Project"
 <br>
 <br>
 {{>footer}}
+
 <style>
 
 body {
