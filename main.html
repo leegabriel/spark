@@ -10,6 +10,8 @@
 </head>
 
 
+
+
 <template name="nav">
 
   <nav class="navbar navbar-default navbar-fixed-top">
@@ -22,8 +24,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-
           </button>
+
           <a class="navbar-brand" href="/">Spark</a>
           <a class="btn-circle btn-mobile dropdown-toggle pull-right" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a>
 
@@ -31,6 +33,11 @@
             <li><a href="/newidea">New Idea</a></li>
             <li><a href="/newproject">New Project</a></li>
           </ul>
+
+
+          
+
+          
 
         </div>
 
@@ -72,14 +79,6 @@
         <div id="sidebar-wrapper" class="sidebar-toggle">
           <ul class="sidebar-nav">
 
-<!--             <li><form class="navbar-form navbar-left" role="search">
-              <div class="span12">
-
-                <form>
-                  <input type="text" class="search-query-mobile" placeholder="Search">
-                </form>
-              </div>
-            </form></li> -->
             <li><a href="{{pathFor 'ideas'}}">Ideas</a></li>
             <li><a href="{{pathFor 'projects'}}">Projects</a></li>
             <li><hr></li>
@@ -220,10 +219,13 @@ $(document).ready(function() {
   $("#menu-toggle").click(function(e) {
     var elem = document.getElementById("sidebar-wrapper");
     left = window.getComputedStyle(elem,null).getPropertyValue("left");
-    if(left == "250px"){
+    if(left === "250px"){
       document.getElementsByClassName("sidebar-toggle")[0].style.left="-250px";
     }
-    else if(left == "-250px"){
+    else if(left === "-250px"){
+      document.getElementsByClassName("sidebar-toggle")[0].style.left="250px";
+    }
+    else {
       document.getElementsByClassName("sidebar-toggle")[0].style.left="250px";
     }
   });
@@ -348,19 +350,20 @@ $(document).ready(function() {
       </div>
     </div>
     <style>
-.dropdown-menu>li>a  {
-  outline: 0;
-}
+    .dropdown-menu>li>a  {
+      outline: 0;
+    }
     </style>
+
     <script>
     $(document).ready(function() {
-  $('.dropdown').on('show.bs.dropdown', function(e){
-    $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
-  });
-  $('.dropdown').on('hide.bs.dropdown', function(e){
-    $(this).find('.dropdown-menu').first().stop(true, true).slideUp(300);
-  });
-});
+      $('.dropdown').on('show.bs.dropdown', function(e){
+        $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
+      });
+      $('.dropdown').on('hide.bs.dropdown', function(e){
+        $(this).find('.dropdown-menu').first().stop(true, true).slideUp(300);
+      });
+    });
     </script>
     {{> footer}}
   </template>
@@ -394,15 +397,15 @@ $(document).ready(function() {
     </div>
     {{> footer}}
 
-        <script>
+    <script>
     $(document).ready(function() {
-  $('.dropdown').on('show.bs.dropdown', function(e){
-    $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
-  });
-  $('.dropdown').on('hide.bs.dropdown', function(e){
-    $(this).find('.dropdown-menu').first().stop(true, true).slideUp(300);
-  });
-});
+      $('.dropdown').on('show.bs.dropdown', function(e){
+        $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
+      });
+      $('.dropdown').on('hide.bs.dropdown', function(e){
+        $(this).find('.dropdown-menu').first().stop(true, true).slideUp(300);
+      });
+    });
     </script>
   </template>
 
@@ -915,8 +918,8 @@ document.title = "Create a New Project"
       </div><!-- Status Upload  -->
     </div><!-- Widget Area -->
   </div>
-<br>
-    <div class="col-sm-2">
+  <br>
+  <div class="col-sm-2">
     <div class="thumbnail">
       <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px">
     </div><!-- /thumbnail -->
@@ -1433,7 +1436,7 @@ document.title = "Create a New Project"
 
 
 <template name="profile">
-  
+
   {{>nav}}
   <div class="container animated fadeIn">
     <div class="row profile">
