@@ -42,9 +42,9 @@ Important:
 	<li>Comments (preferably something already done because of, you know, spam)</li>
 	<li>Submitted ... ago</li>
 	<li>Possibly show modal on clicking login-required item, to make it easier for user to sign up</li>
-
 	<li> Style the idea/project tabs better</li>
-
+	<li>Implement login by yourself</li>
+	<li>HTML to text solution</li>
 </ul>
 
 
