@@ -12,9 +12,7 @@
 
 <template name="nav">
 
-
   <nav class="navbar navbar-default navbar-fixed-top">
-
 
     <div class="container-fluid">
       <div class="delta">
@@ -813,7 +811,7 @@ document.title = "Create a New Project"
         <td style="width: 600px">
           <div class="middle-link">
             <h3><a title={{title}} id="middle-link" href="/ideas/{{slug}}">{{title}}</a></h3>
-            <p>{{blurb}}</p>
+            <p id="mobile-blurb">{{blurb}}</p>
             {{#if isOwner}}
             <button class="btn btn-sm btn-primary edit"><i class="fa fa-edit"></i> Edit</button>
             <button class="btn btn-sm btn-danger delete"><i class="fa fa-trash"></i> Delete</button>
@@ -868,7 +866,7 @@ document.title = "Create a New Project"
         <td style="width: 600px">
           <div class="middle-link">
             <h3><a title={{title}} id="middle-link" href="/projects/{{slug}}">{{title}}</a></h3>
-            <p>{{blurb}}</p>
+            <p id="mobile-blurb">{{blurb}}</p>
             {{#if isOwner}}
             <button class="btn btn-sm btn-primary edit"><i class="fa fa-edit"></i> Edit</button>
             <button class="btn btn-sm btn-danger delete"><i class="fa fa-trash"></i> Delete</button>

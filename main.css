@@ -286,7 +286,7 @@ textarea {
 }
 
 @media screen and (max-width: 768px) {
-  #blurb {
+  #mobile-blurb {
     display:none;
   }
 
@@ -300,7 +300,10 @@ textarea {
   }
 
   
-
+  .dropdown-menu {
+    position: right;
+    float: right !important;
+  }
   body, html {
     margin-right: 7.5px;
     margin-left: 7.5px;

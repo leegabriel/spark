@@ -14,9 +14,11 @@ Projects.initEasySearch(['title', 'slug', 'blurb', 'details', 'tags', 'location'
   });
 
 
+
+
 if(Meteor.isServer){
-  Meteor.publish('ideasList', function(){
-    return Ideas.find();
+  Meteor.publish('ideasList', function(state, cursor){
+    return Ideas.find({}, {limit: 5,skip:cursor});
   }),
   Meteor.publish('projectsList', function(){
     return Projects.find();
@@ -339,7 +341,7 @@ Meteor.methods({
       owner: Meteor.userId(),
       ownerName: Meteor.user().emails[0].address,
       createdAt: moment().format("MMMM D, YYYY"),
-      createTimeActual: moment().format('MMMM Do YYYY, h:mm:ss a'),
+      createTimeActual: moment().format(),
       upvotedUsers: [],
       downvotedUsers: []
     });
@@ -360,7 +362,7 @@ Meteor.methods({
       owner: Meteor.userId(),
       ownerName: Meteor.user().emails[0].address,
       createdAt: moment().format("MMMM D, YYYY"),
-      createTimeActual: moment().format('MMMM Do YYYY, h:mm:ss a'),
+      createTimeActual: moment().format(),
       upvotedUsers: [],
       downvotedUsers: [],
       funded: 0,
