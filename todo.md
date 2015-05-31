@@ -45,6 +45,7 @@ Important:
 	<li> Style the idea/project tabs better</li>
 	<li>Implement login by yourself</li>
 	<li>HTML to text solution</li>
+	<li>Either fix the "New.." dropdown on mobile view or use modals. Try both and see which one you like.</li>
 </ul>
 
 
