@@ -140,6 +140,7 @@ body {
 }
 
 ol {
+  padding-left: 0;
   color: #666;
   margin-left: 15px;
 }

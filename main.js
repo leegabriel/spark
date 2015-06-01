@@ -17,8 +17,8 @@ Projects.initEasySearch(['title', 'slug', 'blurb', 'details', 'tags', 'location'
 
 
 if(Meteor.isServer){
-  Meteor.publish('ideasList', function(state, cursor){
-    return Ideas.find({}, {limit: 5,skip:cursor});
+  Meteor.publish('ideasList', function(){
+    return Ideas.find();
   }),
   Meteor.publish('projectsList', function(){
     return Projects.find();
