@@ -128,11 +128,15 @@ body {
  padding-top: 40px;
  font-size: 13px;
  color: #000; 
- /*text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray;*/
+
 }
 
 #space {
   padding-left: 30px;
+}
+
+.document {
+  margin: 5px 0;
 }
 
 .nav-tabs.nav-justified>li>a {
