@@ -323,6 +323,15 @@ $(document).ready(function() {
     </div>
   </template>
 
+  <template name="pager">
+    <nav style="text-align: center">
+      <ul class="pager">
+        <li><a class="prev" href="#">Previous</a></li>
+        <li><a class="next" href="#">Next</a></li>
+      </ul>
+    </nav>
+  </template>
+
   <template name="ideasTab">
     {{> nav}}
     <div class="container">
@@ -339,12 +348,7 @@ $(document).ready(function() {
           </ol>
 
           <!-- </div> -->
-          <nav style="text-align: center">
-            <ul class="pager">
-              <li><a href="#">Previous</a></li>
-              <li><a href="#">Next</a></li>
-            </ul>
-          </nav>
+          {{>pager}}
         </div>
 
       </div>
@@ -385,12 +389,7 @@ $(document).ready(function() {
           </ol>
 
           <!-- </div> -->
-          <nav style="text-align: center">
-            <ul class="pager">
-              <li><a href="#">Previous</a></li>
-              <li><a href="#">Next</a></li>
-            </ul>
-          </nav>
+          {{>pager}}
         </div>
 
       </div>
@@ -897,7 +896,7 @@ document.title = "Create a New Project"
 
 
 <template name="comments">
-  
+
   <div class="col-sm-2">
     <div class="thumbnail">
       <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px">

@@ -323,6 +323,16 @@ if (Meteor.isClient) {
       var path = '/search/' + args;
       Router.go(path);
     }
+  }),
+
+  Template.pager.events({
+    'click .prev': function(event){
+      //change cursor
+    },
+    'click .next': function(event){
+      //change cursor
+    }
+
   });
 
 } /* isClient */
