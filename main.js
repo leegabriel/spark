@@ -267,6 +267,7 @@ if (Meteor.isClient) {
       }
     },
     'click #submit-comment': function() {
+      var text = document.getElementById('comment-box').innerHTML;
       Meteor.call('addIdeaComment', this._id, 0, text);
     }
   }),
@@ -290,6 +291,7 @@ if (Meteor.isClient) {
       }
     },
     'click #submit-comment': function() {
+      var text = document.getElementById('comment-box').innerHTML;
       Meteor.call('addProjectComment', this._id, 0, text);
     }
   }),
@@ -345,7 +347,7 @@ if (Meteor.isClient) {
     comments: function () {
       return Comments.find({id:this._id});
     }
-  })
+  });
 
 } /* isClient */
 
@@ -464,9 +466,7 @@ Meteor.methods({
       owner: Meteor.userId(),
       ownerName: Meteor.user().emails[0].address,
       createdAt: moment().format("MMMM D, YYYY"),
-      createTimeActual: moment().format(),
-      upvotedUsers: [],
-      downvotedUsers: []
+      createTimeActual: moment().format()
     });
   },
   addProjectComment: function(projectId, parent, text) {
@@ -477,9 +477,7 @@ Meteor.methods({
       owner: Meteor.userId(),
       ownerName: Meteor.user().emails[0].address,
       createdAt: moment().format("MMMM D, YYYY"),
-      createTimeActual: moment().format(),
-      upvotedUsers: [],
-      downvotedUsers: []
+      createTimeActual: moment().format()
     });
   },
   upvoteIdea: function (ideaId) {

@@ -887,11 +887,19 @@ document.title = "Create a New Project"
   <div class="col-sm-10">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Write Preview
+        <button class="btn btn-default" href="#"><i class="fa fa-bold"></i></button>
+        <button class="btn btn-default" href="#"><i class="fa fa-italic"></i></button>
+        <button class="btn btn-default" href="#"><i class="fa fa-underline"></i></button>
+        <button class="btn btn-default" href="#"><i class="fa fa-list-ol"></i></button>
+        <button class="btn btn-default" href="#"><i class="fa fa-list-ul"></i></button>
+        <button class="btn btn-default" href="#"><i class="fa fa-image"></i></button>
+        <button class="btn btn-default" href="#"><i class="fa fa-code"></i></button>
+        <button class="btn btn-default" href="#"><i class="fa fa-quote-left"></i></button>
+
       </div>
       <div class="panel-body">
-        <textarea class="comment-box" placeholder="Leave a comment"></textarea><br>
-        <button id="submit-comment" type="submit" class="btn btn-success pull-right">Comment</button>
+        <textarea id="comment-box" placeholder="Leave a comment"></textarea><br>
+        <button id="submit-comment" type="submit" class="btn btn-primary pull-right">Comment</button>
       </div><!-- /panel-body -->
     </div><!-- /panel panel-default -->
   </div>
@@ -899,7 +907,7 @@ document.title = "Create a New Project"
 
   <style>
 
-  .comment-box {
+  #comment-box {
     width: 100% !important;  
     max-width: none !important;
     height: 150px;
@@ -909,7 +917,7 @@ document.title = "Create a New Project"
   }
 
 
-  .comment-box:focus{
+  #comment-box:focus{
    background-color: #fff;
  }   
 
