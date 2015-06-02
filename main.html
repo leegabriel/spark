@@ -590,20 +590,7 @@ document.title = "Create a New Project"
         <br>
         <div class="panel panel-default non-editable">
           <div class="panel-body">
-            <table width="100%">
-              <tr> 
-                <td>
-                  <h3><small>{{ownerName}}</small></h3>
-                </td>
-                <td> 
-                  <div class="pull-right">
-                    <center>
-                      <button class="btn btn-default">Follow {{ownerName}}</button>
-                    </center>
-                  </div>
-                </td>
-              </tr>
-            </table>
+            <h3><small>{{ownerName}}</small></h3><button class="btn btn-sm btn-default">Follow {{ownerName}}</button>
           </div>
         </div>
         <div class="panel panel-default">
@@ -693,20 +680,7 @@ document.title = "Create a New Project"
         <br>
         <div class="panel panel-default non-editable">
           <div class="panel-body">
-            <table width="100%">
-              <tr> 
-                <td>
-                  <h3><small>{{ownerName}}</small></h3>
-                </td>
-                <td> 
-                  <div class="pull-right">
-                    <center>
-                      <button class="btn btn-default">Follow {{ownerName}}</button>
-                    </center>
-                  </div>
-                </td>
-              </tr>
-            </table>
+            <h3><small>{{ownerName}}</small></h3><button class="btn btn-sm btn-default">Follow {{ownerName}}</button>
           </div>
         </div>
         <div class="panel panel-default">
@@ -896,17 +870,15 @@ document.title = "Create a New Project"
 
 
 <template name="comments">
-
+  <br>
   <div class="col-sm-2">
-    <div class="thumbnail">
-      <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px">
-    </div>
+    <img class="user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px">
   </div>
 
   <div class="col-sm-10">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <strong>myusername</strong> <span class="text-muted">commented 5 days ago</span>
+        <strong>myusername</strong> <span class="text-muted">commented on Mar 5</span>
       </div>
       <div class="panel-body">
         Panel content
@@ -914,60 +886,85 @@ document.title = "Create a New Project"
     </div><!-- /panel panel-default -->
   </div>
 
+  <hr>
+
+  <div class="col-sm-2">
+    <img class="user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px">
+  </div>
+
+  <div class="col-sm-10">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Write Preview
+      </div>
+      <div class="panel-body">
+        <textarea class="comment-box" placeholder="Leave a comment"></textarea><br>
+        <button type="submit" class="btn btn-success pull-right">Comment</button>
+      </div><!-- /panel-body -->
+    </div><!-- /panel panel-default -->
+  </div>
+
   <style>
-  .thumbnail {
-    margin:0px;
-    border: none !important;
-  }
-  .panel {
-    position:relative;
-  }
-  .panel>.panel-heading:after,.panel>.panel-heading:before{
-    position:absolute;
-    top:11px;left:-16px;
-    right:100%;
-    width:0;
-    height:0;
-    display:block;
-    content:" ";
-    border-color:transparent;
-    border-style:solid solid outset;
-    pointer-events:none;
-  }
-  .panel>.panel-heading:after{
-    border-width:7px;
-    border-right-color:#f7f7f7;
-    margin-top:1px;
-    margin-left:2px;
-  }
-  .panel>.panel-heading:before{
-    border-right-color:#ddd;
-    border-width:8px;
+
+  .comment-box {
+    width: 100% !important;  
+    max-width: none !important;
+    height: 150px;
+    background-color: #f9f9f9;
+    -webkit-transition: background-color 0.3s;
+    transition: background-color 0.3s;
   }
 
 
-  body{ background: #fafafa;}
-  .widget-area.blank {
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    -ms-box-shadow: none;
-    -o-box-shadow: none;
-    box-shadow: none;
-  }
-  body .no-padding {
-    padding: 0;
-  }
+  .comment-box:focus{
+   background-color: #fff;
+ }   
 
-  </style>
+ .user-photo {
+  padding: 0px;
+  border-radius: 3px;
+  margin:0px;
+  border: none !important;
+}
 
-  <script>
-  $(document).ready(function(){
+.panel {
+  position:relative;
+}
+
+.panel>.panel-heading:after,.panel>.panel-heading:before{
+  position:absolute;
+  top:11px;left:-16px;
+  right:100%;
+  width:0;
+  height:0;
+  display:block;
+  content:" ";
+  border-color:transparent;
+  border-style:solid solid outset;
+  pointer-events:none;
+}
+
+.panel>.panel-heading:after{
+  border-width:7px;
+  border-right-color:#f7f7f7;
+  margin-top:1px;
+  margin-left:2px;
+}
+
+.panel>.panel-heading:before{
+  border-right-color:#ddd;
+  border-width:8px;
+}
+
+</style>
+
+<script>
+$(document).ready(function(){
 
 
-    $("[data-toggle=tooltip]").tooltip();
-  });
-  </script>
+  $("[data-toggle=tooltip]").tooltip();
+});
+</script>
 </template>
 
 
@@ -1009,16 +1006,11 @@ document.title = "Create a New Project"
         <div class="panel panel-default">
           <div class="panel-body">
             <h2>Details</h2>
-            <b><p>Published on {{createdAt}}</p></b>
+            <p class="text-muted">Published on {{createdAt}}</p>
             <br>
             <p>{{details}}</p>
             <br>
-            <b><p>Permalink</p></b> 
-            <div class="well">spark-app.meteor.com/ideas/{{slug}}</div>
-            <b><p>Tags
-            </p></b>
-
-            <p><span class="label label-default">{{tags}}</span></p>
+            <span class="label label-default">{{tags}}</span>
           </div>
         </div>
         <div class="panel panel-default">
@@ -1093,14 +1085,11 @@ document.title = "Create a New Project"
         <div class="panel panel-default">
           <div class="panel-body">
             <h2>Details</h2>
-            <b><p>Published on {{createdAt}}</p></b>
+            <p class="text-muted">Published on {{createdAt}}</p>
             <br>
             <p>{{details}}</p>
             <br>
-            <b><p>Permalink</p></b> 
-            <div class="well">spark-app.meteor.com/projects/{{slug}}</div>
-            <b><p>Tags</p></b> 
-            <p><span class="label label-default">{{tags}}</span></p>
+            <span class="label label-default">{{tags}}</span>
           </div>
         </div>
         <div class="panel panel-default">

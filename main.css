@@ -291,6 +291,11 @@ textarea {
 }
 
 @media screen and (max-width: 768px) {
+
+  .user-photo {
+    display:none;
+  }
+  
   #mobile-blurb {
     display:none;
   }
