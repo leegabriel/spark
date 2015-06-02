@@ -871,28 +871,16 @@ document.title = "Create a New Project"
 
 <template name="comments">
   <br>
-  <div class="col-sm-2">
-    <center>
-    <img class="user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px">
-  </center>
-  </div>
-
-  <div class="col-sm-10">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <strong>myusername</strong> <span class="text-muted">commented on Mar 5</span>
-      </div>
-      <div class="panel-body">
-        Panel content
-      </div><!-- /panel-body -->
-    </div><!-- /panel panel-default -->
-  </div>
+  {{#each comments}}
+  {{>comment}}
+  {{/each}}
+  
 
   <hr>
 
   <div class="col-sm-2">
     <center>
-    <img class="user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px">
+      <img class="user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px">
     </center>
   </div>
 
@@ -903,10 +891,11 @@ document.title = "Create a New Project"
       </div>
       <div class="panel-body">
         <textarea class="comment-box" placeholder="Leave a comment"></textarea><br>
-        <button type="submit" class="btn btn-success pull-right">Comment</button>
+        <button id="submit-comment" type="submit" class="btn btn-success pull-right">Comment</button>
       </div><!-- /panel-body -->
     </div><!-- /panel panel-default -->
   </div>
+
 
   <style>
 
@@ -969,6 +958,25 @@ $(document).ready(function(){
   $("[data-toggle=tooltip]").tooltip();
 });
 </script>
+</template>
+
+<template name="comment">
+  <div class="col-sm-2">
+    <center>
+      <img class="user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px">
+    </center>
+  </div>
+
+  <div class="col-sm-10">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong>{{ownerName}}</strong> <span class="text-muted">commented on {{createdAt}}</span>
+      </div>
+      <div class="panel-body">
+        {{text}}
+      </div><!-- /panel-body -->
+    </div><!-- /panel panel-default -->
+  </div>
 </template>
 
 

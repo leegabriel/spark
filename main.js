@@ -265,6 +265,9 @@ if (Meteor.isClient) {
       if (confirm("Are you sure you want to delete this?")){
         Meteor.call("deleteIdea", this._id);
       }
+    },
+    'click #submit-comment': function() {
+      Meteor.call('addIdeaComment', this._id, 0, text);
     }
   }),
 
@@ -286,6 +289,9 @@ if (Meteor.isClient) {
         Meteor.call("deleteProject", this._id);
       }
     },
+    'click #submit-comment': function() {
+      Meteor.call('addProjectComment', this._id, 0, text);
+    }
   }),
 
   Template.projectView.helpers({
@@ -333,7 +339,13 @@ if (Meteor.isClient) {
       //change cursor
     }
 
-  });
+  }),
+
+  Template.comments.helpers({
+    comments: function () {
+      return Comments.find({id:this._id});
+    }
+  })
 
 } /* isClient */
 
@@ -444,6 +456,32 @@ Meteor.methods({
       alert("Project was removed.");
     }
   }, 
+  addIdeaComment: function(ideaId, parent, text) {
+    Comments.insert({
+      ideaId: ideaId,
+      parent: parent,
+      text: text,
+      owner: Meteor.userId(),
+      ownerName: Meteor.user().emails[0].address,
+      createdAt: moment().format("MMMM D, YYYY"),
+      createTimeActual: moment().format(),
+      upvotedUsers: [],
+      downvotedUsers: []
+    });
+  },
+  addProjectComment: function(projectId, parent, text) {
+    Comments.insert({
+      projectId: projectId,
+      parent: parent,
+      text: text,
+      owner: Meteor.userId(),
+      ownerName: Meteor.user().emails[0].address,
+      createdAt: moment().format("MMMM D, YYYY"),
+      createTimeActual: moment().format(),
+      upvotedUsers: [],
+      downvotedUsers: []
+    });
+  },
   upvoteIdea: function (ideaId) {
     var thisUser = Meteor.userId();
     if (Meteor.userId() === null) {
