@@ -267,7 +267,9 @@ if (Meteor.isClient) {
       }
     },
     'click #submit-comment': function() {
-      var text = document.getElementById('comment-box').innerHTML;
+      // because this is actually an input element, need to use value
+      var text = document.getElementById('comment-box').value; 
+      console.log(text)
       Meteor.call('addIdeaComment', this._id, 0, text);
     }
   }),
@@ -291,7 +293,8 @@ if (Meteor.isClient) {
       }
     },
     'click #submit-comment': function() {
-      var text = document.getElementById('comment-box').innerHTML;
+      var text = document.getElementById('comment-box').value;
+      console.log(text)
       Meteor.call('addProjectComment', this._id, 0, text);
     }
   }),
@@ -556,7 +559,8 @@ Router.configure({
  waitOn: function() {
   return [
   Meteor.subscribe('ideasList'),
-  Meteor.subscribe('projectsList')
+  Meteor.subscribe('projectsList'),
+  Meteor.subscribe('commentsList')
   ];
 }
 });
