@@ -871,10 +871,6 @@ document.title = "Create a New Project"
 
 <template name="comments">
   <br>
-  {{#each comments}}
-  {{>comment}}
-  {{/each}}
-  
 
   <hr>
 
@@ -975,8 +971,8 @@ $(document).ready(function(){
       </div>
       <div class="panel-body">
         {{text}}
-      </div><!-- /panel-body -->
-    </div><!-- /panel panel-default -->
+      </div>
+    </div>
   </div>
 </template>
 
@@ -1029,6 +1025,9 @@ $(document).ready(function(){
         <div class="panel panel-default">
           <div class="panel-body">
             <h2>Comments</h2>
+            {{#each ideaComments}}
+              {{>comment}}
+            {{/each}}
             {{> comments}}
           </div>
         </div>
@@ -1108,6 +1107,9 @@ $(document).ready(function(){
         <div class="panel panel-default">
           <div class="panel-body">
             <h2>Comments</h2>
+            {{#each projectComments}}
+              {{>comment}}
+            {{/each}}
             {{> comments}}
           </div>
         </div>
