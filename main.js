@@ -28,10 +28,10 @@ if(Meteor.isServer){
     return Comments.find();
   });
 
-  Accounts.onCreateUser(function(options, user) {
-    user.profile['username'] = options.username;
-    return user;
-  });
+  // Accounts.onCreateUser(function(options, user) {
+  //   user.profile['username'] = options.username;
+  //   return user;
+  // });
 } /* isServer */
 
 
@@ -346,6 +346,13 @@ if (Meteor.isClient) {
     },
     'click .next': function(event){
       //change cursor
+    }
+
+  }),
+
+  Template.comment.helpers({
+    isOwner: function () {
+      return this.owner === Meteor.userId();
     }
 
   });

@@ -958,6 +958,7 @@ $(document).ready(function(){
 </template>
 
 <template name="comment">
+  <div class="animated fadeIn">
   <div class="col-sm-2">
     <center>
       <img class="user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px">
@@ -968,12 +969,16 @@ $(document).ready(function(){
     <div class="panel panel-default">
       <div class="panel-heading">
         <strong>{{ownerName}}</strong> <span class="text-muted">commented on {{createdAt}}</span>
+        {{#if isOwner}}
+          <p class='pull-right'><span class="text-muted">Owner</span> <i class="fa fa-pencil"></i></p>
+        {{/if}}
       </div>
       <div class="panel-body">
         {{text}}
       </div>
     </div>
   </div>
+</div>
 </template>
 
 
