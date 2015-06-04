@@ -34,11 +34,6 @@
             <li><a href="/newproject">New Project</a></li>
           </ul>
 
-
-          
-
-          
-
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
@@ -46,7 +41,6 @@
           <ul class="nav navbar-nav" >
             <li><a href="{{pathFor 'ideas'}}">Ideas</a></li>
             <li><a href="{{pathFor 'projects'}}">Projects</a></li>
-
 
           </ul>
           <form class="navbar-form navbar-left" role="search">
@@ -73,6 +67,7 @@
 
             {{/if}}
             {{>loginButtons}}
+
           </ul>
 
         </div>
@@ -89,8 +84,6 @@
       </div>
     </div>
 
-
-
   </nav>
   <style>
 
@@ -101,7 +94,6 @@
     -webkit-transition: width 0.3s, background-color 0.3s;
     transition: width 0.3s, background-color 0.3s;
   }
-
 
   .search-query:focus{
    width:280px;
@@ -118,7 +110,7 @@
 }
 
 .search-query-mobile:focus{
- background-color: #fff;
+  background-color: #fff;
 }   
 
 #sidebar-wrapper {
@@ -208,6 +200,7 @@ $(window).resize(function() {
     document.getElementsByClassName("sidebar-toggle")[0].style.left="-200px";
   }
 });
+
 $(document).ready(function() {
   $('.dropdown').on('show.bs.dropdown', function(e){
     $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
@@ -807,7 +800,7 @@ document.title = "Create a New Project"
 
   <script>
   $(document).ready(function() {
-    $('.fa').tooltip()
+    $('.fa').tooltip();
   });
   </script>
 
@@ -863,7 +856,7 @@ document.title = "Create a New Project"
 
   <script>
   $(document).ready(function() {
-    $('.fa').tooltip()
+    $('.fa').tooltip();
   });
   </script>
 </template>
@@ -907,78 +900,77 @@ document.title = "Create a New Project"
 
 
   #comment-box:focus{
-   background-color: #fff;
- }   
+    background-color: #fff;
+  }   
 
- .user-photo {
-  padding: 0px;
-  border-radius: 3px;
-  margin:0px;
-  border: none !important;
-}
+  .user-photo {
+    padding: 0px;
+    border-radius: 3px;
+    margin:0px;
+    border: none !important;
+  }
 
-.panel {
-  position:relative;
-}
+  .panel {
+    position:relative;
+  }
 
-.panel>.panel-heading:after,.panel>.panel-heading:before{
-  position:absolute;
-  top:11px;left:-16px;
-  right:100%;
-  width:0;
-  height:0;
-  display:block;
-  content:" ";
-  border-color:transparent;
-  border-style:solid solid outset;
-  pointer-events:none;
-}
+  .panel>.panel-heading:after,.panel>.panel-heading:before{
+    position:absolute;
+    top:11px;left:-16px;
+    right:100%;
+    width:0;
+    height:0;
+    display:block;
+    content:" ";
+    border-color:transparent;
+    border-style:solid solid outset;
+    pointer-events:none;
+  }
 
-.panel>.panel-heading:after{
-  border-width:7px;
-  border-right-color:#f7f7f7;
-  margin-top:1px;
-  margin-left:2px;
-}
+  .panel>.panel-heading:after{
+    border-width:7px;
+    border-right-color:#f7f7f7;
+    margin-top:1px;
+    margin-left:2px;
+  }
 
-.panel>.panel-heading:before{
-  border-right-color:#ddd;
-  border-width:8px;
-}
+  .panel>.panel-heading:before{
+    border-right-color:#ddd;
+    border-width:8px;
+  }
 
-</style>
+  </style>
 
-<script>
-$(document).ready(function(){
+  <script>
+  $(document).ready(function(){
+    $("[data-toggle=tooltip]").tooltip();
+  });
+  </script>
 
-
-  $("[data-toggle=tooltip]").tooltip();
-});
-</script>
 </template>
 
 <template name="comment">
   <div class="animated fadeIn">
-  <div class="col-sm-2">
-    <center>
-      <img class="user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px">
-    </center>
-  </div>
+    <div class="col-sm-2">
+      <center>
+        <img class="user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px">
+      </center>
+    </div>
 
-  <div class="col-sm-10">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <strong>{{ownerName}}</strong> <span class="text-muted">commented on {{createdAt}}</span>
-        {{#if isOwner}}
+    <div class="col-sm-10">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <strong>{{ownerName}}</strong> <span class="text-muted">commented on {{createdAt}}</span>
+          {{#if isOwner}}
           <p class='pull-right'><span class="text-muted">Owner</span> <i class="fa fa-pencil"></i></p>
-        {{/if}}
-      </div>
-      <div class="panel-body">
-        {{text}}
+          {{/if}}
+        </div>
+        <div class="panel-body">
+          {{text}}
+        </div>
       </div>
     </div>
   </div>
-</div>
 </template>
 
 
@@ -1014,7 +1006,17 @@ $(document).ready(function(){
         <br>
         <div class="panel panel-default">
           <div class="panel-body">
-            <h3><small>{{ownerName}}</small></h3><button class="btn btn-sm btn-default">Follow {{ownerName}}</button>
+            <table>
+              <tr>
+                <td>
+                  <img class="user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px; margin: 5px">
+                </td>
+                <td>
+                  <h3 style="margin: 0px !important"><small>{{ownerName}}</small></h3>
+                  <button class="btn btn-sm btn-primary">Follow {{ownerName}}</button>
+                </td>
+              </tr>
+            </table>
           </div>
         </div>
         <div class="panel panel-default">
@@ -1031,7 +1033,7 @@ $(document).ready(function(){
           <div class="panel-body">
             <h2>Comments</h2>
             {{#each ideaComments}}
-              {{>comment}}
+            {{>comment}}
             {{/each}}
             {{> comments}}
           </div>
@@ -1096,7 +1098,17 @@ $(document).ready(function(){
         <br>
         <div class="panel panel-default">
           <div class="panel-body">
-            <h3><small>{{ownerName}}</small></h3><button class="btn btn-sm btn-default">Follow {{ownerName}}</button>
+            <table>
+              <tr>
+                <td>
+                  <img class="user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px; margin: 5px">
+                </td>
+                <td>
+                  <h3 style="margin: 0px !important"><small>{{ownerName}}</small></h3>
+                  <button class="btn btn-sm btn-primary">Follow {{ownerName}}</button>
+                </td>
+              </tr>
+            </table>
           </div>
         </div>
         <div class="panel panel-default">
@@ -1113,7 +1125,7 @@ $(document).ready(function(){
           <div class="panel-body">
             <h2>Comments</h2>
             {{#each projectComments}}
-              {{>comment}}
+            {{>comment}}
             {{/each}}
             {{> comments}}
           </div>
@@ -1278,7 +1290,7 @@ $(document).ready(function(){
         <h1>About Spark</h1>
         <br>
         <h2>Why Spark?</h2>
-        <p>We believe that everyone is powerful. We believe that everyone has some special talent or some special idea. We believe that everyone has something crazy to contribute to the world, and Spark is our way of connecting people to accomplish amazing things.</p>
+        <p>At Spark, we believe that everyone has some special talent or some special idea. We believe that everyone has something crazy to contribute to the world, and Spark is our way of connecting people to accomplish amazing things.</p>
         <br>
         <h2>What is Spark?</h2>
         <p>Spark is an idea and project sharing community designed to encourage innovation.</p>
@@ -1321,12 +1333,11 @@ $(document).ready(function(){
     <div class="row profile">
       <div class="col-md-3">
         <div class="profile-sidebar">
-          <!-- SIDEBAR USERPIC -->
+
           <div class="profile-userpic">
             <img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
           </div>
-          <!-- END SIDEBAR USERPIC -->
-          <!-- SIDEBAR USER TITLE -->
+
           <div class="profile-usertitle">
             <div class="profile-usertitle-name">
               {{emails}}
@@ -1335,60 +1346,51 @@ $(document).ready(function(){
               Developer
             </div>
           </div>
-          <!-- END SIDEBAR USER TITLE -->
-          <!-- SIDEBAR BUTTONS -->
-<!--         <div class="profile-userbuttons">
-          <button type="button" class="btn btn-success btn-sm">Follow</button>
-          <button type="button" class="btn btn-danger btn-sm">Message</button>
-        </div> -->
-        <!-- END SIDEBAR BUTTONS -->
-        <!-- SIDEBAR MENU -->
-        <div class="profile-usermenu">
-          <ul class="nav">
-            <li>
-              <p><i class="fa fa-users"></i>Wayne Industries</p> 
-            </li>
-            <li>
-              <p><i class="glyphicon glyphicon-map-marker"></i>Cupertino, CA</p>
-            </li>
-            <li>
-              <p><i class="fa fa-envelope"></i><a href="mailto:bruce@wayne.org">bruce@wayne.org</a></p> 
-            </li>
-            <li>
-              <p><i class="fa fa-link"></i><a href="http://wayne.org" target="_blank">http://wayne.org</a></p>
-            </li>
-            <li>
-              <p><i class="fa fa-clock-o"></i>Joined Jan 15, 2015</p>
-            </li>
-          </ul>
+
+          <div class="profile-usermenu">
+            <ul class="nav">
+              <li>
+                <p><i class="fa fa-users"></i>Wayne Industries</p> 
+              </li>
+              <li>
+                <p><i class="glyphicon glyphicon-map-marker"></i>Cupertino, CA</p>
+              </li>
+              <li>
+                <p><i class="fa fa-envelope"></i><a href="mailto:bruce@wayne.org">bruce@wayne.org</a></p> 
+              </li>
+              <li>
+                <p><i class="fa fa-link"></i><a href="http://wayne.org" target="_blank">http://wayne.org</a></p>
+              </li>
+              <li>
+                <p><i class="fa fa-clock-o"></i>Joined Jan 15, 2015</p>
+              </li>
+            </ul>
+          </div>
+
         </div>
-        <!-- END MENU -->
       </div>
-    </div>
-    <div class="col-md-9">
-      <div class="profile-content">
-        <div role="tabpanel">
+      <div class="col-md-9">
+        <div class="profile-content">
+          <div role="tabpanel">
 
-         <!-- Nav tabs -->
-         <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="ideas active"><a href="#ideas" aria-controls="ideas" role="tab" data-toggle="tab">Ideas</a></li>
-          <li role="presentation" class="projects"><a href="#projects" aria-controls="projects" role="tab" data-toggle="tab">Projects</a></li>
-        </ul>
+           <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="ideas active"><a href="#ideas" aria-controls="ideas" role="tab" data-toggle="tab">Ideas</a></li>
+            <li role="presentation" class="projects"><a href="#projects" aria-controls="projects" role="tab" data-toggle="tab">Projects</a></li>
+          </ul>
 
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="ideas">
-            <div class="panel panel-default" id="tab">
-              <div class="panel-body">
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="ideas">
+              <div class="panel panel-default" id="tab">
+                <div class="panel-body">
+                </div>
               </div>
             </div>
           </div>
+          <div role="tabpanel" class="tab-pane" id="projects"></div>
         </div>
-        <div role="tabpanel" class="tab-pane" id="projects"></div>
       </div>
     </div>
   </div>
-</div>
 </div>
 <br>
 <br>
@@ -1400,26 +1402,16 @@ body {
   background: #F1F3FA;
 }
 
-/* Profile container */
+
 .profile {
   margin: 20px 0;
 }
 
-/* Profile sidebar */
-/*.profile-sidebar {
-  padding: 20px 0 10px 0;
-  background: #fff;
-  }*/
+.profile-userpic img {
+  float: none;
+  margin: 0 auto;
+  border-radius: 3px;
 
-  .profile-userpic img {
-    float: none;
-    margin: 0 auto;
-    border-radius: 3px;
-/*  width: 50%;
-  height: 50%;
-  -webkit-border-radius: 50% !important;
-  -moz-border-radius: 50% !important;
-  border-radius: 50% !important;*/
 }
 
 .profile-usertitle {
@@ -1442,68 +1434,30 @@ body {
   margin-bottom: 15px;
 }
 
-/*.profile-userbuttons {
-  text-align: center;
-  margin-top: 10px;
+
+.profile-usermenu {
+  margin-top: 30px;
 }
 
-.profile-userbuttons .btn {
-  text-transform: uppercase;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 6px 15px;
-  margin-right: 5px;
+
+.profile-usermenu ul li p {
+  color: #93a3b5;
+  font-size: 14px;
+  font-weight: 400;
 }
 
-.profile-userbuttons .btn:last-child {
-  margin-right: 0px;
-  }*/
-
-  .profile-usermenu {
-    margin-top: 30px;
-  }
-
-/*.profile-usermenu ul li {
-  border-bottom: 1px solid #f0f4f7;
+.profile-usermenu ul li p i {
+  margin-right: 8px;
+  font-size: 14px;
 }
 
-.profile-usermenu ul li:last-child {
-  border-bottom: none;
-  }*/
+.profile-content {
+  background: #fff;
+  min-height: 460px;
+}
 
-  .profile-usermenu ul li p {
-    color: #93a3b5;
-    font-size: 14px;
-    font-weight: 400;
-  }
+</style>
 
-  .profile-usermenu ul li p i {
-    margin-right: 8px;
-    font-size: 14px;
-  }
-
-/*.profile-usermenu ul li p:hover {
-  background-color: #fafcfd;
-  color: #5b9bd1;
-  }*/
-
-/*.profile-usermenu ul li.active {
-  border-bottom: none;
-  }*/
-
-/*.profile-usermenu ul li.active p {
-  color: #5b9bd1;
-  background-color: #f6f9fb;
-  border-left: 2px solid #5b9bd1;
-  margin-left: -2px;
-  }*/
-
-  /* Profile Content */
-  .profile-content {
-    background: #fff;
-    min-height: 460px;
-  }
-  </style>
 </template>
 <template name="watched">
   {{>nav}}
