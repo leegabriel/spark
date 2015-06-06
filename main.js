@@ -648,35 +648,35 @@ Router.route('/projects/:slug/edit', function(){
 });
 
 
-Router.route('/tos',function() {
-  window.scrollTo(0,0);
-  this.render('tos');
-  document.title = "Spark | Terms of Service";
-});
+// Router.route('/tos',function() {
+//   window.scrollTo(0,0);
+//   this.render('tos');
+//   document.title = "Spark | Terms of Service";
+// });
 
-Router.route('/privacy',function() {
-  window.scrollTo(0,0);
-  this.render('privacy');
-  document.title = "Spark | Privacy Policy";
-});
+// Router.route('/privacy',function() {
+//   window.scrollTo(0,0);
+//   this.render('privacy');
+//   document.title = "Spark | Privacy Policy";
+// });
 
-Router.route('/developers',function() {
-  window.scrollTo(0,0);
-  this.render('developers');
-  document.title = "Spark | Developers";
-});
+// Router.route('/developers',function() {
+//   window.scrollTo(0,0);
+//   this.render('developers');
+//   document.title = "Spark | Developers";
+// });
 
-Router.route('/artists',function() {
-  window.scrollTo(0,0);
-  this.render('artists');
-  document.title = "Spark | Artists";
-});
+// Router.route('/artists',function() {
+//   window.scrollTo(0,0);
+//   this.render('artists');
+//   document.title = "Spark | Artists";
+// });
 
-Router.route('/about',function() {
-  window.scrollTo(0,0);
-  this.render('about');
-  document.title = "Spark | About";
-});
+// Router.route('/about',function() {
+//   window.scrollTo(0,0);
+//   this.render('about');
+//   document.title = "Spark | About";
+// });
 
 
 Router.route('/:_id', function(){

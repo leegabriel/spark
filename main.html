@@ -245,23 +245,9 @@ $(document).ready(function() {
           <div class="copyright">
 
             <center>
-              <div class="col-sm-2">
-                <p>&copy; 2015 Spark</p>  
-              </div>
-              <div class="col-sm-2">
-                <p><a href="/tos">Terms of Service</a></p>  
-              </div>
-              <div class="col-sm-2">
-                <p><a href="/privacy">Privacy Policy</a></p>   
-              </div>
-              <div class="col-sm-2">
-                <p><a href="/developers">Developers</a></p>  
-              </div>
-              <div class="col-sm-2">
-                <p><a href="/artists">Artists</a></p>  
-              </div>
-              <div class="col-sm-2">
-                <p><a href="/about">About</a></p>  
+              <div class="col-sm-12">
+                <p>&copy; 2015 Spark</p> 
+                <p><a href="http://github.com/leegabriel/spark">Contribute on GitHub</a></p>  
               </div>
             </center>
 
@@ -1125,7 +1111,7 @@ document.title = "Create a New Project"
           <div class="panel-body">
             <h2>Comments</h2>
             {{#each projectComments}}
-            {{>comment}}
+              {{>comment}}
             {{/each}}
             {{> comments}}
           </div>
@@ -1224,84 +1210,6 @@ document.title = "Create a New Project"
     max-width: 260.5px;
   }
   </style>
-</template>
-
-<template name="tos">
-  {{>nav}}
-  <div class="container animated fadeIn">
-    <div class="row">
-      <div class="jumbotron">
-        <h1 class="header">Terms of Service</h1>
-      </div>
-    </div>
-  </div>
-  {{> footer}}
-
-</template>
-
-
-<template name="privacy">
-  {{>nav}}
-  <div class="container animated fadeIn">
-    <div class="row">
-      <div class="jumbotron">
-        <h1 class="header">Privacy Policy</h1>
-      </div>
-    </div>
-  </div>
-  {{> footer}}
-
-</template>
-
-
-<template name="developers">
-  {{>nav}}
-  <div class="container animated fadeIn">
-    <div class="row">
-      <div class="jumbotron">
-        <h1>Developers</h1>
-      </div>
-    </div>
-  </div>
-  {{> footer}}
-
-</template>
-
-
-<template name="artists">
-  {{>nav}}
-  <div class="container animated fadeIn">
-    <div class="row">
-      <div class="jumbotron">
-        <h1>Artists</h1>
-      </div>
-    </div>
-  </div>
-  {{> footer}}
-
-</template>
-
-
-<template name="about">
-  {{>nav}}
-  <div class="container animated fadeIn">
-    <div class="row">
-      <div class="jumbotron">
-        <h1>About Spark</h1>
-        <br>
-        <h2>Why Spark?</h2>
-        <p>At Spark, we believe that everyone has some special talent or some special idea. We believe that everyone has something crazy to contribute to the world, and Spark is our way of connecting people to accomplish amazing things.</p>
-        <br>
-        <h2>What is Spark?</h2>
-        <p>Spark is an idea and project sharing community designed to encourage innovation.</p>
-        <br>
-        <h2>How does it work?</h2>
-        <p>Anyone can make an idea or a project, and anyone can upvote or downvote any idea or project. Anyone can turn their own ideas into projects, or turn their own projects into fundraising campaigns.</p>
-      </div>
-    </div>
-  </div>
-  {{> footer}}
-
 </template>
 
 
