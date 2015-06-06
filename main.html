@@ -461,6 +461,9 @@ $(document).ready(function() {
     </div>
   </div>
 </template>
+
+
+
 <template name="newProject">
   {{#if currentUser}}
 
@@ -952,7 +955,7 @@ document.title = "Create a New Project"
           {{/if}}
         </div>
         <div class="panel-body">
-          {{text}}
+          {{#markdown}}{{text}}{{/markdown}}
         </div>
       </div>
     </div>
@@ -1010,7 +1013,7 @@ document.title = "Create a New Project"
             <h2>Details</h2>
             <p class="text-muted">Published on {{createdAt}}</p>
             <br>
-            <p>{{details}}</p>
+            <p>{{#markdown}}{{details}}{{/markdown}}</p>
             <br>
             <span class="label label-default">{{tags}}</span>
           </div>
@@ -1102,7 +1105,7 @@ document.title = "Create a New Project"
             <h2>Details</h2>
             <p class="text-muted">Published on {{createdAt}}</p>
             <br>
-            <p>{{details}}</p>
+            <p>{{#markdown}}{{details}}{{/markdown}}</p>
             <br>
             <span class="label label-default">{{tags}}</span>
           </div>
