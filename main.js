@@ -28,10 +28,6 @@ if(Meteor.isServer){
     return Comments.find();
   });
 
-  // Accounts.onCreateUser(function(options, user) {
-  //   user.profile['username'] = options.username;
-  //   return user;
-  // });
 } /* isServer */
 
 
@@ -624,7 +620,6 @@ Router.route('/projects/:slug', function(){
 
 Router.route('/ideas/:slug/edit', function(){
   window.scrollTo(0,0);
-  var ideaSlug = Session.get('choice');
   if (Ideas.findOne({slug: this.params.slug})) {
     this.render('editIdea', {
       data: function(){
