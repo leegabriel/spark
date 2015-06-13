@@ -126,6 +126,7 @@ if (Meteor.isClient) {
         return false;
       Meteor.call('addIdea', title, slug, blurb, imageURL, details, tags);
       Router.go('ideas');
+      Meteor.call("showAlert", 'Congratulations! Idea successfully created.', 'alert-success');
       return false;
     }
   }),
@@ -151,6 +152,7 @@ if (Meteor.isClient) {
         return false;
       Meteor.call('addProject', title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards);
       Router.go('projects');
+      Meteor.call("showAlert", 'Congratulations! Project successful created.', 'alert-success');
       return false;
     }
   }),
@@ -168,6 +170,7 @@ if (Meteor.isClient) {
 
       Meteor.call('editIdea', this._id, title, slug, blurb, imageURL, details, tags);
       Router.go('ideas');
+      Meteor.call("showAlert", 'Idea successfully updated.', 'alert-success');
     }, 
     'click .cancel':function(){
       window.history.back();
@@ -189,6 +192,7 @@ if (Meteor.isClient) {
 
       Meteor.call('editProject', this._id, title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards);
       Router.go('projects')
+      Meteor.call("showAlert", 'Project successfully updated.', 'alert-success');
     }, 
     'click .cancel':function(){
       window.history.back();
@@ -357,6 +361,14 @@ if (Meteor.isClient) {
 
 
 Meteor.methods({
+  showAlert: function (message, alertType) {
+    $('#alert_placeholder').append('<div id="alertdiv" class="alert ' +  
+      alertType + '"><a class="close" data-dismiss="alert">×</a><span>' + message + '</span></div>');
+
+    setTimeout(function() {
+      $("#alertdiv").remove();
+    }, 5000);
+  },
   addIdea: function (title, slug, blurb, imageURL, details, tags) {
     Ideas.insert({
       title: title,
@@ -447,7 +459,7 @@ Meteor.methods({
     else {
       Ideas.remove(ideaId);
       Router.go('ideas');
-      alert("Idea was removed.");
+      Meteor.call('showAlert', 'Idea removed.', 'alert-success');
     }
   },
   deleteProject: function (projectId) {
@@ -459,7 +471,7 @@ Meteor.methods({
     else {
       Projects.remove(projectId);
       Router.go('projects');
-      alert("Project was removed.");
+      Meteor.call('showAlert', 'Project removed.', 'alert-success');
     }
   }, 
   addIdeaComment: function(ideaId, parent, text) {
