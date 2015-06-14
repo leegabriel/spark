@@ -125,8 +125,6 @@ if (Meteor.isClient) {
       if (!title || !slug || !blurb || !details)
         return false;
       Meteor.call('addIdea', title, slug, blurb, imageURL, details, tags);
-      Router.go('ideas');
-      Meteor.call("showAlert", 'Congratulations! Idea successfully created.', 'alert-success');
       return false;
     }
   }),
@@ -151,8 +149,6 @@ if (Meteor.isClient) {
       if (!title || !slug || !blurb|| !details)
         return false;
       Meteor.call('addProject', title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards);
-      Router.go('projects');
-      Meteor.call("showAlert", 'Congratulations! Project successful created.', 'alert-success');
       return false;
     }
   }),
@@ -169,8 +165,6 @@ if (Meteor.isClient) {
       var tags = document.getElementById('tags').innerHTML.split(', ');
 
       Meteor.call('editIdea', this._id, title, slug, blurb, imageURL, details, tags);
-      Router.go('ideas');
-      Meteor.call("showAlert", 'Idea successfully updated.', 'alert-success');
     }, 
     'click .cancel':function(){
       window.history.back();
@@ -191,8 +185,6 @@ if (Meteor.isClient) {
       var rewards = document.getElementById('rewards').innerHTML;
 
       Meteor.call('editProject', this._id, title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards);
-      Router.go('projects')
-      Meteor.call("showAlert", 'Project successfully updated.', 'alert-success');
     }, 
     'click .cancel':function(){
       window.history.back();
@@ -364,10 +356,6 @@ Meteor.methods({
   showAlert: function (message, alertType) {
     $('#alert_placeholder').append('<div id="alertdiv" class="alert ' +  
       alertType + '"><a class="close" data-dismiss="alert">×</a><span>' + message + '</span></div>');
-
-    setTimeout(function() {
-      $("#alertdiv").remove();
-    }, 5000);
   },
   addIdea: function (title, slug, blurb, imageURL, details, tags) {
     Ideas.insert({
@@ -385,6 +373,8 @@ Meteor.methods({
       upvotedUsers: [],
       downvotedUsers: []
     });
+    Router.go('ideas');
+    Meteor.call("showAlert", 'Congratulations! Idea successfully created.', 'alert-success');
   },
   addProject: function (title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards) {
     Projects.insert({
@@ -409,6 +399,8 @@ Meteor.methods({
       pledged: 0,
       backers: 0
     });
+    Router.go('projects');
+    Meteor.call("showAlert", 'Congratulations! Project successfully created.', 'alert-success');
   },
   editIdea: function (ideaId, title, slug, blurb, imageURL, details, tags) {
     var idea = Ideas.findOne(ideaId);
@@ -426,6 +418,8 @@ Meteor.methods({
         details: details,
         tags: tags
       }});
+      Router.go('ideas');
+      Meteor.call("showAlert", 'Idea successfully updated.', 'alert-success');
     }
   },
   editProject: function (projectId, title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards) {
@@ -448,6 +442,8 @@ Meteor.methods({
         location: location, 
         rewards: rewards
       }});
+      Router.go('projects');
+      Meteor.call("showAlert", 'Project successfully updated.', 'alert-success');
     }
   },
   deleteIdea: function (ideaId) {
