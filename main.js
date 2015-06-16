@@ -44,7 +44,7 @@ if (Meteor.isClient) {
       else if (Session.equals('order', 'newest')) {
         return Ideas.find({}, {sort: {createTimeActual: -1}});
       }
-      else if (Session.equals('order', 'promoted')) {
+      else if (Session.equals('order', 'alphabetical')) {
         return Ideas.find({}, {sort: {title: 1}});
       }
       else { /*by default the tab is on hot, in hot order */
@@ -63,8 +63,8 @@ if (Meteor.isClient) {
     "click .newest": function(){
       Session.set('order', 'newest');
     },
-    "click .promoted": function(){
-      Session.set('order', 'promoted');
+    "click .alphabetical": function(){
+      Session.set('order', 'alphabetical');
     }
   }),
 
@@ -82,7 +82,7 @@ if (Meteor.isClient) {
       else if (Session.equals('order', 'newest')) {
         return Projects.find({}, {sort: {createTimeActual: -1}});
       }
-      else if (Session.equals('order', 'promoted')) {
+      else if (Session.equals('order', 'alphabetical')) {
         return Projects.find({}, {sort: {title: 1}});
       }
       else { /*by default the tab is on hot, in hot order */
@@ -101,8 +101,8 @@ if (Meteor.isClient) {
     "click .newest": function(){
       Session.set('order', 'newest');
     },
-    "click .promoted": function(){
-      Session.set('order', 'promoted');
+    "click .alphabetical": function(){
+      Session.set('order', 'alphabetical');
     }
   }),
 
@@ -442,6 +442,7 @@ Meteor.methods({
         location: location, 
         rewards: rewards
       }});
+      
       Router.go('projects');
       Meteor.call("showAlert", 'Project successfully updated.', 'alert-success');
     }
