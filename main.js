@@ -15,7 +15,6 @@ Projects.initEasySearch(['title', 'slug', 'blurb', 'details', 'tags', 'location'
 
 
 
-
 if(Meteor.isServer){
   Meteor.publish('ideasList', function(){
     return Ideas.find();
@@ -33,22 +32,26 @@ if(Meteor.isServer){
 
 if (Meteor.isClient) {
 
+  Meteor.startup(function () {
+    Session.set('pageCursor', 0);
+  });
+
   Template.ideasTab.helpers({
     ideas: function () {
       if (Session.equals('order', 'hot')) {
-        return Ideas.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}, limit: 5});
+        return Ideas.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}, limit: Session.get('pageCursor')});
       }
       else if (Session.equals('order', 'top')){
-        return Ideas.find({}, {sort: {count: -1}, limit: 5});
+        return Ideas.find({}, {sort: {count: -1}, limit: Session.get('pageCursor')});
       }
       else if (Session.equals('order', 'newest')) {
-        return Ideas.find({}, {sort: {createTimeActual: -1}, limit: 5});
+        return Ideas.find({}, {sort: {createTimeActual: -1}, limit: Session.get('pageCursor')});
       }
       else if (Session.equals('order', 'alphabetical')) {
-        return Ideas.find({}, {sort: {title: 1}, limit: 5});
+        return Ideas.find({}, {sort: {title: 1}, limit: Session.get('pageCursor')});
       }
       else { /*by default the tab is on hot, in hot order */
-        return Ideas.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}, limit: 5});
+        return Ideas.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}, limit: Session.get('pageCursor')});
       }
     }
   }),
@@ -65,6 +68,18 @@ if (Meteor.isClient) {
     },
     "click .alphabetical": function(){
       Session.set('order', 'alphabetical');
+    },
+    "click .next": function() {
+      var current = Session.get('pageCursor');
+      current = current + 5;
+      Session.set('pageCursor', current);
+    },
+    "click .prev": function() {
+      var current = Session.get('pageCursor');
+      if (current !== 0){
+        current = current - 5;
+      }
+      Session.set('pageCursor', current);
     }
   }),
 
@@ -74,19 +89,19 @@ if (Meteor.isClient) {
   Template.projectsTab.helpers({
     projects: function () {
       if (Session.equals('order', 'hot')) {
-        return Projects.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}});
+        return Projects.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}, limit: Session.get('pageCursor')});
       }
       else if (Session.equals('order', 'top')){
-        return Projects.find({}, {sort: {count: -1}});
+        return Projects.find({}, {sort: {count: -1}, limit: Session.get('pageCursor')});
       }
       else if (Session.equals('order', 'newest')) {
-        return Projects.find({}, {sort: {createTimeActual: -1}});
+        return Projects.find({}, {sort: {createTimeActual: -1}, limit: Session.get('pageCursor')});
       }
       else if (Session.equals('order', 'alphabetical')) {
-        return Projects.find({}, {sort: {title: 1}});
+        return Projects.find({}, {sort: {title: 1}, limit: Session.get('limit')});
       }
       else { /*by default the tab is on hot, in hot order */
-        return Projects.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}});
+        return Projects.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}, limit: Session.get('pageCursor')});
       }
     }
   }),
@@ -103,6 +118,18 @@ if (Meteor.isClient) {
     },
     "click .alphabetical": function(){
       Session.set('order', 'alphabetical');
+    },
+    "click .next": function() {
+      var current = Session.get('pageCursor');
+      current = current + 5;
+      Session.set('pageCursor', current);
+    },
+    "click .prev": function() {
+      var current = Session.get('pageCursor');
+      if (current !== 0){
+        current = current - 5;
+      }
+      Session.set('pageCursor', current);
     }
   }),
 
