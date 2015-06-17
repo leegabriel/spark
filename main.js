@@ -36,19 +36,19 @@ if (Meteor.isClient) {
   Template.ideasTab.helpers({
     ideas: function () {
       if (Session.equals('order', 'hot')) {
-        return Ideas.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}});
+        return Ideas.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}, limit: 5});
       }
       else if (Session.equals('order', 'top')){
-        return Ideas.find({}, {sort: {count: -1}});
+        return Ideas.find({}, {sort: {count: -1}, limit: 5});
       }
       else if (Session.equals('order', 'newest')) {
-        return Ideas.find({}, {sort: {createTimeActual: -1}});
+        return Ideas.find({}, {sort: {createTimeActual: -1}, limit: 5});
       }
       else if (Session.equals('order', 'alphabetical')) {
-        return Ideas.find({}, {sort: {title: 1}});
+        return Ideas.find({}, {sort: {title: 1}, limit: 5});
       }
       else { /*by default the tab is on hot, in hot order */
-        return Ideas.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}});
+        return Ideas.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}, limit: 5});
       }
     }
   }),
@@ -442,7 +442,7 @@ Meteor.methods({
         location: location, 
         rewards: rewards
       }});
-      
+
       Router.go('projects');
       Meteor.call("showAlert", 'Project successfully updated.', 'alert-success');
     }
