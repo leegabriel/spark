@@ -33,25 +33,28 @@ if(Meteor.isServer){
 if (Meteor.isClient) {
 
   Meteor.startup(function () {
-    Session.set('pageCursor', 0);
+    Session.set('iSkip', 0);
+    Session.set('iLimit', 5);
+    Session.set('pSkip', 0);
+    Session.set('pLimit', 5);
   });
 
   Template.ideasTab.helpers({
     ideas: function () {
       if (Session.equals('order', 'hot')) {
-        return Ideas.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}, limit: Session.get('pageCursor')});
+        return Ideas.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}, skip: Session.get('iSkip'), limit: Session.get('iLimit')});
       }
       else if (Session.equals('order', 'top')){
-        return Ideas.find({}, {sort: {count: -1}, limit: Session.get('pageCursor')});
+        return Ideas.find({}, {sort: {count: -1}, skip: Session.get('iSkip'), limit: Session.get('iLimit')});
       }
       else if (Session.equals('order', 'newest')) {
-        return Ideas.find({}, {sort: {createTimeActual: -1}, limit: Session.get('pageCursor')});
+        return Ideas.find({}, {sort: {createTimeActual: -1}, skip: Session.get('iSkip'), limit: Session.get('iLimit')});
       }
       else if (Session.equals('order', 'alphabetical')) {
-        return Ideas.find({}, {sort: {title: 1}, limit: Session.get('pageCursor')});
+        return Ideas.find({}, {sort: {title: 1}, skip: Session.get('iSkip'), limit: Session.get('iLimit')});
       }
       else { /*by default the tab is on hot, in hot order */
-        return Ideas.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}, limit: Session.get('pageCursor')});
+        return Ideas.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}, skip: Session.get('iSkip'), limit: Session.get('iLimit')});
       }
     }
   }),
@@ -70,16 +73,18 @@ if (Meteor.isClient) {
       Session.set('order', 'alphabetical');
     },
     "click .next": function() {
-      var current = Session.get('pageCursor');
-      current = current + 5;
-      Session.set('pageCursor', current);
+      var s = Session.get('iSkip');
+      s = s + 5;
+      Session.set('iSkip', s);
+      console.log(Session.get('iSkip'))
     },
     "click .prev": function() {
-      var current = Session.get('pageCursor');
-      if (current !== 0){
-        current = current - 5;
+      var s = Session.get('iSkip');
+      if (s !== 0 && s > 0){
+        s = s - 5;
+        Session.set('iSkip', s);
       }
-      Session.set('pageCursor', current);
+      console.log(Session.get('iSkip'))
     }
   }),
 
@@ -89,19 +94,19 @@ if (Meteor.isClient) {
   Template.projectsTab.helpers({
     projects: function () {
       if (Session.equals('order', 'hot')) {
-        return Projects.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}, limit: Session.get('pageCursor')});
+        return Projects.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}, skip: Session.get('pSkip'), limit: Session.get('pLimit')});
       }
       else if (Session.equals('order', 'top')){
-        return Projects.find({}, {sort: {count: -1}, limit: Session.get('pageCursor')});
+        return Projects.find({}, {sort: {count: -1}, skip: Session.get('pSkip'), limit: Session.get('pLimit')});
       }
       else if (Session.equals('order', 'newest')) {
-        return Projects.find({}, {sort: {createTimeActual: -1}, limit: Session.get('pageCursor')});
+        return Projects.find({}, {sort: {createTimeActual: -1}, skip: Session.get('pSkip'), limit: Session.get('pLimit')});
       }
       else if (Session.equals('order', 'alphabetical')) {
-        return Projects.find({}, {sort: {title: 1}, limit: Session.get('limit')});
+        return Projects.find({}, {sort: {title: 1}, skip: Session.get('pSkip'), limit: Session.get('pLimit')});
       }
       else { /*by default the tab is on hot, in hot order */
-        return Projects.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}, limit: Session.get('pageCursor')});
+        return Projects.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}, skip: Session.get('pSkip'), limit: Session.get('pLimit')});
       }
     }
   }),
@@ -120,16 +125,16 @@ if (Meteor.isClient) {
       Session.set('order', 'alphabetical');
     },
     "click .next": function() {
-      var current = Session.get('pageCursor');
-      current = current + 5;
-      Session.set('pageCursor', current);
+      var s = Session.get('pSkip');
+      s = s + 5;
+      Session.set('pSkip', s);
     },
     "click .prev": function() {
-      var current = Session.get('pageCursor');
-      if (current !== 0){
-        current = current - 5;
+      var s = Session.get('pSkip');
+      if (s !== 0 && s > 0){
+        s = s - 5;
+        Session.set('pSkip', s);
       }
-      Session.set('pageCursor', current);
     }
   }),
 
