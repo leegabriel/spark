@@ -40,8 +40,8 @@ Important:
 	<li><strike>Style the idea/project tabs better</strike></li>
 	<li><strike>Comments (preferably something already done because of, you know, spam)</strike></li>
 	<li><strike>HTML to text solution</strike></li>
+	<li><strike>Pagination</strike></li>
 	<li>Categories Option</li>
-	<li>Pagination</li>
 	<li>Submitted ... ago</li>
 	<li>Possibly show modal on clicking login-required item, to make it easier for user to sign up</li>
 	<li>Implement login by yourself</li>
