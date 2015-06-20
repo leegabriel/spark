@@ -406,7 +406,7 @@ Meteor.methods({
       downvotedUsers: []
     });
     Router.go('ideas');
-    Meteor.call("showAlert", 'Congratulations! Idea successfully created.', 'alert-success');
+    Meteor.call('showAlert', 'Congratulations! Idea successfully created.', 'alert-success');
   },
   addProject: function (title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards) {
     Projects.insert({
@@ -432,7 +432,7 @@ Meteor.methods({
       backers: 0
     });
     Router.go('projects');
-    Meteor.call("showAlert", 'Congratulations! Project successfully created.', 'alert-success');
+    Meteor.call('showAlert', 'Congratulations! Project successfully created.', 'alert-success');
   },
   editIdea: function (ideaId, title, slug, blurb, imageURL, details, tags) {
     var idea = Ideas.findOne(ideaId);
@@ -451,7 +451,7 @@ Meteor.methods({
         tags: tags
       }});
       Router.go('ideas');
-      Meteor.call("showAlert", 'Idea successfully updated.', 'alert-success');
+      Meteor.call('showAlert', 'Idea successfully updated.', 'alert-success');
     }
   },
   editProject: function (projectId, title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards) {
@@ -476,7 +476,7 @@ Meteor.methods({
       }});
 
       Router.go('projects');
-      Meteor.call("showAlert", 'Project successfully updated.', 'alert-success');
+      Meteor.call('showAlert', 'Project successfully updated.', 'alert-success');
     }
   },
   deleteIdea: function (ideaId) {
