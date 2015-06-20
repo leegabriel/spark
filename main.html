@@ -63,7 +63,7 @@
 
             {{else}}
 
-            <li><a class="btn-circle" href="#" data-toggle="tooltip" data-placement="bottom" title="Sign in to compose ideas/projects" role="button" aria-expanded="false"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a></li>
+            <li><a class="btn-circle" href="#" data-toggle="tooltip" data-placement="bottom" title="You must be signed in to compose" role="button" aria-expanded="false"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a></li>
 
             {{/if}}
             {{>loginButtons}}
@@ -746,6 +746,24 @@ document.title = "Create a New Project"
 
 </template>
 
+<template name="actionBar">
+  <div class="actionBar">
+    <ul>
+      <center>
+        {{#if currentUser}}
+        <li class="actions"><a href="#"><i class="fa fa-chevron-up"></i></a></li>
+        <li class="actions"><span class="badge" style="font-size: 20px">{{count}}</span></li>
+        <li class="actions"><a href="#"><i class="fa fa-chevron-down"></i></a></li>
+        {{else}}
+        <li class="actions"><a href="#"><i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top" title="You must be signed in to upvote"></i></a></li>
+        <li class="actions"><span class="badge" style="font-size: 20px">{{count}}</span></li>
+        <li class="actions"><a href="#"><i class="fa fa-chevron-down" data-toggle="tooltip" data-placement="bottom" title="You must be signed in to downvote"></i></a></li>
+        {{/if}}
+      </center>
+    </ul>
+  </div>
+</template>
+
 <template name="idea">
 
 
@@ -755,21 +773,7 @@ document.title = "Create a New Project"
       <tr>
 
         <td>
-          <div class="actionBar">
-            <ul>
-              <center>
-                {{#if currentUser}}
-                <li class="actions"><i class="fa fa-chevron-up"></i></li>
-                <li class="actions"><span class="badge" style="font-size: 20px">{{count}}</span></li>
-                <li class="actions"><i class="fa fa-chevron-down"></i></li>
-                {{else}}
-                <li class="actions"><i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top" title="Sign in to upvote this idea"></i></li>
-                <li class="actions"><span class="badge" style="font-size: 20px">{{count}}</span></li>
-                <li class="actions"><i class="fa fa-chevron-down" data-toggle="tooltip" data-placement="bottom" title="Sign in to downvote this idea"></i></li>
-                {{/if}}
-              </center>
-            </ul>
-          </div>
+          {{> actionBar}}
         </td>
 
         <td>
@@ -810,21 +814,7 @@ document.title = "Create a New Project"
       <tr>
 
         <td>
-          <div class="actionBar">
-            <ul>
-              <center>
-                {{#if currentUser}}
-                <li class="actions"><i class="fa fa-chevron-up"></i></li>
-                <li class="actions"><span class="badge" style="font-size: 20px">{{count}}</span></li>
-                <li class="actions"><i class="fa fa-chevron-down"></i></li>
-                {{else}}
-                <li class="actions"><i class="fa fa-chevron-up" data-toggle="tooltip" data-placement="top" title="Sign in to upvote this project"></i></li>
-                <li class="actions"><span class="badge" style="font-size: 20px">{{count}}</span></li>
-                <li class="actions"><i class="fa fa-chevron-down" data-toggle="tooltip" data-placement="bottom" title="Sign in to downvote this project"></i></li>
-                {{/if}}
-              </center>
-            </ul>
-          </div>
+          {{>actionBar}}
         </td>
 
         <td>

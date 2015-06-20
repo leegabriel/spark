@@ -83,6 +83,10 @@ h1, h2, h3, h4, h5, h6, p, small {
   width: 100px;
 }
 
+.tooltip-inner {
+  font-size: 11px;
+}
+
 ol ul {
   padding: 0px !important;
 }
@@ -154,10 +158,6 @@ li table {
   display: inline-block;
 }
 
-.fa-chevron-up:hover, .fa-chevron-down:hover {
-  color: #666;
-}
-
 .btn-circle {
   padding: 0px !important;
   margin-top: 5px;
@@ -169,8 +169,6 @@ li table {
 .btn-mobile {
   display:none;
 }
-
-
 
 .cancel {
   outline: 0;
