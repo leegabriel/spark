@@ -388,6 +388,7 @@ Meteor.methods({
   showAlert: function (message, alertType) {
     $('#alert_placeholder').append('<div id="alertdiv" class="alert ' +  
       alertType + '"><a class="close" data-dismiss="alert">×</a><span>' + message + '</span></div>');
+
   },
   addIdea: function (title, slug, blurb, imageURL, details, tags) {
     Ideas.insert({
@@ -405,8 +406,10 @@ Meteor.methods({
       upvotedUsers: [],
       downvotedUsers: []
     });
-    Router.go('ideas');
-    Meteor.call('showAlert', 'Congratulations! Idea successfully created.', 'alert-success');
+    if (Meteor.isClient){
+      Router.go('ideas');
+      Meteor.call('showAlert', 'Congratulations! Idea successfully created.', 'alert-success');
+    } 
   },
   addProject: function (title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards) {
     Projects.insert({
@@ -431,8 +434,10 @@ Meteor.methods({
       pledged: 0,
       backers: 0
     });
-    Router.go('projects');
-    Meteor.call('showAlert', 'Congratulations! Project successfully created.', 'alert-success');
+    if (Meteor.isClient) {
+      Router.go('projects');
+      Meteor.call('showAlert', 'Congratulations! Project successfully created.', 'alert-success');
+    }
   },
   editIdea: function (ideaId, title, slug, blurb, imageURL, details, tags) {
     var idea = Ideas.findOne(ideaId);
@@ -450,8 +455,10 @@ Meteor.methods({
         details: details,
         tags: tags
       }});
-      Router.go('ideas');
-      Meteor.call('showAlert', 'Idea successfully updated.', 'alert-success');
+      if (Meteor.isClient) {
+        Router.go('ideas');
+        Meteor.call('showAlert', 'Idea successfully updated.', 'alert-success');
+      }
     }
   },
   editProject: function (projectId, title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards) {
@@ -474,9 +481,10 @@ Meteor.methods({
         location: location, 
         rewards: rewards
       }});
-
-      Router.go('projects');
-      Meteor.call('showAlert', 'Project successfully updated.', 'alert-success');
+      if (Meteor.isClient) {
+        Router.go('projects');
+        Meteor.call('showAlert', 'Project successfully updated.', 'alert-success');
+      }
     }
   },
   deleteIdea: function (ideaId) {
@@ -486,9 +494,12 @@ Meteor.methods({
       throw new Meteor.Error("not-authorized");
     }
     else {
+
       Ideas.remove(ideaId);
-      Router.go('ideas');
-      Meteor.call('showAlert', 'Idea removed.', 'alert-success');
+      if (Meteor.isClient){
+        Router.go('ideas');
+        Meteor.call('showAlert', 'Idea removed.', 'alert-success');
+      }
     }
   },
   deleteProject: function (projectId) {
@@ -498,9 +509,12 @@ Meteor.methods({
       throw new Meteor.Error("not-authorized");
     }
     else {
+     
       Projects.remove(projectId);
-      Router.go('projects');
-      Meteor.call('showAlert', 'Project removed.', 'alert-success');
+      if (Meteor.isClient){
+        Router.go('projects');
+        Meteor.call('showAlert', 'Project removed.', 'alert-success');
+      }
     }
   }, 
   addIdeaComment: function(ideaId, parent, text) {
