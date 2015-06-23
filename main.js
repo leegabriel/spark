@@ -234,6 +234,7 @@ if (Meteor.isClient) {
     "click .delete": function () {
       if (confirm("Are you sure you want to delete this?")){
         Meteor.call("deleteIdea", this._id);
+        Meteor.call('showAlert', 'Idea removed.', 'alert-success');
       }
     },
     "click .fa-chevron-up": function () {
@@ -261,6 +262,7 @@ if (Meteor.isClient) {
     "click .delete": function () {
       if (confirm("Are you sure you want to delete this?")){
         Meteor.call("deleteProject", this._id);
+        Meteor.call('showAlert', 'Project removed.', 'alert-success');
       }
     },
     "click .fa-chevron-up": function () {
@@ -364,16 +366,6 @@ if (Meteor.isClient) {
     }
   }),
 
-  Template.pager.events({
-    'click .prev': function(event){
-      //change cursor
-    },
-    'click .next': function(event){
-      //change cursor
-    }
-
-  }),
-
   Template.comment.helpers({
     isOwner: function () {
       return this.owner === Meteor.userId();
@@ -386,9 +378,11 @@ if (Meteor.isClient) {
 
 Meteor.methods({
   showAlert: function (message, alertType) {
-    $('#alert_placeholder').append('<div id="alertdiv" class="alert ' +  
-      alertType + '"><a class="close" data-dismiss="alert">×</a><span>' + message + '</span></div>');
-
+    Template.alerts.onRendered(function(){
+      $('#alert_placeholder').append('<div id="alertdiv" class="alert ' +  
+        alertType + ' animated fadeInUp"><a class="close" data-dismiss="alert">×</a><span>' + 
+        message + '</span></div>');
+    })
   },
   addIdea: function (title, slug, blurb, imageURL, details, tags) {
     Ideas.insert({
@@ -498,7 +492,6 @@ Meteor.methods({
       Ideas.remove(ideaId);
       if (Meteor.isClient){
         Router.go('ideas');
-        Meteor.call('showAlert', 'Idea removed.', 'alert-success');
       }
     }
   },
@@ -509,11 +502,10 @@ Meteor.methods({
       throw new Meteor.Error("not-authorized");
     }
     else {
-     
+
       Projects.remove(projectId);
       if (Meteor.isClient){
         Router.go('projects');
-        Meteor.call('showAlert', 'Project removed.', 'alert-success');
       }
     }
   }, 
@@ -698,37 +690,6 @@ Router.route('/projects/:slug/edit', function(){
 });
 
 
-// Router.route('/tos',function() {
-//   window.scrollTo(0,0);
-//   this.render('tos');
-//   document.title = "Spark | Terms of Service";
-// });
-
-// Router.route('/privacy',function() {
-//   window.scrollTo(0,0);
-//   this.render('privacy');
-//   document.title = "Spark | Privacy Policy";
-// });
-
-// Router.route('/developers',function() {
-//   window.scrollTo(0,0);
-//   this.render('developers');
-//   document.title = "Spark | Developers";
-// });
-
-// Router.route('/artists',function() {
-//   window.scrollTo(0,0);
-//   this.render('artists');
-//   document.title = "Spark | Artists";
-// });
-
-// Router.route('/about',function() {
-//   window.scrollTo(0,0);
-//   this.render('about');
-//   document.title = "Spark | About";
-// });
-
-
 Router.route('/:_id', function(){
   window.scrollTo(0,0);
   document.title = "Spark";
@@ -754,11 +715,6 @@ Router.route('/stats',function() {
   document.title = "Spark";
 });
 
-Router.route('/gold',function() {
-  window.scrollTo(0,0);
-  this.render('gold');
-  document.title = "Spark";
-});
 
 Router.route('/settings',function() {
   window.scrollTo(0,0);
