@@ -234,7 +234,6 @@ if (Meteor.isClient) {
     "click .delete": function () {
       if (confirm("Are you sure you want to delete this?")){
         Meteor.call("deleteIdea", this._id);
-        Meteor.call('showAlert', 'Idea removed.', 'alert-success');
       }
     },
     "click .fa-chevron-up": function () {
@@ -262,7 +261,6 @@ if (Meteor.isClient) {
     "click .delete": function () {
       if (confirm("Are you sure you want to delete this?")){
         Meteor.call("deleteProject", this._id);
-        Meteor.call('showAlert', 'Project removed.', 'alert-success');
       }
     },
     "click .fa-chevron-up": function () {
@@ -379,10 +377,11 @@ if (Meteor.isClient) {
 Meteor.methods({
   showAlert: function (message, alertType) {
     Template.alerts.onRendered(function(){
+      $('#alertdiv').remove(); // get rid of previous alert div
       $('#alert_placeholder').append('<div id="alertdiv" class="alert ' +  
-        alertType + ' animated fadeInUp"><a class="close" data-dismiss="alert">×</a><span>' + 
+        alertType + ' animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><span>' + 
         message + '</span></div>');
-    })
+    });
   },
   addIdea: function (title, slug, blurb, imageURL, details, tags) {
     Ideas.insert({
@@ -492,6 +491,7 @@ Meteor.methods({
       Ideas.remove(ideaId);
       if (Meteor.isClient){
         Router.go('ideas');
+        Meteor.call('showAlert', 'Idea removed.', 'alert-success');
       }
     }
   },
@@ -506,6 +506,7 @@ Meteor.methods({
       Projects.remove(projectId);
       if (Meteor.isClient){
         Router.go('projects');
+        Meteor.call('showAlert', 'Project removed.', 'alert-success');
       }
     }
   }, 
