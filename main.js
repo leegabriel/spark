@@ -76,7 +76,6 @@ if (Meteor.isClient) {
       var s = Session.get('iSkip');
       s = s + 5;
       Session.set('iSkip', s);
-      console.log(Session.get('iSkip'))
     },
     "click .prev": function() {
       var s = Session.get('iSkip');
@@ -84,7 +83,6 @@ if (Meteor.isClient) {
         s = s - 5;
         Session.set('iSkip', s);
       }
-      console.log(Session.get('iSkip'))
     }
   }),
 
@@ -370,6 +368,7 @@ if (Meteor.isClient) {
     }
   });
 
+
 } /* isClient */
 
 /* 
@@ -397,14 +396,8 @@ var alertsArray = [
 Meteor.methods({
   showAlert: function (alertIndex) {
     Template.alerts.onRendered( function(){
-      this.autorun(function (c) {
-        if (Session.equals("needAlert", false)){
-          return;
-        }
-        c.stop();
-        $('#alertDiv').remove();
-        $('#placeholder').append(alertsArray[alertIndex]);
-      });
+      $('#alertDiv').remove(); // remove prev
+      $('#placeholder').append(alertsArray[alertIndex]);
     });
   },
   addIdea: function (title, slug, blurb, imageURL, details, tags) {
@@ -626,13 +619,10 @@ Meteor.methods({
 
 /* Routes */
 
-
-
-// Router.onBeforeAction(function(){
-//   $('#alertDiv').remove();
-//   $('#placeholder').append(alertsArray[0]); // alternative way of "removing" the div
-//   this.next();
-// });
+Router.onBeforeAction(function(){
+  window.scrollTo(0,0);
+  this.next();
+});
 
 
 Router.configure({
@@ -649,34 +639,28 @@ Router.configure({
 
 
 Router.route('/', function() {
-  window.scrollTo(0,0);
   this.render('home');
 });
 
 Router.route('/ideas', function() {
-  window.scrollTo(0,0);
   this.render('ideasTab');
   document.title = "Spark | Ideas";
 });
 
 Router.route('/projects',function() {
-  window.scrollTo(0,0);
   this.render('projectsTab');
   document.title = "Spark | Projects"
 });
 
 Router.route('/newidea', function(){
-  window.scrollTo(0,0);
   this.render('newIdea');
 });
 
 Router.route('/newproject', function(){
-  window.scrollTo(0,0);
   this.render('newProject');
 });
 
 Router.route('/ideas/:slug', function(){
-  window.scrollTo(0,0);
   this.render('loading');
   if (Ideas.findOne({slug: this.params.slug})) {
     this.render('ideaView', {
@@ -688,7 +672,6 @@ Router.route('/ideas/:slug', function(){
 });
 
 Router.route('/projects/:slug', function(){
-  window.scrollTo(0,0);
   this.render('loading');
   if (Projects.findOne({slug: this.params.slug})) {
     this.render('projectView', {
@@ -700,7 +683,6 @@ Router.route('/projects/:slug', function(){
 });
 
 Router.route('/ideas/:slug/edit', function(){
-  window.scrollTo(0,0);
   if (Ideas.findOne({slug: this.params.slug})) {
     this.render('editIdea', {
       data: function(){
@@ -712,7 +694,6 @@ Router.route('/ideas/:slug/edit', function(){
 });
 
 Router.route('/projects/:slug/edit', function(){
-  window.scrollTo(0,0);
   if (Projects.findOne({slug: this.params.slug})) {
     this.render('editProject', {
       data: function(){
@@ -725,7 +706,6 @@ Router.route('/projects/:slug/edit', function(){
 
 
 Router.route('/:_id', function(){
-  window.scrollTo(0,0);
   document.title = "Spark";
   this.render('loading');
   if (Meteor.users.findOne({_id: Meteor.userId()})) {
@@ -738,32 +718,27 @@ Router.route('/:_id', function(){
 });
 
 Router.route('/watched',function() {
-  window.scrollTo(0,0);
   this.render('watched');
   document.title = "Spark";
 });
 
 Router.route('/stats',function() {
-  window.scrollTo(0,0);
   this.render('stats');
   document.title = "Spark";
 });
 
 
 Router.route('/settings',function() {
-  window.scrollTo(0,0);
   this.render('settings');
   document.title = "Spark";
 });
 
 Router.route('/search', function(){
-  window.scrollTo(0,0);
   this.render('search');
   document.title = "Search";
 });
 
 Router.route('/results', function(){
-  window.scrollTo(0,0);
   this.render('searchResults');
   document.title = "Search Results";
 });
