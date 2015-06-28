@@ -368,29 +368,38 @@ if (Meteor.isClient) {
     isOwner: function () {
       return this.owner === Meteor.userId();
     }
-
-  }),
-
-  Template.alerts.helpers({
-    needAlert: function(){
-      return Session.get('needAlert');
-    }
   });
 
 } /* isClient */
 
+/* 
+0 = invisible
+1 = idea updated
+2 = project updated
+3 = idea deleted
+4 = project deleted
+5 = idea created
+6 = project created
+7 = error
+*/
+
+var alertsArray = [
+  '<div style="display:none !important;" id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a></div>',
+  '<div id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Success!</strong> Idea updated.</div>',
+  '<div id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Success!</strong> Project updated.</div>',
+  '<div id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Goodbye!</strong> Idea deleted.</div>',
+  '<div id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Goodbye!</strong> Project deleted.</div>',
+  '<div id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Awesome!</strong> Idea created.</div>',
+  '<div id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Awesome!</strong> Project created.</div>',
+  '<div id="alertDiv" class="alert alert-error animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Oops!</strong> Something went wrong.</div>'
+]
 
 Meteor.methods({
-  showAlert: function (message, alertType) {
-
-    Template.alerts.onRendered(function(){
+  showAlert: function (alertIndex) {
+    Template.alerts.onRendered( function(){
       $('#alertDiv').remove();
-      $('#placeholder').append('<div id="alertDiv" class="alert ' +  
-        alertType + ' animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><span>' + 
-        message + '</span></div>');
+      $('#placeholder').append(alertsArray[alertIndex]);
     });
-
-
   },
   addIdea: function (title, slug, blurb, imageURL, details, tags) {
     Ideas.insert({
@@ -410,7 +419,7 @@ Meteor.methods({
     });
     if (Meteor.isClient){
       Router.go('ideas');
-      Meteor.call('showAlert', 'Congratulations! Idea successfully created.', 'alert-success');
+      Meteor.call('showAlert', 5);
     } 
   },
   addProject: function (title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards) {
@@ -438,7 +447,7 @@ Meteor.methods({
     });
     if (Meteor.isClient) {
       Router.go('projects');
-      Meteor.call('showAlert', 'Congratulations! Project successfully created.', 'alert-success');
+      Meteor.call('showAlert', 6);
     }
   },
   editIdea: function (ideaId, title, slug, blurb, imageURL, details, tags) {
@@ -459,7 +468,7 @@ Meteor.methods({
       }});
       if (Meteor.isClient) {
         Router.go('ideas');
-        Meteor.call('showAlert', 'Idea successfully updated.', 'alert-success');
+        Meteor.call('showAlert', 1);
       }
     }
   },
@@ -485,7 +494,7 @@ Meteor.methods({
       }});
       if (Meteor.isClient) {
         Router.go('projects');
-        Meteor.call('showAlert', 'Project successfully updated.', 'alert-success');
+        Meteor.call('showAlert', 2);
       }
     }
   },
@@ -500,7 +509,7 @@ Meteor.methods({
       Ideas.remove(ideaId);
       if (Meteor.isClient){
         Router.go('ideas');
-        Meteor.call('showAlert', 'Idea removed.', 'alert-success');
+        Meteor.call('showAlert', 3);
       }
     }
   },
@@ -515,7 +524,7 @@ Meteor.methods({
       Projects.remove(projectId);
       if (Meteor.isClient){
         Router.go('projects');
-        Meteor.call('showAlert', 'Project removed.', 'alert-success');
+        Meteor.call('showAlert', 4);
       }
     }
   }, 
@@ -611,15 +620,19 @@ Meteor.methods({
 
 /* Routes */
 
-Router.onBeforeAction(function(){
-  console.log("New Route")
-  if (document.getElementById('alertDiv')) {
-    console.log(document.getElementById('alertDiv'));
-    $('#alertDiv').remove();
-    console.log(document.getElementById('alertDiv'));
-  }
-  this.next();
-});
+
+
+// Router.onBeforeAction(function(){
+//   console.log("New Route")
+//   if (document.getElementById('alertDiv')) {
+//     console.log(document.getElementById('alertDiv'));
+//     $('#alertDiv').remove();
+//     console.log(document.getElementById('alertDiv'));
+
+//   }
+
+//   this.next();
+// });
 
 
 Router.configure({
