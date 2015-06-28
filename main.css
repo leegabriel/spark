@@ -399,7 +399,7 @@ textarea {
   }
 
   .ghost {
-    display:none;
+    display:none !important;
   }
 
   .btn-mobile {

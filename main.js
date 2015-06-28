@@ -369,6 +369,12 @@ if (Meteor.isClient) {
       return this.owner === Meteor.userId();
     }
 
+  }),
+
+  Template.alerts.helpers({
+    needAlert: function(){
+      return Session.get('needAlert');
+    }
   });
 
 } /* isClient */
@@ -376,12 +382,15 @@ if (Meteor.isClient) {
 
 Meteor.methods({
   showAlert: function (message, alertType) {
+
     Template.alerts.onRendered(function(){
-      $('#alertdiv').remove(); // get rid of previous alert div
-      $('#alert_placeholder').append('<div id="alertdiv" class="alert ' +  
+      $('#alertDiv').remove();
+      $('#placeholder').append('<div id="alertDiv" class="alert ' +  
         alertType + ' animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><span>' + 
         message + '</span></div>');
     });
+
+
   },
   addIdea: function (title, slug, blurb, imageURL, details, tags) {
     Ideas.insert({
@@ -601,6 +610,17 @@ Meteor.methods({
 
 
 /* Routes */
+
+Router.onBeforeAction(function(){
+  console.log("New Route")
+  if (document.getElementById('alertDiv')) {
+    console.log(document.getElementById('alertDiv'));
+    $('#alertDiv').remove();
+    console.log(document.getElementById('alertDiv'));
+  }
+  this.next();
+});
+
 
 Router.configure({
  notFoundTemplate: 'pageNotFound',

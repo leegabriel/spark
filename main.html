@@ -231,7 +231,8 @@ $(document).ready(function() {
 <template name="alerts">
   <div class="container">
     <div class="row">
-      <div id="alert_placeholder"></div>
+      <div id="placeholder">
+      </div>
     </div>
   </div>
 </template>
@@ -449,6 +450,9 @@ $(document).ready(function() {
 
   <script>
   document.title = "Create a New Idea"
+  window.onload = function() {
+    document.getElementById("title").focus();
+  };
   </script>
 
 </template>
@@ -539,6 +543,9 @@ $(document).ready(function() {
 
 <script>
 document.title = "Create a New Project"
+window.onload = function() {
+  document.getElementById("title").focus();
+};
 </script>
 
 </template>
