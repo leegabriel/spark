@@ -384,14 +384,14 @@ if (Meteor.isClient) {
 */
 
 var alertsArray = [
-  '<div style="display:none !important;" id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a></div>',
-  '<div id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Success!</strong> Idea updated.</div>',
-  '<div id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Success!</strong> Project updated.</div>',
-  '<div id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Goodbye!</strong> Idea deleted.</div>',
-  '<div id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Goodbye!</strong> Project deleted.</div>',
-  '<div id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Awesome!</strong> Idea created.</div>',
-  '<div id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Awesome!</strong> Project created.</div>',
-  '<div id="alertDiv" class="alert alert-error animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Oops!</strong> Something went wrong.</div>'
+'<div style="display:none !important;" id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a></div>',
+'<div id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Success!</strong> Idea updated.</div>',
+'<div id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Success!</strong> Project updated.</div>',
+'<div id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Goodbye!</strong> Idea deleted.</div>',
+'<div id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Goodbye!</strong> Project deleted.</div>',
+'<div id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Awesome!</strong> Idea created.</div>',
+'<div id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Awesome!</strong> Project created.</div>',
+'<div id="alertDiv" class="alert alert-error animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Oops!</strong> Something went wrong.</div>'
 ]
 
 Meteor.methods({
@@ -399,7 +399,13 @@ Meteor.methods({
     Template.alerts.onRendered( function(){
       $('#alertDiv').remove();
       $('#placeholder').append(alertsArray[alertIndex]);
+      this.autorun(function(){
+        setTimeout(function(){
+          $('#alertDiv').remove();
+        },3000);
+      });
     });
+
   },
   addIdea: function (title, slug, blurb, imageURL, details, tags) {
     Ideas.insert({
@@ -622,17 +628,11 @@ Meteor.methods({
 
 
 
-// Router.onBeforeAction(function(){
-//   console.log("New Route")
-//   if (document.getElementById('alertDiv')) {
-//     console.log(document.getElementById('alertDiv'));
-//     $('#alertDiv').remove();
-//     console.log(document.getElementById('alertDiv'));
-
-//   }
-
-//   this.next();
-// });
+Router.onBeforeAction(function(){
+  $('#alertDiv').remove();
+  $('#placeholder').append(alertsArray[0]); // alternative way of "removing" the div
+  this.next();
+});
 
 
 Router.configure({
