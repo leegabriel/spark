@@ -397,15 +397,15 @@ var alertsArray = [
 Meteor.methods({
   showAlert: function (alertIndex) {
     Template.alerts.onRendered( function(){
-      $('#alertDiv').remove();
-      $('#placeholder').append(alertsArray[alertIndex]);
-      this.autorun(function(){
-        setTimeout(function(){
-          $('#alertDiv').remove();
-        },3000);
+      this.autorun(function (c) {
+        if (Session.equals("needAlert", false)){
+          return;
+        }
+        c.stop();
+        $('#alertDiv').remove();
+        $('#placeholder').append(alertsArray[alertIndex]);
       });
     });
-
   },
   addIdea: function (title, slug, blurb, imageURL, details, tags) {
     Ideas.insert({
@@ -628,11 +628,11 @@ Meteor.methods({
 
 
 
-Router.onBeforeAction(function(){
-  $('#alertDiv').remove();
-  $('#placeholder').append(alertsArray[0]); // alternative way of "removing" the div
-  this.next();
-});
+// Router.onBeforeAction(function(){
+//   $('#alertDiv').remove();
+//   $('#placeholder').append(alertsArray[0]); // alternative way of "removing" the div
+//   this.next();
+// });
 
 
 Router.configure({
