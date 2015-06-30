@@ -33,6 +33,7 @@ if(Meteor.isServer){
 if (Meteor.isClient) {
 
   Meteor.startup(function () {
+    Session.set('needAlert', true);
     Session.set('iSkip', 0);
     Session.set('iLimit', 5);
     Session.set('pSkip', 0);
@@ -86,6 +87,11 @@ if (Meteor.isClient) {
     }
   }),
 
+  Template.ideasTab.onDestroyed(function(){
+    console.log('ideasTab destroyed.');
+    Session.set('needAlert', false);
+  });
+
 
 
 
@@ -135,6 +141,11 @@ if (Meteor.isClient) {
       }
     }
   }),
+
+  Template.projectsTab.onDestroyed(function(){
+    console.log('projectsTab destroyed.');
+    Session.set('needAlert', false);
+  });
 
 
 
@@ -368,6 +379,12 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.alerts.helpers({
+    needAlert: function(){
+      return Session.get('needAlert');
+    }
+  })
+
 
 } /* isClient */
 
@@ -396,6 +413,8 @@ var alertsArray = [
 Meteor.methods({
   showAlert: function (alertIndex) {
     Template.alerts.onRendered( function(){
+      Session.set('needAlert', true);
+      console.log(Session.get('needAlert'))
       $('#alertDiv').remove(); // remove prev
       $('#placeholder').append(alertsArray[alertIndex]);
     });

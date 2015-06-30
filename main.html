@@ -231,8 +231,10 @@ $(document).ready(function() {
 <template name="alerts">
   <div class="container">
     <div class="row">
+      {{#if needAlert}}
       <div id="placeholder">
       </div>
+      {{/if}}
     </div>
   </div>
 </template>
