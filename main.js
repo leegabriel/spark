@@ -25,7 +25,7 @@ if(Meteor.isServer){
 
   Meteor.publish('commentsList', function() {
     return Comments.find();
-  });
+  })
 
 } /* isServer */
 
@@ -33,12 +33,12 @@ if(Meteor.isServer){
 if (Meteor.isClient) {
 
   Meteor.startup(function () {
-    Session.set('needAlert', true);
     Session.set('iSkip', 0);
     Session.set('iLimit', 5);
     Session.set('pSkip', 0);
     Session.set('pLimit', 5);
   });
+
 
   Template.ideasTab.helpers({
     ideas: function () {
@@ -87,338 +87,293 @@ if (Meteor.isClient) {
     }
   }),
 
-  Template.ideasTab.onDestroyed(function(){
-    console.log('ideasTab destroyed.');
-    Session.set('needAlert', false);
-  });
 
-
-
-
-  Template.projectsTab.helpers({
-    projects: function () {
-      if (Session.equals('order', 'hot')) {
-        return Projects.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}, skip: Session.get('pSkip'), limit: Session.get('pLimit')});
-      }
-      else if (Session.equals('order', 'top')){
-        return Projects.find({}, {sort: {count: -1}, skip: Session.get('pSkip'), limit: Session.get('pLimit')});
-      }
-      else if (Session.equals('order', 'newest')) {
-        return Projects.find({}, {sort: {createTimeActual: -1}, skip: Session.get('pSkip'), limit: Session.get('pLimit')});
-      }
-      else if (Session.equals('order', 'alphabetical')) {
-        return Projects.find({}, {sort: {title: 1}, skip: Session.get('pSkip'), limit: Session.get('pLimit')});
-      }
-      else { /*by default the tab is on hot, in hot order */
-        return Projects.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}, skip: Session.get('pSkip'), limit: Session.get('pLimit')});
-      }
+Template.projectsTab.helpers({
+  projects: function () {
+    if (Session.equals('order', 'hot')) {
+      return Projects.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}, skip: Session.get('pSkip'), limit: Session.get('pLimit')});
     }
-  }),
+    else if (Session.equals('order', 'top')){
+      return Projects.find({}, {sort: {count: -1}, skip: Session.get('pSkip'), limit: Session.get('pLimit')});
+    }
+    else if (Session.equals('order', 'newest')) {
+      return Projects.find({}, {sort: {createTimeActual: -1}, skip: Session.get('pSkip'), limit: Session.get('pLimit')});
+    }
+    else if (Session.equals('order', 'alphabetical')) {
+      return Projects.find({}, {sort: {title: 1}, skip: Session.get('pSkip'), limit: Session.get('pLimit')});
+    }
+    else { /*by default the tab is on hot, in hot order */
+      return Projects.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}, skip: Session.get('pSkip'), limit: Session.get('pLimit')});
+    }
+  }
+}),
 
-  Template.projectsTab.events({
-    "click .hot": function(){
-      Session.set('order', 'hot');
-    },
-    "click .top": function(){
-      Session.set('order', 'top');
-    },
-    "click .newest": function(){
-      Session.set('order', 'newest');
-    },
-    "click .alphabetical": function(){
-      Session.set('order', 'alphabetical');
-    },
-    "click .next": function() {
-      var s = Session.get('pSkip');
-      s = s + 5;
+Template.projectsTab.events({
+  "click .hot": function(){
+    Session.set('order', 'hot');
+  },
+  "click .top": function(){
+    Session.set('order', 'top');
+  },
+  "click .newest": function(){
+    Session.set('order', 'newest');
+  },
+  "click .alphabetical": function(){
+    Session.set('order', 'alphabetical');
+  },
+  "click .next": function() {
+    var s = Session.get('pSkip');
+    s = s + 5;
+    Session.set('pSkip', s);
+  },
+  "click .prev": function() {
+    var s = Session.get('pSkip');
+    if (s !== 0 && s > 0){
+      s = s - 5;
       Session.set('pSkip', s);
-    },
-    "click .prev": function() {
-      var s = Session.get('pSkip');
-      if (s !== 0 && s > 0){
-        s = s - 5;
-        Session.set('pSkip', s);
-      }
     }
-  }),
-
-  Template.projectsTab.onDestroyed(function(){
-    console.log('projectsTab destroyed.');
-    Session.set('needAlert', false);
-  });
+  }
+}),
 
 
 
 
-  Template.newIdea.events({
-    'submit .addIdeaForm':function(e){
-      var title = e.target.title.value;
-      var slug = e.target.slug.value;
-      var blurb = e.target.blurb.value;
-      var imageURL = e.target.image.value;
-      var details = e.target.details.value;
-      var tags = e.target.tags.value.split(', ');
 
-      if (!imageURL){
-        imageURL = 'http://lorempixel.com/600/500/';
-      }
+Template.newIdea.events({
+  'submit .addIdeaForm':function(e){
+    var title = e.target.title.value;
+    var slug = e.target.slug.value;
+    var blurb = e.target.blurb.value;
+    var imageURL = e.target.image.value;
+    var details = e.target.details.value;
+    var tags = e.target.tags.value.split(', ');
 
-      if (!title || !slug || !blurb || !details)
-        return false;
-      Meteor.call('addIdea', title, slug, blurb, imageURL, details, tags);
+    if (!imageURL){
+      imageURL = 'http://lorempixel.com/600/500/';
+    }
+
+    if (!title || !slug || !blurb || !details)
       return false;
+    Meteor.call('addIdea', title, slug, blurb, imageURL, details, tags);
+    return false;
+  }
+}),
+
+Template.newProject.events({
+  'submit .addProjectForm':function(e){
+    var title = e.target.title.value;
+    var slug = e.target.slug.value;
+    var blurb = e.target.blurb.value;
+    var imageURL = e.target.image.value;
+    var details = e.target.details.value;
+    var tags = e.target.tags.value.split(', ');
+    var goal = e.target.goal.value;
+    var duration = e.target.duration.value;
+    var location = e.target.location.value;
+    var rewards = e.target.rewards.value;
+
+    if (!imageURL){
+      imageURL = 'http://lorempixel.com/600/500/';
     }
-  }),
 
-  Template.newProject.events({
-    'submit .addProjectForm':function(e){
-      var title = e.target.title.value;
-      var slug = e.target.slug.value;
-      var blurb = e.target.blurb.value;
-      var imageURL = e.target.image.value;
-      var details = e.target.details.value;
-      var tags = e.target.tags.value.split(', ');
-      var goal = e.target.goal.value;
-      var duration = e.target.duration.value;
-      var location = e.target.location.value;
-      var rewards = e.target.rewards.value;
-
-      if (!imageURL){
-        imageURL = 'http://lorempixel.com/600/500/';
-      }
-
-      if (!title || !slug || !blurb|| !details)
-        return false;
-      Meteor.call('addProject', title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards);
+    if (!title || !slug || !blurb|| !details)
       return false;
+    Meteor.call('addProject', title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards);
+    return false;
+  }
+}),
+
+
+Template.editIdea.events({
+
+  'click .update':function(event){
+    var title = document.getElementById('title').innerHTML;
+    var slug = document.getElementById('slug').innerHTML;
+    var blurb = document.getElementById('blurb').innerHTML;
+    var imageURL = document.getElementById('imageURL').innerHTML;
+    var details = document.getElementById('details').innerHTML;
+    var tags = document.getElementById('tags').innerHTML.split(', ');
+
+    Meteor.call('editIdea', this._id, title, slug, blurb, imageURL, details, tags);
+  }, 
+  'click .cancel':function(){
+    window.history.back();
+  }
+}),
+
+Template.editProject.events({
+  'click .update':function(event){
+    var title = document.getElementById('title').innerHTML;
+    var slug = document.getElementById('slug').innerHTML;
+    var blurb = document.getElementById('blurb').innerHTML;
+    var imageURL = document.getElementById('imageURL').innerHTML;
+    var details = document.getElementById('details').innerHTML;
+    var tags = document.getElementById('tags').innerHTML.split(', ');
+    var goal = document.getElementById('goal').innerHTML;
+    var duration = document.getElementById('duration').innerHTML;
+    var location = document.getElementById('location').innerHTML;
+    var rewards = document.getElementById('rewards').innerHTML;
+
+    Meteor.call('editProject', this._id, title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards);
+  }, 
+  'click .cancel':function(){
+    window.history.back();
+  }
+}),
+
+
+
+
+Template.idea.events({
+  "click .edit": function () {
+    var path = '/ideas/' + this.slug + '/edit';
+    Router.go(path);
+  },
+  "click .delete": function () {
+    if (confirm("Are you sure you want to delete this?")){
+      Meteor.call("deleteIdea", this._id);
     }
-  }),
+  },
+  "click .fa-chevron-up": function () {
+    Meteor.call("upvoteIdea", this._id);
+  },
+  "click .fa-chevron-down": function () {
+    Meteor.call("downvoteIdea", this._id);
+  }
+}),
+
+Template.idea.helpers({
+  isOwner: function () {
+    return this.owner === Meteor.userId();
+  }
+}),
 
 
-  Template.editIdea.events({
 
-    'click .update':function(event){
-      var title = document.getElementById('title').innerHTML;
-      var slug = document.getElementById('slug').innerHTML;
-      var blurb = document.getElementById('blurb').innerHTML;
-      var imageURL = document.getElementById('imageURL').innerHTML;
-      var details = document.getElementById('details').innerHTML;
-      var tags = document.getElementById('tags').innerHTML.split(', ');
 
-      Meteor.call('editIdea', this._id, title, slug, blurb, imageURL, details, tags);
-    }, 
-    'click .cancel':function(){
-      window.history.back();
+Template.project.events({
+  "click .edit": function () {
+    var path = '/projects/' + this.slug + '/edit';
+    Router.go(path);
+  },
+  "click .delete": function () {
+    if (confirm("Are you sure you want to delete this?")){
+      Meteor.call("deleteProject", this._id);
     }
-  }),
+  },
+  "click .fa-chevron-up": function () {
+    Meteor.call("upvoteProject", this._id);
+  },
+  "click .fa-chevron-down": function () {
+    Meteor.call("downvoteProject", this._id);
+  }
+}),
 
-  Template.editProject.events({
-    'click .update':function(event){
-      var title = document.getElementById('title').innerHTML;
-      var slug = document.getElementById('slug').innerHTML;
-      var blurb = document.getElementById('blurb').innerHTML;
-      var imageURL = document.getElementById('imageURL').innerHTML;
-      var details = document.getElementById('details').innerHTML;
-      var tags = document.getElementById('tags').innerHTML.split(', ');
-      var goal = document.getElementById('goal').innerHTML;
-      var duration = document.getElementById('duration').innerHTML;
-      var location = document.getElementById('location').innerHTML;
-      var rewards = document.getElementById('rewards').innerHTML;
+Template.project.helpers({
+  isOwner: function () {
+    return this.owner === Meteor.userId();
+  }
+}),
 
-      Meteor.call('editProject', this._id, title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards);
-    }, 
-    'click .cancel':function(){
-      window.history.back();
+
+
+
+Template.ideaView.events({
+  "click .edit": function () {
+    var path = '/ideas/' + this.slug + '/edit';
+    Router.go(path);
+  },
+  "click .delete": function () {
+    if (confirm("Are you sure you want to delete this?")){
+      Meteor.call("deleteIdea", this._id);
     }
-  }),
-
-
-
-
-  Template.idea.events({
-    "click .edit": function () {
-      var path = '/ideas/' + this.slug + '/edit';
-      Router.go(path);
-    },
-    "click .delete": function () {
-      if (confirm("Are you sure you want to delete this?")){
-        Meteor.call("deleteIdea", this._id);
-      }
-    },
-    "click .fa-chevron-up": function () {
-      Meteor.call("upvoteIdea", this._id);
-    },
-    "click .fa-chevron-down": function () {
-      Meteor.call("downvoteIdea", this._id);
-    }
-  }),
-
-  Template.idea.helpers({
-    isOwner: function () {
-      return this.owner === Meteor.userId();
-    }
-  }),
-
-
-
-
-  Template.project.events({
-    "click .edit": function () {
-      var path = '/projects/' + this.slug + '/edit';
-      Router.go(path);
-    },
-    "click .delete": function () {
-      if (confirm("Are you sure you want to delete this?")){
-        Meteor.call("deleteProject", this._id);
-      }
-    },
-    "click .fa-chevron-up": function () {
-      Meteor.call("upvoteProject", this._id);
-    },
-    "click .fa-chevron-down": function () {
-      Meteor.call("downvoteProject", this._id);
-    }
-  }),
-
-  Template.project.helpers({
-    isOwner: function () {
-      return this.owner === Meteor.userId();
-    }
-  }),
-
-
-
-
-  Template.ideaView.events({
-    "click .edit": function () {
-      var path = '/ideas/' + this.slug + '/edit';
-      Router.go(path);
-    },
-    "click .delete": function () {
-      if (confirm("Are you sure you want to delete this?")){
-        Meteor.call("deleteIdea", this._id);
-      }
-    },
-    'click #submit-comment': function() {
+  },
+  'click #submit-comment': function() {
       // because this is actually an input element, need to use value
       var text = document.getElementById('comment-box').value; 
       Meteor.call('addIdeaComment', this._id, 0, text);
     }
   }),
 
-  Template.ideaView.helpers({
-    isOwner: function () {
-      return this.owner === Meteor.userId();
-    },
-    ideaComments: function () {
-      return Comments.find({ideaId:this._id});
+Template.ideaView.helpers({
+  isOwner: function () {
+    return this.owner === Meteor.userId();
+  },
+  ideaComments: function () {
+    return Comments.find({ideaId:this._id});
+  }
+}),
+
+
+
+Template.projectView.events({
+  "click .edit": function () {
+    var path = '/projects/' + this.slug + '/edit';
+    Router.go(path);
+  },
+  "click .delete": function () {
+    if (confirm("Are you sure you want to delete this?")){
+      Meteor.call("deleteProject", this._id);
     }
-  }),
+  },
+  'click #submit-comment': function() {
+    var text = document.getElementById('comment-box').value;
+    Meteor.call('addProjectComment', this._id, 0, text);
+  }
+}),
 
-
-
-  Template.projectView.events({
-    "click .edit": function () {
-      var path = '/projects/' + this.slug + '/edit';
-      Router.go(path);
-    },
-    "click .delete": function () {
-      if (confirm("Are you sure you want to delete this?")){
-        Meteor.call("deleteProject", this._id);
-      }
-    },
-    'click #submit-comment': function() {
-      var text = document.getElementById('comment-box').value;
-      Meteor.call('addProjectComment', this._id, 0, text);
-    }
-  }),
-
-  Template.projectView.helpers({
-    isOwner: function () {
-      return this.owner === Meteor.userId();
-    },
-    projectComments: function () {
-      return Comments.find({projectId:this._id});
-    }
-  }),
+Template.projectView.helpers({
+  isOwner: function () {
+    return this.owner === Meteor.userId();
+  },
+  projectComments: function () {
+    return Comments.find({projectId:this._id});
+  }
+}),
 
 
 
 
 
-  Template._loginButtonsLoggedInDropdown.events({
-    'click #login-buttons-profile': function(event) {
-      Router.go('profile');
-    },
-    'click #login-buttons-watched': function(event) {
-      Router.go('watched');
-    },
-    'click #login-buttons-stats': function(event) {
-      Router.go('stats');
-    },
-    'click #login-buttons-settings': function(event) {
-      Router.go('settings');
-    }
-  }),
+Template._loginButtonsLoggedInDropdown.events({
+  'click #login-buttons-profile': function(event) {
+    Router.go('profile');
+  },
+  'click #login-buttons-watched': function(event) {
+    Router.go('watched');
+  },
+  'click #login-buttons-stats': function(event) {
+    Router.go('stats');
+  },
+  'click #login-buttons-settings': function(event) {
+    Router.go('settings');
+  }
+}),
 
 
 
 
-  Template.nav.events({
-    'submit .searchForm': function(event) {
-      var args = document.getElementById('args').value;
-      console.log(args);
-      var path = '/search/' + args;
-      Router.go(path);
-    }
-  }),
+Template.nav.events({
+  'submit .searchForm': function(event) {
+    var args = document.getElementById('args').value;
+    console.log(args);
+    var path = '/search/' + args;
+    Router.go(path);
+  }
+}),
 
-  Template.comment.helpers({
-    isOwner: function () {
-      return this.owner === Meteor.userId();
-    }
-  });
+Template.comment.helpers({
+  isOwner: function () {
+    return this.owner === Meteor.userId();
+  }
+});
 
-  Template.alerts.helpers({
-    needAlert: function(){
-      return Session.get('needAlert');
-    }
-  })
 
 
 } /* isClient */
 
-/* 
-0 = invisible
-1 = idea updated
-2 = project updated
-3 = idea deleted
-4 = project deleted
-5 = idea created
-6 = project created
-7 = error
-*/
-
-var alertsArray = [
-'<div style="display:none !important;" id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a></div>',
-'<div id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Success!</strong> Idea updated.</div>',
-'<div id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Success!</strong> Project updated.</div>',
-'<div id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Goodbye!</strong> Idea deleted.</div>',
-'<div id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Goodbye!</strong> Project deleted.</div>',
-'<div id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Awesome!</strong> Idea created.</div>',
-'<div id="alertDiv" class="alert alert-success animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Awesome!</strong> Project created.</div>',
-'<div id="alertDiv" class="alert alert-error animated fadeInUp fade in"><a class="close" data-dismiss="alert">×</a><strong>Oops!</strong> Something went wrong.</div>'
-]
 
 Meteor.methods({
-  showAlert: function (alertIndex) {
-    Template.alerts.onRendered( function(){
-      Session.set('needAlert', true);
-      console.log(Session.get('needAlert'))
-      $('#alertDiv').remove(); // remove prev
-      $('#placeholder').append(alertsArray[alertIndex]);
-    });
-  },
   addIdea: function (title, slug, blurb, imageURL, details, tags) {
     Ideas.insert({
       title: title,
@@ -436,8 +391,8 @@ Meteor.methods({
       downvotedUsers: []
     });
     if (Meteor.isClient){
-      Router.go('ideas');
-      Meteor.call('showAlert', 5);
+      Router.go('ideas'); 
+      swal("Idea created!", "", "success"); 
     } 
   },
   addProject: function (title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards) {
@@ -465,7 +420,7 @@ Meteor.methods({
     });
     if (Meteor.isClient) {
       Router.go('projects');
-      Meteor.call('showAlert', 6);
+      swal("Project created!", "", "success");
     }
   },
   editIdea: function (ideaId, title, slug, blurb, imageURL, details, tags) {
@@ -484,10 +439,11 @@ Meteor.methods({
         details: details,
         tags: tags
       }});
-      if (Meteor.isClient) {
+      if (Meteor.isClient){
         Router.go('ideas');
-        Meteor.call('showAlert', 1);
+        swal("Idea updated!", "", "success");
       }
+
     }
   },
   editProject: function (projectId, title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards) {
@@ -512,7 +468,7 @@ Meteor.methods({
       }});
       if (Meteor.isClient) {
         Router.go('projects');
-        Meteor.call('showAlert', 2);
+        swal("Project updated!", "", "success");
       }
     }
   },
@@ -527,7 +483,7 @@ Meteor.methods({
       Ideas.remove(ideaId);
       if (Meteor.isClient){
         Router.go('ideas');
-        Meteor.call('showAlert', 3);
+        swal("Idea deleted!");  
       }
     }
   },
@@ -538,11 +494,10 @@ Meteor.methods({
       throw new Meteor.Error("not-authorized");
     }
     else {
-
       Projects.remove(projectId);
       if (Meteor.isClient){
         Router.go('projects');
-        Meteor.call('showAlert', 4);
+        swal("Project deleted!");
       }
     }
   }, 
@@ -579,9 +534,6 @@ Meteor.methods({
         Ideas.update(ideaId, { $inc: { count: 1 }});
         Ideas.update(ideaId, { $push: { upvotedUsers: thisUser }});
       }
-      else {
-        console.log("Did not find idea with this id, or user already upvoted this idea.")
-      }
     }
   },
   upvoteProject: function (projectId) {
@@ -594,9 +546,6 @@ Meteor.methods({
       if (!(Projects.findOne({_id: projectId, upvotedUsers: thisUser}))) {
         Projects.update(projectId, { $inc: { count: 1 }});
         Projects.update(projectId, { $push: { upvotedUsers: thisUser }});
-      }
-      else{
-        console.log("Did not find project with this id, or user already upvoted this project.")
       }
     }
   },
@@ -611,9 +560,6 @@ Meteor.methods({
         Ideas.update(ideaId, { $inc: { count: -1 }});
         Ideas.update(ideaId, { $push: { downvotedUsers: thisUser }});
       }
-      else{
-        console.log("Did not find project with this id, or user already downvoted this project.")
-      }
     }
   },
   downvoteProject: function (projectId) {
@@ -626,9 +572,6 @@ Meteor.methods({
       if (!(Projects.findOne({_id: projectId, downvotedUsers: thisUser}))) {
         Projects.update(projectId, { $inc: { count: -1 }});
         Projects.update(projectId, { $push: { downvotedUsers: thisUser }});
-      }
-      else {
-        console.log("Did not find project with this id, or user already downvoted this project.")
       }
     }
   }
@@ -651,7 +594,7 @@ Router.configure({
   return [
   Meteor.subscribe('ideasList'),
   Meteor.subscribe('projectsList'),
-  Meteor.subscribe('commentsList')
+  Meteor.subscribe('commentsList'),
   ];
 }
 });

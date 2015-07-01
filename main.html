@@ -85,7 +85,6 @@
     </div>
 
   </nav>
-  {{> alerts}}
   
   <style>
 
@@ -226,17 +225,6 @@ $(document).ready(function() {
   });
 });
 </script>
-</template>
-
-<template name="alerts">
-  <div class="container">
-    <div class="row">
-      {{#if needAlert}}
-      <div id="placeholder">
-      </div>
-      {{/if}}
-    </div>
-  </div>
 </template>
 
 <template name="_loginButtonsAdditionalLoggedInDropdownActions">
@@ -436,7 +424,7 @@ $(document).ready(function() {
         </form>
       </div>
       <div class="col-sm-4">
-        {{>faq}}
+        
       </div>
     </div>
   </div>
@@ -457,20 +445,6 @@ $(document).ready(function() {
   };
   </script>
 
-</template>
-
-<template name="faq">
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <b>FAQs <i class="fa fa-question-circle"></i></b><br><br>
-      <em>How do I make a catchy title?</em><br><br>
-      <p>Try to make the title well-balanced ie. <em>Rooster Booster, Lord-of-the-Flies Sized Fries, Superman Suit</em></p>
-      <em>What image should I use?</em><br><br>
-      <p>As long as the picture is high quality and relevant to your project, it should be fine. Any ideas or projects with inappropriate or irrelevant content will be deleted and users posting them will be banned.</p>
-      <em>What should I put as my permalink?</em><br><br>
-      <p>The permalink is your personal link that you can send to other people. It should capture the main points of your project, ie. <em>archie-comic-book-series or hawaii-t-shirts</em></p>
-    </div>
-  </div>
 </template>
 
 
@@ -529,7 +503,7 @@ $(document).ready(function() {
       </form>
     </div>
     <div class="col-sm-4">
-      {{>faq}}
+      
     </div>
   </div>
 </div>
