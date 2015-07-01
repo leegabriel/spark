@@ -158,14 +158,6 @@ li table {
   display: inline-block;
 }
 
-.btn-circle {
-  padding: 0px !important;
-  margin-top: 5px;
-  margin-left: 15px;
-  margin-right: 7.5px;
-  background-color: transparent !important;
-}
-
 .btn-mobile {
   display:none;
 }
