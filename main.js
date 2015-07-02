@@ -387,6 +387,7 @@ Meteor.methods({
       ownerName: Meteor.user().emails[0].address,
       createdAt: moment().format("MMMM D, YYYY"),
       createTimeActual: moment().format(),
+      submittedAgo: moment(moment().format(), moment.ISO_8601).fromNow(),
       upvotedUsers: [],
       downvotedUsers: []
     });
@@ -412,6 +413,7 @@ Meteor.methods({
       ownerName: Meteor.user().emails[0].address,
       createdAt: moment().format("MMMM D, YYYY"),
       createTimeActual: moment().format(),
+      submittedAgo: moment(moment().format(), moment.ISO_8601).fromNow(),
       upvotedUsers: [],
       downvotedUsers: [],
       funded: 0,

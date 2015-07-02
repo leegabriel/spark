@@ -41,11 +41,11 @@ Important:
 	<li><strike>Comments (preferably something already done because of, you know, spam)</strike></li>
 	<li><strike>HTML to text solution</strike></li>
 	<li><strike>Pagination</strike></li>
+	<li><strike>Submitted ... ago</strike></li> Momentjs
+	<li><strike>Either fix the "New.." dropdown on mobile view or use modals. Try both and see which one you like.</strike></li>
 	<li>Categories Option</li>
-	<li>Submitted ... ago</li>
 	<li>Possibly show modal on clicking login-required item, to make it easier for user to sign up</li>
 	<li>Implement login by yourself</li>
-	<li>Either fix the "New.." dropdown on mobile view or use modals. Try both and see which one you like.</li>
 </ul>
 
 

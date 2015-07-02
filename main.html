@@ -787,10 +787,10 @@ window.onload = function() {
         <td style="width: 600px">
           <div class="middle-link">
             <h3><a title={{title}} id="middle-link" href="/ideas/{{slug}}">{{title}}</a></h3>
-            <p id="mobile-blurb">{{blurb}}</p>
+            <p><i class="fa fa-clock-o"></i> {{submittedAgo}} by {{ownerName}}</p>
             {{#if isOwner}}
-            <button class="btn btn-sm btn-primary edit"><i class="fa fa-edit"></i> Edit</button>
-            <button class="btn btn-sm btn-danger delete"><i class="fa fa-trash"></i> Delete</button>
+            <a class="edit" style="cursor:pointer">Edit</a>
+            <a class="delete" href="#">Delete</a>
             {{/if}}
           </div>
         </td>
@@ -828,10 +828,10 @@ window.onload = function() {
         <td style="width: 600px">
           <div class="middle-link">
             <h3><a title={{title}} id="middle-link" href="/projects/{{slug}}">{{title}}</a></h3>
-            <p id="mobile-blurb">{{blurb}}</p>
+            <p><i class="fa fa-clock-o"></i> {{submittedAgo}} by {{ownerName}}</p>
             {{#if isOwner}}
-            <button class="btn btn-sm btn-primary edit"><i class="fa fa-edit"></i> Edit</button>
-            <button class="btn btn-sm btn-danger delete"><i class="fa fa-trash"></i> Delete</button>
+            <a class="edit" style="cursor:pointer">Edit</a>
+            <a class="delete" href="#">Delete</a>
             {{/if}}
           </div>
         </td>
