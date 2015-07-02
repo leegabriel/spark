@@ -46,7 +46,7 @@
           <ul class="nav navbar-nav navbar-right">
             {{#if currentUser}}
             <li><div class="dropdown" style="margin-top: 7.5px">
-              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Create
                 <span class="caret"></span>
               </button>
@@ -180,7 +180,6 @@
 
 
 $(document).ready(function() {
-  $('.dropdown-toggle').dropdown()
   $('.btn-circle').tooltip()
 });
 
@@ -241,8 +240,8 @@ $(document).ready(function() {
 
             <center>
               <div class="col-sm-12">
-                <p>&copy; 2015 Spark</p> 
-                <p><a href="http://github.com/leegabriel/spark">Contribute on GitHub</a></p>  
+                <p>&copy; 2015 Spark   <a href="http://github.com/leegabriel/spark">GitHub</a></p> 
+                  
               </div>
             </center>
 
@@ -278,16 +277,26 @@ $(document).ready(function() {
 
 <template name="sortBar">
 
-  <div class="dropdown">
-    <a class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Sort by
-      <span class="caret"></span></a>
-      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-        <li role="presentation"><a class="hot" role="menuitem" tabindex="-1" href="#">Hot</a></li>
-        <li role="presentation"><a class="top" role="menuitem" tabindex="-1" href="#">Top</a></li>
-        <li role="presentation"><a class="newest" role="menuitem" tabindex="-1" href="#">Newest</a></li>
-        <li role="presentation"><a class="alphabetical" role="menuitem" tabindex="-1" href="#">A-Z</a></li>
-      </ul>
-    </div>
+
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="sortBar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Sort by
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="sortBar">
+        <li><a class="hot" href="#">Hot</a></li>
+        <li><a class="top" href="#">Top</a></li>
+        <li><a class="newest" href="#">Newest</a></li>
+        <li ><a class="alphabetical" href="#">A-Z</a></li>
+  </ul>
+
+  <script>
+  $('.dropdown-toggle').dropdown()
+  </script>
+</div>
+
+
+
   </template>
 
 
