@@ -61,16 +61,16 @@ if (Meteor.isClient) {
   }),
 
   Template.ideasTab.events({
-    "click .hot": function(){
+    "click #hot": function(){
       Session.set('order', 'hot');
     },
-    "click .top": function(){
+    "click #top": function(){
       Session.set('order', 'top');
     },
-    "click .newest": function(){
+    "click #newest": function(){
       Session.set('order', 'newest');
     },
-    "click .alphabetical": function(){
+    "click #alphabetical": function(){
       Session.set('order', 'alphabetical');
     },
     "click .next": function() {
@@ -109,16 +109,16 @@ if (Meteor.isClient) {
   }),
 
   Template.projectsTab.events({
-    "click .hot": function(){
+    "click #hot": function(){
       Session.set('order', 'hot');
     },
-    "click .top": function(){
+    "click #top": function(){
       Session.set('order', 'top');
     },
-    "click .newest": function(){
+    "click #newest": function(){
       Session.set('order', 'newest');
     },
-    "click .alphabetical": function(){
+    "click #alphabetical": function(){
       Session.set('order', 'alphabetical');
     },
     "click .next": function() {

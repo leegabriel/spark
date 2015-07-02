@@ -181,11 +181,6 @@ $(".dropdown-menu a").click(function() {
 });
 
 
-$(document).ready(function() {
-  $('.btn-circle').tooltip()
-});fsortBar
-
-
 
 $(window).resize(function() {
   var path = $(this);
@@ -282,14 +277,14 @@ $(document).ready(function() {
 
 <div class="dropdown">
   <button class="btn btn-default dropdown-toggle" type="button" id="sortBar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Sort by
+    Sort by <b><span id="sortChoice">Hot</span></b>
     <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" aria-labelledby="sortBar">
-        <li><a class="hot" href="#">Hot</a></li>
-        <li><a class="top" href="#">Top</a></li>
-        <li><a class="newest" href="#">Newest</a></li>
-        <li ><a class="alphabetical" href="#">A-Z</a></li>
+        <li><a id="hot" href="#">Hot</a></li>
+        <li><a id="top" href="#">Top</a></li>
+        <li><a id="newest" href="#">Newest</a></li>
+        <li ><a id="alphabetical" href="#">A-Z</a></li>
   </ul>
 
   <script>
@@ -299,6 +294,21 @@ $(document).ready(function() {
     $(this).closest(".dropdown-menu").prev().dropdown("toggle");
 });
 
+  document.getElementById('hot').onclick = function() {
+    document.getElementById('sortChoice').innerHTML = 'Hot';
+  }
+
+  document.getElementById('top').onclick = function() {
+    document.getElementById('sortChoice').innerHTML = 'Top';
+  }
+
+  document.getElementById('newest').onclick = function() {
+    document.getElementById('sortChoice').innerHTML = 'Newest';
+  }
+
+  document.getElementById('alphabetical').onclick = function() {
+    document.getElementById('sortChoice').innerHTML = 'A-Z';
+  }
 
   </script>
 </div>
