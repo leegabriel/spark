@@ -176,12 +176,14 @@
 </style>
 
 <script>
-
+$(".dropdown-menu a").click(function() {
+    $(this).closest(".dropdown-menu").prev().dropdown("toggle");
+});
 
 
 $(document).ready(function() {
   $('.btn-circle').tooltip()
-});
+});fsortBar
 
 
 
@@ -292,6 +294,12 @@ $(document).ready(function() {
 
   <script>
   $('.dropdown-toggle').dropdown()
+
+  $(".dropdown-menu a").click(function() {
+    $(this).closest(".dropdown-menu").prev().dropdown("toggle");
+});
+
+
   </script>
 </div>
 
