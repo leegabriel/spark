@@ -45,16 +45,13 @@
           </form>
           <ul class="nav navbar-nav navbar-right">
             {{#if currentUser}}
-            <li><div class="dropdown" style="margin-top: 7.5px">
-              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Create
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a href="/newidea">New Idea</a></li>
-                <li><a href="/newproject">New Project</a></li>
-              </ul>
-            </div></li>
+<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">New <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/newidea">Idea</a></li>
+            <li><a href="/newproject">Project</a></li>
+          </ul>
+        </li>
             {{/if}}
             {{>loginButtons}}
 
@@ -1374,17 +1371,17 @@ body {
 </template>
 <template name="watched">
   {{>nav}}
-
+  Watched
   {{>footer}}
 </template>
 <template name="stats">
   {{>nav}}
-
+  Stats
   {{>footer}}
 </template>
 <template name="settings">
   {{>nav}}
-
+  Settings
   {{>footer}}
 </template>
 
