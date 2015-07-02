@@ -245,6 +245,9 @@ if (Meteor.isClient) {
   Template.idea.helpers({
     isOwner: function () {
       return this.owner === Meteor.userId();
+    },
+    submittedAgo: function() {
+      return moment(this.createTimeActual, moment.ISO_8601).fromNow();
     }
   }),
 
@@ -272,6 +275,9 @@ if (Meteor.isClient) {
   Template.project.helpers({
     isOwner: function () {
       return this.owner === Meteor.userId();
+    },
+    submittedAgo: function() {
+      return moment(this.createTimeActual, moment.ISO_8601).fromNow();
     }
   }),
 
@@ -301,6 +307,9 @@ if (Meteor.isClient) {
     },
     ideaComments: function () {
       return Comments.find({ideaId:this._id});
+    },
+    submittedAgo: function() {
+      return moment(this.createTimeActual, moment.ISO_8601).fromNow();
     }
   }),
 
@@ -328,6 +337,9 @@ if (Meteor.isClient) {
     },
     projectComments: function () {
       return Comments.find({projectId:this._id});
+    },
+    submittedAgo: function() {
+      return moment(this.createTimeActual, moment.ISO_8601).fromNow();
     }
   }),
 
@@ -387,7 +399,6 @@ Meteor.methods({
       ownerName: Meteor.user().emails[0].address,
       createdAt: moment().format("MMMM D, YYYY"),
       createTimeActual: moment().format(),
-      submittedAgo: moment(moment().format(), moment.ISO_8601).fromNow(),
       upvotedUsers: [],
       downvotedUsers: []
     });
@@ -413,7 +424,6 @@ Meteor.methods({
       ownerName: Meteor.user().emails[0].address,
       createdAt: moment().format("MMMM D, YYYY"),
       createTimeActual: moment().format(),
-      submittedAgo: moment(moment().format(), moment.ISO_8601).fromNow(),
       upvotedUsers: [],
       downvotedUsers: [],
       funded: 0,
