@@ -542,13 +542,14 @@ window.onload = function() {
   <div class="container animated fadeIn">
     <div class="row">
       <div class="col-sm-8">
-        <button class="cancel">Cancel</button>
-        <button class="btn btn-primary update">Done</button>
+        <a class="btn btn-default cancel">Cancel</a>
+        <a class="btn btn-primary update">Done</a>
         <table width="100%">
           <tr> 
             <td>
               <h1 id="title" class="editable" contenteditable="true">{{title}}</h1>
-              <label>Permalink:</label> <p style="display:inline">spark-app.meteor.com/</p><p style="display:inline" id="slug" class="editable" contenteditable="true">{{slug}}</p>
+              <label>Permalink:</label>
+              <p style="display:inline">spark-app.meteor.com/</p><p style="display:inline" id="slug" class="editable" contenteditable="true">{{slug}}</p>
             </td>
 
           </tr>
@@ -580,8 +581,8 @@ window.onload = function() {
 
     <div class="row">
       <div class="col-sm-8">
-        <button class="cancel">Cancel</button>
-        <button class="btn btn-primary update">Done</button>
+        <a class="cancel">Cancel</a>
+        <a class="btn btn-primary update">Done</a>
         <table width="100%">
           <tr> 
             <td>
@@ -726,7 +727,7 @@ window.onload = function() {
               • <a class="delete" href="#">Delete</a>
               {{/if}}
             </p>
-            <p><b><a href="/ideas/{{slug}}#comments">0 comments</a></b></p>
+            <a href="/ideas/{{slug}}#comments">0 comments</a>
             
           </div>
         </td>
@@ -906,8 +907,8 @@ window.onload = function() {
     <div class="row">
       <div class="col-sm-8">
         {{#if isOwner}}
-        <a class="edit" style="cursor:pointer">Edit</a>
-        <a class="delete" style="cursor:pointer">Delete</a>
+        <a class="btn btn-default edit">Edit</a>
+        <a class="btn btn-danger delete">Delete</a>
         {{/if}} 
         <table width="100%">
           <tr> 

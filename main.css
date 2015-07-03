@@ -162,17 +162,6 @@ li table {
   display:none;
 }
 
-.cancel {
-  outline: 0;
-  background: none;
-  border: none;
-}
-
-.cancel:hover {
-  text-decoration: underline;
-  opacity: 1;
-}
-
 #tos:hover, #privacy:hover, #developers:hover, #artists:hover, #about:hover {
   text-decoration: underline !important;
 }
