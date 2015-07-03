@@ -215,7 +215,6 @@ input {
 
 textarea { 
   resize: vertical;
-  max-width: 450px;
   outline: 0;
   display: block;
   padding: 6px 12px;
@@ -392,6 +391,7 @@ input {
 .editable {
   outline: 0;
   color: #000;
+  padding: 6px 12px;
   background: #fff;
   border-radius: 5px;
   border: 1px solid #ccc;

@@ -329,17 +329,20 @@ $(document).ready(function() {
   <div class="container">
     <div class="row">
 
-      <div class="col-sm-12">
+      <div class="col-sm-6">
         {{>sortBar}}
-        <br>
+      </div>
 
+      <div class="col-sm-6">
+        <span class="pull-right">{{>pager}}</span>
+      </div>
+
+      <div class="col-sm-12">
         <ol>
           {{#each ideas}}
           {{> idea}}
           {{/each}}
         </ol>
-        
-        {{>pager}}
       </div>
 
     </div>
@@ -347,6 +350,10 @@ $(document).ready(function() {
   <style>
   .dropdown-menu>li>a  {
     outline: 0;
+  }
+
+  ul.pager{
+    margin: 0px;
   }
   </style>
 
@@ -375,7 +382,7 @@ $(document).ready(function() {
         <span class="pull-right">{{>pager}}</span>
       </div>
       <div class="col-sm-12">
-      
+
 
         <br>
 
@@ -550,11 +557,11 @@ window.onload = function() {
 
   <div class="container animated fadeIn">
     <div class="row">
-      <div class="col-sm-8">
+      <div class="col-sm-6">
         <a class="btn btn-default cancel">Cancel</a>
         <a class="btn btn-primary update">Done</a>
 
-        <h1 id="title" class="editable" contenteditable="true">{{title}}</h1>
+        <h1 id="title" class="editable" placeholder="Title" contenteditable="true">{{title}}</h1>
         <p><b>Permalink:</b> spark-app.meteor.com/ideas/<b>{{slug}}</b></p>
         <p id="slug" class="editable" contenteditable="true">{{slug}}</p>
         <label>Tags:</label><p id="tags" class="editable" contenteditable="true">{{tags}}</p>
@@ -582,7 +589,7 @@ window.onload = function() {
 
     <div class="row">
       <div class="col-sm-8">
-        <a class="cancel">Cancel</a>
+        <a class="btn btn-default cancel">Cancel</a>
         <a class="btn btn-primary update">Done</a>
         <table width="100%">
           <tr> 
@@ -753,7 +760,9 @@ window.onload = function() {
     <div class="crowdfund animated fadeIn">
       <div class="thumbnail" style="padding: 0">
         <div style="padding:4px">
-          {{>picture}}
+          <a title={{title}} href="/projects/{{slug}}">
+            {{>picture}}
+          </a>
         </div>
         <div class="caption">
           <h2><a href="/projects/{{slug}}">{{title}}</a></h2>
@@ -762,14 +771,14 @@ window.onload = function() {
         </div>
         <div class="modal-footer" style="text-align: left">
           <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+            <div class="progress-bar" role="progressbar" aria-valuenow="{{funded}}" aria-valuemin="0" aria-valuemax="100" style="width: {{funded}}%;">
               <span class="sr-only">60% Complete</span>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-4"><b>60%</b><br/><small>FUNDED</small></div>
-            <div class="col-md-4"><b>$400</b><br/><small>PLEDGED</small></div>
-            <div class="col-md-4"><b>18</b><br/><small>DAYS</small></div>
+            <div class="col-md-4"><b>{{funded}}%</b><br/><small>FUNDED</small></div>
+            <div class="col-md-4"><b>${{pledged}}</b><br/><small>PLEDGED</small></div>
+            <div class="col-md-4"><b>{{duration}}</b><br/><small>DAYS LEFT</small></div>
           </div>
         </div>
       </div>
@@ -970,8 +979,8 @@ window.onload = function() {
     <div class="row">
       <div class="col-sm-8">
         {{#if isOwner}}
-        <a class="edit" style="cursor:pointer">Edit</a>
-        <a class="delete" style="cursor:pointer">Delete</a>
+        <a class="btn btn-default edit">Edit</a>
+        <a class="btn btn-danger delete">Delete</a>
         {{/if}} 
         <table width="100%">
           <tr> 
@@ -1033,7 +1042,7 @@ window.onload = function() {
         <div class="panel panel-default">
           <div class="panel-body">
             <h2>Funding</h2>
-            <button class="btn btn-success">Fund this project</button>
+            <button id="fund" class="btn btn-success">Fund this project</button>
             <br>
             <b>Funding goal</b>
             <p>{{goal}}</p>
