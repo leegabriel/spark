@@ -1,6 +1,7 @@
 Ideas = new Mongo.Collection('ideas');
 Projects = new Mongo.Collection('projects');
 Comments = new Mongo.Collection('comments');
+Tags = new Mongo.Collection('tags');
 
 Ideas.initEasySearch(['title', 'slug', 'blurb', 'details', 'tags', 'count', 'ownerName', 'createdAt'], {
     // 'limit' : 20,
@@ -25,6 +26,10 @@ if(Meteor.isServer){
 
   Meteor.publish('commentsList', function() {
     return Comments.find();
+  }),
+
+  Meteor.publish('tagsList', function(){
+    return Tags.find();
   })
 
 } /* isServer */
@@ -607,6 +612,7 @@ Router.configure({
   Meteor.subscribe('ideasList'),
   Meteor.subscribe('projectsList'),
   Meteor.subscribe('commentsList'),
+  Meteor.subscribe('tagsList')
   ];
 }
 });

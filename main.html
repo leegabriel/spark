@@ -45,13 +45,13 @@
           </form>
           <ul class="nav navbar-nav navbar-right">
             {{#if currentUser}}
-<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">New <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/newidea">Idea</a></li>
-            <li><a href="/newproject">Project</a></li>
-          </ul>
-        </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">New <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/newidea">Idea</a></li>
+                <li><a href="/newproject">Project</a></li>
+              </ul>
+            </li>
             {{/if}}
             {{>loginButtons}}
 
@@ -174,7 +174,7 @@
 
 <script>
 $(".dropdown-menu a").click(function() {
-    $(this).closest(".dropdown-menu").prev().dropdown("toggle");
+  $(this).closest(".dropdown-menu").prev().dropdown("toggle");
 });
 
 
@@ -235,7 +235,7 @@ $(document).ready(function() {
             <center>
               <div class="col-sm-12">
                 <p>&copy; 2015 Spark &nbsp;&nbsp;<a href="http://github.com/leegabriel/spark">GitHub</a></p> 
-                  
+
               </div>
             </center>
 
@@ -272,196 +272,196 @@ $(document).ready(function() {
 <template name="sortBar">
 
 
-<div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="sortBar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Sort by <b><span id="sortChoice">Hot</span></b>
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="sortBar">
-        <li><a id="hot" href="#">Hot</a></li>
-        <li><a id="top" href="#">Top</a></li>
-        <li><a id="newest" href="#">Newest</a></li>
-        <li ><a id="alphabetical" href="#">A-Z</a></li>
-  </ul>
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="sortBar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Sort by <b><span id="sortChoice">Hot</span></b>
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="sortBar">
+      <li><a id="hot" href="#">Hot</a></li>
+      <li><a id="top" href="#">Top</a></li>
+      <li><a id="newest" href="#">Newest</a></li>
+      <li ><a id="alphabetical" href="#">A-Z</a></li>
+    </ul>
+
+    <script>
+    $('.dropdown-toggle').dropdown()
+
+    $(".dropdown-menu a").click(function() {
+      $(this).closest(".dropdown-menu").prev().dropdown("toggle");
+    });
+
+    document.getElementById('hot').onclick = function() {
+      document.getElementById('sortChoice').innerHTML = 'Hot';
+    }
+
+    document.getElementById('top').onclick = function() {
+      document.getElementById('sortChoice').innerHTML = 'Top';
+    }
+
+    document.getElementById('newest').onclick = function() {
+      document.getElementById('sortChoice').innerHTML = 'Newest';
+    }
+
+    document.getElementById('alphabetical').onclick = function() {
+      document.getElementById('sortChoice').innerHTML = 'A-Z';
+    }
+
+    </script>
+  </div>
+
+
+
+</template>
+
+
+
+<template name="pager">
+  <nav style="text-align: center">
+    <ul class="pager">
+      <li><a class="prev" href="#">Previous</a></li>
+      <li><a class="next" href="#">Next</a></li>
+    </ul>
+  </nav>
+</template>
+
+<template name="ideasTab">
+  {{> nav}}
+  <div class="container">
+    <div class="row">
+
+      <div class="col-sm-12">
+        {{>sortBar}}
+        <br>
+
+        <ol>
+          {{#each ideas}}
+          {{> idea}}
+          {{/each}}
+        </ol>
+
+        <!-- </div> -->
+        {{>pager}}
+      </div>
+
+    </div>
+  </div>
+  <style>
+  .dropdown-menu>li>a  {
+    outline: 0;
+  }
+  </style>
 
   <script>
-  $('.dropdown-toggle').dropdown()
-
-  $(".dropdown-menu a").click(function() {
-    $(this).closest(".dropdown-menu").prev().dropdown("toggle");
-});
-
-  document.getElementById('hot').onclick = function() {
-    document.getElementById('sortChoice').innerHTML = 'Hot';
-  }
-
-  document.getElementById('top').onclick = function() {
-    document.getElementById('sortChoice').innerHTML = 'Top';
-  }
-
-  document.getElementById('newest').onclick = function() {
-    document.getElementById('sortChoice').innerHTML = 'Newest';
-  }
-
-  document.getElementById('alphabetical').onclick = function() {
-    document.getElementById('sortChoice').innerHTML = 'A-Z';
-  }
-
+  $(document).ready(function() {
+    $('.dropdown').on('show.bs.dropdown', function(e){
+      $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
+    });
+    $('.dropdown').on('hide.bs.dropdown', function(e){
+      $(this).find('.dropdown-menu').first().stop(true, true).slideUp(300);
+    });
+  });
   </script>
-</div>
+  {{> footer}}
+</template>
 
 
+<template name="projectsTab">
+  {{> nav}}
+  <div class="container">
+    <div class="row">
 
-  </template>
+      <div class="col-sm-12">
+        {{>sortBar}}
+        <br>
 
+        <ol>
+          {{#each projects}}
+          {{> project}}
+          {{/each}}
+        </ol>
 
-
-  <template name="pager">
-    <nav style="text-align: center">
-      <ul class="pager">
-        <li><a class="prev" href="#">Previous</a></li>
-        <li><a class="next" href="#">Next</a></li>
-      </ul>
-    </nav>
-  </template>
-
-  <template name="ideasTab">
-    {{> nav}}
-    <div class="container">
-      <div class="row">
-
-        <div class="col-sm-12">
-          {{>sortBar}}
-          <br>
-
-          <ol>
-            {{#each ideas}}
-            {{> idea}}
-            {{/each}}
-          </ol>
-
-          <!-- </div> -->
-          {{>pager}}
-        </div>
-
+        <!-- </div> -->
+        {{>pager}}
       </div>
-    </div>
-    <style>
-    .dropdown-menu>li>a  {
-      outline: 0;
-    }
-    </style>
 
-    <script>
-    $(document).ready(function() {
-      $('.dropdown').on('show.bs.dropdown', function(e){
-        $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
-      });
-      $('.dropdown').on('hide.bs.dropdown', function(e){
-        $(this).find('.dropdown-menu').first().stop(true, true).slideUp(300);
-      });
-    });
-    </script>
-    {{> footer}}
-  </template>
-
-
-  <template name="projectsTab">
-    {{> nav}}
-    <div class="container">
-      <div class="row">
-
-        <div class="col-sm-12">
-          {{>sortBar}}
-          <br>
-
-          <ol>
-            {{#each projects}}
-            {{> project}}
-            {{/each}}
-          </ol>
-
-          <!-- </div> -->
-          {{>pager}}
-        </div>
-
-      </div>
-    </div>
-    {{> footer}}
-
-    <script>
-    $(document).ready(function() {
-      $('.dropdown').on('show.bs.dropdown', function(e){
-        $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
-      });
-      $('.dropdown').on('hide.bs.dropdown', function(e){
-        $(this).find('.dropdown-menu').first().stop(true, true).slideUp(300);
-      });
-    });
-    </script>
-  </template>
-
-
-  <template name="newIdea">
-    {{#if currentUser}}
-
-    {{> nav}}
-
-    <div class="container animated fadeIn">
-     <div class="row">
-      <div class="col-sm-8">
-        <h1>Create New Idea</h1><br>
-        <form class="addIdeaForm" id="form">
-          <table width="100%">
-            <tr> 
-              <td>
-                <label>Title <span id="req">*</span></label>
-                <h1><input type="text" name="title" id="title" placeholder="Super Smash Mobile"></h1>
-                <label>Blurb <span id="req">*</span></label>
-                <h1><small><input type="text" name="blurb" id="blurb" placeholder="Someone should put Smash on mobile!"></small></h1>
-              </td>
-            </tr>
-          </table>
-
-          <br>
-          <label>Image URL</label>
-          <input type="text" name="image" id="image" placeholder="http://smashmobile.com/smash.png">
-
-          <br>
-          <label>Details <span id="req">*</span></label>
-          <textarea type="text" name="details" id="details" placeholder="Please upvote this idea if you also want Super Smash Bros. on mobile!" rows="6"></textarea><br>
-
-          <label>Permalink <span id="req">*</span></label>
-          <span id="helpBlock" class="help-block">/ideas/<b>your-unique-idea-address</b></span>
-          <input type="text" name="slug" id="slug" placeholder="super-smash-mobile"><br>
-
-          <label>Tags</label>
-          <input type="text" name="tags" id="tags" placeholder="games, action, fighting, Nintendo">  
-
-          <input id="submit" type="submit" value="Spark!" class="btn btn-md btn-primary">
-        </form>
-      </div>
-      <div class="col-sm-4">
-
-      </div>
     </div>
   </div>
   {{> footer}}
 
-  {{else}}
-  {{#unless loggingIn}}
-  {{>pageNotFound}}
-  {{/unless}}
-  {{/if}}
-
-
-
   <script>
-  document.title = "Create a New Idea"
-  window.onload = function() {
-    document.getElementById("title").focus();
-  };
+  $(document).ready(function() {
+    $('.dropdown').on('show.bs.dropdown', function(e){
+      $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
+    });
+    $('.dropdown').on('hide.bs.dropdown', function(e){
+      $(this).find('.dropdown-menu').first().stop(true, true).slideUp(300);
+    });
+  });
   </script>
+</template>
+
+
+<template name="newIdea">
+  {{#if currentUser}}
+
+  {{> nav}}
+
+  <div class="container animated fadeIn">
+   <div class="row">
+    <div class="col-sm-8">
+      <h1>New Idea</h1><br>
+      <form class="addIdeaForm" id="form">
+        <table width="100%">
+          <tr> 
+            <td>
+              <label>Title <span id="req">*</span></label>
+              <h1><input type="text" name="title" id="title" placeholder="Super Smash Mobile"></h1>
+              <label>Blurb <span id="req">*</span></label>
+              <h1><small><input type="text" name="blurb" id="blurb" placeholder="Someone should put Smash on mobile!"></small></h1>
+            </td>
+          </tr>
+        </table>
+
+        <br>
+        <label>Image URL</label>
+        <input type="text" name="image" id="image" placeholder="http://smashmobile.com/smash.png">
+
+        <br>
+        <label>Details <span id="req">*</span></label>
+        <textarea type="text" name="details" id="details" placeholder="Please upvote this idea if you also want Super Smash Bros. on mobile!" rows="6"></textarea><br>
+
+        <label>Permalink <span id="req">*</span></label>
+        <span id="helpBlock" class="help-block">/ideas/<b>your-unique-idea-address</b></span>
+        <input type="text" name="slug" id="slug" placeholder="super-smash-mobile"><br>
+
+        <label>Tags</label>
+        <input type="text" name="tags" id="tags" placeholder="games, action, fighting, Nintendo">  
+
+        <input id="submit" type="submit" value="Spark!" class="btn btn-md btn-primary">
+      </form>
+    </div>
+    <div class="col-sm-4">
+
+    </div>
+  </div>
+</div>
+{{> footer}}
+
+{{else}}
+{{#unless loggingIn}}
+{{>pageNotFound}}
+{{/unless}}
+{{/if}}
+
+
+
+<script>
+document.title = "New Idea"
+window.onload = function() {
+  document.getElementById("title").focus();
+};
+</script>
 
 </template>
 
@@ -476,7 +476,7 @@ $(document).ready(function() {
    <div class="row">
     <div class="col-sm-8">
       <form class="addProjectForm" id="form">
-        <h1>Create New Project</h1>
+        <h1>New Project</h1>
         <br>
         <table width="100%">
           <tr> 
@@ -536,7 +536,7 @@ $(document).ready(function() {
 
 
 <script>
-document.title = "Create a New Project"
+document.title = "New Project"
 window.onload = function() {
   document.getElementById("title").focus();
 };
@@ -784,11 +784,14 @@ window.onload = function() {
         <td style="width: 600px">
           <div class="middle-link">
             <h3><a title={{title}} id="middle-link" href="/ideas/{{slug}}">{{title}}</a></h3>
-            <p><i class="fa fa-clock-o"></i> {{submittedAgo}} by {{ownerName}}</p>
-            {{#if isOwner}}
-            <a class="edit" style="cursor:pointer">Edit</a>
-            <a class="delete" href="#">Delete</a>
+            <p>by <a href="{{ownerName}}">{{ownerName}}</a> • {{submittedAgo}}
+            {{#if isOwner}} 
+             • <a class="edit" style="cursor:pointer">Edit</a>
+             • <a class="delete" href="#">Delete</a>
             {{/if}}
+            </p>
+            <p><b><a href="/ideas/{{slug}}#comments">0 comments</a></b></p>
+            
           </div>
         </td>
 
@@ -825,7 +828,7 @@ window.onload = function() {
         <td style="width: 600px">
           <div class="middle-link">
             <h3><a title={{title}} id="middle-link" href="/projects/{{slug}}">{{title}}</a></h3>
-            <p><i class="fa fa-clock-o"></i> {{submittedAgo}} by {{ownerName}}</p>
+            <p>Submitted {{submittedAgo}} by {{ownerName}}</p>
             {{#if isOwner}}
             <a class="edit" style="cursor:pointer">Edit</a>
             <a class="delete" href="#">Delete</a>
@@ -849,8 +852,6 @@ window.onload = function() {
 
 <template name="comments">
   <br>
-
-  <hr>
 
   <div class="col-sm-2">
     <center>
@@ -969,14 +970,14 @@ window.onload = function() {
     <div class="row">
       <div class="col-sm-8">
         {{#if isOwner}}
-        <button class="btn btn-primary edit"><i class="fa fa-edit"></i> Edit</button>
-        <button class="btn btn-danger delete"><i class="fa fa-trash"></i> Delete</button>
+        <a class="edit" style="cursor:pointer">Edit</a>
+        <a class="delete" style="cursor:pointer">Delete</a>
         {{/if}} 
         <table width="100%">
           <tr> 
             <td>
               <h1>{{title}}</h1>
-              <h1><small>{{blurb}}</small></h1>
+              <p>by <a href="{{ownerName}}">{{ownerName}}</a> • {{submittedAgo}}</p>
             </td>
             <td> 
               <div class="pull-right">
@@ -988,43 +989,13 @@ window.onload = function() {
             </td>
           </tr>
         </table>
-        <br>
-        {{> picture}}
-        <br>
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <table>
-              <tr>
-                <td>
-                  <img class="user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px; margin: 5px">
-                </td>
-                <td>
-                  <h3 style="margin: 0px !important"><small>{{ownerName}}</small></h3>
-                  <button class="btn btn-sm btn-primary">Follow {{ownerName}}</button>
-                </td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h2>Details</h2>
-            <p class="text-muted">Published on {{createdAt}}</p>
-            <br>
-            <p>{{#markdown}}{{details}}{{/markdown}}</p>
-            <br>
-            <span class="label label-default">{{tags}}</span>
-          </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h2>Comments</h2>
-            {{#each ideaComments}}
-            {{>comment}}
-            {{/each}}
-            {{> comments}}
-          </div>
-        </div>
+        <hr>
+        <h1><small>{{details}}</small></h1>
+        <hr>
+        {{#each ideaComments}}
+        {{>comment}}
+        {{/each}}
+        {{> comments}}
       </div>
 
       <div class="col-sm-4">
@@ -1039,7 +1010,7 @@ window.onload = function() {
         </div>         
         <div class="panel panel-default">
           <div class="panel-body">
-            <h2>Similar Projects</h2>
+            <h2>Related Projects</h2>
             <br>
             <center>
               {{>similar}}
@@ -1061,8 +1032,8 @@ window.onload = function() {
     <div class="row">
       <div class="col-sm-8">
         {{#if isOwner}}
-        <button class="btn btn-primary edit"><i class="fa fa-edit"></i> Edit</button>
-        <button class="btn btn-danger delete"><i class="fa fa-trash"></i> Delete</button>
+        <a class="edit" style="cursor:pointer">Edit</a>
+        <a class="delete" style="cursor:pointer">Delete</a>
         {{/if}} 
         <table width="100%">
           <tr> 
