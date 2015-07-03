@@ -147,19 +147,16 @@ if (Meteor.isClient) {
   Template.newIdea.events({
     'submit .addIdeaForm':function(e){
       var title = e.target.title.value;
-      var slug = e.target.slug.value;
-      var blurb = e.target.blurb.value;
-      var imageURL = e.target.image.value;
       var details = e.target.details.value;
+      var slug = e.target.slug.value;
       var tags = e.target.tags.value.split(', ');
 
-      if (!imageURL){
-        imageURL = 'http://lorempixel.com/600/500/';
-      }
+      
+      var imageURL = 'http://lorempixel.com/600/500/';
 
-      if (!title || !slug || !blurb || !details)
+      if (!title || !details || !slug)
         return false;
-      Meteor.call('addIdea', title, slug, blurb, imageURL, details, tags);
+      Meteor.call('addIdea', title, details, slug, tags, imageURL);
       return false;
     }
   }),
@@ -193,13 +190,11 @@ if (Meteor.isClient) {
 
     'click .update':function(event){
       var title = document.getElementById('title').innerHTML;
-      var slug = document.getElementById('slug').innerHTML;
-      var blurb = document.getElementById('blurb').innerHTML;
-      var imageURL = document.getElementById('imageURL').innerHTML;
       var details = document.getElementById('details').innerHTML;
+      var slug = document.getElementById('slug').innerHTML;
       var tags = document.getElementById('tags').innerHTML.split(', ');
 
-      Meteor.call('editIdea', this._id, title, slug, blurb, imageURL, details, tags);
+      Meteor.call('editIdea', this._id, title, details, slug, tags);
     }, 
     'click .cancel':function(){
       window.history.back();
@@ -391,14 +386,13 @@ if (Meteor.isClient) {
 
 
 Meteor.methods({
-  addIdea: function (title, slug, blurb, imageURL, details, tags) {
+  addIdea: function (title, details, slug, tags, imageURL) {
     Ideas.insert({
       title: title,
-      slug: slug,
-      blurb: blurb,
-      imageURL: imageURL,
       details: details,
+      slug: slug,
       tags: tags,
+      imageURL: imageURL,
       count: 0,
       owner: Meteor.userId(),
       ownerName: Meteor.user().emails[0].address,
@@ -440,7 +434,7 @@ Meteor.methods({
       bootbox.alert("Project created!");
     }
   },
-  editIdea: function (ideaId, title, slug, blurb, imageURL, details, tags) {
+  editIdea: function (ideaId, title, details, slug, tags) {
     var idea = Ideas.findOne(ideaId);
     if (idea.owner !== Meteor.userId()) {
       // Make sure only the owner can edit it
@@ -450,9 +444,8 @@ Meteor.methods({
 
       Ideas.update(ideaId, {$set: {
         title: title,
+        details: details,
         slug: slug,
-        blurb: blurb,
-        imageURL: imageURL,
         details: details,
         tags: tags
       }});

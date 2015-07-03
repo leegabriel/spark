@@ -412,20 +412,9 @@ $(document).ready(function() {
     <div class="col-sm-8">
       <h1>New Idea</h1><br>
       <form class="addIdeaForm" id="form">
-        <table width="100%">
-          <tr> 
-            <td>
-              <label>Title <span id="req">*</span></label>
-              <h1><input type="text" name="title" id="title" placeholder="Super Smash Mobile"></h1>
-              <label>Blurb <span id="req">*</span></label>
-              <h1><small><input type="text" name="blurb" id="blurb" placeholder="Someone should put Smash on mobile!"></small></h1>
-            </td>
-          </tr>
-        </table>
 
-        <br>
-        <label>Image URL</label>
-        <input type="text" name="image" id="image" placeholder="http://smashmobile.com/smash.png">
+        <label>Title <span id="req">*</span></label>
+        <h1><input type="text" name="title" id="title" placeholder="Super Smash Mobile"></h1>
 
         <br>
         <label>Details <span id="req">*</span></label>
@@ -551,7 +540,6 @@ window.onload = function() {
   {{> nav}}
 
   <div class="container animated fadeIn">
-
     <div class="row">
       <div class="col-sm-8">
         <button class="cancel">Cancel</button>
@@ -560,69 +548,17 @@ window.onload = function() {
           <tr> 
             <td>
               <h1 id="title" class="editable" contenteditable="true">{{title}}</h1>
-              <small><h1 id="blurb" class="editable" contenteditable="true">{{blurb}}</h1></small>
+              <label>Permalink:</label> <p style="display:inline">spark-app.meteor.com/</p><p style="display:inline" id="slug" class="editable" contenteditable="true">{{slug}}</p>
             </td>
-            <td> 
-              <div class="pull-right non-editable">
-                <center>
-                  <span class="badge" id="badge-lg">{{count}}</span>
-                  <h1><small>votes</small></h1>
-                </center>
-              </div>
-            </td>
+
           </tr>
         </table>
         <br>
-        <p id="imageURL" class="editable" contenteditable="true">{{imageURL}}</p>
-        {{> picture}}
-        <br>
-        <div class="panel panel-default non-editable">
-          <div class="panel-body">
-            <h3><small>{{ownerName}}</small></h3><button class="btn btn-sm btn-default">Follow {{ownerName}}</button>
-          </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h2>Details</h2>
-            <b><p>Published on {{createdAt}}</p></b>
-            <p id="details" class="editable" contenteditable="true">{{details}}</p>
-            <b><p>Permalink</p></b>
-            <p>/projects/<b>{{slug}}</b></p>
-            <p id="slug" class="editable" contenteditable="true">{{slug}}</p>
-            <b><p>Tags</p></b>
-            <p id="tags" class="editable" contenteditable="true">{{tags}}</p>
-          </div>
-        </div>
-        <div class="panel panel-default non-editable">
-          <div class="panel-body">
-            <h2>Comments</h2>
-            {{> comments}}
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-4">
-        <div class="panel panel-default non-editable">
-          <div class="panel-body">
-            <h2>Similar Ideas</h2>
-            <br>
-            <center>
-              {{>similar}}
-            </center>
-          </div>
-        </div>         
-        <div class="panel panel-default non-editable">
-          <div class="panel-body">
-            <h2>Similar Projects</h2>
-            <br>
-            <center>
-              {{>similar}}
-            </center>
-          </div>
-        </div>
+        <label>Tags:</label><p id="tags" class="editable" contenteditable="true">{{tags}}</p>
+        <label>Details:</label><p id="details" class="editable" contenteditable="true">{{details}}</p>
+      
       </div>
     </div>
-
   </div>
   {{> footer}}
 
@@ -785,10 +721,10 @@ window.onload = function() {
           <div class="middle-link">
             <h3><a title={{title}} id="middle-link" href="/ideas/{{slug}}">{{title}}</a></h3>
             <p>by <a href="{{ownerName}}">{{ownerName}}</a> • {{submittedAgo}}
-            {{#if isOwner}} 
-             • <a class="edit" style="cursor:pointer">Edit</a>
-             • <a class="delete" href="#">Delete</a>
-            {{/if}}
+              {{#if isOwner}} 
+              • <a class="edit" style="cursor:pointer">Edit</a>
+              • <a class="delete" href="#">Delete</a>
+              {{/if}}
             </p>
             <p><b><a href="/ideas/{{slug}}#comments">0 comments</a></b></p>
             
@@ -978,6 +914,7 @@ window.onload = function() {
             <td>
               <h1>{{title}}</h1>
               <p>by <a href="{{ownerName}}">{{ownerName}}</a> • {{submittedAgo}}</p>
+              <a style="font-size: 12px" href="#">#{{tags}}</a>
             </td>
             <td> 
               <div class="pull-right">
@@ -989,7 +926,6 @@ window.onload = function() {
             </td>
           </tr>
         </table>
-        <hr>
         <h1><small>{{details}}</small></h1>
         <hr>
         {{#each ideaComments}}
