@@ -429,19 +429,17 @@ $(document).ready(function() {
       <h1>New Idea</h1><br>
       <form class="addIdeaForm" id="form">
 
-        <label>Title <span id="req">*</span></label>
-        <h1><input type="text" name="title" id="title" placeholder="Super Smash Mobile"></h1>
+        <label>Title</label>
+        <h1><input type="text" name="title" id="title"></h1>
+        <label>Details</label>
+        <textarea type="text" name="details" id="details" rows="6"></textarea><br>
 
-        <br>
-        <label>Details <span id="req">*</span></label>
-        <textarea type="text" name="details" id="details" placeholder="Please upvote this idea if you also want Super Smash Bros. on mobile!" rows="6"></textarea><br>
-
-        <label>Permalink <span id="req">*</span></label>
+        <label>Permalink</label>
         <span id="helpBlock" class="help-block">/ideas/<b>your-unique-idea-address</b></span>
-        <input type="text" name="slug" id="slug" placeholder="super-smash-mobile"><br>
+        <input type="text" name="slug" id="slug"><br>
 
         <label>Tags</label>
-        <input type="text" name="tags" id="tags" placeholder="games, action, fighting, Nintendo">  
+        <input type="text" name="tags" id="tags">  
 
         <input id="submit" type="submit" value="Spark!" class="btn btn-md btn-primary">
       </form>
@@ -497,45 +495,47 @@ window.onload = function() {
         <center>
           <br>
           <h1>Start building your project!</h1>
-          <h1><small>Add an image, a goal, and other impotant details.</small></h1>
+          <h1><small>Add an image, a goal, and other important details.</small></h1>
         </center>
         <table width="100%">
           <tr> 
             <td>
-              <label>Title <span id="req">*</span></label>
-              <h1><input type="text" name="title" id="title" placeholder="Super Smash Mobile"></h1>
-              <label>Blurb <span id="req">*</span></label>
-              <h1><small><input type="text" name="blurb" id="blurb" placeholder="Play Smash on your phone!"></small></h1>
+              <label>Project Title</label>
+              <h1><input type="text" name="title" id="title"></h1>
+              <label>Blurb</label>
+              <h1><small><input type="text" name="blurb" id="blurb"></small></h1>
             </td>
           </tr>
         </table>
 
         <br>
-        <label>Image URL</label>
-        <input type="text" name="image" id="image" placeholder="http://smashmobile.com/smash.png">
+        <label>Project Image</label>
+        <input type="text" name="image" id="image">
+
+
 
         <br>
-        <label>Details <span id="req">*</span></label>
-        <textarea type="text" name="details" id="details" placeholder="We are currently looking for developers to work on game mechanics!" rows="6"></textarea><br>
+        <label>Details</label>
+        <textarea type="text" name="details" id="details" rows="6"></textarea><br>
 
-        <label>Permalink <span id="req">*</span></label>
+        <label>Permalink</label>
         <span id="helpBlock" class="help-block">/projects/<b>your-unique-project-address</b></span>
-        <input type="text" name="slug" id="slug" placeholder="super-smash-mobile"><br>
+        <input type="text" name="slug" id="slug"><br>
 
         <label>Tags</label>
-        <input type="text" name="tags" id="tags" placeholder="games, action, fighting, Nintendo"><br>  
+        <input type="text" name="tags" id="tags"><br>  
 
         <label>Funding Goal</label>
-        <input type="text" name="goal" id="goal" placeholder="$5000"><br>  
+        <input type="text" name="goal" id="goal"><br>  
 
         <label>Duration</label>
-        <input type="text" name="duration" id="duration" placeholder="90 Days"><br>
+        <input type="text" name="duration" id="duration"><br>
 
         <label>Location</label>
-        <input type="text" name="location" id="location" placeholder="Osaka, Japan"><br>   
+        <input type="text" name="location" id="location"><br>   
 
         <label>Rewards</label>
-        <textarea type="text" name="rewards" id="rewards" placeholder="$10 - Receive a Super Smash Mobile T-Shirt!"></textarea><br> 
+        <textarea type="text" name="rewards" id="rewards"></textarea><br> 
 
 
         <input id="submit" type="submit" value="Spark!" class="btn btn-md btn-primary">
@@ -577,16 +577,16 @@ window.onload = function() {
 
         <a class="btn btn-default cancel">Cancel</a>
         <a class="btn btn-primary update">Done</a>
-
-        <label>Title:</label>
-        <h1 id="title" class="editable" placeholder="Title" contenteditable="true">{{title}}</h1>
-        <p><b>Permalink:</b> spark-app.meteor.com/ideas/<b>{{slug}}</b></p>
+        <br>
+        <label style="margin-top: 20px">Title</label>
+        <h1 style="margin-top: 0px" id="title" class="editable" contenteditable="true">{{title}}</h1>
+        <label>Permalink</label>
+        <span id="helpBlock" class="help-block">spark-app.meteor.com/ideas/<b>{{slug}}</b></span>
         <p id="slug" class="editable" contenteditable="true">{{slug}}</p>
-        <label>Tags:</label>
+        <label>Tags</label>
         <p id="tags" class="editable" contenteditable="true">{{tags}}</p>
-        <label>Details:</label>
-        <h2 id="details" class="editable" contenteditable="true">{{details}}</h2>
-
+        <label>Details</label>
+        <h2 style="margin-top: 0px" id="details" class="editable" contenteditable="true">{{details}}</h2>
       </div>
     </div>
   </div>
@@ -773,7 +773,7 @@ window.onload = function() {
   <div class="col-md-4">
     <div class="crowdfund animated fadeIn">
       <div class="thumbnail" style="padding: 0">
-        <div style="padding:4px">
+        <div style="padding:5px">
           <a title={{title}} href="/projects/{{slug}}">
             {{>picture}}
           </a>
@@ -810,13 +810,13 @@ window.onload = function() {
 
   $('.crowdfund').hover(
     function(){
-        $(this).stop().animate(
-            {marginTop: '-7'}, 100, 'linear'   
+      $(this).stop().animate(
+        {marginTop: '-5'}, 100, 'linear'   
         );//end animate
      },//end function
-    function(){
-        $(this).stop().animate(
-            {marginTop: '0'}, 100, 'linear'
+     function(){
+      $(this).stop().animate(
+        {marginTop: '0'}, 100, 'linear'
         );//end animate
     }//end function
 );//end hover
@@ -826,29 +826,23 @@ window.onload = function() {
 
 <template name="comments">
   <br>
-
-  <div class="col-sm-2">
-    <center>
-      <img class="user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px">
-    </center>
-  </div>
-
-  <div class="col-sm-10">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        Write Preview
-        <p class='pull-right'><span class="text-muted">Markdown Supported</span></p>
+<div class="col-sm-1" style="padding-left:0px !important">
+        <img class="user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px">
       </div>
-      <div class="panel-body">
-        <textarea type="text" id="comment-box" placeholder="Leave a comment"></textarea><br>
-        <button id="submit-comment" type="submit" class="btn btn-primary pull-right">Comment</button>
-      </div><!-- /panel-body -->
-    </div><!-- /panel panel-default -->
-  </div>
-
+<div class="col-sm-11" style="padding-right:0px !important">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            Write Preview
+            <p class='pull-right'><span class="text-muted">Markdown Supported</span></p>
+          </div>
+          <div class="panel-body">
+            <textarea type="text" id="comment-box" placeholder="What do you think?"></textarea><br>
+            <button id="submit-comment" type="submit" class="btn btn-primary pull-right">Comment</button>
+          </div><!-- /panel-body -->
+        </div><!-- /panel panel-default -->
+</div>
 
   <style>
-
   #comment-box {
     width: 100% !important;  
     max-width: none !important;
@@ -913,13 +907,13 @@ window.onload = function() {
 
 <template name="comment">
   <div class="animated fadeIn">
-    <div class="col-sm-2">
+    <div class="col-sm-1" style="padding-left:0px !important">
       <center>
         <img class="user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px">
       </center>
     </div>
 
-    <div class="col-sm-10">
+    <div class="col-sm-11" style="padding-right:0px !important" >
       <div class="panel panel-default">
         <div class="panel-heading">
           <strong>{{ownerName}}</strong> <span class="text-muted">commented on {{createdAt}}</span>
@@ -1116,7 +1110,7 @@ window.onload = function() {
 
 
 <template name="picture">
-  <center><img id="banner" src={{imageURL}} width="450"></center>
+  <center><img id="banner" src={{imageURL}}></center>
 </template>
 
 
@@ -1178,7 +1172,7 @@ window.onload = function() {
 
 
 
-<template name="profile">
+<!-- <template name="profile">
 
   {{>nav}}
   <div class="container animated fadeIn">
@@ -1310,7 +1304,8 @@ body {
 
 </style>
 
-</template>
+</template> -->
+
 <template name="watched">
   {{>nav}}
   Watched
@@ -1353,101 +1348,3 @@ body {
   {{/ifEsIsSearching}}
 </template>
 
-
-<template name="searchResults">
-  {{>nav}}
-  <div class="container animated fadeIn">
-
-    <hgroup class="mb20">
-      <h1>Search Results</h1>
-      <h2 class="lead"><strong class="text-danger">3</strong> results were found for the search for <strong class="text-danger">Lorem</strong></h2>               
-    </hgroup>
-
-    <section class="col-xs-12 col-sm-6 col-md-12">
-      <article class="search-result row">
-        <div class="col-xs-12 col-sm-12 col-md-3">
-          <a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/people" alt="Lorem ipsum" /></a>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-2">
-          <ul class="meta-search">
-            <li><i class="glyphicon glyphicon-calendar"></i> <span>02/15/2014</span></li>
-            <li><i class="glyphicon glyphicon-time"></i> <span>4:28 pm</span></li>
-            <li><i class="glyphicon glyphicon-tags"></i> <span>People</span></li>
-          </ul>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-          <h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>            
-          <span class="pencil"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-pencil"></i></a></span>
-        </div>
-        <span class="clearfix borda"></span>
-      </article>
-
-      <article class="search-result row">
-        <div class="col-xs-12 col-sm-12 col-md-3">
-          <a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/food" alt="Lorem ipsum" /></a>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-2">
-          <ul class="meta-search">
-            <li><i class="glyphicon glyphicon-calendar"></i> <span>02/13/2014</span></li>
-            <li><i class="glyphicon glyphicon-time"></i> <span>8:32 pm</span></li>
-            <li><i class="glyphicon glyphicon-tags"></i> <span>Food</span></li>
-          </ul>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-7">
-          <h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>            
-          <span class="pencil"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-pencil"></i></a></span>
-        </div>
-        <span class="clearfix borda"></span>
-      </article>
-
-      <article class="search-result row">
-        <div class="col-xs-12 col-sm-12 col-md-3">
-          <a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/sports" alt="Lorem ipsum" /></a>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-2">
-          <ul class="meta-search">
-            <li><i class="glyphicon glyphicon-calendar"></i> <span>01/11/2014</span></li>
-            <li><i class="glyphicon glyphicon-time"></i> <span>10:13 am</span></li>
-            <li><i class="glyphicon glyphicon-tags"></i> <span>Sport</span></li>
-          </ul>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-7">
-          <h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>            
-          <span class="pencil"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-pencil"></i></a></span>
-        </div>
-        <span class="clearfix border"></span>
-      </article>      
-
-    </section>
-    {{>footer}}
-  </div>  
-
-  <style>
-  .container { margin-top: 20px; }
-  .mb20 { margin-bottom: 20px; } 
-
-  hgroup { padding-left: 15px; border-bottom: 1px solid #ccc; }
-  hgroup h1 { font: 500 normal 1.625em; color: #2a3644; margin-top: 0; line-height: 1.15; }
-  hgroup h2.lead { font: normal normal 1.125em; color: #2a3644; margin: 0; padding-bottom: 10px; }
-
-  .search-result .thumbnail { border-radius: 0 !important; }
-  .search-result:first-child { margin-top: 0 !important; }
-  .search-result { margin-top: 20px; }
-  .search-result .col-md-2 { border-right: 1px dotted #ccc; min-height: 140px; }
-  .search-result ul { padding-left: 0 !important; list-style: none;  }
-  .search-result ul li { font: 400 normal .85em;  line-height: 30px; }
-  .search-result ul li i { padding-right: 5px; }
-  .search-result .col-md-7 { position: relative; }
-  .search-result h3 { font: 500 normal 1.375em; margin-top: 0 !important; margin-bottom: 10px !important; }
-  .search-result h3 > a, .search-result i { color: #248dc1 !important; }
-  .search-result p { font: normal normal 1.125em; } 
-  .search-result span.pencil { position: absolute; right: 0; top: 126px; }
-  .search-result span.pencil a { background-color: #248dc1; padding: 5px 5px 3px 5px; }
-  .search-result span.pencil a:hover { background-color: #414141; }
-  .search-result span.pencil a i { color: #fff !important; }
-  .search-result span.border { display: block; width: 97%; margin: 0 15px; border-bottom: 1px dotted #ccc; }
-  </style>
-</template>

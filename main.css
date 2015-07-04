@@ -234,7 +234,7 @@ textarea {
   -webkit-writing-mode: horizontal-tb;
 }
 
-#thumbnail:hover {
+#thumbnail:hover{
   opacity: 0.87;
 }
 
@@ -406,7 +406,4 @@ input {
   opacity: 0.3;
 }
 
-#req {
-  color: red;
-}
 
