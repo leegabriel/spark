@@ -476,13 +476,29 @@ window.onload = function() {
   {{#if currentUser}}
 
   {{> nav}}
+  <div class="animated fadeIn">
+    <center>
+      <div class="btn-group btn-group-lg" role="group" aria-label="...">
+
+        <button class="btn btn-default">Basics</button>
+        <button class="btn btn-default">Rewards</button>
+        <button class="btn btn-default">Story</button>
+        <button class="btn btn-default">About You</button>
+        <button class="btn btn-default">Account</button>
+        <button class="btn btn-default">Preview</button>
+      </div>
+    </center>
+  </div>
 
   <div class="container animated fadeIn">
    <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-12">
       <form class="addProjectForm" id="form">
-        <h1>New Project</h1>
-        <br>
+        <center>
+          <br>
+          <h1>Start building your project!</h1>
+          <h1><small>Add an image, a goal, and other impotant details.</small></h1>
+        </center>
         <table width="100%">
           <tr> 
             <td>
@@ -980,7 +996,7 @@ window.onload = function() {
           <tr> 
             <td>
               <h1>{{title}}</h1>
-              <h1><small>{{blurb}}</small></h1>
+              <h2><small>by {{ownerName}}</small></h2>
             </td>
             <td> 
               <div class="pull-right">
@@ -1010,16 +1026,7 @@ window.onload = function() {
             </table>
           </div>
         </div>
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h2>Details</h2>
-            <p class="text-muted">Published on {{createdAt}}</p>
-            <br>
-            <p>{{#markdown}}{{details}}{{/markdown}}</p>
-            <br>
-            <span class="label label-default">{{tags}}</span>
-          </div>
-        </div>
+
         <div class="panel panel-default">
           <div class="panel-body">
             <h2>Comments</h2>
@@ -1032,22 +1039,28 @@ window.onload = function() {
       </div>
 
       <div class="col-sm-4">
-
         <div class="panel panel-default">
           <div class="panel-body">
-            <h2>Funding</h2>
+            <h2>{{blurb}}</h2>
+            <p class="text-muted">Published on {{createdAt}}</p>
+            <p>{{#markdown}}{{details}}{{/markdown}}</p>
+            <br>
+            <a href="#">#{{tags}}</a>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h1>${{pledged}}</h1><p>pledged</p>
             <button id="fund" class="btn btn-success">Fund this project</button>
             <br>
             <b>Funding goal</b>
-            <p>{{goal}}</p>
-            <b>Days to go</b>
-            <p>{{duration}}</p>
+            <p>${{goal}}</p>
+            <b>Days left</b>
+            <p>{{duration}} days</p>
             <b>Location</b>
             <p>{{location}}</p>
             <b>Progress</b>
-            <p>{{funded}}</p>
-            <b>Amount Pledged</b>
-            <p>{{pledged}}</p>
+            <p>{{funded}}%</p>
             <b>Backers</b>
             <p>{{backers}}</p>
             <b>Rewards</b>

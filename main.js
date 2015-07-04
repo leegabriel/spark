@@ -185,6 +185,24 @@ if (Meteor.isClient) {
     }
   }),
 
+  Template.newProject.helpers({
+    basics: function() {
+      return Session.get('basicsNP');
+    },
+    rewards: function() {
+      return Session.get('rewardsNP');
+    },
+    story: function() {
+      return Session.get('storyNP');
+    },
+    about: function() {
+      return Session.get('aboutNP');
+    },
+    account: function() {
+      return Session.get('accountNP');
+    }
+  }),
+
 
   Template.editIdea.events({
     'click .update':function(event){
