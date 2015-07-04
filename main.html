@@ -574,13 +574,17 @@ window.onload = function() {
   <div class="container animated fadeIn">
     <div class="row">
       <div class="col-sm-6">
+
         <a class="btn btn-default cancel">Cancel</a>
         <a class="btn btn-primary update">Done</a>
 
+        <label>Title:</label>
         <h1 id="title" class="editable" placeholder="Title" contenteditable="true">{{title}}</h1>
         <p><b>Permalink:</b> spark-app.meteor.com/ideas/<b>{{slug}}</b></p>
         <p id="slug" class="editable" contenteditable="true">{{slug}}</p>
-        <label>Tags:</label><p id="tags" class="editable" contenteditable="true">{{tags}}</p>
+        <label>Tags:</label>
+        <p id="tags" class="editable" contenteditable="true">{{tags}}</p>
+        <label>Details:</label>
         <h2 id="details" class="editable" contenteditable="true">{{details}}</h2>
 
       </div>
@@ -803,6 +807,19 @@ window.onload = function() {
   $(document).ready(function() {
     $('.fa').tooltip();
   });
+
+  $('.crowdfund').hover(
+    function(){
+        $(this).stop().animate(
+            {marginTop: '-7'}, 100, 'linear'   
+        );//end animate
+     },//end function
+    function(){
+        $(this).stop().animate(
+            {marginTop: '0'}, 100, 'linear'
+        );//end animate
+    }//end function
+);//end hover
   </script>
 </template>
 
