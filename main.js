@@ -187,7 +187,6 @@ if (Meteor.isClient) {
 
 
   Template.editIdea.events({
-
     'click .update':function(event){
       var title = document.getElementById('title').innerHTML;
       var details = document.getElementById('details').innerHTML;

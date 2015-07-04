@@ -249,7 +249,7 @@ $(document).ready(function() {
 
 
 <template name="home">
-  {{>ideasTab}}
+  {{>projectsTab}}
 </template>
 
 <template name="categories">
@@ -721,12 +721,6 @@ window.onload = function() {
         </td>
 
         <td>
-          <a title={{title}} href="/ideas/{{slug}}" style="margin-left: 10px">
-            {{>thumbnail}}
-          </a>
-        </td>
-
-        <td style="width: 600px">
           <div class="middle-link">
             <h3><a title={{title}} id="middle-link" href="/ideas/{{slug}}">{{title}}</a></h3>
             <p>by <a href="{{ownerName}}">{{ownerName}}</a> • {{submittedAgo}}
@@ -1087,7 +1081,7 @@ window.onload = function() {
 
 
 <template name="thumbnail">
-  <img id="thumbnail" src={{imageURL}} width="120px">
+  <img id="thumbnail" src={{imageURL}} width="100px">
 </template>
 
 
