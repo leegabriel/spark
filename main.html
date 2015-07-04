@@ -742,14 +742,15 @@ window.onload = function() {
 
         <td>
           <div class="middle-link">
-            <h3><a title={{title}} id="middle-link" href="/ideas/{{slug}}">{{title}}</a></h3>
-            <p>by <a href="{{ownerName}}">{{ownerName}}</a> • {{submittedAgo}}
+            <h3 style="margin-top: 0px"><a title={{title}} id="middle-link" href="/ideas/{{slug}}">{{title}}</a></h3>
+            <small>by <a href="{{ownerName}}">{{ownerName}}</a>
+             • {{submittedAgo}}
+             • <a href="/ideas/{{slug}}#comments">0 comments</a>
               {{#if isOwner}} 
               • <a class="edit" style="cursor:pointer">Edit</a>
               • <a class="delete" href="#">Delete</a>
               {{/if}}
-            </p>
-            <a href="/ideas/{{slug}}#comments">0 comments</a>
+            </small>
             
           </div>
         </td>
