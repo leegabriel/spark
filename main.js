@@ -38,10 +38,19 @@ if(Meteor.isServer){
 if (Meteor.isClient) {
 
   Meteor.startup(function () {
+    //pagination
     Session.set('iSkip', 0);
     Session.set('iLimit', 5);
     Session.set('pSkip', 0);
     Session.set('pLimit', 5);
+
+    //newProject tabs
+    Session.set('basicsTab', true);
+    Session.set('rewardsTab', false);
+    Session.set('storyTab', false);
+    Session.set('aboutTab', false);
+    Session.set('accountTab', false);
+    Session.set('previewTab', false);
   });
 
 
@@ -182,24 +191,75 @@ if (Meteor.isClient) {
         return false;
       Meteor.call('addProject', title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards);
       return false;
-    }
+    },
+    'click #basicsTab': function () {
+      Session.set('basicsTab', true);
+      Session.set('rewardsTab', false);
+      Session.set('storyTab', false);
+      Session.set('aboutTab', false);
+      Session.set('accountTab', false);
+      Session.set('previewTab', false);
+    },
+    'click #rewardsTab': function () {
+      Session.set('basicsTab', false);
+      Session.set('rewardsTab', true);
+      Session.set('storyTab', false);
+      Session.set('aboutTab', false);
+      Session.set('accountTab', false);
+      Session.set('previewTab', false);
+    },
+    'click #storyTab': function () {
+      Session.set('basicsTab', false);
+      Session.set('rewardsTab', false);
+      Session.set('storyTab', true);
+      Session.set('aboutTab', false);
+      Session.set('accountTab', false);
+      Session.set('previewTab', false);
+    },
+    'click #aboutTab': function () {
+      Session.set('basicsTab', false);
+      Session.set('rewardsTab', false);
+      Session.set('storyTab', false);
+      Session.set('aboutTab', true);
+      Session.set('accountTab', false);
+      Session.set('previewTab', false);
+    },
+    'click #accountTab': function () {
+      Session.set('basicsTab', false);
+      Session.set('rewardsTab', false);
+      Session.set('storyTab', false);
+      Session.set('aboutTab', false);
+      Session.set('accountTab', true);
+      Session.set('previewTab', false);
+    },
+    'click #previewTab': function () {
+      Session.set('basicsTab', false);
+      Session.set('rewardsTab', false);
+      Session.set('storyTab', false);
+      Session.set('aboutTab', false);
+      Session.set('accountTab', false);
+      Session.set('previewTab', true);
+    },
   }),
 
   Template.newProject.helpers({
-    basics: function() {
-      return Session.get('basicsNP');
+    basicsTab: function() {
+      return Session.get('basicsTab');
     },
-    rewards: function() {
-      return Session.get('rewardsNP');
+    rewardsTab: function() {
+      return Session.get('rewardsTab');
     },
-    story: function() {
-      return Session.get('storyNP');
+    storyTab: function() {
+      return Session.get('storyTab');
     },
-    about: function() {
-      return Session.get('aboutNP');
+    aboutTab: function() {
+      return Session.get('aboutTab');
     },
-    account: function() {
-      return Session.get('accountNP');
+    accountTab: function() {
+      return Session.get('accountTab');
+    },
+    previewTab: function() {
+      return Session.get('previewTab');
     }
   }),
 
@@ -335,6 +395,14 @@ if (Meteor.isClient) {
     },
     submittedAgo: function() {
       return moment(this.createTimeActual, moment.ISO_8601).fromNow();
+    },
+    numComments: function() {
+      var numComments = Comments.find({ideaId: this._id}).count();
+      if (numComments === 1) {
+        return '1 comment';
+      }
+      else
+        return numComments + ' comments';
     }
   }),
 

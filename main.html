@@ -477,13 +477,12 @@ window.onload = function() {
   <div class="animated fadeIn">
     <center>
       <div class="btn-group btn-group-lg" role="group" aria-label="...">
-
-        <button class="btn btn-default">Basics</button>
-        <button class="btn btn-default">Rewards</button>
-        <button class="btn btn-default">Story</button>
-        <button class="btn btn-default">About You</button>
-        <button class="btn btn-default">Account</button>
-        <button class="btn btn-default">Preview</button>
+        <button id="basicsTab" class="btn btn-default">1. Basics</button>
+        <button id="rewardsTab" class="btn btn-default">2. Rewards</button>
+        <button id="storyTab" class="btn btn-default">3. Story</button>
+        <button id="aboutTab" class="btn btn-default">4. About You</button>
+        <button id="accountTab" class="btn btn-default">5. Account</button>
+        <button id="previewTab" class="btn btn-default">6. Preview</button>
       </div>
     </center>
   </div>
@@ -491,58 +490,45 @@ window.onload = function() {
   <div class="container animated fadeIn">
    <div class="row">
     <div class="col-sm-12">
-      <form class="addProjectForm" id="form">
-        <center>
-          <br>
-          <h1>Start building your project!</h1>
-          <h1><small>Add an image, a goal, and other important details.</small></h1>
-        </center>
-        <table width="100%">
-          <tr> 
-            <td>
-              <label>Project Title</label>
-              <h1><input type="text" name="title" id="title"></h1>
-              <label>Blurb</label>
-              <h1><small><input type="text" name="blurb" id="blurb"></small></h1>
-            </td>
-          </tr>
-        </table>
 
+      <center>
+        <br>
+        <h1>Start building your project!</h1>
+        <h1><small>Add an image, a goal, and other important details.</small></h1>
+      </center>
+
+      <form class="addProjectForm" id="form">
+
+        {{#if basicsTab}}
+        <label>Project Title</label>
+        <h1><input type="text" name="title" id="title"></h1>
+        <label>Blurb</label>
+        <h1><small><input type="text" name="blurb" id="blurb"></small></h1>
         <br>
         <label>Project Image</label>
         <input type="text" name="image" id="image">
-
-
-
         <br>
         <label>Details</label>
         <textarea type="text" name="details" id="details" rows="6"></textarea><br>
-
         <label>Permalink</label>
         <span id="helpBlock" class="help-block">/projects/<b>your-unique-project-address</b></span>
         <input type="text" name="slug" id="slug"><br>
-
         <label>Tags</label>
         <input type="text" name="tags" id="tags"><br>  
-
         <label>Funding Goal</label>
         <input type="text" name="goal" id="goal"><br>  
-
         <label>Duration</label>
         <input type="text" name="duration" id="duration"><br>
-
         <label>Location</label>
         <input type="text" name="location" id="location"><br>   
-
         <label>Rewards</label>
         <textarea type="text" name="rewards" id="rewards"></textarea><br> 
-
-
         <input id="submit" type="submit" value="Spark!" class="btn btn-md btn-primary">
-      </form>
-    </div>
-    <div class="col-sm-4">
+        {{else}}
+        Nope
+        {{/if}}
 
+      </form>
     </div>
   </div>
 </div>
@@ -746,25 +732,25 @@ window.onload = function() {
             <small>by <a href="{{ownerName}}">{{ownerName}}</a>
              • {{submittedAgo}}
              • <a href="/ideas/{{slug}}#comments">{{numComments}}</a>
-              {{#if isOwner}} 
-              • <a class="edit" style="cursor:pointer">Edit</a>
-              • <a class="delete" href="#">Delete</a>
-              {{/if}}
-            </small>
-            
-          </div>
-        </td>
+             {{#if isOwner}} 
+             • <a class="edit" style="cursor:pointer">Edit</a>
+             • <a class="delete" href="#">Delete</a>
+             {{/if}}
+           </small>
 
-      </tr>
-    </table>
+         </div>
+       </td>
 
-  </li>
+     </tr>
+   </table>
 
-  <script>
-  $(document).ready(function() {
-    $('.fa').tooltip();
-  });
-  </script>
+ </li>
+
+ <script>
+ $(document).ready(function() {
+  $('.fa').tooltip();
+});
+ </script>
 
 </template>
 
@@ -827,21 +813,21 @@ window.onload = function() {
 
 <template name="comments">
   <br>
-<div class="col-sm-1" style="padding-left:0px !important">
-        <img class="user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px">
+  <div class="col-sm-1" style="padding-left:0px !important">
+    <img class="user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px">
+  </div>
+  <div class="col-sm-11" style="padding-right:0px !important">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Write Preview
+        <p class='pull-right'><span class="text-muted">Markdown Supported</span></p>
       </div>
-<div class="col-sm-11" style="padding-right:0px !important">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            Write Preview
-            <p class='pull-right'><span class="text-muted">Markdown Supported</span></p>
-          </div>
-          <div class="panel-body">
-            <textarea type="text" id="comment-box" placeholder="What do you think?"></textarea><br>
-            <button id="submit-comment" type="submit" class="btn btn-primary pull-right">Comment</button>
-          </div><!-- /panel-body -->
-        </div><!-- /panel panel-default -->
-</div>
+      <div class="panel-body">
+        <textarea type="text" id="comment-box" placeholder="What do you think?"></textarea><br>
+        <button id="submit-comment" type="submit" class="btn btn-primary pull-right">Comment</button>
+      </div><!-- /panel-body -->
+    </div><!-- /panel panel-default -->
+  </div>
 
   <style>
   #comment-box {
@@ -961,6 +947,8 @@ window.onload = function() {
         </table>
         <h1><small>{{details}}</small></h1>
         <hr>
+        <h4>{{numComments}}</h4>
+        <br>
         {{#each ideaComments}}
         {{>comment}}
         {{/each}}
