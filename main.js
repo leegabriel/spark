@@ -265,6 +265,14 @@ if (Meteor.isClient) {
     },
     submittedAgo: function() {
       return moment(this.createTimeActual, moment.ISO_8601).fromNow();
+    },
+    numComments: function() {
+      var numComments = Comments.find({ideaId: this._id}).count();
+      if (numComments === 1) {
+        return '1 comment';
+      }
+      else
+        return numComments + ' comments';
     }
   }),
 
