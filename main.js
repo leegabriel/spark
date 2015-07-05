@@ -436,29 +436,14 @@ if (Meteor.isClient) {
     },
     'click #fund': function() {
       bootbox.dialog({
-                title: "Fund Project",
+                title: this.title,
                 message: '<div class="row">  ' +
                     '<div class="col-md-12"> ' +
-                    '<form class="form-horizontal"> ' +
-                    '<div class="form-group"> ' +
-                    '<label class="col-md-4 control-label" for="amount">Amount</label> ' +
-                    '<div class="col-md-4"> ' +
-                    '<input id="amount" name="amount" type="text" placeholder="eg. 100" class="form-control input-md"> ' +
-                    '<span class="help-block">Enter amount in dollars</span> </div> ' +
-                    '</div> ' +
-                    '<div class="form-group"> ' +
-                    '<label class="col-md-4 control-label" for="awesomeness">How awesome is this?</label> ' +
-                    '<div class="col-md-4"> <div class="radio"> <label for="awesomeness-0"> ' +
-                    '<input type="radio" name="awesomeness" id="awesomeness-0" value="Really awesome" checked="checked"> ' +
-                    'Really awesome </label> ' +
-                    '</div><div class="radio"> <label for="awesomeness-1"> ' +
-                    '<input type="radio" name="awesomeness" id="awesomeness-1" value="Super awesome"> Super awesome </label> ' +
-                    '</div> ' +
-                    '</div> </div>' +
-                    '</form> </div>  </div>',
+                    '<h3>Let\'s choose your reward!</h3>' + 
+                    '</div> </div>',
                 buttons: {
                     success: {
-                        label: "Fund!",
+                        label: "Continue",
                         className: "btn-success",
                         callback: function () {
                             var name = $('#name').val();

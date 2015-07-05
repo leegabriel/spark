@@ -474,7 +474,9 @@ window.onload = function() {
   {{#if currentUser}}
 
   {{> nav}}
-  <div class="animated fadeIn">
+
+
+  <div class="container animated fadeIn">
     <center>
       <div class="btn-group btn-group-lg" role="group" aria-label="...">
         <button id="basicsTab" class="btn btn-default">1. Basics</button>
@@ -485,69 +487,103 @@ window.onload = function() {
         <button id="previewTab" class="btn btn-default">6. Preview</button>
       </div>
     </center>
-  </div>
+    <div class="row">
+      <div class="col-sm-12">
 
-  <div class="container animated fadeIn">
-   <div class="row">
-    <div class="col-sm-12">
 
-      <center>
-        <br>
-        <h1>Start building your project!</h1>
-        <h1><small>Add an image, a goal, and other important details.</small></h1>
-      </center>
 
-      <form class="addProjectForm" id="form">
+        <form class="addProjectForm" id="form">
 
-        {{#if basicsTab}}
-        <label>Project Title</label>
-        <h1><input type="text" name="title" id="title"></h1>
-        <label>Blurb</label>
-        <h1><small><input type="text" name="blurb" id="blurb"></small></h1>
-        <br>
-        <label>Project Image</label>
-        <input type="text" name="image" id="image">
-        <br>
-        <label>Details</label>
-        <textarea type="text" name="details" id="details" rows="6"></textarea><br>
-        <label>Permalink</label>
-        <span id="helpBlock" class="help-block">/projects/<b>your-unique-project-address</b></span>
-        <input type="text" name="slug" id="slug"><br>
-        <label>Tags</label>
-        <input type="text" name="tags" id="tags"><br>  
-        <label>Funding Goal</label>
-        <input type="text" name="goal" id="goal"><br>  
-        <label>Duration</label>
-        <input type="text" name="duration" id="duration"><br>
-        <label>Location</label>
-        <input type="text" name="location" id="location"><br>   
-        <label>Rewards</label>
-        <textarea type="text" name="rewards" id="rewards"></textarea><br> 
-        <input id="submit" type="submit" value="Spark!" class="btn btn-md btn-primary">
-        {{else}}
-        Nope
-        {{/if}}
-
-      </form>
+          {{#if basicsTab}}
+          <center>
+            <br>
+            <h1>Start building your project!</h1>
+            <h1><small>Add an image, a goal, and other important details.</small></h1>
+          </center>
+          <label>Project Title</label>
+          <h1><input type="text" name="title" id="title"></h1>
+          <label>Blurb</label>
+          <h1><small><input type="text" name="blurb" id="blurb"></small></h1>
+          <br>
+          <label>Project Image</label>
+          <input type="text" name="image" id="image">
+          <br>
+          <label>Details</label>
+          <textarea type="text" name="details" id="details" rows="6"></textarea><br>
+          <label>Permalink</label>
+          <span id="helpBlock" class="help-block">/projects/<b>your-unique-project-address</b></span>
+          <input type="text" name="slug" id="slug"><br>
+          <label>Tags</label>
+          <input type="text" name="tags" id="tags"><br>  
+          <label>Funding Goal</label>
+          <input type="text" name="goal" id="goal"><br>  
+          <label>Duration</label>
+          <input type="text" name="duration" id="duration"><br>
+          <label>Location</label>
+          <input type="text" name="location" id="location"><br>   
+          <label>Rewards</label>
+          <textarea type="text" name="rewards" id="rewards"></textarea><br> 
+          {{/if}}
+          {{#if rewardsTab}}
+                    <center>
+            <br>
+            <h1>How will you thank the people who support you?</h1>
+            <h1><small>Offer an experience, a copy of what you are making, or a thank you in the credits. Get creative!</small></h1>
+          </center>
+          {{/if}}
+          {{#if storyTab}}
+                    <center>
+            <br>
+            <h1>What are you creating?</h1>
+            <h1><small>Every project must create something to share with others.<br> Use this space to tell the story behind your project.</small></h1>
+          </center>
+          {{/if}}
+          {{#if aboutTab}}
+                    <center>
+            <br>
+            <h1>Now a little bit about you.</h1>
+            <h1><small>Tell people who you are! Supporting links are always nice.</small></h1>
+          </center>
+          {{/if}}
+          {{#if accountTab}}
+                    <center>
+            <br>
+            <h1>Some housekeeping.</h1>
+            <h1><small>Get your account verified and ready to receive pledges.</small></h1>
+          </center>
+          {{/if}}
+          {{#if previewTab}}
+        <center>
+          <br>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              See what your friends think! Share a preview of this project: <a href="#">Get preview link</a>
+            </div>
+          </div>
+          </center>
+          {{/if}}
+          <br>
+          <input id="submit" type="submit" value="Spark!" class="btn btn-md btn-primary">
+        </form>
+      </div>
     </div>
   </div>
-</div>
-{{> footer}}
+  {{> footer}}
 
-{{else}}
-{{#unless loggingIn}}
-{{>pageNotFound}}
-{{/unless}}
-{{/if}}
-
+  {{else}}
+  {{#unless loggingIn}}
+  {{>pageNotFound}}
+  {{/unless}}
+  {{/if}}
 
 
-<script>
-document.title = "New Project"
-window.onload = function() {
-  document.getElementById("title").focus();
-};
-</script>
+
+  <script>
+  document.title = "New Project"
+  window.onload = function() {
+    document.getElementById("title").focus();
+  };
+  </script>
 
 </template>
 
