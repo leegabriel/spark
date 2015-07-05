@@ -933,7 +933,7 @@ window.onload = function() {
             <td>
               <h1>{{title}}</h1>
               <p>by <a href="{{ownerName}}">{{ownerName}}</a> • {{submittedAgo}}</p>
-              <a style="font-size: 12px" href="#">#{{tags}}</a>
+              {{#markdown}}{{processedTags}}{{/markdown}}
             </td>
             <td> 
               <div class="pull-right">
@@ -1045,7 +1045,7 @@ window.onload = function() {
             <p class="text-muted">Published on {{createdAt}}</p>
             <p>{{#markdown}}{{details}}{{/markdown}}</p>
             <br>
-            <a href="#">#{{tags}}</a>
+            {{#markdown}}{{processedTags}}{{/markdown}}
           </div>
         </div>
         <div class="panel panel-default">

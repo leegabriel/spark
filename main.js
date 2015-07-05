@@ -403,6 +403,18 @@ if (Meteor.isClient) {
       }
       else
         return numComments + ' comments';
+    },
+    processedTags: function() {
+      var oldTags = this.tags;
+      var newTags =[oldTags.length];
+      for (var i = 0; i < oldTags.length; i++){
+        newTags[i] = '<a href="#">#' + oldTags[i] + '</a> ';
+      }
+      var processedTags ='';
+      for (var k = 0; k < oldTags.length; k++){
+        processedTags = processedTags + newTags[k] + ' ';
+      }
+      return processedTags;
     }
   }),
 
@@ -468,6 +480,18 @@ if (Meteor.isClient) {
     },
     submittedAgo: function() {
       return moment(this.createTimeActual, moment.ISO_8601).fromNow();
+    },
+    processedTags: function() {
+      var oldTags = this.tags;
+      var newTags =[oldTags.length];
+      for (var i = 0; i < oldTags.length; i++){
+        newTags[i] = '<a href="#">#' + oldTags[i] + '</a> ';
+      }
+      var processedTags ='';
+      for (var k = 0; k < oldTags.length; k++){
+        processedTags = processedTags + newTags[k] + ' ';
+      }
+      return processedTags;
     }
   }),
 
