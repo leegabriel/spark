@@ -508,6 +508,9 @@ if (Meteor.isClient) {
       console.log(args);
       var path = '/search/' + args;
       Router.go(path);
+    },
+    'click .search-query': function () {
+      Router.go('search')
     }
   }),
 
@@ -815,17 +818,17 @@ Router.route('/projects/:slug/edit', function(){
 });
 
 
-Router.route('/:_id', function(){
-  document.title = "Spark";
-  this.render('loading');
-  if (Meteor.users.findOne({_id: Meteor.userId()})) {
-    this.render('profile', {
-      data: function(){
-        return Meteor.users.findOne({_id: Meteor.userId()});
-      }
-    });
-  }
-});
+// Router.route('/:_id', function(){
+//   document.title = "Spark";
+//   this.render('loading');
+//   if (Meteor.users.findOne({_id: Meteor.userId()})) {
+//     this.render('profile', {
+//       data: function(){
+//         return Meteor.users.findOne({_id: Meteor.userId()});
+//       }
+//     });
+//   }
+// });
 
 Router.route('/watched',function() {
   this.render('watched');
