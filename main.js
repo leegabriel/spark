@@ -161,7 +161,7 @@ if (Meteor.isClient) {
       var tags = e.target.tags.value.split(', ');
 
       
-      var imageURL = 'http://lorempixel.com/600/500/';
+      var imageURL = 'http://lorempixel.com/600/500/abstract';
 
       if (!title || !details || !slug)
         return false;
@@ -184,7 +184,7 @@ if (Meteor.isClient) {
       var rewards = e.target.rewards.value;
 
       if (!imageURL){
-        imageURL = 'http://lorempixel.com/600/500/';
+        imageURL = 'http://lorempixel.com/600/500/abstract';
       }
 
       if (!title || !slug || !blurb|| !details)
@@ -465,6 +465,14 @@ if (Meteor.isClient) {
     },
     submittedAgo: function() {
       return moment(this.createTimeActual, moment.ISO_8601).fromNow();
+    },
+    numComments: function() {
+      var numComments = Comments.find({projectId: this._id}).count();
+      if (numComments === 1) {
+        return '1 comment';
+      }
+      else
+        return numComments + ' comments';
     },
     processedTags: function() {
       var oldTags = this.tags;
@@ -817,18 +825,6 @@ Router.route('/projects/:slug/edit', function(){
   document.title = "Edit Project";
 });
 
-
-// Router.route('/:_id', function(){
-//   document.title = "Spark";
-//   this.render('loading');
-//   if (Meteor.users.findOne({_id: Meteor.userId()})) {
-//     this.render('profile', {
-//       data: function(){
-//         return Meteor.users.findOne({_id: Meteor.userId()});
-//       }
-//     });
-//   }
-// });
 
 Router.route('/watched',function() {
   this.render('watched');

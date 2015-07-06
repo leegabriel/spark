@@ -691,12 +691,9 @@ $('#slug').keyup(function(){
             <p id="tags" class="editable" contenteditable="true">{{tags}}</p>
           </div>
         </div>
-        <div class="panel panel-default non-editable">
-          <div class="panel-body">
-            <h2>Comments</h2>
+
             {{> comments}}
-          </div>
-        </div>
+
       </div>
 
       <div class="col-sm-4">
@@ -983,7 +980,7 @@ $('#slug').keyup(function(){
       <div class="col-sm-8">
         {{#if isOwner}}
         <a class="btn btn-default edit">Edit</a>
-        <a class="btn btn-danger delete">Delete</a>
+        <a class="btn btn-default delete">Delete</a>
         {{/if}} 
         <table width="100%">
           <tr> 
@@ -1047,7 +1044,7 @@ $('#slug').keyup(function(){
       <div class="col-sm-8">
         {{#if isOwner}}
         <a class="btn btn-default edit">Edit</a>
-        <a class="btn btn-danger delete">Delete</a>
+        <a class="btn btn-default delete">Delete</a>
         {{/if}} 
         <table width="100%">
           <tr> 
@@ -1083,16 +1080,14 @@ $('#slug').keyup(function(){
             </table>
           </div>
         </div>
-
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h2>Comments</h2>
+        <hr>
+        <h4>{{numComments}}</h4>
+        <br>
             {{#each projectComments}}
             {{>comment}}
             {{/each}}
             {{> comments}}
-          </div>
-        </div>
+
       </div>
 
       <div class="col-sm-4">
@@ -1165,7 +1160,7 @@ $('#slug').keyup(function(){
   <div class="crowdfund">
     <div class="thumbnail" style="padding: 0">
       <div style="padding:4px">
-        <img alt="300x200" style="width: 100%" src="http://lorempixel.com/200/150/food/9">
+        <img alt="300x200" style="width: 100%" src="http://lorempixel.com/200/150/abstract/">
       </div>
       <div class="caption">
         <h2>Food For All</h2>
@@ -1378,9 +1373,9 @@ body {
 
 <template name="search">
   {{>nav}}
-  <div class="container">
+  <div class="container animated fadeIn">
     <h1>Search Results</h1>
-      0 results were found for the search for Lorem
+      Found __ results matching "<span id="liveEdit"></span>"
       <hr>
       <h3>Ideas</h3>
 
@@ -1390,5 +1385,11 @@ body {
 
   </div>
   {{>footer}}
+<script>
+$('.search-query').keyup(function(){
+  var text = $('.search-query').text();
+  $('#liveEdit').text(text);
+})
+</script>
 </template>
 
