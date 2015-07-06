@@ -770,7 +770,7 @@ window.onload = function() {
       <div class="thumbnail" style="padding: 0">
         <div style="padding:5px">
           <a title={{title}} href="/projects/{{slug}}">
-            {{>picture}}
+            {{>thumbnail}}
           </a>
         </div>
         <div class="caption">
@@ -1097,7 +1097,7 @@ window.onload = function() {
 
 
 <template name="thumbnail">
-  <img id="thumbnail" src={{imageURL}} width="100px">
+  <img id="thumbnail" src={{imageURL}}>
 </template>
 
 
