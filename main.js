@@ -53,6 +53,20 @@ if (Meteor.isClient) {
     Session.set('previewTab', false);
   });
 
+  Template.sortBar.events({
+    'click #hot': function() {
+       document.getElementById('sortChoice').innerHTML = document.getElementById('hot').innerHTML;
+    },
+    'click #top': function() {
+       document.getElementById('sortChoice').innerHTML = document.getElementById('top').innerHTML;
+    },
+    'click #newest': function() {
+       document.getElementById('sortChoice').innerHTML = document.getElementById('newest').innerHTML;
+    },
+    'click #alphabetical': function() {
+       document.getElementById('sortChoice').innerHTML = document.getElementById('alphabetical').innerHTML;
+    },
+  }),
 
   Template.ideasTab.helpers({
     ideas: function () {
@@ -156,16 +170,16 @@ if (Meteor.isClient) {
   Template.newIdea.events({
     'submit .addIdeaForm':function(e){
       var title = e.target.title.value;
-      var details = e.target.details.value;
       var slug = e.target.slug.value;
       var tags = e.target.tags.value.split(', ');
+      var details = e.target.details.value;
 
       
       var imageURL = 'http://lorempixel.com/600/500/abstract';
 
       if (!title || !details || !slug)
         return false;
-      Meteor.call('addIdea', title, details, slug, tags, imageURL);
+      Meteor.call('addIdea', title, slug, tags, details, imageURL);
       return false;
     }
   }),
@@ -534,12 +548,12 @@ if (Meteor.isClient) {
 
 
 Meteor.methods({
-  addIdea: function (title, details, slug, tags, imageURL) {
+  addIdea: function (title, slug, tags, details, imageURL) {
     Ideas.insert({
       title: title,
-      details: details,
       slug: slug,
       tags: tags,
+      details: details,
       imageURL: imageURL,
       count: 0,
       owner: Meteor.userId(),
