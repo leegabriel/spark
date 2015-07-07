@@ -32,15 +32,12 @@
           <ul class="nav navbar-nav" >
             <li><a href="{{pathFor 'ideas'}}">Ideas</a></li>
             <li><a href="{{pathFor 'projects'}}">Projects</a></li>
-
           </ul>
-          <form class="navbar-form navbar-left" role="search">
-            <div class="span12">
-              <form>
-                <input type="text" class="search-query" placeholder="Search">
-              </form>
-            </div>
-          </form>
+
+        
+          <input class="navbar-left search-query" placeholder="Search">
+       
+
           <ul class="nav navbar-nav navbar-right">
             {{#if currentUser}}
             <li class="dropdown">
@@ -52,7 +49,6 @@
             </li>
             {{/if}}
             {{>loginButtons}}
-
           </ul>
 
         </div>
@@ -72,8 +68,8 @@
   </nav>
   
   <style>
-
   .search-query {
+    margin-top: 7.5px !important;
     width:240px;
     margin:auto;
     background-color: #f9f9f9;
@@ -171,11 +167,6 @@
 </style>
 
 <script>
-$(".dropdown-menu a").click(function() {
-  $(this).closest(".dropdown-menu").prev().dropdown("toggle");
-});
-
-
 
 $(window).resize(function() {
   var path = $(this);
@@ -270,17 +261,17 @@ $(document).ready(function() {
 <template name="sortBar">
 
   <div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="sortBar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Sort by <b><span id="sortChoice">Hot</span></b>
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="sortBar">
+    <button class="btn btn-default dropdown-toggle" type="button" id="sortBar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Sort by <b><span id="sortChoice">Hot</span></b>
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="sortBar">
       <li><a id="hot" href="#">Hot</a></li>
       <li><a id="top" href="#">Top</a></li>
       <li><a id="newest" href="#">Newest</a></li>
       <li ><a id="alphabetical" href="#">A-Z</a></li>
-  </ul>
-</div>
+    </ul>
+  </div>
 
 
   <script>
@@ -337,17 +328,6 @@ $(document).ready(function() {
     margin: 0px;
   }
   </style>
-
-  <script>
-  $(document).ready(function() {
-    $('.dropdown').on('show.bs.dropdown', function(e){
-      $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
-    });
-    $('.dropdown').on('hide.bs.dropdown', function(e){
-      $(this).find('.dropdown-menu').first().stop(true, true).slideUp(300);
-    });
-  });
-  </script>
   {{> footer}}
 </template>
 
@@ -385,17 +365,6 @@ $(document).ready(function() {
     margin: 0px;
   }
   </style>
-
-  <script>
-  $(document).ready(function() {
-    $('.dropdown').on('show.bs.dropdown', function(e){
-      $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
-    });
-    $('.dropdown').on('hide.bs.dropdown', function(e){
-      $(this).find('.dropdown-menu').first().stop(true, true).slideUp(300);
-    });
-  });
-  </script>
 </template>
 
 
@@ -620,12 +589,12 @@ window.onload = function() {
   {{/unless}}
   {{/if}}
 
-<script>
-$('#slug').keyup(function(){
-  var text = $('#slug').text();
-  $('#liveEdit').text(text);
-})
-</script>
+  <script>
+  $('#slug').keyup(function(){
+    var text = $('#slug').text();
+    $('#liveEdit').text(text);
+  })
+  </script>
 </template>
 
 <template name="editProject">
@@ -677,7 +646,7 @@ $('#slug').keyup(function(){
           </div>
         </div>
 
-            {{> comments}}
+        {{> comments}}
 
       </div>
 
@@ -751,6 +720,12 @@ $('#slug').keyup(function(){
       </center>
     </ul>
   </div>
+
+  <script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip('show')
+  })
+  </script>
 </template>
 
 <template name="idea">
@@ -784,12 +759,6 @@ $('#slug').keyup(function(){
    </table>
 
  </li>
-
- <script>
- $(document).ready(function() {
-  $('.fa').tooltip();
-});
- </script>
 
 </template>
 
@@ -830,9 +799,6 @@ $('#slug').keyup(function(){
 
 
   <script>
-  $(document).ready(function() {
-    $('.fa').tooltip();
-  });
 
   $('.crowdfund').hover(
     function(){
@@ -1068,10 +1034,10 @@ $('#slug').keyup(function(){
         <hr>
         <h4>{{numComments}}</h4>
         <br>
-            {{#each projectComments}}
-            {{>comment}}
-            {{/each}}
-            {{> comments}}
+        {{#each projectComments}}
+        {{>comment}}
+        {{/each}}
+        {{> comments}}
 
       </div>
 
@@ -1360,21 +1326,16 @@ body {
   {{>nav}}
   <div class="container animated fadeIn">
     <h1>Search Results</h1>
-      Found __ results matching "<span id="liveEdit"></span>"
-      <hr>
-      <h3>Ideas</h3>
+    Found 0 results matching {{query}}
+    <hr>
+    <h3>Ideas</h3>
 
-      <h3>Projects</h3>
+    <h3>Projects</h3>
 
-      <h3>Users</h3>
+    <h3>Users</h3>
 
   </div>
   {{>footer}}
-<script>
-$('.search-query').keyup(function(){
-  var text = $('.search-query').text();
-  $('#liveEdit').text(text);
-})
-</script>
+
 </template>
 

@@ -38,6 +38,10 @@ if(Meteor.isServer){
 if (Meteor.isClient) {
 
   Meteor.startup(function () {
+
+    //search
+    Session.set('query', '');
+
     //pagination
     Session.set('iSkip', 0);
     Session.set('iLimit', 5);
@@ -53,20 +57,26 @@ if (Meteor.isClient) {
     Session.set('previewTab', false);
   });
 
+  Template.search.helpers({
+    query: function() {
+      return Session.get('query');
+    }
+  });
+  
   Template.sortBar.events({
     'click #hot': function() {
-       document.getElementById('sortChoice').innerHTML = document.getElementById('hot').innerHTML;
-    },
-    'click #top': function() {
-       document.getElementById('sortChoice').innerHTML = document.getElementById('top').innerHTML;
-    },
-    'click #newest': function() {
-       document.getElementById('sortChoice').innerHTML = document.getElementById('newest').innerHTML;
-    },
-    'click #alphabetical': function() {
-       document.getElementById('sortChoice').innerHTML = document.getElementById('alphabetical').innerHTML;
-    },
-  }),
+     document.getElementById('sortChoice').innerHTML = document.getElementById('hot').innerHTML;
+   },
+   'click #top': function() {
+     document.getElementById('sortChoice').innerHTML = document.getElementById('top').innerHTML;
+   },
+   'click #newest': function() {
+     document.getElementById('sortChoice').innerHTML = document.getElementById('newest').innerHTML;
+   },
+   'click #alphabetical': function() {
+     document.getElementById('sortChoice').innerHTML = document.getElementById('alphabetical').innerHTML;
+   },
+ }),
 
   Template.ideasTab.helpers({
     ideas: function () {
@@ -256,291 +266,291 @@ if (Meteor.isClient) {
     },
   }),
 
-  Template.newProject.helpers({
-    basicsTab: function() {
-      return Session.get('basicsTab');
-    },
-    rewardsTab: function() {
-      return Session.get('rewardsTab');
-    },
-    storyTab: function() {
-      return Session.get('storyTab');
-    },
-    aboutTab: function() {
-      return Session.get('aboutTab');
-    },
-    accountTab: function() {
-      return Session.get('accountTab');
-    },
-    previewTab: function() {
-      return Session.get('previewTab');
+Template.newProject.helpers({
+  basicsTab: function() {
+    return Session.get('basicsTab');
+  },
+  rewardsTab: function() {
+    return Session.get('rewardsTab');
+  },
+  storyTab: function() {
+    return Session.get('storyTab');
+  },
+  aboutTab: function() {
+    return Session.get('aboutTab');
+  },
+  accountTab: function() {
+    return Session.get('accountTab');
+  },
+  previewTab: function() {
+    return Session.get('previewTab');
+  }
+}),
+
+
+Template.editIdea.events({
+  'click .update':function(event){
+    var title = document.getElementById('title').innerHTML;
+    var details = document.getElementById('details').innerHTML;
+    var slug = document.getElementById('slug').innerHTML;
+    var tags = document.getElementById('tags').innerHTML.split(', ');
+
+    Meteor.call('editIdea', this._id, title, details, slug, tags);
+  }, 
+  'click .cancel':function(){
+    window.history.back();
+  }
+}),
+
+Template.editProject.events({
+  'click .update':function(event){
+    var title = document.getElementById('title').innerHTML;
+    var slug = document.getElementById('slug').innerHTML;
+    var blurb = document.getElementById('blurb').innerHTML;
+    var imageURL = document.getElementById('imageURL').innerHTML;
+    var details = document.getElementById('details').innerHTML;
+    var tags = document.getElementById('tags').innerHTML.split(', ');
+    var goal = document.getElementById('goal').innerHTML;
+    var duration = document.getElementById('duration').innerHTML;
+    var location = document.getElementById('location').innerHTML;
+    var rewards = document.getElementById('rewards').innerHTML;
+
+    Meteor.call('editProject', this._id, title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards);
+  }, 
+  'click .cancel':function(){
+    window.history.back();
+  }
+}),
+
+
+
+
+Template.idea.events({
+  "click .edit": function () {
+    var path = '/ideas/' + this.slug + '/edit';
+    Router.go(path);
+  },
+  "click .delete": function () {
+    if (confirm("Are you sure you want to delete this?")){
+      Meteor.call("deleteIdea", this._id);
     }
-  }),
+  },
+  "click .fa-chevron-up": function () {
+    Meteor.call("upvoteIdea", this._id);
+  },
+  "click .fa-chevron-down": function () {
+    Meteor.call("downvoteIdea", this._id);
+  }
+}),
 
-
-  Template.editIdea.events({
-    'click .update':function(event){
-      var title = document.getElementById('title').innerHTML;
-      var details = document.getElementById('details').innerHTML;
-      var slug = document.getElementById('slug').innerHTML;
-      var tags = document.getElementById('tags').innerHTML.split(', ');
-
-      Meteor.call('editIdea', this._id, title, details, slug, tags);
-    }, 
-    'click .cancel':function(){
-      window.history.back();
+Template.idea.helpers({
+  isOwner: function () {
+    return this.owner === Meteor.userId();
+  },
+  submittedAgo: function() {
+    return moment(this.createTimeActual, moment.ISO_8601).fromNow();
+  },
+  numComments: function() {
+    var numComments = Comments.find({ideaId: this._id}).count();
+    if (numComments === 1) {
+      return '1 comment';
     }
-  }),
+    else
+      return numComments + ' comments';
+  }
+}),
 
-  Template.editProject.events({
-    'click .update':function(event){
-      var title = document.getElementById('title').innerHTML;
-      var slug = document.getElementById('slug').innerHTML;
-      var blurb = document.getElementById('blurb').innerHTML;
-      var imageURL = document.getElementById('imageURL').innerHTML;
-      var details = document.getElementById('details').innerHTML;
-      var tags = document.getElementById('tags').innerHTML.split(', ');
-      var goal = document.getElementById('goal').innerHTML;
-      var duration = document.getElementById('duration').innerHTML;
-      var location = document.getElementById('location').innerHTML;
-      var rewards = document.getElementById('rewards').innerHTML;
 
-      Meteor.call('editProject', this._id, title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards);
-    }, 
-    'click .cancel':function(){
-      window.history.back();
+
+
+Template.project.events({
+  "click .edit": function () {
+    var path = '/projects/' + this.slug + '/edit';
+    Router.go(path);
+  },
+  "click .delete": function () {
+    if (confirm("Are you sure you want to delete this?")){
+      Meteor.call("deleteProject", this._id);
     }
-  }),
+  },
+  "click .fa-chevron-up": function () {
+    Meteor.call("upvoteProject", this._id);
+  },
+  "click .fa-chevron-down": function () {
+    Meteor.call("downvoteProject", this._id);
+  }
+}),
+
+Template.project.helpers({
+  isOwner: function () {
+    return this.owner === Meteor.userId();
+  },
+  submittedAgo: function() {
+    return moment(this.createTimeActual, moment.ISO_8601).fromNow();
+  }
+}),
 
 
 
 
-  Template.idea.events({
-    "click .edit": function () {
-      var path = '/ideas/' + this.slug + '/edit';
-      Router.go(path);
-    },
-    "click .delete": function () {
-      if (confirm("Are you sure you want to delete this?")){
-        Meteor.call("deleteIdea", this._id);
-      }
-    },
-    "click .fa-chevron-up": function () {
-      Meteor.call("upvoteIdea", this._id);
-    },
-    "click .fa-chevron-down": function () {
-      Meteor.call("downvoteIdea", this._id);
+Template.ideaView.events({
+  "click .edit": function () {
+    var path = '/ideas/' + this.slug + '/edit';
+    Router.go(path);
+  },
+  "click .delete": function () {
+    if (confirm("Are you sure you want to delete this?")){
+      Meteor.call("deleteIdea", this._id);
     }
-  }),
-
-  Template.idea.helpers({
-    isOwner: function () {
-      return this.owner === Meteor.userId();
-    },
-    submittedAgo: function() {
-      return moment(this.createTimeActual, moment.ISO_8601).fromNow();
-    },
-    numComments: function() {
-      var numComments = Comments.find({ideaId: this._id}).count();
-      if (numComments === 1) {
-        return '1 comment';
-      }
-      else
-        return numComments + ' comments';
-    }
-  }),
-
-
-
-
-  Template.project.events({
-    "click .edit": function () {
-      var path = '/projects/' + this.slug + '/edit';
-      Router.go(path);
-    },
-    "click .delete": function () {
-      if (confirm("Are you sure you want to delete this?")){
-        Meteor.call("deleteProject", this._id);
-      }
-    },
-    "click .fa-chevron-up": function () {
-      Meteor.call("upvoteProject", this._id);
-    },
-    "click .fa-chevron-down": function () {
-      Meteor.call("downvoteProject", this._id);
-    }
-  }),
-
-  Template.project.helpers({
-    isOwner: function () {
-      return this.owner === Meteor.userId();
-    },
-    submittedAgo: function() {
-      return moment(this.createTimeActual, moment.ISO_8601).fromNow();
-    }
-  }),
-
-
-
-
-  Template.ideaView.events({
-    "click .edit": function () {
-      var path = '/ideas/' + this.slug + '/edit';
-      Router.go(path);
-    },
-    "click .delete": function () {
-      if (confirm("Are you sure you want to delete this?")){
-        Meteor.call("deleteIdea", this._id);
-      }
-    },
-    'click #submit-comment': function() {
+  },
+  'click #submit-comment': function() {
       // because this is actually an input element, need to use value
       var text = document.getElementById('comment-box').value; 
       Meteor.call('addIdeaComment', this._id, 0, text);
     }
   }),
 
-  Template.ideaView.helpers({
-    isOwner: function () {
-      return this.owner === Meteor.userId();
-    },
-    ideaComments: function () {
-      return Comments.find({ideaId:this._id});
-    },
-    submittedAgo: function() {
-      return moment(this.createTimeActual, moment.ISO_8601).fromNow();
-    },
-    numComments: function() {
-      var numComments = Comments.find({ideaId: this._id}).count();
-      if (numComments === 1) {
-        return '1 comment';
-      }
-      else
-        return numComments + ' comments';
-    },
-    processedTags: function() {
-      var oldTags = this.tags;
-      var newTags =[oldTags.length];
-      for (var i = 0; i < oldTags.length; i++){
-        newTags[i] = '<a href="#">#' + oldTags[i] + '</a> ';
-      }
-      var processedTags ='';
-      for (var k = 0; k < oldTags.length; k++){
-        processedTags = processedTags + newTags[k] + ' ';
-      }
-      return processedTags;
+Template.ideaView.helpers({
+  isOwner: function () {
+    return this.owner === Meteor.userId();
+  },
+  ideaComments: function () {
+    return Comments.find({ideaId:this._id});
+  },
+  submittedAgo: function() {
+    return moment(this.createTimeActual, moment.ISO_8601).fromNow();
+  },
+  numComments: function() {
+    var numComments = Comments.find({ideaId: this._id}).count();
+    if (numComments === 1) {
+      return '1 comment';
     }
-  }),
+    else
+      return numComments + ' comments';
+  },
+  processedTags: function() {
+    var oldTags = this.tags;
+    var newTags =[oldTags.length];
+    for (var i = 0; i < oldTags.length; i++){
+      newTags[i] = '<a href="#">#' + oldTags[i] + '</a> ';
+    }
+    var processedTags ='';
+    for (var k = 0; k < oldTags.length; k++){
+      processedTags = processedTags + newTags[k] + ' ';
+    }
+    return processedTags;
+  }
+}),
 
 
 
-  Template.projectView.events({
-    "click .edit": function () {
-      var path = '/projects/' + this.slug + '/edit';
-      Router.go(path);
-    },
-    "click .delete": function () {
-      if (confirm("Are you sure you want to delete this?")){
-        Meteor.call("deleteProject", this._id);
+Template.projectView.events({
+  "click .edit": function () {
+    var path = '/projects/' + this.slug + '/edit';
+    Router.go(path);
+  },
+  "click .delete": function () {
+    if (confirm("Are you sure you want to delete this?")){
+      Meteor.call("deleteProject", this._id);
+    }
+  },
+  'click #submit-comment': function() {
+    var text = document.getElementById('comment-box').value;
+    Meteor.call('addProjectComment', this._id, 0, text);
+  },
+  'click #fund': function() {
+    bootbox.dialog({
+      title: this.title,
+      message: '<div class="row">  ' +
+      '<div class="col-md-12"> ' +
+      '<h3>Let\'s choose your reward!</h3>' + 
+      '</div> </div>',
+      buttons: {
+        success: {
+          label: "Continue",
+          className: "btn-success",
+          callback: function () {
+            var name = $('#name').val();
+            var answer = $("input[name='awesomeness']:checked").val()
+          }
+        }
       }
-    },
-    'click #submit-comment': function() {
-      var text = document.getElementById('comment-box').value;
-      Meteor.call('addProjectComment', this._id, 0, text);
-    },
-    'click #fund': function() {
-      bootbox.dialog({
-                title: this.title,
-                message: '<div class="row">  ' +
-                    '<div class="col-md-12"> ' +
-                    '<h3>Let\'s choose your reward!</h3>' + 
-                    '</div> </div>',
-                buttons: {
-                    success: {
-                        label: "Continue",
-                        className: "btn-success",
-                        callback: function () {
-                            var name = $('#name').val();
-                            var answer = $("input[name='awesomeness']:checked").val()
-                        }
-                    }
-                }
-            }
-        );
     }
-  }),
+    );
+  }
+}),
 
-  Template.projectView.helpers({
-    isOwner: function () {
-      return this.owner === Meteor.userId();
-    },
-    projectComments: function () {
-      return Comments.find({projectId:this._id});
-    },
-    submittedAgo: function() {
-      return moment(this.createTimeActual, moment.ISO_8601).fromNow();
-    },
-    numComments: function() {
-      var numComments = Comments.find({projectId: this._id}).count();
-      if (numComments === 1) {
-        return '1 comment';
-      }
-      else
-        return numComments + ' comments';
-    },
-    processedTags: function() {
-      var oldTags = this.tags;
-      var newTags =[oldTags.length];
-      for (var i = 0; i < oldTags.length; i++){
-        newTags[i] = '<a href="#">#' + oldTags[i] + '</a> ';
-      }
-      var processedTags ='';
-      for (var k = 0; k < oldTags.length; k++){
-        processedTags = processedTags + newTags[k] + ' ';
-      }
-      return processedTags;
+Template.projectView.helpers({
+  isOwner: function () {
+    return this.owner === Meteor.userId();
+  },
+  projectComments: function () {
+    return Comments.find({projectId:this._id});
+  },
+  submittedAgo: function() {
+    return moment(this.createTimeActual, moment.ISO_8601).fromNow();
+  },
+  numComments: function() {
+    var numComments = Comments.find({projectId: this._id}).count();
+    if (numComments === 1) {
+      return '1 comment';
     }
-  }),
-
-
-
-
-
-  Template._loginButtonsLoggedInDropdown.events({
-    'click #login-buttons-profile': function(event) {
-      Router.go('profile');
-    },
-    'click #login-buttons-watched': function(event) {
-      Router.go('watched');
-    },
-    'click #login-buttons-stats': function(event) {
-      Router.go('stats');
-    },
-    'click #login-buttons-settings': function(event) {
-      Router.go('settings');
+    else
+      return numComments + ' comments';
+  },
+  processedTags: function() {
+    var oldTags = this.tags;
+    var newTags =[oldTags.length];
+    for (var i = 0; i < oldTags.length; i++){
+      newTags[i] = '<a href="#">#' + oldTags[i] + '</a> ';
     }
-  }),
-
-
-
-
-  Template.nav.events({
-    'submit .searchForm': function(event) {
-      var args = document.getElementById('args').value;
-      console.log(args);
-      var path = '/search/' + args;
-      Router.go(path);
-    },
-    'click .search-query': function () {
-      Router.go('search')
+    var processedTags ='';
+    for (var k = 0; k < oldTags.length; k++){
+      processedTags = processedTags + newTags[k] + ' ';
     }
-  }),
+    return processedTags;
+  }
+}),
 
-  Template.comment.helpers({
-    isOwner: function () {
-      return this.owner === Meteor.userId();
-    }
-  });
+
+
+
+
+Template._loginButtonsLoggedInDropdown.events({
+  'click #login-buttons-profile': function(event) {
+    Router.go('profile');
+  },
+  'click #login-buttons-watched': function(event) {
+    Router.go('watched');
+  },
+  'click #login-buttons-stats': function(event) {
+    Router.go('stats');
+  },
+  'click #login-buttons-settings': function(event) {
+    Router.go('settings');
+  }
+}),
+
+
+
+
+Template.nav.events({
+  'focus .search-query': function() {
+    $('.search-query').keyup(function(){
+      var text = $('.search-query').val();
+      Session.set('query', text)
+    })
+  },
+  'submit #searchForm': function(){
+    Router.go('search')
+  }
+}),
+
+Template.comment.helpers({
+  isOwner: function () {
+    return this.owner === Meteor.userId();
+  }
+});
 
 
 
