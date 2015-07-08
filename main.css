@@ -234,9 +234,12 @@ textarea {
   -webkit-writing-mode: horizontal-tb;
 }
 
-#thumbnail:hover{
-  opacity: 0.87;
+
+#thumbnail {
+    height:290px;
+  width: auto;
 }
+
 
 
 #tab {
@@ -301,10 +304,10 @@ textarea {
 
  }
 
- #thumbnail {
+/* #thumbnail {
   width: 67px;
   margin-right: 20px ;
-}
+}*/
 
 /* remove indentation from list*/
 ol {
