@@ -549,9 +549,9 @@ window.onload = function() {
   <script>
 
   $('#slug').keyup(function(){
-  var text = $('#slug').val();
-  $('#liveEdit').text(text);
-});
+    var text = $('#slug').val();
+    $('#liveEdit').text(text);
+  });
 
   document.title = "New Project"
   window.onload = function() {
@@ -682,7 +682,7 @@ window.onload = function() {
             <h2>Similar Ideas</h2>
             <br>
             <center>
-              {{>similar}}
+              {{>similarIdeas}}
             </center>
           </div>
         </div>         
@@ -691,7 +691,7 @@ window.onload = function() {
             <h2>Similar Projects</h2>
             <br>
             <center>
-              {{>similar}}
+              {{>similarProjects}}
             </center>
           </div>
         </div>
@@ -937,32 +937,40 @@ window.onload = function() {
         {{#if isOwner}}
         <a class="btn btn-default edit">Edit</a>
         <a class="btn btn-default delete">Delete</a>
-        {{/if}} 
-        <table width="100%">
-          <tr> 
-            <td>
-              <h1>{{title}}</h1>
-              <p>by <a href="{{ownerName}}">{{ownerName}}</a> • {{submittedAgo}}</p>
-              {{#markdown}}{{processedTags}}{{/markdown}}
-            </td>
-            <td> 
-              <div class="pull-right">
-                <center>
-                  <span class="badge" id="badge-lg">{{count}}</span>
-                  <h1><small>votes</small></h1>
-                </center>
-              </div>
-            </td>
-          </tr>
-        </table>
-        <h1><small>{{details}}</small></h1>
         <hr>
-        <h4>{{numComments}}</h4>
-        <br>
-        {{#each ideaComments}}
-        {{>comment}}
-        {{/each}}
-        {{> comments}}
+        {{/if}}
+        <div class="panel panel-default">
+          <div class="panel-body"> 
+            <table width="100%">
+              <tr> 
+                <td>
+                  <h1>{{title}}</h1>
+                  <p>by <a href="{{ownerName}}">{{ownerName}}</a> • {{submittedAgo}}</p>
+                  {{#markdown}}{{processedTags}}{{/markdown}}
+                </td>
+                <td> 
+                  <div class="pull-right">
+                    <center>
+                      <span class="badge" id="badge-lg">{{count}}</span>
+                      <h1><small>votes</small></h1>
+                    </center>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <br>
+            <br>
+            <p>{{details}}</p>
+            <br>
+            <hr>
+            <h4>{{numComments}}</h4>
+            <br>
+            {{#each ideaComments}}
+            {{>comment}}
+            {{/each}}
+            {{> comments}}
+          </div>
+        </div>
       </div>
 
       <div class="col-sm-4">
@@ -971,7 +979,7 @@ window.onload = function() {
             <h2>Similar Ideas</h2>
             <br>
             <center>
-              {{>similar}}
+              {{>similarIdeas}}
             </center>
           </div>
         </div>         
@@ -980,7 +988,7 @@ window.onload = function() {
             <h2>Related Projects</h2>
             <br>
             <center>
-              {{>similar}}
+              {{>similarProjects}}
             </center>
           </div>
         </div>
@@ -1001,48 +1009,53 @@ window.onload = function() {
         {{#if isOwner}}
         <a class="btn btn-default edit">Edit</a>
         <a class="btn btn-default delete">Delete</a>
-        {{/if}} 
-        <table width="100%">
-          <tr> 
-            <td>
-              <h1>{{title}}</h1>
-              <h2><small>by {{ownerName}}</small></h2>
-            </td>
-            <td> 
-              <div class="pull-right">
-                <center>
-                  <span class="badge" id="badge-lg">{{count}}</span>
-                  <h1><small>votes</small></h1>
-                </center>
-              </div>
-            </td>
-          </tr>
-        </table>
-        <br>
-        {{> picture}}
-        <br>
+        <hr>
+        {{/if}}
         <div class="panel panel-default">
           <div class="panel-body">
-            <table>
-              <tr>
+            <table width="100%">
+              <tr> 
                 <td>
-                  <img class="user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px; margin: 5px">
+                  <h1>{{title}}</h1>
+                  <h2><small>by {{ownerName}}</small></h2>
                 </td>
-                <td>
-                  <h3 style="margin: 0px !important"><small>{{ownerName}}</small></h3>
-                  <button class="btn btn-sm btn-primary">Follow {{ownerName}}</button>
+                <td> 
+                  <div class="pull-right">
+                    <center>
+                      <span class="badge" id="badge-lg">{{count}}</span>
+                      <h1><small>votes</small></h1>
+                    </center>
+                  </div>
                 </td>
               </tr>
             </table>
+            <br>
+            {{> picture}}
+            <br>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <table>
+                  <tr>
+                    <td>
+                      <img class="user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px; margin: 5px">
+                    </td>
+                    <td>
+                      <h3 style="margin: 0px !important"><small>{{ownerName}}</small></h3>
+                      <button class="btn btn-sm btn-primary">Follow {{ownerName}}</button>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <hr>
+            <h4>{{numComments}}</h4>
+            <br>
+            {{#each projectComments}}
+            {{>comment}}
+            {{/each}}
+            {{> comments}}
           </div>
         </div>
-        <hr>
-        <h4>{{numComments}}</h4>
-        <br>
-        {{#each projectComments}}
-        {{>comment}}
-        {{/each}}
-        {{> comments}}
 
       </div>
 
@@ -1080,7 +1093,7 @@ window.onload = function() {
             <h2>Similar Ideas</h2>
             <br>
             <center>
-              {{>similar}}
+              {{>similarIdeas}}
             </center>
           </div>
         </div>         
@@ -1089,7 +1102,7 @@ window.onload = function() {
             <h2>Similar Projects</h2>
             <br>
             <center>
-              {{>similar}}
+              {{>similarProjects}}
             </center>
           </div>
         </div>
@@ -1111,7 +1124,11 @@ window.onload = function() {
 </template>
 
 
-<template name="similar">
+<template name="similarIdeas">
+
+</template>
+
+<template name="similarProjects">
 
   <div class="crowdfund">
     <div class="thumbnail" style="padding: 0">
