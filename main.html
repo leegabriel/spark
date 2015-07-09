@@ -34,9 +34,9 @@
             <li><a href="{{pathFor 'projects'}}">Projects</a></li>
           </ul>
 
-        
+
           <input class="navbar-left search-query" placeholder="Search">
-       
+
 
           <ul class="nav navbar-nav navbar-right">
             {{#if currentUser}}
@@ -382,13 +382,13 @@ $(document).ready(function() {
         <label>Title</label>
         <h1 style="margin-top: 0px"><input class="editable" id="title"></h1>
         <label>Permalink</label>
-        <span id="helpBlock" class="help-block">spark-app.meteor.com/ideas/<span id="liveEdit"><b>your-unique-idea-address</b></span></span>
+        <span id="helpBlock" class="help-block">spark-app.meteor.com/ideas/<b><span id="liveEdit">your-unique-idea-address</span></b></span>
         <input class="editable" id="slug">
         <label>Tags</label>
         <input class="editable" id="tags">  
         <label>Details</label>
         <textarea class="editable" id="details" rows="6"></textarea>
-        <input id="submit" type="submit" value="Spark!" class="btn btn-md btn-primary">
+        <input id="submit" type="submit" value="Spark!" class="btn btn-lg btn-primary">
 
       </form>
     </div>
@@ -457,29 +457,28 @@ window.onload = function() {
             </center>
 
             <label>Project Title</label>
-            <h1><input class="editable" id="title"></h1>
+            <h1 style="margin-top: 0px"><input class="editable" id="title"></h1>
             <label>Blurb</label>
-            <h1><small><input class="editable" id="blurb"></small></h1>
-            <br>
+            <h1 style="margin-top: 0px"><small><input class="editable" id="blurb"></small></h1>
             <label>Project Image</label>
             <input class="editable" id="image">
-            <br>
             <label>Details</label>
-            <textarea class="editable" id="details" rows="6"></textarea><br>
+            <textarea class="editable" id="details" rows="6"></textarea>
             <label>Permalink</label>
-            <span id="helpBlock" class="help-block">/projects/<b>your-unique-project-address</b></span>
-            <input class="editable" id="slug"><br>
+            <span id="helpBlock" class="help-block">spark-app.meteor.com/projects/<b><span id="liveEdit">your-unique-project-address</span></b></span>
+            <input class="editable" id="slug">
             <label>Tags</label>
-            <input class="editable" id="tags"><br>  
+            <input class="editable" id="tags">
             <label>Funding Goal</label>
-            <input class="editable" id="goal"><br>  
+            <input class="editable" id="goal">  
             <label>Duration</label>
-            <input class="editable" id="duration"><br>
+            <input class="editable" id="duration">
             <label>Location</label>
-            <input class="editable" id="location"><br>   
+            <input class="editable" id="location">   
             <label>Rewards</label>
-            <textarea class="editable" id="rewards"></textarea><br> 
+            <textarea class="editable" id="rewards"></textarea> 
           </div>
+          <input id="submit" type="submit" value="Submit for Review" class="btn btn-lg btn-success">
           {{/if}}
           {{#if rewardsTab}}
           <div class="animated fadeIn">
@@ -523,10 +522,10 @@ window.onload = function() {
               <br>
               <div class="panel panel-default">
                 <div class="panel-body">
-                  See what your friends think! Share a preview of this project: <a href="#">Get preview link</a>
+                  See what your friends think! Share a preview of this project: <a href="#">Get <p></p>review link</a>
                 </div>
               </div>
-              <input id="submit" type="submit" value="Submit for Review" class="btn btn-lg btn-success">
+              
             </center>
 
 
@@ -548,6 +547,12 @@ window.onload = function() {
 
 
   <script>
+
+  $('#slug').keyup(function(){
+  var text = $('#slug').val();
+  $('#liveEdit').text(text);
+});
+
   document.title = "New Project"
   window.onload = function() {
     document.getElementById("title").focus();
