@@ -380,14 +380,14 @@ $(document).ready(function() {
       <form class="addIdeaForm" id="form">
 
         <label>Title</label>
-        <h1 style="margin-top: 0px"><input type="text" name="title" id="title"></h1>
+        <h1 style="margin-top: 0px"><input class="editable" id="title"></h1>
         <label>Permalink</label>
         <span id="helpBlock" class="help-block">spark-app.meteor.com/ideas/<span id="liveEdit"><b>your-unique-idea-address</b></span></span>
-        <input type="text" name="slug" id="slug">
+        <input class="editable" id="slug">
         <label>Tags</label>
-        <input type="text" name="tags" id="tags">  
+        <input class="editable" id="tags">  
         <label>Details</label>
-        <textarea type="text" name="details" id="details" rows="6"></textarea>
+        <textarea class="editable" id="details" rows="6"></textarea>
         <input id="submit" type="submit" value="Spark!" class="btn btn-md btn-primary">
 
       </form>
@@ -457,28 +457,28 @@ window.onload = function() {
             </center>
 
             <label>Project Title</label>
-            <h1><input type="text" name="title" id="title"></h1>
+            <h1><input class="editable" id="title"></h1>
             <label>Blurb</label>
-            <h1><small><input type="text" name="blurb" id="blurb"></small></h1>
+            <h1><small><input class="editable" id="blurb"></small></h1>
             <br>
             <label>Project Image</label>
-            <input type="text" name="image" id="image">
+            <input class="editable" id="image">
             <br>
             <label>Details</label>
-            <textarea type="text" name="details" id="details" rows="6"></textarea><br>
+            <textarea class="editable" id="details" rows="6"></textarea><br>
             <label>Permalink</label>
             <span id="helpBlock" class="help-block">/projects/<b>your-unique-project-address</b></span>
-            <input type="text" name="slug" id="slug"><br>
+            <input class="editable" id="slug"><br>
             <label>Tags</label>
-            <input type="text" name="tags" id="tags"><br>  
+            <input class="editable" id="tags"><br>  
             <label>Funding Goal</label>
-            <input type="text" name="goal" id="goal"><br>  
+            <input class="editable" id="goal"><br>  
             <label>Duration</label>
-            <input type="text" name="duration" id="duration"><br>
+            <input class="editable" id="duration"><br>
             <label>Location</label>
-            <input type="text" name="location" id="location"><br>   
+            <input class="editable" id="location"><br>   
             <label>Rewards</label>
-            <textarea type="text" name="rewards" id="rewards"></textarea><br> 
+            <textarea class="editable" id="rewards"></textarea><br> 
           </div>
           {{/if}}
           {{#if rewardsTab}}
