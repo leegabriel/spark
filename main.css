@@ -87,6 +87,12 @@ h1, h2, h3, h4, h5, h6, p, small {
   font-size: 11px;
 }
 
+ol {
+  padding-left: 0;
+  color: #666;
+  list-style-type: none;
+  margin-left: 0px;
+}
 ol ul {
   padding: 0px !important;
 }
@@ -145,12 +151,6 @@ body {
 
 .nav-tabs.nav-justified>li>a {
   color: #666 !important;
-}
-
-ol {
-  padding-left: 0;
-  color: #666;
-  margin-left: 15px;
 }
 
 li table {
@@ -236,7 +236,7 @@ textarea {
 
 
 #thumbnail {
-    height:290px;
+  height:290px;
   width: auto;
 }
 
@@ -307,83 +307,83 @@ textarea {
 /* #thumbnail {
   width: 67px;
   margin-right: 20px ;
-}*/
+  }*/
 
-/* remove indentation from list*/
-ol {
-  padding: 0;
-  list-style-type: none;
-}
+  /* remove indentation from list*/
+  ol {
+    padding: 0;
+    list-style-type: none;
+  }
 
-ol ul {
-  padding: 0;
-}
+  ol ul {
+    padding: 0;
+  }
 
-#title, #slug, #category, #tags, #details, #rewards {
-  width: 100% !important;
-}
+  #title, #slug, #category, #tags, #details, #rewards {
+    width: 100% !important;
+  }
 
-.middle-link {
-  margin-left: 0px;
-}
+  .middle-link {
+    margin-left: 0px;
+  }
 
-.actionBar .badge {
-  font-size: 12px !important;
-}
+  .actionBar .badge {
+    font-size: 12px !important;
+  }
 
-.actions {
-  margin: 0px;
-}
+  .actions {
+    margin: 0px;
+  }
 
-.actionBar {
-  width: 50px;
-}
+  .actionBar {
+    width: 50px;
+  }
 
-.navbar-text{
-  margin-left: 15px;
-}
+  .navbar-text{
+    margin-left: 15px;
+  }
 
-.navbar-form {
-  border: 0px !important;
-  margin-top: 0px !important;
-  box-shadow: 0 3px 2px -2px rgba(200,200,200,0.3);
-}
+  .navbar-form {
+    border: 0px !important;
+    margin-top: 0px !important;
+    box-shadow: 0 3px 2px -2px rgba(200,200,200,0.3);
+  }
 
-.navbar-toggle {
-  float:left !important;
-  margin-left: 15px;
-  border: none !important;
-  border-bottom: transparent !important;
-}
+  .navbar-toggle {
+    float:left !important;
+    margin-left: 15px;
+    border: none !important;
+    border-bottom: transparent !important;
+  }
 
 
-.navbar-toggle:link {
-  background: none !important;
-}
-.navbar-toggle:hover {
-  background: none !important;
-  color: #000;
-}
+  .navbar-toggle:link {
+    background: none !important;
+  }
+  .navbar-toggle:hover {
+    background: none !important;
+    color: #000;
+  }
 
-.navbar-toggle:active {
-  background: none !important;
-}
+  .navbar-toggle:active {
+    background: none !important;
+  }
 
-.navbar-toggle:visited {
-  background: none !important;
-}
+  .navbar-toggle:visited {
+    background: none !important;
+  }
 
-input {
-  width: 100% !important;
-}
+  input {
+    width: 100% !important;
+  }
 
-.ghost {
-  display:none !important;
-}
+  .ghost {
+    display:none !important;
+  }
 
-.btn-mobile {
-  display: block;
-}
+  .btn-mobile {
+    display: block;
+  }
 }
 
 

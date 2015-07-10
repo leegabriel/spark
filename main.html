@@ -70,6 +70,7 @@
   <style>
   .search-query {
     margin-top: 7.5px !important;
+    margin-left: 15px !important;
     width:240px;
     margin:auto;
     background-color: #f9f9f9;
@@ -299,67 +300,76 @@ $(document).ready(function() {
 <template name="ideasTab">
   {{> nav}}
   <div class="container">
-    <div class="row">
+    <div class="col-sm-12">
 
-      <div class="col-sm-6">
-        {{>sortBar}}
-      </div>
+       <div class="btn-toolbar" role="toolbar" aria-label="...">
+          <div class="btn-group" role="group" aria-label="...">
+            {{>sortBar}}
+          </div>
+          <div class="btn-group pull-right" role="group" aria-label="...">
+            {{>pager}}
+          </div>
+       </div>
 
-      <div class="col-sm-6">
-        <span class="pull-right">{{>pager}}</span>
-      </div>
-
-      <div class="col-sm-12">
-        <ol>
-          {{#each ideas}}
-          {{> idea}}
-          {{/each}}
-        </ol>
-      </div>
-
+      <br>
     </div>
-  </div>
-  <style>
-  .dropdown-menu>li>a  {
-    outline: 0;
-  }
 
-  ul.pager{
-    margin: 0px;
-  }
-  </style>
+    <div class="col-sm-12">
+      <ol>
+        {{#each ideas}}
+
+        {{> idea}}
+
+        {{/each}}
+      </ol>
+    </div>
+
+  </div>
+
   {{> footer}}
+
+<style>
+.dropdown-menu>li>a  {
+  outline: 0;
+}
+
+ul.pager{
+  margin: 0px;
+}
+</style>
 </template>
 
 
 <template name="projectsTab">
   {{> nav}}
   <div class="container">
-    <div class="row">
-      <div class="col-sm-6">
-        {{>sortBar}}
-      </div>
-      <div class="col-sm-6">
-        <span class="pull-right">{{>pager}}</span>
-      </div>
-      <div class="col-sm-12">
+    <div class="col-sm-12">
 
+       <div class="btn-toolbar" role="toolbar" aria-label="...">
+          <div class="btn-group" role="group" aria-label="...">
+            {{>sortBar}}
+          </div>
+          <div class="btn-group pull-right" role="group" aria-label="...">
+            {{>pager}}
+          </div>
+       </div>
 
-        <br>
-
-
-        {{#each projects}}
-        {{> project}}
-        {{/each}}
-        
-
-        
-      </div>
-
+      <br>
     </div>
-  </div>
-  {{> footer}}
 
+    <div class="col-sm-12">
+      <ol>
+        {{#each projects}}
+
+        {{> project}}
+
+        {{/each}}
+      </ol>
+    </div>
+
+  </div>
+
+  {{> footer}}
   <style>
   ul.pager {
     margin: 0px;
@@ -737,32 +747,34 @@ window.onload = function() {
 
 
   <li class="animated fadeIn">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <table class="document">
+          <tr>
 
-    <table class="document">
-      <tr>
+            <td>
+              {{> actionBar}}
+            </td>
 
-        <td>
-          {{> actionBar}}
-        </td>
+            <td>
+              <div class="middle-link">
+                <h3 style="margin-top: 0px"><a title={{title}} id="middle-link" href="/ideas/{{slug}}">{{title}}</a></h3>
+                <small>by <a href="{{ownerName}}">{{ownerName}}</a>
+                 • {{submittedAgo}}
+                 • <a href="/ideas/{{slug}}#comments">{{numComments}}</a>
+                 {{#if isOwner}} 
+                 • <a class="edit" style="cursor:pointer">Edit</a>
+                 • <a class="delete" href="#">Delete</a>
+                 {{/if}}
+               </small>
 
-        <td>
-          <div class="middle-link">
-            <h3 style="margin-top: 0px"><a title={{title}} id="middle-link" href="/ideas/{{slug}}">{{title}}</a></h3>
-            <small>by <a href="{{ownerName}}">{{ownerName}}</a>
-             • {{submittedAgo}}
-             • <a href="/ideas/{{slug}}#comments">{{numComments}}</a>
-             {{#if isOwner}} 
-             • <a class="edit" style="cursor:pointer">Edit</a>
-             • <a class="delete" href="#">Delete</a>
-             {{/if}}
-           </small>
+             </div>
+           </td>
 
-         </div>
-       </td>
-
-     </tr>
-   </table>
-
+         </tr>
+       </table>
+     </div>
+   </div>
  </li>
 
 </template>
