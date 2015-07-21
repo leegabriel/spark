@@ -12,3 +12,9 @@
      document.getElementById('sortChoice').innerHTML = document.getElementById('alphabetical').innerHTML;
    },
  });
+
+  $('.dropdown-toggle').dropdown();
+
+  $(".dropdown-menu a").click(function() {
+    $(this).closest(".dropdown-menu").prev().dropdown("toggle");
+  });

@@ -1,37 +1,21 @@
-
-
 if (Meteor.isClient) {
 
   Meteor.startup(function () {
-
     //search
     Session.set('query', '');
-
     //pagination
     Session.set('iSkip', 0);
     Session.set('iLimit', 5);
     Session.set('pSkip', 0);
     Session.set('pLimit', 5);
-
-    //newProject tabs
-    Session.set('basicsTab', true);
-    Session.set('rewardsTab', false);
-    Session.set('storyTab', false);
-    Session.set('aboutTab', false);
-    Session.set('accountTab', false);
-    Session.set('previewTab', false);
-
     // portal tabs
     Session.set('register', false);
     Session.set('signin', true);
     Session.set('forgot', false);
   });
-
-
-
 } /* isClient */
 
-
+/* Meteor methods */
 Meteor.methods({
   addIdea: function (title, slug, tags, details, imageURL) {
     Ideas.insert({
@@ -159,26 +143,38 @@ Meteor.methods({
     }
   }, 
   addIdeaComment: function(ideaId, parent, text) {
-    Comments.insert({
-      ideaId: ideaId,
-      parent: parent,
-      text: text,
-      owner: Meteor.userId(),
-      ownerName: Meteor.user().username,
-      createdAt: moment().format("MMMM D, YYYY"),
-      createTimeActual: moment().format()
-    });
+    if (Meteor.user()){
+      Comments.insert({
+        ideaId: ideaId,
+        userAvatar: Meteor.user().avatar,
+        parent: parent,
+        text: text,
+        owner: Meteor.userId(),
+        ownerName: Meteor.user().username,
+        createdAt: moment().format("MMMM D, YYYY"),
+        createTimeActual: moment().format()
+      });
+    }
+    else{
+      bootbox.alert('You must be signed in to do that.');
+    } 
   },
   addProjectComment: function(projectId, parent, text) {
-    Comments.insert({
-      projectId: projectId,
-      parent: parent,
-      text: text,
-      owner: Meteor.userId(),
-      ownerName: Meteor.user().username,
-      createdAt: moment().format("MMMM D, YYYY"),
-      createTimeActual: moment().format()
-    });
+    if (Meteor.user()){
+      Comments.insert({
+        projectId: ideaId,
+        userAvatar: Meteor.user().avatar,
+        parent: parent,
+        text: text,
+        owner: Meteor.userId(),
+        ownerName: Meteor.user().username,
+        createdAt: moment().format("MMMM D, YYYY"),
+        createTimeActual: moment().format()
+      });
+    }
+    else{
+      bootbox.alert('You must be signed in to do that.');
+    } 
   },
   upvoteIdea: function (ideaId) {
     var thisUser = Meteor.userId();

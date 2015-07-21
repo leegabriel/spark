@@ -1,12 +1,12 @@
 <template name="comments">
   <br>
   <div class="col-sm-1" style="padding-left:0px !important">
-    <img class="user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px">
+    <img class="user-photo" src="{{avatar}}" style="width:50px">
   </div>
   <div class="col-sm-11" style="padding-right:0px !important">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Write Preview
+        Write
         <p class='pull-right'><span class="text-muted">Markdown Supported</span></p>
       </div>
       <div class="panel-body">
@@ -15,85 +15,26 @@
       </div><!-- /panel-body -->
     </div><!-- /panel panel-default -->
   </div>
-
-  <style>
-  #comment-box {
-    width: 100% !important;  
-    max-width: none !important;
-    height: 150px;
-    background-color: #f9f9f9;
-    -webkit-transition: background-color 0.3s;
-    transition: background-color 0.3s;
-  }
-
-
-  #comment-box:focus{
-    background-color: #fff;
-  }   
-
-  .user-photo {
-    padding: 0px;
-    border-radius: 3px;
-    margin:0px;
-    border: none !important;
-  }
-
-  .panel {
-    position:relative;
-  }
-
-  .panel>.panel-heading:after,.panel>.panel-heading:before{
-    position:absolute;
-    top:11px;left:-16px;
-    right:100%;
-    width:0;
-    height:0;
-    display:block;
-    content:" ";
-    border-color:transparent;
-    border-style:solid solid outset;
-    pointer-events:none;
-  }
-
-  .panel>.panel-heading:after{
-    border-width:7px;
-    border-right-color:#f7f7f7;
-    margin-top:1px;
-    margin-left:2px;
-  }
-
-  .panel>.panel-heading:before{
-    border-right-color:#ddd;
-    border-width:8px;
-  }
-
-
-
-  </style>
-
-  <script>
-  $(document).ready(function(){
-    $("[data-toggle=tooltip]").tooltip();
-  });
-  </script>
-
 </template>
 
 <template name="comment">
   <div class="animated fadeIn">
     <div class="col-sm-1" style="padding-left:0px !important">
       <center>
-        <img class="user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px">
+        <img class="user-photo" src="{{userAvatar}}" style="width:50px">
       </center>
     </div>
 
     <div class="col-sm-11" style="padding-right:0px !important" >
       <div class="panel panel-default">
         <div class="panel-heading">
-          <strong>{{ownerName}}</strong> <span class="text-muted">commented on {{createdAt}}</span>
+          
           {{#if isOwner}}
-          <p class='pull-right'><span class="text-muted">Owner</span> <i class="fa fa-pencil"></i></p>
+          <strong>You</strong> <span class="text-muted">commented on {{createdAt}}</span>
+          {{else}}
+          <strong>{{ownerName}}</strong> <span class="text-muted">commented on {{createdAt}}</span>
           {{/if}}
+
         </div>
         <div class="panel-body">
           {{#markdown}}{{text}}{{/markdown}}

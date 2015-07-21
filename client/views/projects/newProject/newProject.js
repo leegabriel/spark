@@ -19,55 +19,7 @@
       return false;
     Meteor.call('addProject', title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards);
     return false;
-  },
-  'click #basicsTab': function () {
-    Session.set('basicsTab', true);
-    Session.set('rewardsTab', false);
-    Session.set('storyTab', false);
-    Session.set('aboutTab', false);
-    Session.set('accountTab', false);
-    Session.set('previewTab', false);
-  },
-  'click #rewardsTab': function () {
-    Session.set('basicsTab', false);
-    Session.set('rewardsTab', true);
-    Session.set('storyTab', false);
-    Session.set('aboutTab', false);
-    Session.set('accountTab', false);
-    Session.set('previewTab', false);
-  },
-  'click #storyTab': function () {
-    Session.set('basicsTab', false);
-    Session.set('rewardsTab', false);
-    Session.set('storyTab', true);
-    Session.set('aboutTab', false);
-    Session.set('accountTab', false);
-    Session.set('previewTab', false);
-  },
-  'click #aboutTab': function () {
-    Session.set('basicsTab', false);
-    Session.set('rewardsTab', false);
-    Session.set('storyTab', false);
-    Session.set('aboutTab', true);
-    Session.set('accountTab', false);
-    Session.set('previewTab', false);
-  },
-  'click #accountTab': function () {
-    Session.set('basicsTab', false);
-    Session.set('rewardsTab', false);
-    Session.set('storyTab', false);
-    Session.set('aboutTab', false);
-    Session.set('accountTab', true);
-    Session.set('previewTab', false);
-  },
-  'click #previewTab': function () {
-    Session.set('basicsTab', false);
-    Session.set('rewardsTab', false);
-    Session.set('storyTab', false);
-    Session.set('aboutTab', false);
-    Session.set('accountTab', false);
-    Session.set('previewTab', true);
-  },
+  }
 });
 
  Template.newProject.helpers({
