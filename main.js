@@ -42,7 +42,7 @@ Meteor.methods({
       imageURL: imageURL,
       count: 0,
       owner: Meteor.userId(),
-      ownerName: Meteor.user().emails[0].address,
+      ownerName: Meteor.user().username,
       createdAt: moment().format("MMMM D, YYYY"),
       createTimeActual: moment().format(),
       upvotedUsers: [],
@@ -67,7 +67,7 @@ Meteor.methods({
       rewards: rewards,
       count: 0,
       owner: Meteor.userId(),
-      ownerName: Meteor.user().emails[0].address,
+      ownerName: Meteor.user().username,
       createdAt: moment().format("MMMM D, YYYY"),
       createTimeActual: moment().format(),
       upvotedUsers: [],
@@ -164,7 +164,7 @@ Meteor.methods({
       parent: parent,
       text: text,
       owner: Meteor.userId(),
-      ownerName: Meteor.user().emails[0].address,
+      ownerName: Meteor.user().username,
       createdAt: moment().format("MMMM D, YYYY"),
       createTimeActual: moment().format()
     });
@@ -175,7 +175,7 @@ Meteor.methods({
       parent: parent,
       text: text,
       owner: Meteor.userId(),
-      ownerName: Meteor.user().emails[0].address,
+      ownerName: Meteor.user().username,
       createdAt: moment().format("MMMM D, YYYY"),
       createTimeActual: moment().format()
     });
