@@ -1,3 +1,9 @@
+Template.nav.helpers({
+  username: function(){
+    return Meteor.user().username;
+  }
+})
+
 Template.nav.events({
   'focus .search-query': function() {
     $('.search-query').keyup(function(){

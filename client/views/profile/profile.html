@@ -1,15 +1,46 @@
 <template name="profile">
-{{>nav}}
-{{username}}
-{{avatar}}
+	{{>nav}}
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class="col-md-4">
+					<h1>{{username}}</h1>
+					<br>
+					<img src="{{avatar}}">
+				</div>
+				<div class="col-md-8">
+					<h3>Ideas</h3>
+					{{#each myIdeas}}
+					{{>myIdea}}
+					{{/each}}
+					<h3>Projects</h3>
+					{{#each myProjects}}
+					{{>myProject}}
+					{{/each}}
+				</div>
+				
+			</div>
+		</div>
+		
+	</div>
+	
 
-{{>footer}}
+	{{>footer}}
+</template>
+
+<template name="myIdea">
+	<p><a href="/ideas/{{slug}}">{{title}}</a></p>
+</template>
+<template name="myProject">
+	<p><a href="/projects/{{slug}}">{{title}}</a></p>
 </template>
 
 <template name="settings">
-{{>nav}}
-change password
-change avatar
+	{{>nav}}
+	<div class="container">
+		<h2>Change Password</h2>
+		<h2>Change Avatar</h2>
+	</div>
 
-{{>footer}}
+	{{>footer}}
 </template>
