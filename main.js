@@ -146,11 +146,11 @@ Meteor.methods({
     if (Meteor.user()){
       Comments.insert({
         ideaId: ideaId,
-        userAvatar: Meteor.user().avatar,
         parent: parent,
         text: text,
         owner: Meteor.userId(),
         ownerName: Meteor.user().username,
+        ownerAvatar: Meteor.user().avatar,
         createdAt: moment().format("MMMM D, YYYY"),
         createTimeActual: moment().format()
       });
@@ -163,11 +163,11 @@ Meteor.methods({
     if (Meteor.user()){
       Comments.insert({
         projectId: ideaId,
-        userAvatar: Meteor.user().avatar,
         parent: parent,
         text: text,
         owner: Meteor.userId(),
         ownerName: Meteor.user().username,
+        ownerAvatar: Meteor.user().avatar,
         createdAt: moment().format("MMMM D, YYYY"),
         createTimeActual: moment().format()
       });
