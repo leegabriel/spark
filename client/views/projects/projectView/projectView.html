@@ -1,0 +1,112 @@
+<template name="projectView">
+  {{>nav}}
+
+  <div class="container animated fadeIn">
+    <div class="row">
+      <div class="col-sm-8">
+        {{#if isOwner}}
+        <a class="btn btn-default edit">Edit</a>
+        <a class="btn btn-default delete">Delete</a>
+        <hr>
+        {{/if}}
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <table width="100%">
+              <tr> 
+                <td>
+                  <h1>{{title}}</h1>
+                  <h2><small>by {{ownerName}}</small></h2>
+                </td>
+                <td> 
+                  <div class="pull-right">
+                    <center>
+                      <span class="badge" id="badge-lg">{{count}}</span>
+                      <h1><small>votes</small></h1>
+                    </center>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <br>
+            {{> picture}}
+            <br>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <table>
+                  <tr>
+                    <td>
+                      <img class="user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width:50px; margin: 5px">
+                    </td>
+                    <td>
+                      <h3 style="margin: 0px !important"><small>{{ownerName}}</small></h3>
+                      <button class="btn btn-sm btn-primary">Follow {{ownerName}}</button>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <hr>
+            <h4>{{numComments}}</h4>
+            <br>
+            {{#each projectComments}}
+            {{>comment}}
+            {{/each}}
+            {{> comments}}
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h2>{{blurb}}</h2>
+            <p class="text-muted">Published on {{createdAt}}</p>
+            <p>{{#markdown}}{{details}}{{/markdown}}</p>
+            <br>
+            {{#markdown}}{{processedTags}}{{/markdown}}
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h1>${{pledged}}</h1><p>pledged</p>
+            <button id="fund" class="btn btn-success">Fund this project</button>
+            <br>
+            <b>Funding goal</b>
+            <p>${{goal}}</p>
+            <b>Days left</b>
+            <p>{{duration}} days</p>
+            <b>Location</b>
+            <p>{{location}}</p>
+            <b>Progress</b>
+            <p>{{funded}}%</p>
+            <b>Backers</b>
+            <p>{{backers}}</p>
+            <b>Rewards</b>
+            <p>{{rewards}}</p>
+          </div>
+        </div>     
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h2>Similar Ideas</h2>
+            <br>
+            <center>
+              {{>similarIdeas}}
+            </center>
+          </div>
+        </div>         
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h2>Similar Projects</h2>
+            <br>
+            <center>
+              {{>similarProjects}}
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{>footer}}
+
+</template>

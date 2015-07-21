@@ -1,0 +1,205 @@
+<template name="nav">
+
+  <head>
+  <title>Spark</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.6/animate.min.css">
+  <link rel="icon" sizes="16x16 32x32" href="/favicon.ico?v=2">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+
+    <div class="container-fluid">
+      <div class="delta">
+
+        <div class="navbar-header" >
+          <button id="menu-toggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Spark</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+
+          <ul class="nav navbar-nav" >
+            <li><a href="{{pathFor 'ideas'}}">Ideas</a></li>
+            <li><a href="{{pathFor 'projects'}}">Projects</a></li>
+          </ul>
+
+
+          <input class="navbar-left search-query" placeholder="Search">
+
+
+          <ul class="nav navbar-nav navbar-right">
+            {{#if currentUser}}
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">New <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/newidea">Idea</a></li>
+                <li><a href="/newproject">Project</a></li>
+              </ul>
+            </li>
+            {{else}}
+            <li><a href="/portal">Login/Register</a></li>
+            {{/if}}
+
+          </ul>
+
+        </div>
+        <div id="sidebar-wrapper" class="sidebar-toggle">
+          <ul class="sidebar-nav">
+
+            <li><a href="{{pathFor 'ideas'}}">Ideas</a></li>
+            <li><a href="{{pathFor 'projects'}}">Projects</a></li>
+            <li><hr></li>
+            {{>categories}}
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </nav>
+  
+  <style>
+  .search-query {
+    margin-top: 7.5px !important;
+    margin-left: 15px !important;
+    width:240px;
+    margin:auto;
+    background-color: #f9f9f9;
+    -webkit-transition: width 0.3s, background-color 0.3s;
+    transition: width 0.3s, background-color 0.3s;
+  }
+
+  .search-query:focus{
+   width:280px;
+   background-color: #fff;
+ }   
+
+ .search-query-mobile {
+  line-height: 20px;
+  width:100%;
+  maring: auto;
+  background-color: #f6f6f6;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.search-query-mobile:focus{
+  background-color: #fff;
+}   
+
+#sidebar-wrapper {
+  display:none;
+  top: 50px;
+  left: -250px;
+  width: 250px;
+  background-color: #f9f9f9;
+  color: #58595b;
+  position: fixed;
+  height: 100%;
+  z-index: 1;
+}
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  width: 250px;
+  list-style: none;
+}
+.sidebar-nav li {
+  text-indent: 20px;
+  line-height: 40px;
+}
+.sidebar-nav li a {
+  outline: 0;
+  color: #58595b;
+  display: block;
+  text-decoration: none;
+}
+.sidebar-nav li a:hover {
+  background: #ddd;
+  color: #000;
+  text-decoration: none;
+}
+.sidebar-nav li a:active, .sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+.sidebar-nav .dropdown-menu {
+  margin-left: 20px;
+}
+
+.sidebar-nav .dropdown-menu>li>a {
+  padding: 3px 0px !important;
+}
+
+#sidebar-wrapper.sidebar-toggle {
+  transition: all 0.3s; /*speed animation of sidebar's slide*/
+  margin-left: -250px;
+}
+@media (min-width: 768px) {
+
+
+  #sidebar-wrapper.sidebar-toggle {
+    transition: all 0.3s; /*speed animation of sidebar's slide*/
+  }
+}
+
+@media (max-width: 768px) {
+  #sidebar-wrapper {
+    display:block;
+  }
+
+  .container {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+</style>
+
+<script>
+
+$(window).resize(function() {
+  var path = $(this);
+  var contW = path.width();
+  if(contW >= 751){
+    document.getElementsByClassName("sidebar-toggle")[0].style.left="200px";
+  }else{
+    document.getElementsByClassName("sidebar-toggle")[0].style.left="-200px";
+  }
+});
+
+$(document).ready(function() {
+  $('.dropdown').on('show.bs.dropdown', function(e){
+    $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
+  });
+  $('.dropdown').on('hide.bs.dropdown', function(e){
+    $(this).find('.dropdown-menu').first().stop(true, true).slideUp(300);
+  });
+
+  $("#menu-toggle").click(function(e) {
+    var elem = document.getElementById("sidebar-wrapper");
+    left = window.getComputedStyle(elem,null).getPropertyValue("left");
+    if(left === "250px"){
+      document.getElementsByClassName("sidebar-toggle")[0].style.left="-250px";
+    }
+    else if(left === "-250px"){
+      document.getElementsByClassName("sidebar-toggle")[0].style.left="250px";
+    }
+    else {
+      document.getElementsByClassName("sidebar-toggle")[0].style.left="250px";
+    }
+  });
+});
+</script>
+</template>

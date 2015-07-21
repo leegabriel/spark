@@ -1,0 +1,36 @@
+<template name="projectsTab">
+  {{> nav}}
+  <div class="container">
+    <div class="col-sm-12">
+
+       <div class="btn-toolbar" role="toolbar" aria-label="...">
+          <div class="btn-group" role="group" aria-label="...">
+            {{>sortBar}}
+          </div>
+          <div class="btn-group pull-right" role="group" aria-label="...">
+            {{>pager}}
+          </div>
+       </div>
+
+      <br>
+    </div>
+
+    <div class="col-sm-12">
+      <ol>
+        {{#each projects}}
+
+        {{> project}}
+
+        {{/each}}
+      </ol>
+    </div>
+
+  </div>
+
+  {{> footer}}
+  <style>
+  ul.pager {
+    margin: 0px;
+  }
+  </style>
+</template>

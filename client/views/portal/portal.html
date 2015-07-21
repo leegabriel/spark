@@ -1,0 +1,176 @@
+<template name="portal">
+  {{>nav}}
+  <div class="vertical">
+    {{#if s}}
+    {{>signin}}
+    {{/if}}
+    {{#if r}}
+    {{>register}}
+    {{/if}}
+    {{#if f}}
+    {{>forgot}}
+    {{/if}}
+  </div>
+  {{>footer}}
+</template>
+
+<template name="register">
+  <br>
+  
+  <div class="container animated flipInX">
+
+    <div class="col-md-4">
+      &nbsp;
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="col-md-12">
+            <center><h1 class="title" onclick="Router.go('/')">Spark</h1></center>
+
+            <br>
+            <div id="username-group" class="form-group">
+              <input id="username" type="text" class="form-control" placeholder="Username">
+            </div>
+            
+
+            <div id="email-group" class="form-group">
+              <input id="email" type="text" class="form-control" placeholder="Email">
+            </div>
+            
+
+            <div id="password-group" class="form-group">
+              <input id="password" type="password" class="form-control" placeholder="Password">
+            </div>
+
+            <center>
+              <div class="form-group">
+
+                <a id="register" class="btn btn-primary btn-block btn-lg">Sign up</a>
+              </div>
+              <div class="form-group">
+                <span class="help-block">Already have an account? <a id="signin-link" href="#"> Sign in &#8594;</a></span>
+              </div>
+            </center>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      &nbsp;
+    </div>
+
+  </div>
+
+</template>
+
+<template name="signin">
+  <br>
+  <div class="container animated flipInX">
+
+    <div class="col-md-4">
+      &nbsp;
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="col-md-12">
+            <center><h1 class="title" onclick="Router.go('/')">Spark</h1></center>
+            
+            <br>
+
+            <div id="key-group" class="form-group">
+              <input id="key" type="text" class="form-control" placeholder="Username or Email">
+            </div>
+            
+
+            <div id="password-group" class="form-group">
+              <input id="password" type="password" class="form-control" placeholder="Password">
+            </div>
+            
+
+            <div class="form-group">
+              <center>
+                <a id="signin" class="btn btn-primary btn-block btn-lg">Sign in</a>
+              </center>
+
+            </div>
+            
+            <div class="form-group">
+              <a id="register-link" href="#">Register</a> 
+              <a id="forgot-link" class="pull-right" href="#">Forgot Password?</a>
+            </div>
+            
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      &nbsp;
+    </div>
+
+  </div>
+</template>
+
+<template name="forgot">
+  <br>
+  <div class="container animated flipInX">
+
+    <div class="col-md-4">
+      &nbsp;
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="col-md-12">
+            <center><h1 class="title" onclick="Router.go('/')">Spark</h1></center>
+            <br>
+
+            {{#if resetPassword}}
+            <div id="password-group" class="form-group">
+              <input id="password" type="text" class="form-control" placeholder="New Password">
+            </div>
+
+            <div class="form-group">
+              <center>
+                <a id="change" class="btn btn-primary btn-block btn-lg">Change Password</a>
+              </center>
+            </div>
+
+            <div id="email" class="form-group">
+              <a id="signin-link" href="#">&#8592; Back</a>
+            </div>    
+            {{else}}
+            <div id="email-group" class="form-group">
+              <input id="email" type="text" class="form-control" placeholder="Email">
+            </div>
+
+            <div class="form-group">
+              <center>
+                <a id="reset" class="btn btn-primary btn-block btn-lg">Reset my password</a>
+              </center>
+            </div>
+
+            <div id="email" class="form-group">
+              <a id="signin-link" href="#">&#8592; Back</a>
+            </div>
+            {{/if}}
+
+          </div>
+        </div>
+      </div>
+      <div class="alert-info" role="alert">
+        {{displayMessage}}
+      </div>
+      
+    </div>
+
+    <div class="col-md-4">
+      &nbsp;
+    </div>
+
+  </div>
+
+</template>

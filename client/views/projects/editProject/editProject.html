@@ -1,0 +1,106 @@
+<template name="editProject">
+  {{#if currentUser}}
+
+  {{> nav}}
+
+  <div class="container animated fadeIn">
+
+    <div class="row">
+      <div class="col-sm-8">
+        <a class="btn btn-default cancel">Cancel</a>
+        <a class="btn btn-primary update">Done</a>
+        <table width="100%">
+          <tr> 
+            <td>
+              <h1 id="title" class="editable" contenteditable="true">{{title}}</h1>
+              <small><h1 id="blurb" class="editable" contenteditable="true">{{blurb}}</h1></small>
+            </td>
+            <td> 
+              <div class="pull-right non-editable">
+                <center>
+                  <span class="badge" id="badge-lg">{{count}}</span>
+                  <h1><small>votes</small></h1>
+                </center>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <p id="imageURL" class="editable" contenteditable="true">{{imageURL}}</p>
+        {{> picture}}
+        <br>
+        <div class="panel panel-default non-editable">
+          <div class="panel-body">
+            <h3><small>{{ownerName}}</small></h3><button class="btn btn-sm btn-default">Follow {{ownerName}}</button>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h2>Details</h2>
+            <b><p>Published on {{createdAt}}</p></b>
+            <p id="details" class="editable" contenteditable="true">{{details}}</p>
+            <b><p>Permalink</p></b>
+            <p>/projects/<b>{{slug}}</b></p>
+            <p id="slug" class="editable" contenteditable="true">{{slug}}</p>
+            <b><p>Tags</p></b>
+            <p id="tags" class="editable" contenteditable="true">{{tags}}</p>
+          </div>
+        </div>
+
+        {{> comments}}
+
+      </div>
+
+      <div class="col-sm-4">
+
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h2>Funding</h2>
+            <br>
+            <b>Funding goal</b>
+            <p id="goal" class="editable" contenteditable="true">{{goal}}</p>
+            <b>Days to go</b>
+            <p id="duration" class="editable" contenteditable="true">{{duration}}</p>
+            <b>Location</b>
+            <p id="location" class="editable" contenteditable="true">{{location}}</p>
+            <b>Progress</b>
+            <p id="funded">{{funded}}</p>
+            <b>Amount Pledged</b>
+            <p id="pledged">{{pledged}}</p>
+            <b>Backers</b>
+            <p id="backers">{{backers}}</p>
+            <b>Rewards</b>
+            <p id="rewards" class="editable" contenteditable="true">{{rewards}}</p>
+          </div>
+        </div>     
+        <div class="panel panel-default non-editable">
+          <div class="panel-body">
+            <h2>Similar Ideas</h2>
+            <br>
+            <center>
+              {{>similarIdeas}}
+            </center>
+          </div>
+        </div>         
+        <div class="panel panel-default non-editable">
+          <div class="panel-body">
+            <h2>Similar Projects</h2>
+            <br>
+            <center>
+              {{>similarProjects}}
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  {{> footer}}
+
+  {{else}}
+  {{#unless loggingIn}}
+  {{>pageNotFound}}
+  {{/unless}}
+  {{/if}}
+
+</template>

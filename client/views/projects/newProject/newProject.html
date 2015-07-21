@@ -1,0 +1,136 @@
+<template name="newProject">
+  {{#if currentUser}}
+
+  {{> nav}}
+
+
+  <div class="container animated fadeIn">
+    <center>
+      <div class="btn-group btn-group-lg" role="group" aria-label="...">
+        <button id="basicsTab" class="btn btn-default">1. Basics</button>
+        <button id="rewardsTab" class="btn btn-default">2. Rewards</button>
+        <button id="storyTab" class="btn btn-default">3. Story</button>
+        <button id="aboutTab" class="btn btn-default">4. About You</button>
+        <button id="accountTab" class="btn btn-default">5. Account</button>
+        <button id="previewTab" class="btn btn-default">6. Preview</button>
+      </div>
+    </center>
+    <div class="row">
+      <div class="col-sm-12">
+
+
+
+        <form class="addProjectForm" id="form">
+
+          {{#if basicsTab}}
+          <div class="animated fadeIn">
+            <center>
+              <br>
+              <h1>Start building your project!</h1>
+              <h1><small>Add an image, a goal, and other important details.</small></h1>
+            </center>
+
+            <label>Project Title</label>
+            <h1 style="margin-top: 0px"><input class="editable" id="title"></h1>
+            <label>Blurb</label>
+            <h1 style="margin-top: 0px"><small><input class="editable" id="blurb"></small></h1>
+            <label>Project Image</label>
+            <input class="editable" id="image">
+            <label>Details</label>
+            <textarea class="editable" id="details" rows="6"></textarea>
+            <label>Permalink</label>
+            <span id="helpBlock" class="help-block">spark-app.meteor.com/projects/<b><span id="liveEdit">your-unique-project-address</span></b></span>
+            <input class="editable" id="slug">
+            <label>Tags</label>
+            <input class="editable" id="tags">
+            <label>Funding Goal</label>
+            <input class="editable" id="goal">  
+            <label>Duration</label>
+            <input class="editable" id="duration">
+            <label>Location</label>
+            <input class="editable" id="location">   
+            <label>Rewards</label>
+            <textarea class="editable" id="rewards"></textarea> 
+          </div>
+          <input id="submit" type="submit" value="Submit for Review" class="btn btn-lg btn-success">
+          {{/if}}
+          {{#if rewardsTab}}
+          <div class="animated fadeIn">
+            <center>
+              <br>
+              <h1>How will you thank the people who support you?</h1>
+              <h1><small>Offer an experience, a copy of what you are making, or a thank you in the credits. Get creative!</small></h1>
+            </center>
+          </div>
+          {{/if}}
+          {{#if storyTab}}
+          <div class="animated fadeIn">
+            <center>
+              <br>
+              <h1>What are you creating?</h1>
+              <h1><small>Every project must create something to share with others.<br> Use this space to tell the story behind your project.</small></h1>
+            </center>
+          </div>
+          {{/if}}
+          {{#if aboutTab}}
+          <div class="animated fadeIn">
+            <center>
+              <br>
+              <h1>Now a little bit about you.</h1>
+              <h1><small>Tell people who you are! Supporting links are always nice.</small></h1>
+            </center>
+          </div>
+          {{/if}}
+          {{#if accountTab}}
+          <div class="animated fadeIn">
+            <center>
+              <br>
+              <h1>Some housekeeping.</h1>
+              <h1><small>Get your account verified and ready to receive pledges.</small></h1>
+            </center>
+          </div>
+          {{/if}}
+          {{#if previewTab}}
+          <div class="animated fadeIn">
+            <center>
+              <br>
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  See what your friends think! Share a preview of this project: <a href="#">Get <p></p>review link</a>
+                </div>
+              </div>
+              
+            </center>
+
+
+          </div>
+          {{/if}}
+
+        </form>
+      </div>
+    </div>
+  </div>
+  {{> footer}}
+
+  {{else}}
+  {{#unless loggingIn}}
+  {{>pageNotFound}}
+  {{/unless}}
+  {{/if}}
+
+
+
+  <script>
+
+  $('#slug').keyup(function(){
+    var text = $('#slug').val();
+    $('#liveEdit').text(text);
+  });
+
+  document.title = "New Project"
+  window.onload = function() {
+    document.getElementById("title").focus();
+  };
+  </script>
+
+</template>

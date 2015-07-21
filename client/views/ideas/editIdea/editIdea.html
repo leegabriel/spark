@@ -1,0 +1,39 @@
+<template name="editIdea">
+  {{#if currentUser}}
+
+  {{> nav}}
+
+  <div class="container animated fadeIn">
+    <div class="row">
+      <div class="col-sm-6">
+
+        <a class="btn btn-default cancel">Cancel</a>
+        <a class="btn btn-primary update">Done</a>
+        <br>
+        <label style="margin-top: 20px">Title</label>
+        <h1 style="margin-top: 0px" id="title" class="editable" contenteditable="true">{{title}}</h1>
+        <label>Permalink</label>
+        <span id="helpBlock" class="help-block">spark-app.meteor.com/ideas/<b><span id="liveEdit">{{slug}}</span></b></span>
+        <p id="slug" class="editable" contenteditable="true">{{slug}}</p>
+        <label>Tags</label>
+        <p id="tags" class="editable" contenteditable="true">{{tags}}</p>
+        <label>Details</label>
+        <h2 style="margin-top: 0px" id="details" class="editable" contenteditable="true">{{details}}</h2>
+      </div>
+    </div>
+  </div>
+  {{> footer}}
+
+  {{else}}
+  {{#unless loggingIn}}
+  {{>pageNotFound}}
+  {{/unless}}
+  {{/if}}
+
+  <script>
+  $('#slug').keyup(function(){
+    var text = $('#slug').text();
+    $('#liveEdit').text(text);
+  })
+  </script>
+</template>

@@ -2,6 +2,10 @@ h1, h2, h3, h4, h5, h6, p, small {
   color: #58595b !important;
 }
 
+h1.title {
+  cursor:pointer;
+}
+
 #title, #blurb, #image, #details, #slug, #tags, #goal, #duration, #location, #rewards {
   width: 100%;
 }

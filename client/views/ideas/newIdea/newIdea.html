@@ -1,0 +1,53 @@
+<template name="newIdea">
+  {{#if currentUser}}
+
+  {{> nav}}
+
+  <div class="container animated fadeIn">
+   <div class="row">
+    <div class="col-sm-8">
+      <h1>New Idea</h1>
+      <form class="addIdeaForm" id="form">
+
+        <label>Title</label>
+        <h1 style="margin-top: 0px"><input class="editable" id="title"></h1>
+        <label>Permalink</label>
+        <span id="helpBlock" class="help-block">spark-app.meteor.com/ideas/<b><span id="liveEdit">your-unique-idea-address</span></b></span>
+        <input class="editable" id="slug">
+        <label>Tags</label>
+        <input class="editable" id="tags">  
+        <label>Details</label>
+        <textarea class="editable" id="details" rows="6"></textarea>
+        <input id="submit" type="submit" value="Spark!" class="btn btn-lg btn-primary">
+
+      </form>
+    </div>
+    <div class="col-sm-4">
+
+    </div>
+  </div>
+</div>
+{{> footer}}
+
+{{else}}
+{{#unless loggingIn}}
+{{>pageNotFound}}
+{{/unless}}
+{{/if}}
+
+
+
+<script>
+
+$('#slug').keyup(function(){
+  var text = $('#slug').val();
+  $('#liveEdit').text(text);
+})
+
+document.title = "New Idea"
+window.onload = function() {
+  document.getElementById("title").focus();
+};
+</script>
+
+</template>

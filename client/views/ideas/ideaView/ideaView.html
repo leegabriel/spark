@@ -1,0 +1,71 @@
+<template name="ideaView">
+
+  {{> nav}}
+
+  <div class="container animated fadeIn">
+    <div class="row">
+      <div class="col-sm-8">
+        {{#if isOwner}}
+        <a class="btn btn-default edit">Edit</a>
+        <a class="btn btn-default delete">Delete</a>
+        <hr>
+        {{/if}}
+        <div class="panel panel-default">
+          <div class="panel-body"> 
+            <table width="100%">
+              <tr> 
+                <td>
+                  <h1>{{title}}</h1>
+                  <p>by <a href="{{ownerName}}">{{ownerName}}</a> • {{submittedAgo}}</p>
+                  {{#markdown}}{{processedTags}}{{/markdown}}
+                </td>
+                <td> 
+                  <div class="pull-right">
+                    <center>
+                      <span class="badge" id="badge-lg">{{count}}</span>
+                      <h1><small>votes</small></h1>
+                    </center>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <br>
+            <br>
+            <p>{{details}}</p>
+            <br>
+            <hr>
+            <h4>{{numComments}}</h4>
+            <br>
+            {{#each ideaComments}}
+            {{>comment}}
+            {{/each}}
+            {{> comments}}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h2>Similar Ideas</h2>
+            <br>
+            <center>
+              {{>similarIdeas}}
+            </center>
+          </div>
+        </div>         
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h2>Related Projects</h2>
+            <br>
+            <center>
+              {{>similarProjects}}
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{>footer}}
+
+</template>

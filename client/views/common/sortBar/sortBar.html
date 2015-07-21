@@ -1,0 +1,26 @@
+<template name="sortBar">
+
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="sortBar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Sort by <b><span id="sortChoice">Hot</span></b>
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="sortBar">
+      <li><a id="hot" href="#">Hot</a></li>
+      <li><a id="top" href="#">Top</a></li>
+      <li><a id="newest" href="#">Newest</a></li>
+      <li ><a id="alphabetical" href="#">A-Z</a></li>
+    </ul>
+  </div>
+
+
+  <script>
+  $('.dropdown-toggle').dropdown()
+
+  $(".dropdown-menu a").click(function() {
+    $(this).closest(".dropdown-menu").prev().dropdown("toggle");
+  });
+
+  </script>
+
+</template>
