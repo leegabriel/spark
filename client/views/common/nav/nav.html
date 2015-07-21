@@ -38,13 +38,13 @@
 
           <ul class="nav navbar-nav navbar-right">
             {{#if currentUser}}
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">New <span class="caret"></span></a>
+            <li><a role="presentation" class="nav-link dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> New <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="/newidea">Idea</a></li>
                 <li><a href="/newproject">Project</a></li>
               </ul>
-            </li>
+            </a></li>
             <li><a role="presentation" class="nav-link dropdown">
               <img src="{{avatar}}" height="18px">&nbsp;  
               <a id="profile-link" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
