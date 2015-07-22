@@ -11,6 +11,10 @@ h1.title {
   width: 100%;
 }
 
+#details, #rewards {
+  max-width: 750px;
+}
+
 .delta {
   margin: auto;
   max-width: 1170px;
@@ -324,10 +328,6 @@ textarea {
 
   ol ul {
     padding: 0;
-  }
-
-  #title, #slug, #category, #tags, #details, #rewards {
-    width: 100% !important;
   }
 
   .middle-link {
