@@ -4,9 +4,11 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<div class="col-md-4">
-					<h1>{{username}}</h1>
-					<br>
 					<img src="{{avatar}}">
+					<h3>{{username}}</h3>
+					<br>
+					<p>{{points}} points</p>
+					<p>{{followers}}Followers</p>
 				</div>
 				<div class="col-md-8">
 					<h3>Ideas</h3>
@@ -38,8 +40,17 @@
 <template name="settings">
 	{{>nav}}
 	<div class="container">
-		<h2>Change Password</h2>
-		<h2>Change Avatar</h2>
+		<h3>Change Password</h3>
+		<div class="panel panel-default">
+			<div class="panel-body">
+
+			</div>
+		</div>
+		<h3>Change Avatar</h3>
+		<div class="panel panel-default">
+			<div class="panel-body">
+			</div>
+		</div>
 	</div>
 
 	{{>footer}}

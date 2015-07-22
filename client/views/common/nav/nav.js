@@ -12,13 +12,24 @@ Template.nav.events({
     })
   },
   'submit #searchForm': function(){
-    Router.go('search')
+    Router.go('search');
   },
   'click #signout': function() {
     Meteor.logout();
     Meteor.logoutOtherClients();
     window.location = '/';
+    document.title = "Spark";
+  },
+  'click #portal': function() {
+    document.title = 'Portal - Spark';
+  },
+  'click #profile': function() {
+    document.title = 'Profile - Spark';
+  },
+  'click #settings': function() {
+    document.title = 'Settings - Spark';
   }
+
 });
 
 $(window).resize(function() {

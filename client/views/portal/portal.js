@@ -90,7 +90,7 @@ Template.portal.events({
 
     Meteor.loginWithPassword(key, password, function(error){
       if (error){
-        // User not found, password not right
+        bootbox.alert('Bad username or bad password.');
       } else {
         // User logged in
         Router.go('/');
