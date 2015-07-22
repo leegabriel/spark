@@ -63,5 +63,8 @@ Template.projectView.helpers({
       processedTags = processedTags + newTags[k] + ' ';
     }
     return processedTags;
+  },
+  ownerAvatar: function() {
+    return 
   }
 });

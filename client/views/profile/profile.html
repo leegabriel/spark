@@ -1,33 +1,51 @@
 <template name="profile">
+	{{#if currentUser}}
 	{{>nav}}
 	<div class="container">
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<div class="col-md-4">
-					<img src="{{avatar}}">
-					<h3>{{username}}</h3>
-					<br>
-					<p>{{points}} points</p>
-					<p>{{followers}}Followers</p>
+		<div class="col-md-2">
+			&nbsp;
+		</div>
+		<div class="col-md-8">
+
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<center>
+						<img src="{{avatar}}">
+						<h3>{{username}}</h3>
+
+						<hr>
+
+						<p>{{points}} points</p>
+						<p>{{followers}}Followers</p>
+						<p>Joined</p>
+
+						<hr>
+
+						<h3>Ideas</h3>
+						{{#each myIdeas}}
+						{{>myIdea}}
+						{{/each}}
+						<h3>Projects</h3>
+						{{#each myProjects}}
+						{{>myProject}}
+						{{/each}}
+
+					</center>
 				</div>
-				<div class="col-md-8">
-					<h3>Ideas</h3>
-					{{#each myIdeas}}
-					{{>myIdea}}
-					{{/each}}
-					<h3>Projects</h3>
-					{{#each myProjects}}
-					{{>myProject}}
-					{{/each}}
-				</div>
-				
 			</div>
 		</div>
-		
+		<div class="col-md-2">
+			&nbsp;
+		</div>
+
+
 	</div>
-	
+
 
 	{{>footer}}
+	{{else}}
+	{{>pageNotFound}}
+	{{/if}}
 </template>
 
 <template name="myIdea">
@@ -39,19 +57,56 @@
 
 <template name="settings">
 	{{>nav}}
-	<div class="container">
-		<h3>Change Password</h3>
-		<div class="panel panel-default">
-			<div class="panel-body">
+	{{#if currentUser}}
+	<div class="container animated fadeIn">
 
+		<center><h2>Settings</h2></center>
+		<br>
+		<div class="col-md-3">
+			&nbsp;
+		</div>
+		<div class="col-md-6">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<center><h3>Change password</h3>
+						<hr>
+
+
+						<div class="form-group">
+							<input id="current-password" type="password" class="form-control" placeholder="Current password">
+						</div>
+						<div class="form-group">
+							<input id="new-password" type="password" class="form-control" placeholder="New password">
+						</div>
+						<div class="form-group">
+							<a id="change-password" href="#" class="btn btn-default">Update password</a>
+						</div>
+
+						<br>
+
+						<h3>Change avatar</h3>
+						<hr>
+
+
+						<div class="form-group">
+							<input id="avatar-link" type="text" class="form-control" placeholder="Link to image">
+						</div>
+						<div class="form-group">
+							<a id="change-avatar" href="#" class="btn btn-default">Update avatar</a>
+						</div>
+
+					</center>
+				</div>
 			</div>
 		</div>
-		<h3>Change Avatar</h3>
-		<div class="panel panel-default">
-			<div class="panel-body">
-			</div>
+		<div class="col-md-3">
+			&nbsp;
 		</div>
+
 	</div>
+	{{else}}
+	{{>pageNotFound}}
+	{{/if}}
 
 	{{>footer}}
 </template>
