@@ -19,13 +19,9 @@ Template.profile.helpers({
 	}
 });
 
-// Template.profile.helpers({
-//     user: function() { return this; }
-// });
-
-// Deps.autorun(function(){ 
-// 	if (Meteor.user()){
-// 		Meteor.subscribe('userData');
-// 	}
-// });
+Deps.autorun(function(){ 
+	if (Meteor.user()){
+		Meteor.subscribe('userData');
+	}
+});
 
