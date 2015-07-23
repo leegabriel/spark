@@ -13,9 +13,10 @@ Meteor.publish('tagsList', function(){
   return Tags.find();
 });
 
-Meteor.publish('userData', function() {
-  if(!this.userId) return null;
-  return Meteor.users.find(this.userId, {fields: {
+Meteor.publish('usersList', function() {
+  return Meteor.users.find({}, {fields: {
+    _id: 1,
+    username: 1,
     avatar: 1,
     points: 1,
     followers: 1

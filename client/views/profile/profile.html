@@ -16,17 +16,17 @@
 
 						<p>{{points}} points</p>
 						<p>{{followers}}Followers</p>
-						<p>Joined</p>
+						<p>Joined {{createdAt}} </p>
 
 						<hr>
 
 						<h3>Ideas</h3>
-						{{#each myIdeas}}
-						{{>myIdea}}
+						{{#each userIdeas}}
+						{{>userIdea}}
 						{{/each}}
 						<h3>Projects</h3>
-						{{#each myProjects}}
-						{{>myProject}}
+						{{#each userProjects}}
+						{{>userProject}}
 						{{/each}}
 
 					</center>
@@ -44,10 +44,10 @@
 	{{>footer}}
 </template>
 
-<template name="myIdea">
+<template name="userIdea">
 	<p><a href="/ideas/{{slug}}">{{title}}</a></p>
 </template>
-<template name="myProject">
+<template name="userProject">
 	<p><a href="/projects/{{slug}}">{{title}}</a></p>
 </template>
 
