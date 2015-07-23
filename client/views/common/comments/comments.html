@@ -1,12 +1,16 @@
 <template name="commentBox">
   <br>
   <div class="col-sm-1" style="padding-left:0px !important">
+    {{#if currentUser}}
     <img class="user-photo" src="{{avatar}}" style="width:50px">
+    {{else}}
+    <img class="user-photo" src="http://orig12.deviantart.net/3c64/f/2015/204/f/2/default_round_by_gabejlee-d92i0si.png" style="width:50px">
+    {{/if}}
   </div>
   <div class="col-sm-11" style="padding-right:0px !important">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Write
+        Write a comment
         <p class='pull-right'><span class="text-muted">Markdown Supported</span></p>
       </div>
       <div class="panel-body">
@@ -28,11 +32,11 @@
     <div class="col-sm-11" style="padding-right:0px !important" >
       <div class="panel panel-default">
         <div class="panel-heading">
-          
+
           {{#if isOwner}}
           <strong>You</strong> <span class="text-muted">commented on {{createdAt}}</span>
           {{else}}
-          <strong>{{ownerName}}</strong> <span class="text-muted">commented on {{createdAt}}</span>
+          <a href="ownername">{{ownerName}}</a> <span class="text-muted">commented on {{createdAt}}</span>
           {{/if}}
 
         </div>

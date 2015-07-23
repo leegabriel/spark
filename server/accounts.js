@@ -8,7 +8,7 @@ Accounts.onCreateUser(function (options, user) {
   };
   
   user = _.extend(user, attributes);
-  user.avatar = 'http://orig11.deviantart.net/27aa/f/2015/198/d/4/d4a2edb99411452e907fff3ea49bb15e-d91rkxa.png';
+  user.avatar = 'http://orig12.deviantart.net/3c64/f/2015/204/f/2/default_round_by_gabejlee-d92i0si.png';
   user.points = 0;
   user.followers = [];
   
