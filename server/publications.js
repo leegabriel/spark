@@ -13,12 +13,14 @@ Meteor.publish('tagsList', function(){
   return Tags.find();
 });
 
-Meteor.publish('userData', function() {
-  if(!this.userId) return null;
-  return Meteor.users.find(this.userId, {fields: {
-    avatar: 1,
-    points: 1,
-    followers: 1
-  }});
-});
+Meteor.publish("userData",function(username){
 
+    var user = Meteor.users.findOne({username:username});
+    // if we can't find it, mark the subscription as ready and quit
+    if(!user){
+        this.ready();
+        return;
+    }
+    return Meteor.users.find(this.userId);
+
+});

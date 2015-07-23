@@ -1,5 +1,4 @@
 <template name="profile">
-	{{#if currentUser}}
 	{{>nav}}
 	<div class="container">
 		<div class="col-md-2">
@@ -43,9 +42,6 @@
 
 
 	{{>footer}}
-	{{else}}
-	{{>pageNotFound}}
-	{{/if}}
 </template>
 
 <template name="myIdea">

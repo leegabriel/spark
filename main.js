@@ -17,6 +17,14 @@ if (Meteor.isClient) {
 
 /* Meteor methods */
 Meteor.methods({
+  /* User account methods*/
+  updateAvatar: function(id, link){
+    Meteor.users.update(id, {$set: {'avatar': link}});
+    bootbox.alert('Your avatar has been changed.');
+    document.getElementById('avatar-link').value = null;
+    window.location='/profile';
+  },
+  /* Idea/Project methods */
   addIdea: function (title, slug, tags, details, imageURL) {
     Ideas.insert({
       title: title,
@@ -25,7 +33,7 @@ Meteor.methods({
       details: details,
       imageURL: imageURL,
       count: 0,
-      owner: Meteor.userId(),
+      ownerId: Meteor.userId(),
       ownerName: Meteor.user().username,
       createdAt: moment().format("MMMM D, YYYY"),
       createTimeActual: moment().format(),
@@ -50,7 +58,7 @@ Meteor.methods({
       location: location, 
       rewards: rewards,
       count: 0,
-      owner: Meteor.userId(),
+      ownerId: Meteor.userId(),
       ownerName: Meteor.user().username,
       createdAt: moment().format("MMMM D, YYYY"),
       createTimeActual: moment().format(),
@@ -67,7 +75,7 @@ Meteor.methods({
   },
   editIdea: function (ideaId, title, details, slug, tags) {
     var idea = Ideas.findOne(ideaId);
-    if (idea.owner !== Meteor.userId()) {
+    if (idea.ownerId !== Meteor.userId()) {
       // Make sure only the owner can edit it
       throw new Meteor.Error("not-authorized");
     }
@@ -89,7 +97,7 @@ Meteor.methods({
   },
   editProject: function (projectId, title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards) {
     var project = Projects.findOne(projectId);
-    if (project.owner !== Meteor.userId()) {
+    if (project.ownerId !== Meteor.userId()) {
       // Make sure only the owner can edit it
       throw new Meteor.Error("not-authorized");
     }
@@ -115,7 +123,7 @@ Meteor.methods({
   },
   deleteIdea: function (ideaId) {
     var idea = Ideas.findOne(ideaId);
-    if (idea.owner !== Meteor.userId()) {
+    if (idea.ownerId !== Meteor.userId()) {
       // Make sure only the owner can delete it
       throw new Meteor.Error("not-authorized");
     }
@@ -130,7 +138,7 @@ Meteor.methods({
   },
   deleteProject: function (projectId) {
     var project = Projects.findOne(projectId);
-    if (project.owner !== Meteor.userId()) {
+    if (project.ownerId !== Meteor.userId()) {
       // Make sure only the owner can delete it
       throw new Meteor.Error("not-authorized");
     }
@@ -148,7 +156,7 @@ Meteor.methods({
         ideaId: ideaId,
         parent: parent,
         text: text,
-        owner: Meteor.userId(),
+        ownerId: Meteor.userId(),
         ownerName: Meteor.user().username,
         ownerAvatar: Meteor.user().avatar,
         createdAt: moment().format("MMMM D, YYYY"),
@@ -165,7 +173,7 @@ Meteor.methods({
         projectId: ideaId,
         parent: parent,
         text: text,
-        owner: Meteor.userId(),
+        ownerId: Meteor.userId(),
         ownerName: Meteor.user().username,
         ownerAvatar: Meteor.user().avatar,
         createdAt: moment().format("MMMM D, YYYY"),
