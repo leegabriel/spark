@@ -18,7 +18,7 @@ Template.project.events({
 
 Template.project.helpers({
   isOwner: function () {
-    return this.owner === Meteor.userId();
+    return this.ownerId === Meteor.userId();
   },
   submittedAgo: function() {
     return moment(this.createTimeActual, moment.ISO_8601).fromNow();

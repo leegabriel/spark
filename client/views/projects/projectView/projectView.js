@@ -36,7 +36,7 @@ Template.projectView.events({
 
 Template.projectView.helpers({
   isOwner: function () {
-    return this.owner === Meteor.userId();
+    return this.ownerId === Meteor.userId();
   },
   projectComments: function () {
     return Comments.find({projectId:this._id});

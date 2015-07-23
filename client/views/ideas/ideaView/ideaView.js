@@ -17,7 +17,7 @@ Template.ideaView.events({
 
 Template.ideaView.helpers({
   isOwner: function () {
-    return this.owner === Meteor.userId();
+    return this.ownerId === Meteor.userId();
   },
   ideaComments: function () {
     return Comments.find({ideaId:this._id});
