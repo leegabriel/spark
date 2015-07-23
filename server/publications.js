@@ -17,8 +17,9 @@ Meteor.publish('usersList', function() {
   return Meteor.users.find({}, {fields: {
     _id: 1,
     username: 1,
+    joinDate: 1,
     avatar: 1,
     points: 1,
-    followers: 1
+    followers: 1,
   }});
 });
