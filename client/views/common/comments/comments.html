@@ -25,7 +25,7 @@
   <div class="animated fadeIn">
     <div class="col-sm-1" style="padding-left:0px !important">
       <center>
-        <img class="user-photo" src="{{ownerAvatar}}" style="width:50px">
+        <a href="/{{ownerName}}"><img class="user-photo" src="{{ownerAvatar}}" style="width:50px"></a>
       </center>
     </div>
 
@@ -33,11 +33,7 @@
       <div class="panel panel-default">
         <div class="panel-heading">
 
-          {{#if isOwner}}
-          <strong>You</strong> <span class="text-muted">commented on {{createdAt}}</span>
-          {{else}}
-          <a href="ownername">{{ownerName}}</a> <span class="text-muted">commented on {{createdAt}}</span>
-          {{/if}}
+          <a href="/{{ownerName}}"><strong>{{ownerName}} </strong></a><span class="text-muted">commented on {{createdAt}}</span>
 
         </div>
         <div class="panel-body">

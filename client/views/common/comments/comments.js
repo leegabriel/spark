@@ -8,4 +8,4 @@ Template.commentBox.helpers({
 	avatar: function() {
 		return Meteor.user().avatar;
 	}
-})
+});
