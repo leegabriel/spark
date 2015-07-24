@@ -43,9 +43,16 @@ Important:
 	<li><strike>Pagination</strike></li>
 	<li><strike>Submitted ... ago</strike></li> Momentjs
 	<li><strike>Either fix the "New.." dropdown on mobile view or use modals. Try both and see which one you like.</strike></li>
+	<li><strike>Implement login by yourself</strike></li>
 	<li>Categories Option</li>
-	<li>Possibly show modal on clicking login-required item, to make it easier for user to sign up</li>
-	<li>Implement login by yourself</li>
+	<li>Get rid of similar</li>
+	<li>Do simple search without easy-search via tags (Sessions, helper, find())</li>
+	<li>Restyle Idea/Project Views & Edit Idea/Project</li>
+	<li>Improve mobile styling extensively</li>
+	<li>Design a new side bar</li>
+	<li>Fix side bar</li>
+	<li>Really gotta fix broken HTML and spacing upon re-edit</li>
+	<li>Set comment box input to null upon commenting</li>
 </ul>
 
 

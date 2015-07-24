@@ -17,6 +17,10 @@ Template.portal.helpers({
 });
 
 Template.portal.events({
+  'click #home-logo': function() {
+    Router.go('/');
+    document.title = "Spark";
+  },
   'click #register': function() {
     var username = document.getElementById('username').value.trim();
     var email = document.getElementById('email').value.trim(); 
