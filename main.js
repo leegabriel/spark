@@ -22,7 +22,6 @@ Meteor.methods({
     Meteor.users.update(id, {$set: {'avatar': link}});
     bootbox.alert('Your avatar has been changed.');
     document.getElementById('avatar-link').value = null;
-    window.location='/profile';
   },
   /* Idea/Project methods */
   addIdea: function (title, slug, tags, details, imageURL) {
@@ -35,6 +34,7 @@ Meteor.methods({
       count: 0,
       ownerId: Meteor.userId(),
       ownerName: Meteor.user().username,
+      // ownerAvatar: Meteor.user().avatar,
       createdAt: moment().format("MMMM D, YYYY"),
       createTimeActual: moment().format(),
       upvotedUsers: [],
@@ -60,6 +60,7 @@ Meteor.methods({
       count: 0,
       ownerId: Meteor.userId(),
       ownerName: Meteor.user().username,
+      ownerAvatar: Meteor.user().avatar,
       createdAt: moment().format("MMMM D, YYYY"),
       createTimeActual: moment().format(),
       upvotedUsers: [],

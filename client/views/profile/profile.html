@@ -1,6 +1,6 @@
 <template name="profile">
 	{{>nav}}
-	<div class="container">
+	<div class="container animated fadeIn">
 		<div class="col-md-2">
 			&nbsp;
 		</div>
@@ -9,7 +9,7 @@
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<center>
-						<img src="{{avatar}}">
+						<img class="user-photo" src="{{avatar}}">
 						<h3>{{username}}</h3>
 
 						<hr>
@@ -80,9 +80,13 @@
 
 						<br>
 
-						<h3>Change avatar</h3>
+						<h3>Avatar</h3>
 						<hr>
 
+						
+						<div class="form-group">
+							<img class="user-photo" src="{{avatar}}" width="50px">
+						</div>
 
 						<div class="form-group">
 							<input id="avatar-link" type="text" class="form-control" placeholder="Link to image">

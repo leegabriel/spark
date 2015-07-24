@@ -15,7 +15,7 @@
               <tr> 
                 <td>
                   <h1>{{title}}</h1>
-                  <h2><small>by {{ownerName}}</small></h2>
+                  <h2><small>by <a href="/{{ownerName}}">{{ownerName}}</a></small></h2>
                 </td>
                 <td> 
                   <div class="pull-right">
@@ -35,10 +35,10 @@
                 <table>
                   <tr>
                     <td>
-                      <img class="user-photo" src="{{ownerAvatar}}" style="width:50px; margin: 5px">
+                      <a href="/{{ownerName}}"><img class="user-photo" src="{{ownerAvatar}}" style="width:50px; margin: 5px"></a>
                     </td>
                     <td>
-                      <h3 style="margin: 0px !important"><small>{{ownerName}}</small></h3>
+                      <h3 style="margin: 0px !important"><small><a href="/{{ownerName}}">{{ownerName}}</a></small></h3>
                       <button class="btn btn-sm btn-primary">Follow {{ownerName}}</button>
                     </td>
                   </tr>
