@@ -171,7 +171,7 @@ Meteor.methods({
   addProjectComment: function(projectId, parent, text) {
     if (Meteor.user()){
       Comments.insert({
-        projectId: ideaId,
+        projectId: projectId,
         parent: parent,
         text: text,
         ownerId: Meteor.userId(),
