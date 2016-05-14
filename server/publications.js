@@ -1,6 +1,7 @@
 Meteor.publish('ideasList', function(){
   return Ideas.find();
 });
+
 Meteor.publish('projectsList', function(){
   return Projects.find();
 });

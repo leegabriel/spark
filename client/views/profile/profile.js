@@ -7,7 +7,6 @@ Template.profile.helpers({
 	}
 });
 
-
 Template.settings.helpers({
 	avatar: function() {
 		return Meteor.user().avatar;

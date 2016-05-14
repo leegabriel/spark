@@ -103,7 +103,6 @@ Meteor.methods({
       throw new Meteor.Error("not-authorized");
     }
     else {
-
       Projects.update(projectId, {$set: {
         title: title,
         slug: slug,
@@ -151,7 +150,7 @@ Meteor.methods({
       }
     }
   }, 
-  addIdeaComment: function(ideaId, parent, text) {
+  addIdeaComment: function (ideaId, parent, text) {
     if (Meteor.user()){
       Comments.insert({
         ideaId: ideaId,
@@ -168,7 +167,7 @@ Meteor.methods({
       bootbox.alert('You must be signed in to do that.');
     } 
   },
-  addProjectComment: function(projectId, parent, text) {
+  addProjectComment: function (projectId, parent, text) {
     if (Meteor.user()){
       Comments.insert({
         projectId: projectId,
