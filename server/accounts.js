@@ -14,7 +14,6 @@ Accounts.onCreateUser(function (options, user) {
   user.points = 0;
   user.followers = 0;
   
-   
   var email = user.emails[0].address;
   if (!email) {
     alert('Error.');
