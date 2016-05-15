@@ -1,5 +1,12 @@
 /* general styles */
-h1, h2, h3, h4, h5, h6, p, small {
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6, 
+p, 
+small {
   color: #58595b !important;
 }
 
@@ -7,11 +14,21 @@ h1.title {
   cursor:pointer;
 }
 
-#title, #blurb, #image, #details, #slug, #tags, #goal, #duration, #location, #rewards {
+#title, 
+#blurb, 
+#image, 
+#details, 
+#slug, 
+#tags, 
+#goal, 
+#duration, 
+#location, 
+#rewards {
   width: 100%;
 }
 
-#details, #rewards {
+#details, 
+#rewards {
   max-width: 750px;
 }
 
@@ -26,7 +43,6 @@ h1.title {
 }
 
 /* nav */
-
 
 .navbar {
   border: none !important;
@@ -51,28 +67,29 @@ h1.title {
   /*color: #58595b  !important;*/
 }
 
-.navbar-default .navbar-nav>li>a {
+.navbar-default .navbar-nav > li > a {
   color: #666 !important;
 }
 
-.navbar-default .navbar-nav>li>a:hover {
+.navbar-default .navbar-nav > li > a:hover {
   color: #000 !important;
   background-color: none !important;
 }
 
-.navbar-default .navbar-nav>.open>a {
+.navbar-default .navbar-nav > .open > a {
   background-color: none !important;
 }
 
-.navbar-nav>li>.dropdown-menu {
+.navbar-nav > li > .dropdown-menu {
   margin-top: 1px !important;
 }
 
 
-.dropdown-menu>li>a {
+.dropdown-menu > li > a {
   color: #000 !important;
 }
-.dropdown-menu>li>a:hover {
+
+.dropdown-menu > li > a:hover {
   color: #000 !important;
   background-color: #f9f9f9 !important;
 }
@@ -95,30 +112,23 @@ h1.title {
   width: 100px;
 }
 
-.tooltip-inner {
-  font-size: 11px;
-}
-
 ol {
   padding-left: 0;
   color: #666;
   list-style-type: none;
   margin-left: 0px;
 }
+
 ol ul {
   padding: 0px !important;
 }
 
-#login-dropdown-list {
-
-}
-
-.nav .open>a {
+.nav .open > a {
   background: none;
 }
 
 
-.nav .open>a:hover {
+.nav .open > a:hover {
   background: none;
 }
 
@@ -145,7 +155,7 @@ body {
   margin: 5px 0;
 }
 
-.nav-tabs.nav-justified>li>a {
+.nav-tabs .nav-justified > li > a {
   color: #666 !important;
 }
 
@@ -157,11 +167,6 @@ li table {
 .btn-mobile {
   display:none;
 }
-
-#tos:hover, #privacy:hover, #developers:hover, #artists:hover, #about:hover {
-  text-decoration: underline !important;
-}
-
 
 /* fit picture to browser size*/
 #banner {
@@ -237,18 +242,13 @@ textarea {
 }
 
 
-
 #tab {
   border-top: 0px; 
   border-top-left-radius: 0px; 
   border-top-right-radius:0px;
 }
 
-.middle-link p{
-
-}
-
-.jumbotron{
+.jumbotron {
   background-color: transparent !important;
 }
 
@@ -263,7 +263,6 @@ textarea {
 }
 
 @media screen and (max-width: 768px) {
-
   .user-photo {
     display:none;
   }
@@ -277,21 +276,18 @@ textarea {
     width: auto !important;
   }
 
-  
   .dropdown-menu {
     float: right !important;
   }
-  body, html {
+
+  body, 
+  html {
     margin-right: 7.5px;
     margin-left: 7.5px;
   }
 
-/* #thumbnail {
-  width: 67px;
-  margin-right: 20px ;
-  }*/
-
   /* remove indentation from list*/
+
   ol {
     padding: 0;
     list-style-type: none;
@@ -317,7 +313,7 @@ textarea {
     width: 50px;
   }
 
-  .navbar-text{
+  .navbar-text {
     margin-left: 15px;
   }
 
@@ -333,7 +329,6 @@ textarea {
     border: none !important;
     border-bottom: transparent !important;
   }
-
 
   .navbar-toggle:link {
     background: none !important;
@@ -363,7 +358,6 @@ textarea {
     display: block;
   }
 }
-
 
 .editable {
   outline: 0;
@@ -403,7 +397,7 @@ textarea {
   transition: width 0.3s, background-color 0.3s;
 }
 
-.search-query:focus{
+.search-query:focus {
  width:280px;
  background-color: #fff;
 }   
@@ -423,6 +417,7 @@ textarea {
 
 
 /* comments */
+
 #comment-box {
   width: 100% !important;  
   max-width: none !important;
@@ -448,7 +443,8 @@ textarea {
   position:relative;
 }
 
-.panel>.panel-heading:after,.panel>.panel-heading:before{
+.panel>.panel-heading:after,
+.panel>.panel-heading:before {
   position:absolute;
   top:11px;left:-16px;
   right:100%;
@@ -461,14 +457,14 @@ textarea {
   pointer-events:none;
 }
 
-.panel>.panel-heading:after{
+.panel>.panel-heading:after {
   border-width:7px;
   border-right-color:#f7f7f7;
   margin-top:1px;
   margin-left:2px;
 }
 
-.panel>.panel-heading:before{
+.panel>.panel-heading:before {
   border-right-color:#ddd;
   border-width:8px;
 }
