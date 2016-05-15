@@ -1,8 +1,6 @@
 if (Meteor.isClient) {
 
   Meteor.startup(function () {
-    //search
-    Session.set('query', '');
     //pagination
     Session.set('iSkip', 0);
     Session.set('iLimit', 5);
