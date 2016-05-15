@@ -9,12 +9,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   </head>
 
-
   <nav class="navbar navbar-default navbar-fixed-top">
-
     <div class="container-fluid">
       <div class="delta">
-
         <div class="navbar-header" >
           <button id="menu-toggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
             <span class="sr-only">Toggle navigation</span>
@@ -24,18 +21,12 @@
           </button>
           <a class="navbar-brand" href="/">Spark</a>
         </div>
-
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
-
           <ul class="nav navbar-nav" >
             <li><a href="{{pathFor 'ideas'}}">Ideas</a></li>
             <li><a href="{{pathFor 'projects'}}">Projects</a></li>
           </ul>
-
-
           <input class="navbar-left search-query" placeholder="Search">
-
-
           <ul class="nav navbar-nav navbar-right">
             {{#if currentUser}}
             <li><a role="presentation" class="nav-link dropdown">
@@ -45,8 +36,8 @@
                 <li><a href="/newproject">Project</a></li>
               </ul>
             </a></li>
-            <li><a role="presentation" class="nav-link dropdown">
-                
+            <li>
+              <a role="presentation" class="nav-link dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> {{username}} <span class="caret"></span></a>
               <ul id="profile-dropdown-menu" class="dropdown-menu">
                 <li><a id="profile" href="/{{username}}">Profile</a></li>
@@ -58,24 +49,9 @@
             {{else}}
             <li><a id="portal" href="/portal">Login/Register</a></li>
             {{/if}}
-
-          </ul>
-
-        </div>
-        <div id="sidebar-wrapper" class="sidebar-toggle">
-          <ul class="sidebar-nav">
-
-            <li><a href="{{pathFor 'ideas'}}">Ideas</a></li>
-            <li><a href="{{pathFor 'projects'}}">Projects</a></li>
-            <li><hr></li>
-            {{>categories}}
-
           </ul>
         </div>
       </div>
     </div>
-
   </nav>
-
-
 </template>

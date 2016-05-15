@@ -3,7 +3,7 @@ Template.ideasTab.helpers({
     if (Session.equals('order', 'hot')) {
       return Ideas.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}, skip: Session.get('iSkip'), limit: Session.get('iLimit')});
     }
-    else if (Session.equals('order', 'top')){
+    else if (Session.equals('order', 'top')) {
       return Ideas.find({}, {sort: {count: -1}, skip: Session.get('iSkip'), limit: Session.get('iLimit')});
     }
     else if (Session.equals('order', 'newest')) {
@@ -19,26 +19,26 @@ Template.ideasTab.helpers({
 });
 
 Template.ideasTab.events({
-  "click #hot": function(){
+  "click #hot": function () {
     Session.set('order', 'hot');
   },
-  "click #top": function(){
+  "click #top": function () {
     Session.set('order', 'top');
   },
-  "click #newest": function(){
+  "click #newest": function () {
     Session.set('order', 'newest');
   },
-  "click #alphabetical": function(){
+  "click #alphabetical": function () {
     Session.set('order', 'alphabetical');
   },
-  "click .next": function() {
+  "click .next": function () {
     var s = Session.get('iSkip');
     s = s + 5;
     Session.set('iSkip', s);
   },
-  "click .prev": function() {
+  "click .prev": function () {
     var s = Session.get('iSkip');
-    if (s !== 0 && s > 0){
+    if (s !== 0 && s > 0) {
       s = s - 5;
       Session.set('iSkip', s);
     }

@@ -3,7 +3,7 @@ Template.projectsTab.helpers({
     if (Session.equals('order', 'hot')) {
       return Projects.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}, skip: Session.get('pSkip'), limit: Session.get('pLimit')});
     }
-    else if (Session.equals('order', 'top')){
+    else if (Session.equals('order', 'top')) {
       return Projects.find({}, {sort: {count: -1}, skip: Session.get('pSkip'), limit: Session.get('pLimit')});
     }
     else if (Session.equals('order', 'newest')) {
@@ -19,26 +19,26 @@ Template.projectsTab.helpers({
 });
 
 Template.projectsTab.events({
-  "click #hot": function(){
+  "click #hot": function () {
     Session.set('order', 'hot');
   },
-  "click #top": function(){
+  "click #top": function () {
     Session.set('order', 'top');
   },
-  "click #newest": function(){
+  "click #newest": function () {
     Session.set('order', 'newest');
   },
-  "click #alphabetical": function(){
+  "click #alphabetical": function () {
     Session.set('order', 'alphabetical');
   },
-  "click .next": function() {
+  "click .next": function () {
     var s = Session.get('pSkip');
     s = s + 5;
     Session.set('pSkip', s);
   },
-  "click .prev": function() {
+  "click .prev": function () {
     var s = Session.get('pSkip');
-    if (s !== 0 && s > 0){
+    if (s !== 0 && s > 0) {
       s = s - 5;
       Session.set('pSkip', s);
     }

@@ -8,11 +8,11 @@ Template.projectView.events({
       Meteor.call("deleteProject", this._id);
     }
   },
-  'click #submit-comment': function() {
+  'click #submit-comment': function () {
     var text = document.getElementById('comment-box').value;
     Meteor.call('addProjectComment', this._id, 0, text);
   },
-  'click #fund': function() {
+  'click #fund': function () {
     bootbox.dialog({
       title: this.title,
       message: '<div class="row">  ' +
@@ -41,10 +41,10 @@ Template.projectView.helpers({
   projectComments: function () {
     return Comments.find({projectId:this._id});
   },
-  submittedAgo: function() {
+  submittedAgo: function () {
     return moment(this.createTimeActual, moment.ISO_8601).fromNow();
   },
-  numComments: function() {
+  numComments: function () {
     var numComments = Comments.find({projectId: this._id}).count();
     if (numComments === 1) {
       return '1 comment';
@@ -52,16 +52,19 @@ Template.projectView.helpers({
     else
       return numComments + ' comments';
   },
-  processedTags: function() {
+  processedTags: function () {
     var oldTags = this.tags;
-    var newTags =[oldTags.length];
-    for (var i = 0; i < oldTags.length; i++){
+    var newTags = [oldTags.length];
+    var processedTags = '';
+
+    for (var i = 0; i < oldTags.length; i++) {
       newTags[i] = '<a href="#">#' + oldTags[i] + '</a> ';
     }
-    var processedTags ='';
-    for (var k = 0; k < oldTags.length; k++){
+
+    for (var k = 0; k < oldTags.length; k++) {
       processedTags = processedTags + newTags[k] + ' ';
     }
+    
     return processedTags;
   }
 });

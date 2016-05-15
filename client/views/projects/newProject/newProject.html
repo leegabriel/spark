@@ -1,17 +1,10 @@
 <template name="newProject">
   {{#if currentUser}}
-
   {{> nav}}
-
-
   <div class="container animated fadeIn">
     <div class="row">
       <div class="col-sm-12">
-
-
-
         <form class="addProjectForm" id="form">
-
           <div class="animated fadeIn">
             <h1>New Project</h1>
             <label>Title</label>
@@ -37,33 +30,14 @@
             <textarea class="editable" rows="6" id="rewards"></textarea> 
           </div>
           <input id="submit" type="submit" value="Spark!" class="btn btn-lg btn-primary">
-
-
         </form>
       </div>
     </div>
   </div>
   {{> footer}}
-
   {{else}}
   {{#unless loggingIn}}
   {{>pageNotFound}}
   {{/unless}}
   {{/if}}
-
-
-
-  <script>
-
-  $('#slug').keyup(function(){
-    var text = $('#slug').val();
-    $('#liveEdit').text(text);
-  });
-
-  document.title = "New Project"
-  window.onload = function() {
-    document.getElementById("title").focus();
-  };
-  </script>
-
 </template>

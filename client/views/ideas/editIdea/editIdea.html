@@ -1,8 +1,6 @@
 <template name="editIdea">
   {{#if currentUser}}
-
   {{> nav}}
-
   <div class="container animated fadeIn">
     <div class="row">
       <div class="col-sm-6">
@@ -23,17 +21,9 @@
     </div>
   </div>
   {{> footer}}
-
   {{else}}
   {{#unless loggingIn}}
   {{>pageNotFound}}
   {{/unless}}
   {{/if}}
-
-  <script>
-  $('#slug').keyup(function(){
-    var text = $('#slug').text();
-    $('#liveEdit').text(text);
-  })
-  </script>
 </template>

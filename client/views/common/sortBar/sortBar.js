@@ -1,14 +1,14 @@
 Template.sortBar.events({
-  'click #hot': function() {
+  'click #hot': function () {
     document.getElementById('sortChoice').innerHTML = document.getElementById('hot').innerHTML;
   },
-  'click #top': function() {
+  'click #top': function () {
     document.getElementById('sortChoice').innerHTML = document.getElementById('top').innerHTML;
   },
-  'click #newest': function() {
+  'click #newest': function () {
     document.getElementById('sortChoice').innerHTML = document.getElementById('newest').innerHTML;
   },
-  'click #alphabetical': function() {
+  'click #alphabetical': function () {
     document.getElementById('sortChoice').innerHTML = document.getElementById('alphabetical').innerHTML;
   },
 });

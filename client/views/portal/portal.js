@@ -1,53 +1,53 @@
 Template.portal.helpers({
-  r: function(){
+  r: function () {
     return Session.get('register');
   },
-  s: function() {
+  s: function () {
     return Session.get('signin');
   },
-  f: function() {
+  f: function () {
     return Session.get('forgot');
   },
-  resetPassword: function() {
+  resetPassword: function () {
     return Session.get('resetPassword');
   },
-  displayMessage: function() {
+  displayMessage: function () {
     return Session.get('displayMessage');
   }
 });
 
 Template.portal.events({
-  'click #home-logo': function() {
+  'click #home-logo': function () {
     Router.go('/');
     document.title = "Spark";
   },
-  'click #register': function() {
+  'click #register': function () {
     var username = document.getElementById('username').value.trim();
     var email = document.getElementById('email').value.trim(); 
     var password = document.getElementById('password').value.trim();
 
-    if(!username){
+    if (!username) {
       $('#username-group').addClass('has-error');
     }
-    else{
+    else {
       $('#username-group').removeClass('has-error');
     }
-    if(!email){
+    if (!email) {
       $('#email-group').addClass('has-error');
     }
-    else{
+    else {
       $('#email-group').removeClass('has-error');
     }
-    if(!password){
+    if (!password) { 
       $('#password-group').addClass('has-error');
     }
-    else{
+    else {
       $('#password-group').removeClass('has-error');
     }
-    if (!username || !email || !password){
+
+    if (!username || !email || !password) {
       return;
     }
-
 
     if (password.length < 6){
       Session.set('displayAlert', 'Password must be 6 characters or more.');
@@ -71,60 +71,61 @@ Template.portal.events({
     }
 
   },
-  'click #signin': function() {
+
+  'click #signin': function () {
     // key can be email or username
     var key = document.getElementById('key').value.trim(); 
     var password = document.getElementById('password').value.trim();
 
-    if(!key){
+    if (!key) {
       $('#key-group').addClass('has-error');
     }
-    else{
+    else {
       $('#key-group').removeClass('has-error');
     }
-    if(!password){
+    if (!password) {
       $('#password-group').addClass('has-error');
     }
-    else{
+    else {
       $('#password-group').removeClass('has-error');
     }
-    if (!key || !password){
+
+    if (!key || !password) {
       return;
     }
 
-    Meteor.loginWithPassword(key, password, function(error){
-      if (error){
+    Meteor.loginWithPassword(key, password, function (error) {
+      if (error) {
         bootbox.alert('Bad username or bad password.');
       } else {
         // User logged in
         Router.go('/');
       }
     });
-
   },
 
-  'click #reset': function() {
+  'click #reset': function () {
     var email = document.getElementById('email').value.trim(); 
     if (email && (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {
       $('#email-group').removeClass('has-error');
-      Accounts.forgotPassword({email: email}, function(err){
+      Accounts.forgotPassword({email: email}, function (err) { 
         if (err)
-          Session.set('displayMessage', 'Password reset error.')
+          Session.set('displayMessage', 'Password reset error.');
         else {
-          Session.set('displayMessage', 'A confirmation link has been sent to your email.')
+          Session.set('displayMessage', 'A confirmation link has been sent to your email.');
         }
       });
     }
-    else{
+    else {
       $('#email-group').addClass('has-error');
     }
     return false; 
   },
 
-  'click #change': function() {
+  'click #change': function () {
     var password = document.getElementById('password').value;
     if (password.length >= 6) {
-      Accounts.resetPassword(Session.get('resetPassword'), password, function(err){
+      Accounts.resetPassword(Session.get('resetPassword'), password, function (err) {
         if (err)
           Session.set('displayMessage', 'Password reset error.');
         else {
@@ -135,52 +136,38 @@ Template.portal.events({
     return false; 
   },
 
-   // portal navigation
-   'click #register-link': function(){
+  'click #register-link': function () {
     Session.set('register', true);
     Session.set('signin', false);
     Session.set('forgot', false);
-    document.title = "Register | Spark"
+    document.title = "Register | Spark";
   },
-  'click #signin-link': function() {
+  'click #signin-link': function () {
     Session.set('register', false);
     Session.set('signin', true);
     Session.set('forgot', false);
-    document.title = "Sign in | Spark"
+    document.title = "Sign in | Spark";
   },
-  'click #forgot-link': function() {
+  'click #forgot-link': function () {
     Session.set('register', false);
     Session.set('signin', false);
     Session.set('forgot', true);
-    document.title = "Password Recovery | Spark"
+    document.title = "Password Recovery | Spark";
   }
 });
 
-Template.portal.onCreated(function () {
-  // $('body').css('background', '#2c3e50');
-  Session.set('showNav', false);
-  Session.set('showFooter', false);
-});
-
-Template.portal.onDestroyed(function () {
-  // $('body').css('background', '#f9f9f9');
-  Session.set('showNav', true);
-  Session.set('showFooter', true);
-});
-
-
-document.onkeypress = function(e) {
-  if (e.keyCode === 13){
-    if (document.getElementById('signin')){
+document.onkeypress = function (e) {
+  if (e.keyCode === 13) {
+    if (document.getElementById('signin')) {
       document.getElementById('signin').click();
     }
-    else if(document.getElementById('register')){
+    else if (document.getElementById('register')) {
       document.getElementById('register').click();
     }
-    else if(document.getElementById('reset')){
+    else if (document.getElementById('reset')) {
       document.getElementById('reset').click();
     }
-    else if(document.getElementById('change')){
+    else if (document.getElementById('change')) {
       document.getElementById('change').click();
     } 
   }

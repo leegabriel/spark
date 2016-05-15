@@ -5,7 +5,7 @@ Template.comment.helpers({
 });
 
 Template.commentBox.helpers({
-	avatar: function() {
+	avatar: function () {
 		return Meteor.user().avatar;
 	}
 });
