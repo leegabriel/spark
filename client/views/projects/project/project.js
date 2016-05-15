@@ -24,3 +24,16 @@ Template.project.helpers({
     return moment(this.createTimeActual, moment.ISO_8601).fromNow();
   }
 });
+
+Template.project.onRendered( function () {
+
+  $('.crowdfund').hover(
+    function () {
+      $(this).stop().animate({marginTop: '-5'}, 100, 'linear');
+    }, 
+    function () {
+      $(this).stop().animate({marginTop: '0'}, 100, 'linear');
+    }
+    );
+
+});

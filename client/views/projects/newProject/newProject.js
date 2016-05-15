@@ -1,5 +1,5 @@
  Template.newProject.events({
-  'submit .addProjectForm':function(e){
+  'submit .addProjectForm':function (e) {
     var title = e.target.title.value;
     var slug = e.target.slug.value;
     var blurb = e.target.blurb.value;
@@ -11,34 +11,48 @@
     var location = e.target.location.value;
     var rewards = e.target.rewards.value;
 
-    if (!imageURL){
+    if (!imageURL) {
       imageURL = 'http://lorempixel.com/600/500/abstract';
     }
 
     if (!title || !slug || !blurb|| !details)
       return false;
+    
     Meteor.call('addProject', title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards);
     return false;
   }
 });
 
  Template.newProject.helpers({
-  basicsTab: function() {
+  basicsTab: function () {
     return Session.get('basicsTab');
   },
-  rewardsTab: function() {
+  rewardsTab: function () {
     return Session.get('rewardsTab');
   },
-  storyTab: function() {
+  storyTab: function () {
     return Session.get('storyTab');
   },
-  aboutTab: function() {
+  aboutTab: function () {
     return Session.get('aboutTab');
   },
-  accountTab: function() {
+  accountTab: function () {
     return Session.get('accountTab');
   },
-  previewTab: function() {
+  previewTab: function () {
     return Session.get('previewTab');
   }
+});
+
+ Template.newProject.onRendered(function () {
+  $('#slug').keyup(function () {
+    var text = $('#slug').val();
+    $('#liveEdit').text(text);
+  });
+
+  document.title = "New Project";
+
+  window.onload = function () {
+    document.getElementById("title").focus();
+  };
 });

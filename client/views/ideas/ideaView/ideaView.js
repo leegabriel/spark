@@ -8,7 +8,7 @@ Template.ideaView.events({
       Meteor.call("deleteIdea", this._id);
     }
   },
-  'click #submit-comment': function() {
+  'click #submit-comment': function () {
       // because this is actually an input element, need to use value
       var text = document.getElementById('comment-box').value; 
       Meteor.call('addIdeaComment', this._id, 0, text);
@@ -27,22 +27,26 @@ Template.ideaView.helpers({
   },
   numComments: function() {
     var numComments = Comments.find({ideaId: this._id}).count();
+
     if (numComments === 1) {
       return '1 comment';
     }
     else
       return numComments + ' comments';
   },
-  processedTags: function() {
+  processedTags: function () {
     var oldTags = this.tags;
-    var newTags =[oldTags.length];
-    for (var i = 0; i < oldTags.length; i++){
+    var newTags = [oldTags.length];
+    var processedTags = '';
+
+    for (var i = 0; i < oldTags.length; i++) {
       newTags[i] = '<a href="#">#' + oldTags[i] + '</a> ';
     }
-    var processedTags ='';
-    for (var k = 0; k < oldTags.length; k++){
+    
+    for (var k = 0; k < oldTags.length; k++) {
       processedTags = processedTags + newTags[k] + ' ';
     }
+
     return processedTags;
   }
 });

@@ -1,5 +1,5 @@
 Template.editProject.events({
-  'click .update':function(event){
+  'click .update':function (event) {
     var title = document.getElementById('title').innerHTML;
     var slug = document.getElementById('slug').innerHTML;
     var blurb = document.getElementById('blurb').innerHTML;
@@ -13,7 +13,7 @@ Template.editProject.events({
 
     Meteor.call('editProject', this._id, title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards);
   }, 
-  'click .cancel':function(){
+  'click .cancel':function () {
     window.history.back();
   }
 });

@@ -1,14 +1,14 @@
 Template.profile.helpers({
-	userIdeas: function() {
+	userIdeas: function () {
 		return Ideas.find({ownerName: this.username});
 	},
-	userProjects: function() {
+	userProjects: function () {
 		return Projects.find({ownerName: this.username});
 	}
 });
 
 Template.settings.helpers({
-	avatar: function() {
+	avatar: function () {
 		return Meteor.user().avatar;
 	}
 });

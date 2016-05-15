@@ -13,12 +13,11 @@ if (Meteor.isClient) {
     Session.set('signin', true);
     Session.set('forgot', false);
   });
-} /* isClient */
+}
 
-/* Meteor methods */
 Meteor.methods({
   /* User account methods*/
-  updateAvatar: function(id, link){
+  updateAvatar: function (id, link) {
     Meteor.users.update(id, {$set: {'avatar': link}});
     bootbox.alert('Your avatar has been changed.');
     document.getElementById('avatar-link').value = null;
@@ -40,7 +39,7 @@ Meteor.methods({
       upvotedUsers: [],
       downvotedUsers: []
     });
-    if (Meteor.isClient){
+    if (Meteor.isClient) {
       Router.go('ideas'); 
       bootbox.alert("Idea created!"); 
     } 
@@ -81,7 +80,6 @@ Meteor.methods({
       throw new Meteor.Error("not-authorized");
     }
     else {
-
       Ideas.update(ideaId, {$set: {
         title: title,
         details: details,
@@ -89,11 +87,10 @@ Meteor.methods({
         details: details,
         tags: tags
       }});
-      if (Meteor.isClient){
+      if (Meteor.isClient) {
         Router.go('ideas');
         bootbox.alert("Idea updated!");
       }
-
     }
   },
   editProject: function (projectId, title, slug, blurb, imageURL, details, tags, goal, duration, location, rewards) {
@@ -128,9 +125,8 @@ Meteor.methods({
       throw new Meteor.Error("not-authorized");
     }
     else {
-
       Ideas.remove(ideaId);
-      if (Meteor.isClient){
+      if (Meteor.isClient) {
         Router.go('ideas');
         bootbox.alert("Idea deleted!");  
       }
@@ -144,14 +140,14 @@ Meteor.methods({
     }
     else {
       Projects.remove(projectId);
-      if (Meteor.isClient){
+      if (Meteor.isClient) {
         Router.go('projects');
         bootbox.alert("Project deleted!");
       }
     }
   }, 
   addIdeaComment: function (ideaId, parent, text) {
-    if (Meteor.user()){
+    if (Meteor.user()) {
       Comments.insert({
         ideaId: ideaId,
         parent: parent,
@@ -163,12 +159,12 @@ Meteor.methods({
         createTimeActual: moment().format()
       });
     }
-    else{
+    else {
       bootbox.alert('You must be signed in to do that.');
     } 
   },
   addProjectComment: function (projectId, parent, text) {
-    if (Meteor.user()){
+    if (Meteor.user()) {
       Comments.insert({
         projectId: projectId,
         parent: parent,
@@ -180,7 +176,7 @@ Meteor.methods({
         createTimeActual: moment().format()
       });
     }
-    else{
+    else {
       bootbox.alert('You must be signed in to do that.');
     } 
   },
@@ -236,5 +232,4 @@ Meteor.methods({
       }
     }
   }
-
 }); 
