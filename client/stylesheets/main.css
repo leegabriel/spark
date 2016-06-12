@@ -1,4 +1,15 @@
-/* general styles */
+/* General Styles */
+html,
+body {
+  margin:0;
+  margin-top: 35px !important;
+  margin-right: 7.5px;
+  margin-left: 7.5px;
+  padding:0;
+  height:100%;
+  background-color: #f9f9f9 !important;
+}
+
 h1, 
 h2, 
 h3, 
@@ -132,15 +143,6 @@ ol ul {
   background: none;
 }
 
-html,
-body {
-  margin:0;
-  margin-top: 35px !important;
-  padding:0;
-  height:100%;
-  background-color: #f9f9f9 !important;
-}
-
 #container {
  min-height:100%;
  position:relative;
@@ -168,7 +170,7 @@ li table {
   display:none;
 }
 
-/* fit picture to browser size*/
+/* Fit picture to browser size */
 #banner {
   text-align: center;
   width: auto;
@@ -235,12 +237,10 @@ textarea {
   -webkit-writing-mode: horizontal-tb;
 }
 
-
 #thumbnail {
   height:290px;
   width: auto;
 }
-
 
 #tab {
   border-top: 0px; 
@@ -280,13 +280,7 @@ textarea {
     float: right !important;
   }
 
-  body, 
-  html {
-    margin-right: 7.5px;
-    margin-left: 7.5px;
-  }
-
-  /* remove indentation from list*/
+  /* Remove indentation from list */
 
   ol {
     padding: 0;
@@ -381,42 +375,13 @@ textarea {
   opacity: 0.3;
 }
 
-/* sortBar*/
+/* sortBar */
+
 #sort-menu{
   margin-top: 35px;
 }
 
-/* nav side menu */
-.search-query {
-  margin-top: 7.5px !important;
-  margin-left: 15px !important;
-  width:240px;
-  margin:auto;
-  background-color: #f9f9f9;
-  -webkit-transition: width 0.3s, background-color 0.3s;
-  transition: width 0.3s, background-color 0.3s;
-}
-
-.search-query:focus {
- width:280px;
- background-color: #fff;
-}   
-
-.search-query-mobile {
-  line-height: 20px;
-  width:100%;
-  maring: auto;
-  background-color: #f6f6f6;
-  -webkit-transition: background-color 0.3s;
-  transition: background-color 0.3s;
-}
-
-.search-query-mobile:focus{
-  background-color: #fff;
-}   
-
-
-/* comments */
+/* Comments */
 
 #comment-box {
   width: 100% !important;  

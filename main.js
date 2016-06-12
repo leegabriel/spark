@@ -1,5 +1,4 @@
 if (Meteor.isClient) {
-
   Meteor.startup(function () {
     //pagination
     Session.set('iSkip', 0);
