@@ -12,8 +12,8 @@ Template.projectsTab.helpers({
     else if (Session.equals('order', 'alphabetical')) {
       return Projects.find({}, {sort: {title: 1}, skip: Session.get('pSkip'), limit: Session.get('pLimit')});
     }
-    else { /*by default the tab is on hot, in hot order */
-      return Projects.find({}, {sort: {count: -1, createTimeActual: -1, title: 1}, skip: Session.get('pSkip'), limit: Session.get('pLimit')});
+    else { /* by default the tab is on top, in top order */
+      return Projects.find({}, {sort: {count: -1}, skip: Session.get('pSkip'), limit: Session.get('pLimit')});
     }
   }
 });
