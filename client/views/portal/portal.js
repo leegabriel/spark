@@ -49,16 +49,16 @@ Template.portal.events({
       return;
     }
 
-    if (password.length < 6){
+    if (password.length < 6) {
       Session.set('displayAlert', 'Password must be 6 characters or more.');
       return;
     }
-    if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))){
+    if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {
       Session.set('displayAlert', 'Email must be valid.');
       return;
     }
-    else{
-      Accounts.createUser({username: username, email: email, password : password}, function(err){
+    else {
+      Accounts.createUser({username: username, email: email, password : password}, function (err) {
         if (err) {
           // Inform the user that account creation failed
         } else {
